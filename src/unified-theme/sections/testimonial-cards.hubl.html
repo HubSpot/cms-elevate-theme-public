@@ -11,6 +11,7 @@
 {#
   Context variables
     - section_variant: The variant of the section style.
+    - vertical_spacing: The vertical spacing of the section.
     - background_color: The background color of the section.
     - card_variant: The variant of the card style.
     - testimonials[0-2].quote: The testimonial quote text.
@@ -53,6 +54,10 @@
 
 {% dnd_section
   background_color={{ context.background_color }}
+  padding={
+    "top": context.vertical_spacing or section_vertical_spacing_medium,
+    "bottom": context.vertical_spacing or section_vertical_spacing_medium
+  }
 %}
   {% dnd_column %}
     {% dnd_row %}
