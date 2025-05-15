@@ -11,6 +11,7 @@ import StyledIsland from '../../StyledComponentsRegistry/StyledIsland.js';
 import { SharedIslandState, useLanguageVariants } from '@hubspot/cms-components';
 import { getLinkFieldHref, getLinkFieldRel, getLinkFieldTarget } from '../../utils/content-fields.js';
 import { MenuModulePropTypes, MainNavProps } from './types.js';
+import { PlaceholderEmptyContent } from '../../PlaceholderComponent/PlaceholderEmptyContent.js';
 import LanguageSwitcherIsland from '../../LanguageSwitcherComponent/index.js?island';
 
 const MOBILE_BREAKPOINT_NO_LANG_SWITCHER: string = '1100px';
@@ -190,12 +191,15 @@ export const Component = (props: MenuModulePropTypes) => {
       companyName,
       defaultLogo,
       logoLink,
+      isInEditor,
     },
     groupLogo: { logo: logoField },
-    defaultContent: { logoLinkAriaText, languageSwitcherSelectText },
+    defaultContent: { logoLinkAriaText, languageSwitcherSelectText, placeholderTitle, placeholderDescription },
     groupButton,
     styles,
   } = props;
+
+  const isEditorMode = isInEditor ?? false;
 
   const {
     showButton,
@@ -243,27 +247,30 @@ export const Component = (props: MenuModulePropTypes) => {
                 logoLink={logoLink}
               />
             </LogoButtonContainer>
-            <MainNav
-              $navBarBackgroundColor={menuBackgroundColor}
-              $menuAccentColor={menuAccentColor}
-              $menuTextColor={menuTextColor}
-              $menuTextHoverColor={menuTextHoverColor}
-              $mobileBreakpoint={mobileBreakpoint}
-              className="hs-elevate-site-header__main-nav"
-            >
-              <StyledIsland
-                module={MenuComponent}
-                menuDataArray={navDataArray}
-                flow="horizontal"
-                menuAlignment={menuAlignment}
-                maxDepth={3}
-                navigationAriaLabel="Main navigation"
-                flyouts={true}
-                wrapperStyle={{ flex: '1 0 100%' }}
-                additionalClassArray={['hs-elevate-site-header__main-nav-menu']}
-              />
-            </MainNav>
-
+            {navDataArray.length === 0 && isEditorMode ? (
+              <PlaceholderEmptyContent title={placeholderTitle} description={placeholderDescription} />
+            ) : (
+              <MainNav
+                $navBarBackgroundColor={menuBackgroundColor}
+                $menuAccentColor={menuAccentColor}
+                $menuTextColor={menuTextColor}
+                $menuTextHoverColor={menuTextHoverColor}
+                $mobileBreakpoint={mobileBreakpoint}
+                className="hs-elevate-site-header__main-nav"
+              >
+                <StyledIsland
+                  module={MenuComponent}
+                  menuDataArray={navDataArray}
+                  flow="horizontal"
+                  menuAlignment={menuAlignment}
+                  maxDepth={3}
+                  navigationAriaLabel="Main navigation"
+                  flyouts={true}
+                  wrapperStyle={{ flex: '1 0 100%' }}
+                  additionalClassArray={['hs-elevate-site-header__main-nav-menu']}
+                />
+              </MainNav>
+            )}
             {showLanguageSwitcher && (
               <LanguageSwitcherContainer $mobileBreakpoint={mobileBreakpoint}>
                 <StyledIsland
@@ -337,7 +344,8 @@ export const hublDataTemplate = `
         "alt": brand_settings.logo.alt,
         "width": brand_settings.logo.width,
         "height": brand_settings.logo.height
-      }
+      },
+      "isInEditor": is_in_editor
     }
   %}
 `;

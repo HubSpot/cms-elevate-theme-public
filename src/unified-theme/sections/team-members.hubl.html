@@ -14,6 +14,7 @@
     - background_color: The background color of the section.
     - heading.heading_level: The heading level for the section heading.
     - heading.text: The text for the section heading.
+    - heading.style_variant: The style variant for the section heading.
     - content: The description text for the team members section.
     - team_member: An array of team member items.
     - team_member[0-7].name: The name of each team member.
@@ -51,13 +52,22 @@
               "alignment": {
                 "text_align": "CENTER"
               },
-              "headingStyleVariant": "h1",
+              "headingStyleVariant": context.heading.style_variant or "h1",
               "sectionStyleVariant": section_variant
             }
           %}
           {% end_dnd_module %}
         {% end_dnd_row %}
-        {% dnd_row %}
+        {% dnd_row
+          margin={
+            "default": {
+              "bottom": spacing_32
+            },
+            "mobile": {
+              "bottom": 0
+            }
+          }
+        %}
           {% dnd_module
             path="../components/modules/RichText",
             groupStyle={
@@ -77,7 +87,7 @@
               "bottom": spacing_40
             },
             "mobile": {
-              "bottom": 0
+              "bottom": spacing_24
             }
           }
         %}

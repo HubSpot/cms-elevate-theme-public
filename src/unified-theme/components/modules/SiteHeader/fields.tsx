@@ -49,6 +49,12 @@ export const fields = (
     <FieldGroup label="Default content" name="defaultContent" locked={true}>
       <TextField label="Logo link aria text" name="logoLinkAriaText" default="Homepage" locked={true} />
       <TextField label="Lang switcher select text" name="languageSwitcherSelectText" default="Select a language" locked={true} />
+      <TextField label="Placeholder title" name="placeholderTitle" default="No menu selected" />
+      <TextField
+        label="Placeholder description"
+        name="placeholderDescription"
+        default="Select an existing menu from the sidebar, or create a new one by navigating to the Navigation Menus tool"
+      />
     </FieldGroup>
     <IconField
       label="Language switcher icon"
