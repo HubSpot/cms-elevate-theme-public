@@ -1,5 +1,6 @@
 import { ModuleMeta } from '../../types/modules.js';
 import { Island } from '@hubspot/cms-components';
+// @ts-expect-error -- ?island not typed
 import TestimonialSlider from './islands/TestimonialSliderIsland.js?island';
 import { TestimonialSliderProps } from './types.js';
 import insertQuoteIconSvg from './assets/insert-quote.svg';

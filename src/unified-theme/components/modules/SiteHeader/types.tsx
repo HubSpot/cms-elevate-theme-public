@@ -47,6 +47,7 @@ export interface MenuModulePropTypes extends MenuModuleContentFields {
     companyName: string; // Fallback if no logo is present
     defaultLogo: LogoFieldType['default']; // Temporary until logoField is fixed
     logoLink: string;
+    isInEditor: boolean;
   };
   maxDepth: maxMenuDepth;
   defaultContent: {

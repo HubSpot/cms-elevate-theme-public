@@ -1,17 +1,21 @@
 // import { dummyTranslations } from '../../LanguageSwitcherComponent/dummyData.js';
 import { ModuleMeta } from '../../types/modules.js';
+// @ts-expect-error -- ?island not typed
 import MenuComponent from '../../MenuComponent/index.js?island';
 import SiteHeaderSVG from './assets/Header.svg';
 import { Button } from '../../ButtonComponent/index.js';
 import StyledComponentsRegistry from '../../StyledComponentsRegistry/StyledComponentsRegistry.jsx';
 import { styled } from 'styled-components';
+// @ts-expect-error -- ?island not typed
 import MobileMenuIsland from './islands/MobileMenuIsland.js?island';
+// @ts-expect-error -- ?island not typed
 import MobileLogoBackButton from './islands/MobileLogoBackButton.js?island';
 import StyledIsland from '../../StyledComponentsRegistry/StyledIsland.js';
 import { SharedIslandState, useLanguageVariants } from '@hubspot/cms-components';
 import { getLinkFieldHref, getLinkFieldRel, getLinkFieldTarget } from '../../utils/content-fields.js';
 import { MenuModulePropTypes, MainNavProps } from './types.js';
 import { PlaceholderEmptyContent } from '../../PlaceholderComponent/PlaceholderEmptyContent.js';
+// @ts-expect-error -- ?island not typed
 import LanguageSwitcherIsland from '../../LanguageSwitcherComponent/index.js?island';
 
 const MOBILE_BREAKPOINT_NO_LANG_SWITCHER: string = '1100px';

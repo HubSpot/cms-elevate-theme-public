@@ -1,5 +1,6 @@
 import { ModuleMeta } from '../../types/modules.js';
 import { Island } from '@hubspot/cms-components';
+// @ts-expect-error -- ?island not typed
 import CountdownTimerIsland from './islands/CountdownTimerIsland.js?island';
 import { CountdownTimerProps } from './types.js';
 import countdownTimerIconSvg from './assets/time.svg';

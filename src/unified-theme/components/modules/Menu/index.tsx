@@ -1,5 +1,6 @@
 import StyledComponentsRegistry from '../../StyledComponentsRegistry/StyledComponentsRegistry.jsx';
 import { ModuleMeta } from '../../types/modules.js';
+// @ts-expect-error -- ?island not typed
 import MenuComponent from '../../MenuComponent/index.js?island';
 import { Island } from '@hubspot/cms-components';
 import { SizeOption, maxMenuDepth } from '../../MenuComponent/types.js';
