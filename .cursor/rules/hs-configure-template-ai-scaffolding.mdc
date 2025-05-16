@@ -1,0 +1,490 @@
+---
+description: Configure template AI scaffolding
+globs:
+alwaysApply: false
+---
+# Configure Template AI Scaffolding
+
+After scaffolding a new template and setting up translations for it, follow these guidelines to set up a scaffolding schema file and pass in values from that schema file into the template. This should be focused on setting up the a scaffolding schema file and swapping the schema field values into the template file.
+
+## Core Concepts
+
+Scaffolding schema files allow us to provide context about certain pieces of content within a template. This is then used by several different AI tools within HubSpot such as content remix and AI website page builder which takes this context and context from the user about their business, in order to dynamically generate content for a given section that is more relevant to the user.
+
+### Creating a scaffolding schema file
+```
+src/unified-theme/templates/schemas/[template-name].scaffold_schema.json
+```
+
+### Filling out the scaffolding schema file with fields
+
+A scaffolding schema file is a JSON file that is comprised of fields and groups. Below is a brief description of each of the supported fields:
+
+#### Groups
+A group makes it easier to organize schema files in logical groups. Given templates can have a lot of content, we try to group relevant pieces of content. E.g. for a template that has a section with a heading and three cards, we'd likely create a top level group for the section that contains a heading field and three different card groups that then have a set of fields related to the card's content.
+
+```
+{
+  "name": "group_card_one",
+  "type": "group",
+  "children": [
+  ]
+}
+```
+
+#### Text
+The text field allows us to pass relevant context about what a piece of text should be about within the context of the template.
+
+```
+{
+  "name": "card_heading",
+  "type": "text",
+  "description": "A heading that would be at the top of the first card in this section within the template."
+}
+```
+
+#### Images
+The image field allows us to pass relevant context about what an image should be about within the context of the template. The width:height ratio must be 1:1, 1:1.75, or 1.75:1.
+
+```
+{
+  "name": "card_image",
+  "type": "image",
+  "description": "An image that visually captures an element or aspect of the quote.",
+  "width": "300",
+  "height": "300"
+}
+```
+
+#### Forms
+The form field does not allow for an AI generated form. Instead it serves as a placeholder for the team that owns the AI landing page flow to create a form using an API and pass in its values using this field.
+
+```
+{
+  "name": "form",
+  "type": "form",
+  "description": "A form that a user would fill out to get access to an e-Book"
+}
+```
+
+#### Meetings
+The meeting field does not allow for an AI generated meeting link. Instead it serves as a placeholder for the team that owns the AI landing page flow to pass in a meeting link.
+
+```
+{
+  "name": "meeting",
+  "type": "meeting",
+  "description": "A meeting link that will go in the banner of the page where someone can schedule a meeting with someone from the company."
+}
+```
+
+### Adding a reference to the schema file in the template
+
+To reference values from the newly created scaffolding schema file we would include a reference to the scaffolding schema file path in the template's template annotations via `scaffoldingSchemaPath`.
+
+```
+<!--
+  templateType: page
+  label: Landing page - signup
+  isAvailableForNewContent: true
+  scaffoldSchemaPath: ./schemas/lp-signup.scaffold_schema.json
+  screenshotPath: ../images/template-previews/lp-signup.png
+-->
+```
+
+### Passing in the value from the scaffolding schema file into the template
+
+After setting up a path to the `scaffoldingSchemaPath`, we can now reference values from our schema file in our template file. Please note that these schema values will not always be populated so we'd want to set a fallback. You may notice that a template has a template_translations value passed in. The schema value should be passed first and then it shoudl fall back to content which we pull from template_translations. Below is an example:
+
+```
+{% dnd_row %}
+  {% dnd_module
+    path="../components/modules/Heading",
+    headingAndTextHeadingLevel="h1",
+    headingAndTextHeading={{ scaffold_content.heading or template_translations.lp_signup_hero_heading.message }},
+    groupStyle={
+      "alignment": {
+        "text_align": "LEFT"
+      },
+      "headingStyleVariant": "display_2"
+    }
+  %}
+  {% end_dnd_module %}
+{% end_dnd_row %}
+{% dnd_row %}
+  {% dnd_module
+    path="@hubspot/linked_image",
+    img={
+      "alt": scaffold_content.image.alt or "",
+      "loading": "eager",
+      "max_height": scaffold_content.image.height or 600,
+      "max_width": scaffold_content.image.width or 1000,
+      "size_type": "auto_custom_max",
+      "src": scaffold_content.image.src or get_asset_url("../images/hero-banner.png")
+    }
+  %}
+  {% end_dnd_module %}
+{% end_dnd_row %}
+```
+
+## Reference Documentation
+This is the [main Hubspot developer documentation](mdc:https:/developers.hubspot.com/docs/cms/building-blocks/content-scaffolding?hs_preview=XjcizpKB-164164808242#configure-scaffolding-schema)for setting up a scaffolding schema file.
+
+## Implementation Steps
+
+1. **Analyze Template Content to See Where Scaffolding Schema Should Be Added**
+  - Look through the applicable template to see if there is any text, images, forms, or meetings that we should add a scaffolding schema field for.
+
+2. **Create a New Scaffolding Schema File and Add Fields for the Pieces of Content Identified in Step 1**
+   - Create new scaffolding schema file that includes fields for the content in step 1 and group the fields in a logical way that breaks up the content. You can reference other schema files in `src/unified-theme/templates/schemas` as a helpful reference.
+
+3. **Add a `scaffoldingSchemaPath` In the Template Annotations of the Template File**
+   - Add a `scaffoldingSchemaPath` to the template's template annotations that references the new scaffolding schema file that was created.
+
+4. **Add Scaffolding Schema Values in the Template**
+   - Add the scaffolding schema values into the template where appropriate.
+
+## Example Scenario
+
+Let's walk through an example where we want to configure AI scaffolding schema for a template.
+
+Note that you shouldn't use this in your final output. But this example provides details on the process you should follow and what expectations are.
+
+The example prompt would be: `Can you set up scaffolding schema for this "Landing page - events" template?`
+
+This would be the example code for the template:
+```
+<!--
+  templateType: page
+  label: Landing page - signup
+  isAvailableForNewContent: true
+  screenshotPath: ../images/template-previews/lp-signup.png
+-->
+
+{% block header %}
+  {% global_partial path="./partials/lp-header.hubl.html" %}
+{% endblock %}
+
+{% block body %}
+  {% dnd_area "dnd_area"
+    label="Main section"
+  %}
+
+    {# Hero banner section #}
+
+    {% include_dnd_partial
+      path="../sections/hero-banner.hubl.html",
+      context={
+        "background_color": light_section_2_background_color,
+        "heading": {
+          "text": template_translations.lp_events_banner_heading.message
+        },
+        "content": template_translations.lp_events_banner_subheading.message,
+        "buttons": [
+          {
+            "text": template_translations.lp_events_banner_button_one_text.message,
+            "href": ""
+          },
+          {
+            "text": template_translations.lp_events_banner_button_two_text.message,
+            "href": ""
+          }
+        ]
+      }
+    %}
+
+    {# Two column form section #}
+
+    {% dnd_section %}
+      {% dnd_column
+        width=6
+      %}
+        {% dnd_row %}
+          {% dnd_module path="../components/modules/RichText" %}
+            {% module_attribute "richTextContentHTML" %}
+              <p>{{ template_translations.lp_events_form_description.message }}</p>
+            {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+      {% dnd_column
+        offset=6
+        width=6
+      %}
+        {% dnd_row %}
+          {% dnd_module path="@hubspot/form" %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+{% endblock %}
+
+{% block footer %}
+  {% global_partial path="./partials/lp-footer.hubl.html" %}
+{% endblock %}
+```
+
+1. **Analyze Template Content to See Where Scaffolding Schema Should Be Added**
+  - Identifies there are five pieces of text content and one form where we can pass in scaffolding schema values
+
+2. **Create a New Scaffolding Schema File and Add Fields for the Pieces of Content Identified in Step 1**
+   - Creates a new scaffolding schema file and adds those six new fields into that file with appropriate descriptions based on context that can be picked up from the section.
+
+3. **Add a `scaffoldingSchemaPath` In the Template Annotations of the Template File**
+   - Adds `scaffoldingSchemaPath` in the template annotations of the template file that references back to the new scaffolding schema file that was created in step 2.
+
+4. **Add Scaffolding Schema Values in the Template**
+   - Passes in the two new field values from the scaffolding schema file into the template file.
+
+## Step 1: Analyze Template Content to See Where Scaffolding Schema Should Be Added
+
+### Identifies there are five pieces of content that we can add scaffolding schema values for:
+- `template_translations.lp_events_banner_heading.message` in the hero banner section
+- `template_translations.lp_events_banner_subheading.message` in the hero banner section
+- `template_translations.lp_events_banner_button_one_text.message` in the hero banner section
+- `template_translations.lp_events_banner_button_two_text.message` in the hero banner section
+- `template_translations.lp_events_form_description.message` in the two column form section
+
+### Identifies there is one form that we can add scaffolding schema values for:
+- `path="@hubspot/form"` is used in the two column form section
+
+## Step 2: Create a New Scaffolding Schema File and Add Fields for the Pieces of Content Identified in Step 1
+
+### Creates a new scaffolding schema file at this path:
+```
+src/unified-theme/templates/schemas/lp-signup.scaffold_schema.json
+```
+
+### Adds fields for the pieces of content identified in step 1
+```
+[
+  {
+    "name": "group_hero_banner",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that shows at the top of the hero banner and describes the page."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A couple of sentences that provide more information about the heading."
+      },
+      {
+        "name": "group_button_one",
+        "type": "group",
+        "children": [
+          {
+            "name": "button_text",
+            "type": "text",
+            "description": "The button text that describes the call to action the user should take."
+          },
+          {
+            "name": "button_link",
+            "type": "link",
+            "description": "The URL that a user should be taken to when they click the button."
+          }
+        ]
+      },
+      {
+        "name": "group_button_two",
+        "type": "group",
+        "children": [
+          {
+            "name": "button_text",
+            "type": "text",
+            "description": "The button text that describes the call to action the user should take."
+          },
+          {
+            "name": "button_link",
+            "type": "link",
+            "description": "The URL that a user should be taken to when they click the button."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "group_two_column_form",
+    "type": "group",
+    "children": [
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A couple of sentences that provide more information about the signup form."
+      },
+      {
+        "name": "form",
+        "type": "form",
+        "description": "A signup form."
+      }
+    ]
+  }
+]
+```
+
+## Step 3: Add a `scaffoldingSchemaPath` In the Template Annotations of the Template File
+In the template annotation of the template file, the following is added:
+```
+scaffoldSchemaPath: ./schemas/lp-signup.scaffold_schema.json
+```
+
+## Step 4: Add Scaffolding Schema Values in the Template
+We will add in the scaffolding schema values into the template. We'll keep the references to template_translations in case a schema value is not passed as part of the page build. We'll set the schema value first and template_translations will be set as a fallback.
+
+The final output of all of the steps would be:
+src/unified-theme/templates/schemas/lp-signup.scaffold_schema.json
+```
+[
+  {
+    "name": "group_hero_banner",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that shows at the top of the hero banner and describes the page."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A couple of sentences that provide more information about the heading."
+      },
+      {
+        "name": "group_button_one",
+        "type": "group",
+        "children": [
+          {
+            "name": "button_text",
+            "type": "text",
+            "description": "The button text that describes the call to action the user should take."
+          },
+          {
+            "name": "button_link",
+            "type": "link",
+            "description": "The URL that a user should be taken to when they click the button."
+          }
+        ]
+      },
+      {
+        "name": "group_button_two",
+        "type": "group",
+        "children": [
+          {
+            "name": "button_text",
+            "type": "text",
+            "description": "The button text that describes the call to action the user should take."
+          },
+          {
+            "name": "button_link",
+            "type": "link",
+            "description": "The URL that a user should be taken to when they click the button."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "group_two_column_form",
+    "type": "group",
+    "children": [
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A couple of sentences that provide more information about the signup form."
+      },
+      {
+        "name": "form",
+        "type": "form",
+        "description": "A signup form."
+      }
+    ]
+  }
+]
+```
+
+```
+<!--
+  templateType: page
+  label: Landing page - signup
+  isAvailableForNewContent: true
+  screenshotPath: ../images/template-previews/lp-signup.png
+  scaffoldSchemaPath: ./schemas/lp-signup.scaffold_schema.json
+-->
+
+{% block header %}
+  {% global_partial path="./partials/lp-header.hubl.html" %}
+{% endblock %}
+
+{% block body %}
+  {% dnd_area "dnd_area"
+    label="Main section"
+  %}
+
+    {# Hero banner section #}
+
+    {% include_dnd_partial
+      path="../sections/hero-banner.hubl.html",
+      context={
+        "background_color": light_section_2_background_color,
+        "heading": {
+          "text": scaffold_content.group_hero_banner.heading or template_translations.lp_events_banner_heading.message
+        },
+        "content": scaffold_content.group_hero_banner.description or template_translations.lp_events_banner_subheading.message,
+        "buttons": [
+          {
+            "text": scaffold_content.group_hero_banner.group_button_one.button_text or template_translations.lp_events_banner_button_one_text.message,
+            "href": scaffold_content.group_hero_banner.group_button_one.button_link.url.href or ""
+          },
+          {
+            "text": scaffold_content.group_hero_banner.group_button_two.button_text or template_translations.lp_events_banner_button_one_text.message,
+            "href": scaffold_content.group_hero_banner.group_button_two.button_link.url.href or ""
+          }
+        ]
+      }
+    %}
+
+    {# Two column form section #}
+
+    {% dnd_section %}
+      {% dnd_column
+        width=6
+      %}
+        {% dnd_row %}
+          {% dnd_module path="../components/modules/RichText" %}
+            {% module_attribute "richTextContentHTML" %}
+              <p>{{ scaffold_content.group_two_column_form.description or template_translations.lp_events_form_description.message }}</p>
+            {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+      {% dnd_column
+        offset=6
+        width=6
+      %}
+        {% dnd_row %}
+          {% dnd_module
+            path="@hubspot/form",
+            form={
+              "form_id": scaffold_content.group_two_column_form.form.form_id or "",
+              "response_type": scaffold_content.group_two_column_form.form.response_type or "redirect",
+              "redirect_id": scaffold_content.group_two_column_form.form.redirect_id or null,
+              "message": scaffold_content.group_two_column_form.form.message or ""
+            }
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+{% endblock %}
+
+{% block footer %}
+  {% global_partial path="./partials/lp-footer.hubl.html" %}
+{% endblock %}
+```

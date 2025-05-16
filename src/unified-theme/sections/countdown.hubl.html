@@ -11,10 +11,12 @@
 {#
   Context variables
     - section_variant: The variant of the section style.
-    - section_max_width: The width of the section.
+    - max_width: The width of the section.
+    - vertical_spacing: The vertical spacing of the section.
     - background_color: The background color of the section.
     - heading.heading_level: The heading level for the section heading.
     - heading.text: The text for the section heading.
+    - heading.style_variant: The style variant for the section heading.
     - button.text: The text for the button.
     - button.href: The URL for the button.
     - button.size: The size of the button.
@@ -31,7 +33,11 @@
 
 {% dnd_section
   background_color={{ context.background_color }},
-  max_width={{ context.section_max_width or section_width_medium }}
+  padding={
+    "top": context.vertical_spacing or section_vertical_spacing_medium,
+    "bottom": context.vertical_spacing or section_vertical_spacing_medium
+  },
+  max_width={{ context.max_width or section_width_medium }}
 %}
   {% dnd_column %}
     {% dnd_row %}
@@ -51,7 +57,7 @@
               "alignment": {
                 "text_align": "CENTER"
               },
-              "headingStyleVariant": "h2",
+              "headingStyleVariant": context.heading.style_variant or "h2",
               "sectionStyleVariant": section_variant
             }
           %}

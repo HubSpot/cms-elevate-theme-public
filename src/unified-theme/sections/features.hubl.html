@@ -21,8 +21,10 @@
     - image.width: The width of the feature image.
     - image.height: The height of the feature image.
     - features: An array of feature items.
-    - features[0-3].title: The title for each feature item.
-    - features[0-3].description: The description for each feature item.
+    - features[0-7].icon: The icon for each feature item.
+    - features[0-7].heading.heading_level: The heading level for each feature item.
+    - features[0-7].heading.text: The text for each feature item.
+    - features[0-7].content: The content for each feature item.
 #}
 
 {# Section variables #}
@@ -59,7 +61,16 @@
       %}
       {% end_dnd_module %}
     {% end_dnd_row %}
-    {% dnd_row %}
+    {% dnd_row
+      margin={
+        "default": {
+          "bottom": spacing_32
+        },
+        "mobile": {
+          "bottom": 0
+        }
+      }
+    %}
       {% dnd_module
         path="../components/modules/RichText",
         groupStyle={

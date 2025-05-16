@@ -17,6 +17,7 @@ const PlaceholderWrapper = styled.div`
   }
   p {
     margin-bottom: var(--hsElevate--spacing--20, 20px);
+    text-align: center;
   }
 `;
 

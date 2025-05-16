@@ -21,9 +21,11 @@
             "home.hubl.html",
             "lp-clickthrough.hubl.html",
             "lp-downloadable-resource.hubl.html",
+            "lp-event-signup-one.hubl.html",
             "lp-meeting.hubl.html",
             "lp-products.hubl.html",
             "lp-video.hubl.html",
+            "lp-event-signup-two.hubl.html",
             "podcast-episode.hubl.html",
             "podcast-listing.hubl.html",
             "pricing.hubl.html",
@@ -38,10 +40,7 @@
             "system/password-prompt.hubl.html",
             "system/search-results.hubl.html"
           ],
-          "moduleTemplates": [
-            "acceptance-tests/project-modules-testing.hubl.html",
-            "acceptance-tests/project-sections-testing.hubl.html"
-          ]
+          "moduleTemplates": ["acceptance-tests/project-modules-testing.hubl.html", "acceptance-tests/project-sections-testing.hubl.html"]
         }
       ]
     }
