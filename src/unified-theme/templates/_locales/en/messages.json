@@ -514,6 +514,191 @@
     "description": "",
     "placeholders": null
   },
+  "lp_event_signup_one_heading": {
+    "message": "Let the countdown to ElevateExpo the biggest marketing event of the year begin",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_button_text": {
+    "message": "Register now",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_testimonial_one_text": {
+    "message": "\"ElevateExpo was a game-changer! Inspiring keynotes and actionable insights - The event connects you to the future of marketing.\"",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_testimonial_two_text": {
+    "message": "\"Invaluable for networking. We made meaningful connections with peers and potential partners. The networking alone was worth it!\"",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_testimonial_three_text": {
+    "message": "\"ElevateExpo delivered cutting-edge insights and practical skills. The hands-on workshops and tech demos were directly relevant.\"",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_heading": {
+    "message": "Explore what ElevateExpo has to offer",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_subheading": {
+    "message": "Discover the valuable insights, connections, and skills waiting for you at ElevateExpo",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_one_heading": {
+    "message": "Unlock actionable strategies",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_one_description": {
+    "message": "Gain practical marketing tactics you can implement immediately",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_two_heading": {
+    "message": "Access exclusive resources",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_two_description": {
+    "message": "Receive materials and knowledge not available elsewhere",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_three_heading": {
+    "message": "Watch cutting-edge tech demos",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_three_description": {
+    "message": "Experience the newest innovations shaping the marketing landscape",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_four_heading": {
+    "message": "Find collaboration opportunities",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_four_description": {
+    "message": "Seek potential partners and explore new ventures",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_five_heading": {
+    "message": "Engage in expert panels",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_five_description": {
+    "message": "Hear diverse insights on critical industry trends in our panels",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_six_heading": {
+    "message": "Master emerging channels",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_six_description": {
+    "message": "Learn how to effectively leverage the latest platforms",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_seven_heading": {
+    "message": "Connect in networking hubs",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_seven_description": {
+    "message": "Forge valuable relationships with peers and speakers",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_eight_heading": {
+    "message": "Gain a competitive edge",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_eight_description": {
+    "message": "Stay ahead of the curve with future-forward strategies and insights",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_speakers_heading": {
+    "message": "Our ElevateExpo speakers",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_speakers_subheading": {
+    "message": "We're a passionate team of marketing professionals dedicated to creating an unforgettable and impactful event for our community",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_speaker_name": {
+    "message": "Speaker",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_speaker_description": {
+    "message": "Role & company",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_products_heading": {
+    "message": "Fueling marketing success beyond the expo",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_products_product_one_name": {
+    "message": "Product or Service 1 Name",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_products_product_one_description": {
+    "message": "Brief description highlighting relevance to event topics (e.g. \"Our analytics platform empowers data-driven decisions, a key focus at ElevateExpo.\")",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_products_product_two_name": {
+    "message": "Product or Service 2 Name",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_products_product_two_description": {
+    "message": "Brief description highlighting relevance to event topics (e.g. \"Learn about the latest automation strategies, powered by our leading automation tools.\")",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_products_product_three_name": {
+    "message": "Product or Service 3 Name",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_products_product_three_description": {
+    "message": "Brief description highlighting relevance to event topics (e.g. \"Connect with industry leaders and explore partnership opportunities, just like you'll do at the expo.\")",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_products_product_four_name": {
+    "message": "Product or Service 4 Name",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_products_product_four_description": {
+    "message": "Brief description highlighting relevance (e.g. \"Master content creation techniques, a vital skill for success in today's digital landscape.\")",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_products_button_text": {
+    "message": "Learn more",
+    "description": "",
+    "placeholders": null
+  },
   "lp_meeting_heading": {
     "message": "Schedule a demo with us",
     "description": "",
@@ -1825,7 +2010,7 @@
     "placeholders": null
   },
   "section_testimonial_cards_author_title_1": {
-    "message": "Marketing Director @ Hexagontalx.io",
+    "message": "Marketing Director @ Reviluxify",
     "description": "",
     "placeholders": null
   },
@@ -1840,7 +2025,7 @@
     "placeholders": null
   },
   "section_testimonial_cards_author_title_2": {
-    "message": "CEO of Zyntellx",
+    "message": "CEO @ Zyntellx",
     "description": "",
     "placeholders": null
   },
@@ -1855,7 +2040,7 @@
     "placeholders": null
   },
   "section_testimonial_cards_author_title_3": {
-    "message": "Social Media Manager at Crypturon",
+    "message": "Social Media Manager @ Crypturon",
     "description": "",
     "placeholders": null
   },

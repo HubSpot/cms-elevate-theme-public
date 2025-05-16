@@ -169,16 +169,6 @@
     "description": "",
     "placeholders": null
   },
-  "defaultContent.languageSwitcherSelectText.default": {
-    "message": "Select a language",
-    "description": "",
-    "placeholders": null
-  },
-  "globe_icon.label": {
-    "message": "Language switcher icon",
-    "description": "",
-    "placeholders": null
-  },
   "styles.groupMenu.menuTextHoverColor.label": {
     "message": "Text color (hover)",
     "description": "",
@@ -191,6 +181,21 @@
   },
   "styles.groupButton.buttonStyleSize.inline_help_text": {
     "message": "<a href=\"$theme_link\">Edit</a>",
+    "description": "",
+    "placeholders": null
+  },
+  "defaultContent.languageSwitcherSelectText.default": {
+    "message": "Select a language",
+    "description": "",
+    "placeholders": null
+  },
+  "defaultContent.placeholderTitle.default": {
+    "message": "No menu selected",
+    "description": "",
+    "placeholders": null
+  },
+  "defaultContent.placeholderDescription.default": {
+    "message": "Select an existing menu from the sidebar, or create a new one by navigating to the Navigation Menus tool",
     "description": "",
     "placeholders": null
   }
