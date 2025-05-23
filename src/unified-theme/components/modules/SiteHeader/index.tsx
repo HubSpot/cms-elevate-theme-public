@@ -70,7 +70,8 @@ const MainNav = styled.div<MainNavProps & { $mobileBreakpoint: string }>`
     border-color: ${({ $navBarBackgroundColor }) => $navBarBackgroundColor};
     color: ${({ $menuTextColor }) => $menuTextColor};
 
-    a {
+    a,
+    .hs-elevate-menu__menu-item-span {
       color: ${({ $menuTextColor }) => $menuTextColor};
       padding: var(--hsElevate--spacing--8, 8px) var(--hsElevate--spacing--24, 24px) var(--hsElevate--spacing--8, 8px) var(--hsElevate--spacing--12, 12px);
       text-decoration: none;

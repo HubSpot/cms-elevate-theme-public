@@ -1,4 +1,4 @@
-import { CSSProperties, useState } from 'react';
+import { CSSProperties } from 'react';
 import { styled } from 'styled-components';
 import ArrowComponent from './ArrowComponent.js';
 import { A11yControllerType, MenuDataType, KeyboardEventCallback, visibleMenuItemsControllerType, maxMenuDepth } from './types.js';
@@ -23,7 +23,32 @@ interface MenuItemComponentProps {
   mobileAnchorClickCallback?: (anchorLink: string) => void;
 }
 
+// Base z-index for the menu component hierarchy. Using a base value with offsets ensures related elements maintain their stacking order when the base needs to be adjusted to account for new components that might conflict with z-index layering.
 const baseZindex = 100;
+
+const StyledMenuItem = styled.li<{ $flyouts?: boolean; $menuDepth: number }>`
+  ${props =>
+    props?.$flyouts &&
+    props?.$menuDepth > 1 &&
+    `
+      border-style: solid;
+      border-color: white; /* hook up to module settings */
+      border-left-width: 10px;
+      border-right-width: 10px;
+      border-bottom-width: 10px;
+      padding: 0;
+
+      &:first-child {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-top-width: 10px;
+      }
+      &:last-child {
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+  `}
+`;
 
 const StyledMenuItemLinkContainer = styled.div`
   display: flex;
@@ -78,30 +103,6 @@ const StyledSubmenu = styled.ul<{ $flyouts?: boolean; $menuDepth: number }>`
   padding: 0px;
 `;
 
-const StyledMenuItem = styled.li<{ $flyouts?: boolean; $menuDepth: number }>`
-  ${props =>
-    props?.$flyouts &&
-    props?.$menuDepth > 1 &&
-    `
-      border-style: solid;
-      border-color: white; /* hook up to module settings */
-      border-left-width: 10px;
-      border-right-width: 10px;
-      border-bottom-width: 10px;
-      padding: 0;
-
-      &:first-child {
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        border-top-width: 10px;
-      }
-      &:last-child {
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-      }
-  `}
-`;
-
 export default function MenuItemComponent(props: MenuItemComponentProps) {
   const {
     menuData,
@@ -125,6 +126,10 @@ export default function MenuItemComponent(props: MenuItemComponentProps) {
   const { handleFocus, handleBlur, menuItemRefs, linkRefs, keyboardEventCallback } = a11yController;
   const idStringArray = idString.split('-');
   const currentLevel = idStringArray.length;
+
+  // Check if the menu item has a URL (not null, undefined, or empty)
+  const hasUrl = Boolean(menuData.url && menuData.url.trim() !== '');
+  const hasChildren = menuData.children.length > 0;
 
   const handleMouseEnter = () => {
     // Compares all visible menu item id strings to the current id string. All visible menu items should be a part of the current id string. Needed for switching between keyboard and mouse controls. Ex. Current hover = 0-0-1 Show - 0, 0-0, 0-0-1 Don't show - 0-1, etc.
@@ -173,7 +178,7 @@ export default function MenuItemComponent(props: MenuItemComponentProps) {
   }
 
   function getMenuItemClass() {
-    if (menuData.children.length) {
+    if (hasChildren) {
       const menuItemClass = 'hs-elevate-menu--has-children';
 
       if (isMobileMenu && triggeredMenuItems.includes(idString)) {
@@ -186,13 +191,22 @@ export default function MenuItemComponent(props: MenuItemComponentProps) {
     return '';
   }
 
-  const showNestedMenuIcon = (flyouts || isMobileMenu) && menuData.children.length > 0 && currentLevel != maxDepth;
+  const showNestedMenuIcon = (flyouts || isMobileMenu) && hasChildren && currentLevel != maxDepth;
 
   const handleClick = e => {
     if (menuData.url.startsWith('#')) {
       e.preventDefault();
       mobileAnchorClickCallback(menuData.url);
     }
+  };
+
+  // Define shared props used for the menu item link
+  const sharedMenuItemLinkProps = {
+    style: addSubMenuItemStyles(),
+    className: `${addMenuItemClasses(linkStyleVariant)} ${hasUrl ? 'hs-elevate-menu__menu-item-link' : 'hs-elevate-menu__menu-item-span'}`,
+    ref: el => (linkRefs.current[idString] = el),
+    tabIndex: -1,
+    'aria-expanded': menuData.children.length > 0 ? visibleMenuItems.includes(idString) : undefined,
   };
 
   return (
@@ -211,14 +225,12 @@ export default function MenuItemComponent(props: MenuItemComponentProps) {
       onMouseLeave={handleMouseLeave}
     >
       <StyledMenuItemLinkContainer className="hs-elevate-menu__menu-item-link-container">
+        {/* If the menu item has a URL, render a link. Otherwise, render a span. */}
         <StyledMenuItemLink
-          style={addSubMenuItemStyles()}
-          className={addMenuItemClasses(linkStyleVariant)}
-          onClick={e => handleClick(e)}
-          href={menuData.url}
-          ref={el => (linkRefs.current[idString] = el)}
-          tabIndex={-1}
-          aria-expanded={menuData.children.length > 0 ? visibleMenuItems.includes(idString) : undefined}
+          {...sharedMenuItemLinkProps}
+          {...(hasUrl
+            ? { onClick: e => handleClick(e), href: menuData.url }
+            : { as: 'span', onClick: () => isMobileMenu && menuData.children.length > 0 && handleTriggeredMenuItem(idString) })}
         >
           {menuData.label}
         </StyledMenuItemLink>

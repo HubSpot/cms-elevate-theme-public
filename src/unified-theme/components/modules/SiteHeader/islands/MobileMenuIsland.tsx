@@ -64,12 +64,14 @@ const MenuContainer = styled.div<MenuContainerProps>`
       width: 100%;
       color: ${({ $menuTextColor }) => $menuTextColor};
 
-      a {
+      a,
+      .hs-elevate-menu__menu-item-span {
         color: ${({ $menuTextColor }) => $menuTextColor};
         font-weight: 600;
         text-decoration: none;
 
         &:hover {
+          cursor: pointer;
           text-decoration: none;
         }
       }
