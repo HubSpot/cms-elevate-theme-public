@@ -81,12 +81,12 @@
           {
             "name": "title",
             "type": "text",
-            "description": "Question about services offered by the digital marketing agency"
+            "description": "First frequently asked question about the product or newsletter."
           },
           {
             "name": "content",
             "type": "text",
-            "description": "Answer explaining the services offered"
+            "description": "Answer to the first frequently asked question."
           }
         ]
       },
@@ -97,12 +97,12 @@
           {
             "name": "title",
             "type": "text",
-            "description": "Question about how the agency helps businesses grow"
+            "description": "Second frequently asked question about the product or newsletter."
           },
           {
             "name": "content",
             "type": "text",
-            "description": "Answer explaining the data-driven approach to business growth"
+            "description": "Answer to the second frequently asked question."
           }
         ]
       },
@@ -113,12 +113,12 @@
           {
             "name": "title",
             "type": "text",
-            "description": "Question about customized solutions"
+            "description": "Third frequently asked question about the product or newsletter."
           },
           {
             "name": "content",
             "type": "text",
-            "description": "Answer explaining the tailored marketing strategies approach"
+            "description": "Answer to the third frequently asked question."
           }
         ]
       },
@@ -129,12 +129,12 @@
           {
             "name": "title",
             "type": "text",
-            "description": "Question about tracking campaign performance"
+            "description": "Fourth frequently asked question about the product or newsletter."
           },
           {
             "name": "content",
             "type": "text",
-            "description": "Answer explaining analytics and performance tracking capabilities"
+            "description": "Answer to the fourth frequently asked question."
           }
         ]
       },
@@ -145,12 +145,12 @@
           {
             "name": "title",
             "type": "text",
-            "description": "Question about what sets the agency apart from competitors"
+            "description": "Fifth frequently asked question about the product or newsletter."
           },
           {
             "name": "content",
             "type": "text",
-            "description": "Answer explaining the unique selling points of the agency"
+            "description": "Answer to the fifth frequently asked question."
           }
         ]
       }

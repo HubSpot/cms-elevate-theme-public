@@ -183,12 +183,12 @@
           {
             "name": "price",
             "type": "text",
-            "description": "Price of the starter plan."
+            "description": "Price of the starter plan. An example of this would be '$10'."
           },
           {
             "name": "time_period",
             "type": "text",
-            "description": "Time period for the starter plan pricing."
+            "description": "Time period for the starter plan pricing. An example of this would be '/month'."
           },
           {
             "name": "features_heading",
@@ -250,12 +250,12 @@
           {
             "name": "price",
             "type": "text",
-            "description": "Price of the pro plan."
+            "description": "Price of the pro plan. An example of this would be '$25'."
           },
           {
             "name": "time_period",
             "type": "text",
-            "description": "Time period for the pro plan pricing."
+            "description": "Time period for the pro plan pricing. An example of this would be '/month'."
           },
           {
             "name": "features_heading",
@@ -322,12 +322,12 @@
           {
             "name": "price",
             "type": "text",
-            "description": "Price of the enterprise plan."
+            "description": "Price of the enterprise plan. An example of this would be '$40'."
           },
           {
             "name": "time_period",
             "type": "text",
-            "description": "Time period for the enterprise plan pricing."
+            "description": "Time period for the enterprise plan pricing. An example of this would be '/month'."
           },
           {
             "name": "features_heading",

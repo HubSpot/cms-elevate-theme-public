@@ -119,7 +119,7 @@
       {
         "name": "link_text",
         "type": "text",
-        "description": "Text for the link to view more information about the testimonial (e.g. ready case study)."
+        "description": "Text for the link to view more information about the testimonial (e.g. Read case study)."
       }
     ]
   },
