@@ -105,7 +105,7 @@
       {% dnd_module
         path="@hubspot/linked_image",
         img={
-          "alt": scaffold_content.group_banner.feature_image.alt or template_translations.lp_clickthrough_banner_image_alt.message,
+          "alt": scaffold_content.group_banner.feature_image.alt or "",
           "loading": "eager",
           "max_height": scaffold_content.group_banner.feature_image.height or 473,
           "max_width": scaffold_content.group_banner.feature_image.width or 1232,
