@@ -11,6 +11,7 @@
 {# Template variables #}
 
 {# Default content for accordions #}
+
 {% set accordion_one_answer = "<p>{{ scaffold_content.group_faqs.group_faq_one.answer or template_translations.lp_video_faq_one_answer.message }}</p>" %}
 {% set accordion_two_answer = "<p>{{ scaffold_content.group_faqs.group_faq_two.answer or template_translations.lp_video_faq_two_answer.message }}</p>" %}
 {% set accordion_three_answer = "<p>{{ scaffold_content.group_faqs.group_faq_three.answer or template_translations.lp_video_faq_three_answer.message }}</p>" %}
@@ -18,6 +19,7 @@
 {% set accordion_five_answer = "<p>{{ scaffold_content.group_faqs.group_faq_five.answer or template_translations.lp_video_faq_five_answer.message }}</p>" %}
 
 {# Default content for image and text module #}
+
 {% set image_and_text_content = "
   <p>{{ scaffold_content.group_image_and_text.bullet_intro or template_translations.lp_video_image_and_text_bullet_intro.message }}</p>
   <ul>
@@ -36,7 +38,7 @@
     label="Main section"
   %}
 
-    {# Banner #}
+    {# Hero banner section #}
 
     {% dnd_section %}
       {% dnd_column %}
@@ -95,7 +97,7 @@
       {% end_dnd_column %}
     {% end_dnd_section %}
 
-    {# Logo gallery #}
+    {# Logo gallery section #}
 
     {% include_dnd_partial
       path="../sections/logo-gallery.hubl.html",
@@ -105,7 +107,7 @@
       }
     %}
 
-    {# Image and text #}
+    {# Image and text section #}
 
     {% dnd_section
       background_color={{ dark_section_1_background_color }}
@@ -148,7 +150,7 @@
       {% end_dnd_module %}
     {% end_dnd_section %}
 
-    {# Metrics #}
+    {# Metrics section #}
 
     {% include_dnd_partial
       path="../sections/metrics-centered.hubl.html",
@@ -173,7 +175,7 @@
       }
     %}
 
-    {# Video #}
+    {# Video section #}
 
     {% include_dnd_partial
       path="../sections/video.hubl.html",
@@ -188,7 +190,7 @@
       }
     %}
 
-    {# Testimonials #}
+    {# Testimonials section #}
 
     {% dnd_section
       background_color={{ dark_section_1_background_color }}

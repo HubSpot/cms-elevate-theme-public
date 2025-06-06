@@ -11,6 +11,7 @@
 {# Template variables #}
 
 {# Default content for accordions #}
+
 {% set accordion_one_answer = "<p>{{ scaffold_content.group_faqs.group_faq_one.answer or template_translations.lp_meeting_faq_one_answer.message }}</p>" %}
 {% set accordion_two_answer = "<p>{{ scaffold_content.group_faqs.group_faq_two.answer or template_translations.lp_meeting_faq_two_answer.message }}</p>" %}
 {% set accordion_three_answer = "<p>{{ scaffold_content.group_faqs.group_faq_three.answer or template_translations.lp_meeting_faq_three_answer.message }}</p>" %}
@@ -26,7 +27,7 @@
     label="Main section"
   %}
 
-    {# Meetings banner #}
+    {# Meeting banner section #}
 
     {% dnd_section
       background_color={{ dark_section_1_background_color }},
@@ -106,7 +107,7 @@
       {% end_dnd_column %}
     {% end_dnd_section %}
 
-    {# Logo gallery #}
+    {# Logo gallery section #}
 
     {% include_dnd_partial
       path="../sections/logo-gallery.hubl.html",
@@ -118,7 +119,7 @@
       }
     %}
 
-    {# Image and text repeated three times #}
+    {# Multi-row alternating section #}
 
     {% include_dnd_partial
       path="../sections/multi-row-alternating.hubl.html",
@@ -167,7 +168,7 @@
       }
     %}
 
-    {# Testimonials #}
+    {# Testimonials section #}
 
     {% dnd_section
       background_color={{ dark_section_1_background_color }}

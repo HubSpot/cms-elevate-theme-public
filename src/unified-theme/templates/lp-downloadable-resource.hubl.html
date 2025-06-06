@@ -11,6 +11,7 @@
 {# Template variables #}
 
 {# Default content for accordions #}
+
 {% set accordion_one_answer = "<p>{{ scaffold_content.group_faqs.group_faq_one.answer or template_translations.lp_downloadable_asset_faq_one_answer.message }}</p>" %}
 {% set accordion_two_answer = "<p>{{ scaffold_content.group_faqs.group_faq_two.answer or template_translations.lp_downloadable_asset_faq_two_answer.message }}</p>" %}
 {% set accordion_three_answer = "<p>{{ scaffold_content.group_faqs.group_faq_three.answer or template_translations.lp_downloadable_asset_faq_three_answer.message }}</p>" %}
@@ -26,7 +27,7 @@
     label="Main section"
   %}
 
-    {# Banner #}
+    {# Hero banner section #}
 
     {% dnd_section
       padding={
@@ -114,7 +115,7 @@
       {% end_dnd_column %}
     {% end_dnd_section %}
 
-    {# Testimonials #}
+    {# Testimonials section #}
 
     {% dnd_section
       background_color={{ light_section_2_background_color }}
@@ -206,7 +207,7 @@
       {% end_dnd_module %}
     {% end_dnd_section %}
 
-    {# Call to action #}
+    {# Call to action section #}
 
     {% include_dnd_partial
       path="../sections/two-column-call-to-action.hubl.html",
@@ -229,7 +230,7 @@
       }
     %}
 
-    {# FAQs #}
+    {# FAQ section #}
 
     {% include_dnd_partial
       path="../sections/faq.hubl.html",

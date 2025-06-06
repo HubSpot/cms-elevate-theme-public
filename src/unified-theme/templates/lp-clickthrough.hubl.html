@@ -11,6 +11,7 @@
 {# Template variables #}
 
 {# Default content for image and text paragraphs #}
+
 {% set image_and_text_one_description = "<p>{{ scaffold_content.group_image_and_text_1.description or template_translations.lp_clickthrough_image_and_text_1_description.message }}</p>" %}
 {% set image_and_text_two_description = "<p>{{ scaffold_content.group_image_and_text_2.description or template_translations.lp_clickthrough_image_and_text_2_description.message }}</p>" %}
 
@@ -23,7 +24,7 @@
     label="Main section"
   %}
 
-    {# Banner - top #}
+    {# Hero banner section #}
 
     {% dnd_section
       background_color={{ dark_section_1_background_color }},
@@ -93,7 +94,7 @@
       {% end_dnd_column %}
     {% end_dnd_section %}
 
-    {# Banner - bottom #}
+    {# Hero banner image section #}
 
     {% dnd_section
       background_color={{ dark_section_1_background_color }},
@@ -117,7 +118,7 @@
       {% end_dnd_module %}
     {% end_dnd_section %}
 
-    {# Logo gallery #}
+    {# Logo gallery section #}
 
     {% include_dnd_partial
       path="../sections/logo-gallery.hubl.html",
@@ -127,7 +128,7 @@
       }
     %}
 
-    {# Image and text #}
+    {# Image and text section 1 #}
 
     {% dnd_section %}
       {% dnd_module
@@ -168,7 +169,7 @@
       {% end_dnd_module %}
     {% end_dnd_section %}
 
-    {# Image #}
+    {# Feature image section #}
 
     {% dnd_section
       padding={
@@ -191,7 +192,7 @@
       {% end_dnd_module %}
     {% end_dnd_section %}
 
-    {# Image and text #}
+    {# Image and text section 2 #}
 
     {% dnd_section %}
       {% dnd_module
@@ -232,7 +233,7 @@
       {% end_dnd_module %}
     {% end_dnd_section %}
 
-    {# Testimonial #}
+    {# Testimonial section #}
 
     {% dnd_section
       background_color={{ light_section_2_background_color }}
@@ -324,7 +325,7 @@
       {% end_dnd_module %}
     {% end_dnd_section %}
 
-    {# Call to action #}
+    {# Call to action section #}
 
     {% include_dnd_partial
       path="../sections/call-to-action-centered.hubl.html",
