@@ -26,6 +26,27 @@
     ]
   },
   {
+    "name": "group_testimonials",
+    "type": "group",
+    "children": [
+      {
+        "name": "testimonial_one",
+        "type": "text",
+        "description": "First positive review about the product."
+      },
+      {
+        "name": "testimonial_two",
+        "type": "text",
+        "description": "Second positive review about the product."
+      },
+      {
+        "name": "testimonial_three",
+        "type": "text",
+        "description": "Third positive review about the product."
+      }
+    ]
+  },
+  {
     "name": "group_features",
     "type": "group",
     "children": [

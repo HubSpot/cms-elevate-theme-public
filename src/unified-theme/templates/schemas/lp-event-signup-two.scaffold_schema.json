@@ -30,6 +30,16 @@
         "description": "Heading for the registration form section (h2)."
       },
       {
+        "name": "event_date",
+        "type": "text",
+        "description": "Event date (e.g., 'August 4-11, 2025')."
+      },
+      {
+        "name": "event_location",
+        "type": "text",
+        "description": "Event location (e.g., 'Madrid, Spain')."
+      },
+      {
         "name": "body",
         "type": "text",
         "description": "Short description or instructions for the registration form."

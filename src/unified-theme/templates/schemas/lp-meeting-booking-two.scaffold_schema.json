@@ -24,22 +24,11 @@
         "description": "Link for the main banner button."
       },
       {
-        "name": "image",
-        "type": "group",
-        "children": [
-          {
-            "name": "src",
-            "type": "image",
-            "description": "An image that reinforces the meeting booking concept, like a dashboard or scheduling visual.",
-            "width": 1400,
-            "height": 800
-          },
-          {
-            "name": "alt",
-            "type": "text",
-            "description": "Alternative text describing the banner image for accessibility."
-          }
-        ]
+      "type": "image",
+      "name": "image",
+      "description": "An image that reinforces the meeting booking concept, like a dashboard or scheduling visual.",
+      "width": 1400,
+      "height": 800
       }
     ]
   },
@@ -118,21 +107,10 @@
       },
       {
         "name": "image",
-        "type": "group",
-        "children": [
-          {
-            "name": "src",
-            "type": "image",
-            "description": "An image that visually represents the benefits being highlighted.",
-            "width": 400,
-            "height": 400
-          },
-          {
-            "name": "alt",
-            "type": "text",
-            "description": "Alternative text describing the benefits image for accessibility."
-          }
-        ]
+        "type": "image",
+        "description": "An image that visually represents the benefits being highlighted.",
+        "width": 400,
+        "height": 400
       },
       {
         "name": "group_benefit_one",

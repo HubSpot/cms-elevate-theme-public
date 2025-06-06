@@ -264,6 +264,10 @@ export const Component = (props: CardProps) => {
   const isImage = imageOrIcon === 'image';
   const textAlignment = alignment.horizontal_align?.toLowerCase() as 'left' | 'right' | 'center';
 
+  const headingInlineStyles = {
+    textAlign: textAlignment
+  };
+
   return (
     <StyledComponentsRegistry>
       <CardContainer className="hs-elevate-card-container" style={cssVarsMap}>
@@ -314,7 +318,7 @@ export const Component = (props: CardProps) => {
                     headingLevel={card.groupContent.headingAndTextHeadingLevel}
                     heading={card.groupContent.headingAndTextHeading}
                     headingStyleVariant={headingStyleVariant}
-                    inlineStyles={{ textAlign: textAlignment }}
+                    inlineStyles={headingInlineStyles}
                     additionalClassArray={['hs-elevate-card-container__title']}
                   />
                 )}
