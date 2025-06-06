@@ -314,11 +314,6 @@
     "description": "",
     "placeholders": null
   },
-  "lp_clickthrough_banner_image_alt": {
-    "message": "An image of the Elevate app that shows off reporting functionality in the dashboard",
-    "description": "",
-    "placeholders": null
-  },
   "lp_clickthrough_image_and_text_1_heading": {
     "message": "Elevate your business with automation made easy",
     "description": "",
@@ -711,6 +706,16 @@
   },
   "lp_event_signup_two_form_heading": {
     "message": "Join us for the marketing event of the year",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_two_form_event_date": {
+    "message": "August 4-11, 2025",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_two_form_event_location": {
+    "message": "Madrid, Spain",
     "description": "",
     "placeholders": null
   },
@@ -3479,11 +3484,6 @@
     "description": "",
     "placeholders": null
   },
-  "lp_meeting_booking_one_testimonial_author_image_alt": {
-    "message": "Neil Kumar",
-    "description": "",
-    "placeholders": null
-  },
   "lp_meeting_booking_one_testimonial_link_text": {
     "message": "Read case study",
     "description": "",
@@ -3530,7 +3530,7 @@
     "placeholders": null
   },
   "lp_resource_download_two_hero_list_item_3": {
-    "message": "Achieve Measurable Results &#8212; Get the insights you need to track your progress and optimize for success",
+    "message": "Achieve Measurable Results – Get the insights you need to track your progress and optimize for success",
     "description": "",
     "placeholders": null
   },
@@ -4314,11 +4314,6 @@
     "description": "",
     "placeholders": null
   },
-  "lp_information_request_one_banner_image_alt": {
-    "message": "Marketing dashboard showing analytics and metrics",
-    "description": "",
-    "placeholders": null
-  },
   "lp_information_request_one_logo_gallery_content": {
     "message": "Trusted by leading companies",
     "description": "",
@@ -4405,7 +4400,7 @@
     "placeholders": null
   },
   "lp_information_request_one_faq_answer_one": {
-    "message": "<p>We offer a comprehensive range of digital marketing services including SEO, PPC advertising, social media marketing, content creation, email marketing, and web analytics.</p>",
+    "message": "We offer a comprehensive range of digital marketing services including SEO, PPC advertising, social media marketing, content creation, email marketing, and web analytics.",
     "description": "",
     "placeholders": null
   },
@@ -4415,7 +4410,7 @@
     "placeholders": null
   },
   "lp_information_request_one_faq_answer_two": {
-    "message": "<p>Our data-driven strategies and personalized approach help increase your online visibility, drive qualified traffic, and convert visitors into customers, ultimately growing your revenue.</p>",
+    "message": "Our data-driven strategies and personalized approach help increase your online visibility, drive qualified traffic, and convert visitors into customers, ultimately growing your revenue.",
     "description": "",
     "placeholders": null
   },
@@ -4425,7 +4420,7 @@
     "placeholders": null
   },
   "lp_information_request_one_faq_answer_three": {
-    "message": "<p>Yes, we tailor our marketing strategies to meet the unique needs and goals of each business, regardless of size or industry.</p>",
+    "message": "Yes, we tailor our marketing strategies to meet the unique needs and goals of each business, regardless of size or industry.",
     "description": "",
     "placeholders": null
   },
@@ -4435,7 +4430,7 @@
     "placeholders": null
   },
   "lp_information_request_one_faq_answer_four": {
-    "message": "<p>Absolutely. We provide detailed analytics and reporting to track campaign performance, ROI, and key metrics that matter to your business.</p>",
+    "message": "Absolutely. We provide detailed analytics and reporting to track campaign performance, ROI, and key metrics that matter to your business.",
     "description": "",
     "placeholders": null
   },
@@ -4445,7 +4440,7 @@
     "placeholders": null
   },
   "lp_information_request_one_faq_answer_five": {
-    "message": "<p>Our combination of cutting-edge AI technology, personalized strategies, and proven track record of delivering measurable results sets us apart from the competition.</p>",
+    "message": "Our combination of cutting-edge AI technology, personalized strategies, and proven track record of delivering measurable results sets us apart from the competition.",
     "description": "",
     "placeholders": null
   },
@@ -4455,7 +4450,7 @@
     "placeholders": null
   },
   "lp_information_request_one_faq_answer_six": {
-    "message": "<p>Simply contact us through our website or give us a call. We'll schedule a consultation to understand your needs and provide a customized quote.</p>",
+    "message": "Simply contact us through our website or give us a call. We'll schedule a consultation to understand your needs and provide a customized quote.",
     "description": "",
     "placeholders": null
   }
