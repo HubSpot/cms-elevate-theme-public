@@ -11,8 +11,9 @@ import { ButtonStyleFieldLibraryType } from '../../fieldLibrary/ButtonStyle/type
 import { HeadingStyleFieldLibraryType } from '../../fieldLibrary/HeadingStyle/types.js';
 import { CardStyleFieldLibraryType } from '../../fieldLibrary/CardStyle/types.js';
 import { HeadingAndTextFieldLibraryType } from '../../fieldLibrary/HeadingAndText/types.js';
-import { styled } from 'styled-components';
-import StyledComponentsRegistry from '../../StyledComponentsRegistry/StyledComponentsRegistry.jsx';
+import styles from './pricing-card.module.css';
+import cx from '../../utils/classnames.js';
+import { createComponent } from '../../utils/create-component.js';
 
 // Types
 
@@ -93,63 +94,12 @@ function generateIconCssVars(cardVariantField: CardVariantType): CSSPropertiesMa
   };
 }
 
-const PricingCardsWrapper = styled.div`
-  display: grid;
-  gap: var(--hsElevate--spacing--32, 32px);
-  grid-template-rows: auto 1fr;
-  align-items: start;
-
-  .hs-elevate-pricing-card-container__card {
-    padding: 0;
-    display: grid;
-    grid-template-rows: subgrid;
-    grid-row: span 2;
-  }
-
-  .hs-elevate-pricing-card-container__button {
-    width: 100%;
-    justify-content: center;
-  }
-
-  @media (min-width: 1000px) {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  }
-`;
-
-const PricingCardSummaryContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: var(--hsElevate--spacing--16, 16px);
-  padding-block: var(--hsElevate--spacing--48, 48px) var(--hsElevate--spacing--32, 32px);
-  padding-inline: var(--hsElevate--spacing--32, 32px);
-  border-bottom-style: solid;
-  border-bottom-width: var(--hsElevate--pricingCard__borderThickness);
-  border-bottom-color: var(--hsElevate--pricingCard__borderColor);
-  height: 100%;
-  width: 100%;
-  grid-row: 1;
-`;
-
-const PricingCardDescription = styled.p`
-  font-size: var(--hsElevate--body--small__fontSize);
-  margin: 0;
-  overflow-wrap: break-word;
-`;
-
-const PricingCardPriceContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 1px;
-`;
-
-const PricingCardPrice = styled.span`
-  font-size: var(--hsElevate--body--extraLarge__fontSize);
-`;
-
-const PricingCardTimePeriod = styled.span`
-  font-size: var(--hsElevate--body--large__fontSize);
-`;
+const PricingCardsWrapper = createComponent('div');
+const PricingCardSummaryContainer = createComponent('div');
+const PricingCardDescription = createComponent('p');
+const PricingCardPriceContainer = createComponent('div');
+const PricingCardPrice = createComponent('span');
+const PricingCardTimePeriod = createComponent('span');
 
 const PricingCardSummary = (props: PricingCardSummaryProps & HeadingStyleFieldLibraryType) => {
   const {
@@ -158,7 +108,7 @@ const PricingCardSummary = (props: PricingCardSummaryProps & HeadingStyleFieldLi
   } = props;
 
   return (
-    <PricingCardSummaryContainer className="hs-elevate-pricing-card-container__summary">
+    <PricingCardSummaryContainer className={cx('hs-elevate-pricing-card-container__summary', styles['hs-elevate-pricing-card-container__summary'])}>
       {headingAndTextHeading && (
         <HeadingComponent
           additionalClassArray={['hs-elevate-pricing-card-container__title']}
@@ -167,49 +117,28 @@ const PricingCardSummary = (props: PricingCardSummaryProps & HeadingStyleFieldLi
           headingStyleVariant={headingStyleVariant}
         />
       )}
-      {description && 
-        <PricingCardDescription className="hs-elevate-pricing-card-container__description">
+      {description && (
+        <PricingCardDescription className={cx('hs-elevate-pricing-card-container__description', styles['hs-elevate-pricing-card-container__description'])}>
           {description}
         </PricingCardDescription>
-      }
-      <PricingCardPriceContainer className="hs-elevate-pricing-card-container__price-container">
-        <PricingCardPrice className="hs-elevate-pricing-card-container__price">{price}</PricingCardPrice>
-        <PricingCardTimePeriod className="hs-elevate-pricing-card-container__time-period">{timePeriod}</PricingCardTimePeriod>
+      )}
+      <PricingCardPriceContainer
+        className={cx('hs-elevate-pricing-card-container__price-container', styles['hs-elevate-pricing-card-container__price-container'])}
+      >
+        <PricingCardPrice className={cx('hs-elevate-pricing-card-container__price', styles['hs-elevate-pricing-card-container__price'])}>
+          {price}
+        </PricingCardPrice>
+        <PricingCardTimePeriod className={cx('hs-elevate-pricing-card-container__time-period', styles['hs-elevate-pricing-card-container__time-period'])}>
+          {timePeriod}
+        </PricingCardTimePeriod>
       </PricingCardPriceContainer>
     </PricingCardSummaryContainer>
   );
 };
 
-const PricingCardFeaturesContainer = styled.div`
-  padding-block: var(--hsElevate--spacing--32, 32px) var(--hsElevate--spacing--72, 72px);
-  padding-inline: var(--hsElevate--spacing--32, 32px);
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  grid-row: 2;
-  height: 100%;
-  margin-bottom: var(--hsElevate--spacing--32, 32px);
-`;
-
-const PricingCardFeaturesList = styled.ul`
-  list-style: none;
-  padding-inline-start: 0;
-`;
-
-const PricingCardFeaturesListItem = styled.li`
-  width: 100%;
-  margin-block: 0 var(--hsElevate--spacing--20, 20px);
-  display: flex;
-  align-items: flex-start;
-
-  svg {
-    fill: var(--hsElevate--cardIcon__color);
-    margin-block-start: var(--hsElevate--spacing--4, 4px);
-    margin-inline-end: var(--hsElevate--spacing--12, 12px);
-    flex: 0 0 auto;
-  }
-`;
+const PricingCardFeaturesContainer = createComponent('div');
+const PricingCardFeaturesList = createComponent('ul');
+const PricingCardFeaturesListItem = createComponent('li');
 
 const ListArrow = () => {
   return (
@@ -226,7 +155,7 @@ const PricingCardFeatures = (props: PricingCardFeaturesProps & HeadingStyleField
   } = props;
 
   return (
-    <PricingCardFeaturesContainer className="hs-elevate-pricing-card-container__features">
+    <PricingCardFeaturesContainer className={cx('hs-elevate-pricing-card-container__features', styles['hs-elevate-pricing-card-container__features'])}>
       {headingAndTextHeading && (
         <HeadingComponent
           additionalClassArray={['hs-elevate-pricing-card-container__features-title']}
@@ -235,9 +164,12 @@ const PricingCardFeatures = (props: PricingCardFeaturesProps & HeadingStyleField
           headingStyleVariant={headingStyleVariant}
         />
       )}
-      <PricingCardFeaturesList className="hs-elevate-pricing-card-container__features-list">
+      <PricingCardFeaturesList className={cx('hs-elevate-pricing-card-container__features-list', styles['hs-elevate-pricing-card-container__features-list'])}>
         {groupFeatures.map((features, index) => (
-          <PricingCardFeaturesListItem key={index} className="hs-elevate-pricing-card-container__features-list-item">
+          <PricingCardFeaturesListItem
+            key={index}
+            className={cx('hs-elevate-pricing-card-container__features-list-item', styles['hs-elevate-pricing-card-container__features-list-item'])}
+          >
             <ListArrow />
             {features.feature}
           </PricingCardFeaturesListItem>
@@ -247,12 +179,7 @@ const PricingCardFeatures = (props: PricingCardFeaturesProps & HeadingStyleField
   );
 };
 
-const ButtonWrapper = styled.div`
-  margin-block: auto 0;
-  padding-block: 0 var(--hsElevate--spacing--48, 48px);
-  padding-inline: var(--hsElevate--spacing--32, 32px);
-  width: 100%;
-`;
+const ButtonWrapper = createComponent('div');
 
 export const Component = (props: PricingCardProps) => {
   const {
@@ -271,33 +198,36 @@ export const Component = (props: PricingCardProps) => {
   };
 
   return (
-    <StyledComponentsRegistry>
-      <PricingCardsWrapper style={cssVarsMap} className="hs-elevate-pricing-card-container">
-        {groupPricingCards.map((pricingCard, index) => (
-          <Card key={index} additionalClassArray={['hs-elevate-pricing-card-container__card']} cardStyleVariant={cardStyleVariant} cardOrientation="column">
-            <PricingCardSummary groupSummary={pricingCard.groupSummary} headingStyleVariant={summaryHeadingStyleVariant} />
-            <PricingCardFeatures groupPlanFeatures={pricingCard.groupPlanFeatures} headingStyleVariant={planFeaturesHeadingStyleVariant} />
-            {pricingCard.groupButton.showButton && (
-              <ButtonWrapper className="hs-elevate-pricing-card-container__button-container">
-                <Button
-                  additionalClassArray={['hs-elevate-pricing-card-container__button']}
-                  buttonStyle={buttonStyleVariant}
-                  buttonSize={buttonStyleSize}
-                  href={getLinkFieldHref(pricingCard.groupButton.buttonContentLink)}
-                  rel={getLinkFieldRel(pricingCard.groupButton.buttonContentLink)}
-                  target={getLinkFieldTarget(pricingCard.groupButton.buttonContentLink)}
-                  iconFieldPath={`groupPricingCards[${index}].groupButton.buttonContentIcon`}
-                  showIcon={pricingCard.groupButton.buttonContentShowIcon}
-                  iconPosition={pricingCard.groupButton.buttonContentIconPosition}
-                >
-                  {pricingCard.groupButton.buttonContentText}
-                </Button>
-              </ButtonWrapper>
-            )}
-          </Card>
-        ))}
-      </PricingCardsWrapper>
-    </StyledComponentsRegistry>
+    <PricingCardsWrapper style={cssVarsMap} className={cx('hs-elevate-pricing-card-container', styles['hs-elevate-pricing-card-container'])}>
+      {groupPricingCards.map((pricingCard, index) => (
+        <Card
+          key={index}
+          additionalClassArray={[cx('hs-elevate-pricing-card-container__card', styles['hs-elevate-pricing-card-container__card'])]}
+          cardStyleVariant={cardStyleVariant}
+          cardOrientation="column"
+        >
+          <PricingCardSummary groupSummary={pricingCard.groupSummary} headingStyleVariant={summaryHeadingStyleVariant} />
+          <PricingCardFeatures groupPlanFeatures={pricingCard.groupPlanFeatures} headingStyleVariant={planFeaturesHeadingStyleVariant} />
+          {pricingCard.groupButton.showButton && (
+            <ButtonWrapper className={cx('hs-elevate-pricing-card-container__button-container', styles['hs-elevate-pricing-card-container__button-container'])}>
+              <Button
+                additionalClassArray={[cx('hs-elevate-pricing-card-container__button', styles['hs-elevate-pricing-card-container__button'])]}
+                buttonStyle={buttonStyleVariant}
+                buttonSize={buttonStyleSize}
+                href={getLinkFieldHref(pricingCard.groupButton.buttonContentLink)}
+                rel={getLinkFieldRel(pricingCard.groupButton.buttonContentLink)}
+                target={getLinkFieldTarget(pricingCard.groupButton.buttonContentLink)}
+                iconFieldPath={`groupPricingCards[${index}].groupButton.buttonContentIcon`}
+                showIcon={pricingCard.groupButton.buttonContentShowIcon}
+                iconPosition={pricingCard.groupButton.buttonContentIconPosition}
+              >
+                {pricingCard.groupButton.buttonContentText}
+              </Button>
+            </ButtonWrapper>
+          )}
+        </Card>
+      ))}
+    </PricingCardsWrapper>
   );
 };
 

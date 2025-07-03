@@ -219,16 +219,14 @@ export const Component = (props: SocialShareProps) => {
   };
 
   const currentUrl = usePageUrl().href;
+  if (!currentUrl) {
+    return null;
+  }
 
   return (
     <SocialShareContainer className={cx('hs-elevate-social-share', styles['hs-elevate-social-share'])} style={cssVarsMap}>
       {platforms.map(platform => {
-        if (!currentUrl) {
-          return null;
-        }
-
         const platformMetaData = getPlatformMetaData(platform, groupDefaultText);
-
         let iconFieldPath = `groupDefaultIcons.${platformMetaData.name}`;
 
         return (

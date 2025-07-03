@@ -1,19 +1,19 @@
 import { ModulePropsWithoutSSP, URLWithoutQuery } from '@hubspot/cms-components';
 
-type FetchGatedPostsProps = ModulePropsWithoutSSP & {
+export type FetchGatedPostsProps = ModulePropsWithoutSSP & {
   hublData: {
     blogPostIds: number[];
   };
 };
 
-function cleanHostName(hostname: string) {
+export function cleanHostName(hostname: string) {
   if (!hostname.includes('.hslocal.net')) return hostname;
 
   return hostname.replace('.hslocal.net', '');
 }
 
 const fetchGatedPosts = async (props: FetchGatedPostsProps, { url }: { url: URLWithoutQuery }) => {
-  if (!props?.hublData?.blogPostIds) {
+  if (!props?.hublData?.blogPostIds?.length) {
     console.warn('No blog post IDs provided');
     return {
       serverSideProps: { gatedContentIds: [] },

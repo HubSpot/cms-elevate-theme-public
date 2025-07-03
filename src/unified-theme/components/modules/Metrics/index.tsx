@@ -1,8 +1,9 @@
 import { ModuleMeta } from '../../types/modules.js';
 import { TextFieldType } from '@hubspot/cms-components/fields';
 import { SectionVariantType } from '../../types/fields.js';
-import { styled } from 'styled-components';
-import StyledComponentsRegistry from '../../StyledComponentsRegistry/StyledComponentsRegistry.jsx';
+import styles from './metrics.module.css';
+import cx from '../../utils/classnames.js';
+import { createComponent } from '../../utils/create-component.js';
 import chartIconSvg from './assets/chart.svg';
 import { SectionStyleFieldLibraryType } from '../../fieldLibrary/SectionStyle/types.js';
 import { HeadingStyleFieldLibraryType, HeadingStyleVariant } from '../../fieldLibrary/HeadingStyle/types.js';
@@ -50,71 +51,21 @@ function generateMetricCssVars(headingStyleAs: HeadingStyleVariant): CSSProperti
   };
 }
 
-const MetricsWrapper = styled.div`
-  container-type: inline-size;
-`;
+// Components
+const MetricsWrapper = createComponent('div');
 
-// Helper function to get metric container query breakpoints based on number of metrics in the repeater
-function getMetricBreakpoints(metricCount: number) {
-  const metricBreakpointsAsMap = {
-    2: [{ minWidth: 700, gap: 'var(--hsElevate--spacing--24, 24px)', columns: 2 }],
-    3: [{ minWidth: 900, gap: 'var(--hsElevate--spacing--24, 24px)', columns: 3 }],
-    4: [
-      { minWidth: 700, gap: 'var(--hsElevate--spacing--24, 24px)', columns: 2 }, // 2x2 grid
-      { minWidth: 950, gap: 'var(--hsElevate--spacing--16, 16px)', columns: 4 }, // Single row
-    ],
-  };
-
-  return metricBreakpointsAsMap[metricCount] || [];
+// Helper function to get CSS class modifier based on metric count
+function getMetricCountClass(metricCount: number): string {
+  if ([2, 3, 4].includes(metricCount)) {
+    return `hs-elevate-metrics__container--count-${metricCount}`;
+  }
+  return '';
 }
 
-const MetricsContainer = styled.div<{ $metricCount: number }>`
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--hsElevate--spacing--32, 32px);
-
-  /* Sets grid template columns and gaps using container queries based on the number of metrics in the repeater to ensure mobile responsiveness */
-  ${props => {
-    const breakpoints = getMetricBreakpoints(props.$metricCount);
-
-    return breakpoints
-      .map(
-        breakpoint => `
-      @container (min-width: ${breakpoint.minWidth}px) {
-        grid-template-columns: repeat(${breakpoint.columns}, 1fr);
-        gap: ${breakpoint.gap};
-      }
-    `
-      )
-      .join('');
-  }}
-`;
-
-const Metric = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 0;
-`;
-
-const MetricNumber = styled.div`
-  color: var(--hsElevate--metrics__accentColor);
-  max-width: 100%;
-  text-align: center;
-  font-size: var(--hsElevate--metrics__minFontSize);
-  line-height: var(--hsElevate--heading__lineHeight);
-
-  /* Dynamically sizes down the font size for the metric number based on the viewport width */
-  @media (min-width: 768px) {
-    font-size: clamp(var(--hsElevate--metrics__minFontSize), calc(1vw + var(--hsElevate--metrics__minFontSize)), var(--hsElevate--metrics__maxFontSize));
-  }
-`;
-
-const MetricDescription = styled.div`
-  color: var(--hsElevate--metrics__textColor);
-  max-width: 100%;
-  text-align: center;
-`;
+const MetricsContainer = createComponent('div');
+const Metric = createComponent('div');
+const MetricNumber = createComponent('div');
+const MetricDescription = createComponent('div');
 
 export const Component = (props: MetricProps) => {
   const {
@@ -127,21 +78,28 @@ export const Component = (props: MetricProps) => {
     ...generateMetricCssVars(headingStyleVariant),
   };
 
+  const metricCountClass = getMetricCountClass(groupMetrics.length);
+
   return (
-    <StyledComponentsRegistry>
-      <MetricsWrapper>
-        <MetricsContainer className="hs-elevate-metrics-container" style={cssVarsMap} $metricCount={groupMetrics.length}>
-          {groupMetrics.map((metric, index) => {
-            return (
-              <Metric className="hs-elevate-metrics-container__metric" key={index}>
-                <MetricNumber className="hs-elevate-metrics-container__metric-number">{metric.metric}</MetricNumber>
-                <MetricDescription className="hs-elevate-metrics-container__metric-description">{metric.description}</MetricDescription>
-              </Metric>
-            );
-          })}
-        </MetricsContainer>
-      </MetricsWrapper>
-    </StyledComponentsRegistry>
+    <MetricsWrapper className={cx('hs-elevate-metrics', styles['hs-elevate-metrics'])}>
+      <MetricsContainer
+        className={cx('hs-elevate-metrics-container', styles['hs-elevate-metrics__container'], metricCountClass && styles[metricCountClass])}
+        style={cssVarsMap}
+      >
+        {groupMetrics.map((metric, index) => {
+          return (
+            <Metric className={cx('hs-elevate-metrics-container__metric', styles['hs-elevate-metrics__metric'])} key={index}>
+              <MetricNumber className={cx('hs-elevate-metrics-container__metric-number', styles['hs-elevate-metrics__metric-number'])}>
+                {metric.metric}
+              </MetricNumber>
+              <MetricDescription className={cx('hs-elevate-metrics-container__metric-description', styles['hs-elevate-metrics__metric-description'])}>
+                {metric.description}
+              </MetricDescription>
+            </Metric>
+          );
+        })}
+      </MetricsContainer>
+    </MetricsWrapper>
   );
 };
 

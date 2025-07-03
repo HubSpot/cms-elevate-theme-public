@@ -1,4 +1,3 @@
-import StyledComponentsRegistry from '../../StyledComponentsRegistry/StyledComponentsRegistry.jsx';
 import { ModuleMeta } from '../../types/modules.js';
 // @ts-expect-error -- ?island not typed
 import MenuComponent from '../../MenuComponent/index.js?island';
@@ -104,24 +103,22 @@ export const Component = (props: MenuModulePropTypes) => {
   };
 
   return (
-    <StyledComponentsRegistry>
-      <div style={cssVarsMap} className="hs-elevate-horizontal-menu">
-        {navDataArray.length === 0 && isEditorMode ? (
-          <PlaceholderEmptyContent title={groupPlaceholderText.placeholderTitle} description={groupPlaceholderText.placeholderDescription} />
-        ) : (
-          <Island
-            module={MenuComponent}
-            menuDataArray={navDataArray}
-            flow="horizontal"
-            maxDepth={maxDepth}
-            menuAlignment={menuAlignment}
-            navigationAriaLabel={menuName}
-            linkStyleVariant={linkStyleVariant}
-            additionalClassArray={['hs-elevate-horizontal-menu__menu']}
-          />
-        )}
-      </div>
-    </StyledComponentsRegistry>
+    <div style={cssVarsMap} className="hs-elevate-horizontal-menu">
+      {navDataArray.length === 0 && isEditorMode ? (
+        <PlaceholderEmptyContent title={groupPlaceholderText.placeholderTitle} description={groupPlaceholderText.placeholderDescription} />
+      ) : (
+        <Island
+          module={MenuComponent}
+          menuDataArray={navDataArray}
+          flow="horizontal"
+          maxDepth={maxDepth}
+          menuAlignment={menuAlignment}
+          navigationAriaLabel={menuName}
+          linkStyleVariant={linkStyleVariant}
+          additionalClassArray={['hs-elevate-horizontal-menu__menu']}
+        />
+      )}
+    </div>
   );
 };
 
