@@ -137,3 +137,6 @@ src/images/img-src/**/*.*
 
 # Css Dist Directory
 src/unified-theme/assets/dist/
+
+# Storybook build output
+cms-elevate-theme-static-assets/dist/
