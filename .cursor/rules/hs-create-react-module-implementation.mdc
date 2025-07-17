@@ -13,8 +13,8 @@ This rule guides you through implementing a HubSpot React module after the initi
 
 ## IMPORTANT: NEVER dangerouslySetInnerHTML
 - Never, under any circumstance, is it OK to use `dangerouslySetInnerHTML`
-  - Instead you should find another way to implement setting of content. 
-  - There are plenty of examples on how to correctly do this at the bottom of this file. 
+  - Instead you should find another way to implement setting of content.
+  - There are plenty of examples on how to correctly do this at the bottom of this file.
 
 ## Implementation Steps
 
@@ -414,6 +414,8 @@ export const Component = (props: TestimonialSliderProps) => {
 Example of proper theme variable implementation:
 
 ```typescript
+import { CSSPropertiesMap } from '../../types/components.ts;
+
 function generateColorCssVars(sectionVariantField: SectionVariantType): CSSPropertiesMap {
   const sectionColorsMap = {
     section_variant_1: {
