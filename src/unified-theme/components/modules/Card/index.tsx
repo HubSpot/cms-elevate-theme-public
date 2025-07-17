@@ -16,6 +16,7 @@ import { HeadingAndTextFieldLibraryType } from '../../fieldLibrary/HeadingAndTex
 import { CardStyleFieldLibraryType } from '../../fieldLibrary/CardStyle/types.js';
 import cx from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
+import { CSSPropertiesMap } from '../../types/components.js';
 
 // Types
 
@@ -71,8 +72,6 @@ type CardProps = {
 };
 
 // Functions to generate CSS variables
-
-type CSSPropertiesMap = { [key: string]: string };
 
 function generateAlignmentCssVars(alignment: AlignmentFieldType['default']): CSSPropertiesMap {
   const textAlignment = alignment.horizontal_align?.toLowerCase() as 'left' | 'right' | 'center';

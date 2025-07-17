@@ -8,6 +8,7 @@ import { ButtonStyleFieldLibraryType } from '../../fieldLibrary/ButtonStyle/type
 import styles from './social-share.module.css';
 import cx from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
+import { CSSPropertiesMap } from '../../types/components.js';
 
 // Types
 
@@ -33,8 +34,6 @@ type SocialShareProps = {
 };
 
 // Functions to pull in corresponding CSS variables on component based on field values
-
-type CSSPropertiesMap = { [key: string]: string };
 
 function generateIconSizeAndPaddingCssVars(iconSizeField: StandardSizeType): CSSPropertiesMap {
   const iconSizing = {

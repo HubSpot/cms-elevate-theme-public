@@ -3,6 +3,7 @@ import { CountdownTimerProps, GroupStyle, TimeLeft, EndDate, CounterStyles, Coun
 import styles from '../countdown-timer.module.css';
 import cx from '../../../utils/classnames.js';
 import { createComponent } from '../../../utils/create-component.js';
+import { CSSPropertiesMap } from '../../../types/components.js';
 
 // Components
 const CountdownTimer = createComponent('time');
@@ -12,8 +13,6 @@ const Label = createComponent('span');
 const CompletedMessage = createComponent('p');
 
 // Functions to generate CSS variables
-type CSSPropertiesMap = { [key: string]: string };
-
 function generateCounterCssVars(counter: CounterStyles): CSSPropertiesMap {
   return {
     '--hsElevate--countdownTimer__borderThickness': `${counter?.borderThickness ?? 1}px`,

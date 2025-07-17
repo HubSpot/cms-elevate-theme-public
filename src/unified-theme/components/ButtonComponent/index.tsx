@@ -2,6 +2,7 @@ import { ButtonStyleType, StandardSizeType, ElementPositionType } from '../types
 import styles from './button.module.css';
 import cx from '../utils/classnames.js';
 import { Icon } from '@hubspot/cms-components';
+import { CSSPropertiesMap } from '../types/components.js';
 
 // Types
 
@@ -33,8 +34,6 @@ function getButtonClassName(buttonStyle: ButtonStyleType) {
 }
 
 // Function to pull in corresponding CSS variables on component based on prop values
-
-type CSSPropertiesMap = { [key: string]: string };
 
 function generatePaddingCSSVars(buttonSize: StandardSizeType): CSSPropertiesMap {
   const paddingMap = {

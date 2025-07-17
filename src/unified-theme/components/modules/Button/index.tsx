@@ -10,6 +10,7 @@ import { ButtonContentType } from '../../fieldLibrary/ButtonContent/types.js';
 import { ButtonStyleFieldLibraryType } from '../../fieldLibrary/ButtonStyle/types.js';
 import cx from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
+import { CSSPropertiesMap } from '../../types/components.js';
 
 // Types
 enum LinkType {
@@ -66,8 +67,6 @@ function setAriaLabel(groupAriaLabels: GroupAriaLabels, linkType?: string) {
 }
 
 // Functions to pull in corresponding CSS variables on component based on field values
-
-type CSSPropertiesMap = { [key: string]: string };
 
 function generateGapCssVars(gapField: StandardSizeType): CSSPropertiesMap {
   const gapMap = {

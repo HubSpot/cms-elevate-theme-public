@@ -8,6 +8,7 @@ import chartIconSvg from './assets/chart.svg';
 import { SectionStyleFieldLibraryType } from '../../fieldLibrary/SectionStyle/types.js';
 import { HeadingStyleFieldLibraryType, HeadingStyleVariant } from '../../fieldLibrary/HeadingStyle/types.js';
 import { sectionColorsMap } from '../../utils/section-color-map.js';
+import { CSSPropertiesMap } from '../../types/components.js';
 
 type GroupStyle = SectionStyleFieldLibraryType & HeadingStyleFieldLibraryType;
 
@@ -22,8 +23,6 @@ type MetricProps = {
 // Metrics component
 
 // Functions to pull in corresponding CSS variables on component based on field values
-
-type CSSPropertiesMap = { [key: string]: string };
 
 function generateColorCssVars(sectionVariantField: SectionVariantType): CSSPropertiesMap {
   return {

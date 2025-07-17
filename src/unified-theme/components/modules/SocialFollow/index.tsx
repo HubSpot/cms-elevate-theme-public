@@ -9,6 +9,7 @@ import { getAlignmentFieldCss } from '../../utils/style-fields.js';
 import styles from './social-follow.module.css';
 import cx from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
+import { CSSPropertiesMap } from '../../types/components.js';
 
 // Types
 
@@ -54,8 +55,6 @@ type SocialFollowProps = {
 // Social follow component
 
 // Functions to pull in corresponding CSS variables on component based on field values
-
-type CSSPropertiesMap = { [key: string]: string };
 
 function generateIconSizeAndPaddingCssVars(iconSizeField: StandardSizeType): CSSPropertiesMap {
   const iconSizing = {
