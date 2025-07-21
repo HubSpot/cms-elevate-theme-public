@@ -2,6 +2,7 @@ import { LanguageVariant } from '@hubspot/cms-components';
 import styles from './language-options.module.css';
 import cx from '../utils/classnames.js';
 import { createComponent } from '../utils/create-component.js';
+import { CSSPropertiesMap } from '../types/components.js';
 
 // Types
 
@@ -14,8 +15,6 @@ export interface LanguageOptionsProps {
 }
 
 // Functions to generate CSS variables
-
-type CSSPropertiesMap = { [key: string]: string };
 
 type ColorProps = {
   textColor: string;
@@ -68,7 +67,11 @@ export const LanguageOptions = ({
   };
 
   return (
-    <LanguageList style={cssVarsMap} role="menu" className={cx('hs-elevate-language-switcher__language-list', styles['hs-elevate-language-switcher__language-list'])}>
+    <LanguageList
+      style={cssVarsMap}
+      role="menu"
+      className={cx('hs-elevate-language-switcher__language-list', styles['hs-elevate-language-switcher__language-list'])}
+    >
       {translations.map(translation => (
         <LanguageItem
           key={translation.languageCode}

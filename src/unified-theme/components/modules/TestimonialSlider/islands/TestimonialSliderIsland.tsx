@@ -8,6 +8,7 @@ import { CardVariantType } from '../../../types/fields.js';
 import { getLinkFieldHref, getLinkFieldRel, getLinkFieldTarget } from '../../../utils/content-fields.js';
 import { useEffect, useId, useState } from 'react';
 import { getCardVariantClassName } from '../../../utils/card-variants.js';
+import { CSSPropertiesMap } from '../../../types/components.js';
 
 // Checks if an image path corresponds to one of the default images used on the testimonial slider module in one of our sections/templates
 
@@ -229,7 +230,6 @@ const Testimonial = (props: TestimonialProps) => {
 // Testimonial slider component
 
 // Function to generate CSS variables for colors
-type CSSPropertiesMap = { [key: string]: string };
 
 function generateIconColorCssVar(cardVariantField: CardVariantType): CSSPropertiesMap {
   const iconColorsMap = {

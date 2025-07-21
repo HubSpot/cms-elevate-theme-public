@@ -7,6 +7,7 @@ import { AlignmentFieldType, TextFieldType } from '@hubspot/cms-components/field
 import MenuSvg from './assets/menu.svg';
 import { LinkStyleFieldLibraryType } from '../../fieldLibrary/LinkStyle/types.js';
 import { PlaceholderEmptyContent } from '../../PlaceholderComponent/PlaceholderEmptyContent.js';
+import { CSSPropertiesMap } from '../../types/components.js';
 
 type MenuDataType = {
   label: string;
@@ -40,7 +41,6 @@ type MenuModulePropTypes = {
     placeholderDescription: string;
   };
 };
-type CSSPropertiesMap = { [key: string]: string };
 
 function generateSpacingCssVars(spacingField: SizeOption): CSSPropertiesMap {
   const spacingMap = {

@@ -11,6 +11,7 @@ import { HeadingAndTextFieldLibraryType } from '../../fieldLibrary/HeadingAndTex
 import { sectionColorsMap } from '../../utils/section-color-map.js';
 import cx from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
+import { CSSPropertiesMap } from '../../types/components.js';
 
 // Types
 
@@ -37,8 +38,6 @@ type FeatureListProps = {
 };
 
 // Functions to pull in corresponding CSS variables on component based on field values
-
-type CSSPropertiesMap = { [key: string]: string };
 
 function generateColorCssVars(sectionVariantField: SectionVariantType): CSSPropertiesMap {
   return {

@@ -14,6 +14,7 @@ import { HeadingAndTextFieldLibraryType } from '../../fieldLibrary/HeadingAndTex
 import styles from './pricing-card.module.css';
 import cx from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
+import { CSSPropertiesMap } from '../../types/components.js';
 
 // Types
 
@@ -57,8 +58,6 @@ type PricingCardProps = {
 };
 
 // Function to generate CSS variables
-
-type CSSPropertiesMap = { [key: string]: string };
 
 function generateCardBorderStyles(cardVariantField: CardVariantType): CSSPropertiesMap {
   const cardBorderThicknessMap = {

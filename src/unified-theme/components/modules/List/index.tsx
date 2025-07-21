@@ -8,6 +8,7 @@ import { SectionStyleFieldLibraryType } from '../../fieldLibrary/SectionStyle/ty
 import { sectionColorsMap } from '../../utils/section-color-map.js';
 import cx from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
+import { CSSPropertiesMap } from '../../types/components.js';
 
 // Types
 
@@ -24,8 +25,6 @@ type GroupListItems = {
     listItemContent: TextFieldType['default'];
   };
 };
-
-type CSSPropertiesMap = { [key: string]: string };
 
 // Function to generate color CSS variables
 

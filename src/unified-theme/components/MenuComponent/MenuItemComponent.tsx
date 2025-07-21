@@ -104,12 +104,37 @@ const StyledSubmenu = styled.ul<{ $flyouts?: boolean; $menuDepth: number }>`
 `;
 
 export const getAnchorFromUrl = (url: string): string => {
+  if (!url) {
+    return '';
+  }
+
   try {
     return new URL(url).hash;
   } catch {
     // Handle relative URLs and direct anchor strings
     const hashIndex = url.indexOf('#');
     return hashIndex >= 0 ? url.slice(hashIndex) : '';
+  }
+};
+
+export const isCrossPageAnchor = (url: string): boolean => {
+  if (!url || !url.includes('#')) {
+    return false;
+  }
+
+  try {
+    // For full URLs, compare pathnames
+    const linkUrl = new URL(url, window.location.origin);
+    return linkUrl.pathname !== window.location.pathname;
+  } catch {
+    // For relative URLs like '/prices#anchor', check if they start with a path
+    if (url.startsWith('/') && url.includes('#')) {
+      const urlPath = url.split('#')[0];
+      return urlPath !== window.location.pathname;
+    }
+
+    // Pure anchor links like '#anchor' are same-page
+    return false;
   }
 };
 
@@ -225,6 +250,12 @@ export default function MenuItemComponent(props: MenuItemComponentProps) {
       return;
     }
 
+    // Don't prevent default for cross-page anchors - let browser handle naturally
+    if (isCrossPageAnchor(url)) {
+      return;
+    }
+
+    // Only prevent default and handle smooth scrolling for same-page anchors
     const anchor = getAnchorFromUrl(url);
 
     e.preventDefault();

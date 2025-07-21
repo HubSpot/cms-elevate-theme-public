@@ -1,7 +1,7 @@
 import { ModuleMeta } from '../../types/modules.js';
 import { RichText } from '@hubspot/cms-components';
 import { TextFieldType } from '@hubspot/cms-components/fields';
-import { CardVariantType } from '../../types/fields.js';
+import { CardVariantType, StandardSizeType } from '../../types/fields.js';
 import accordionIconSvg from './assets/down.svg';
 import styles from './accordion.module.css';
 import { RichTextContentFieldLibraryType } from '../../fieldLibrary/RichTextContent/types.js';
@@ -9,10 +9,11 @@ import { CardStyleFieldLibraryType } from '../../fieldLibrary/CardStyle/types.js
 import { getCardVariantClassName } from '../../utils/card-variants.js';
 import cx from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
+import { CSSPropertiesMap } from '../../types/components.js';
 
 // Types
 
-type Gap = 'small' | 'medium' | 'large';
+type Gap = StandardSizeType;
 
 type GroupAccordions = RichTextContentFieldLibraryType & {
   title: TextFieldType['default'];
@@ -31,8 +32,6 @@ type AccordionProps = {
 };
 
 // Functions to pull in corresponding CSS variables on component based on field values
-
-type CSSPropertiesMap = { [key: string]: string };
 
 function generateGapCssVars(gapField: Gap): CSSPropertiesMap {
   const gapMap = {

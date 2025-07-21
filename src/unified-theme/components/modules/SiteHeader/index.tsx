@@ -18,10 +18,9 @@ import { MenuModulePropTypes } from './types.js';
 import { PlaceholderEmptyContent } from '../../PlaceholderComponent/PlaceholderEmptyContent.js';
 // @ts-expect-error -- ?island not typed
 import LanguageSwitcherIsland from '../../LanguageSwitcherComponent/index.js?island';
+import { CSSPropertiesMap } from '../../types/components.js';
 
 // Functions to generate CSS variables
-
-type CSSPropertiesMap = { [key: string]: string };
 
 type ColorProps = {
   menuTextColor: string;
