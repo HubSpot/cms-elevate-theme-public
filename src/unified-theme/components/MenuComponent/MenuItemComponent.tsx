@@ -1,5 +1,7 @@
 import { CSSProperties } from 'react';
-import { styled } from 'styled-components';
+import styles from './menu-item.module.css';
+import cx from '../utils/classnames.js';
+import { createComponent } from '../utils/create-component.js';
 import ArrowComponent from './ArrowComponent.js';
 import { A11yControllerType, MenuDataType, KeyboardEventCallback, visibleMenuItemsControllerType, maxMenuDepth } from './types.js';
 import { LinkStyleType } from '../types/fields.js';
@@ -23,86 +25,6 @@ interface MenuItemComponentProps {
   mobileAnchorClickCallback?: (cb: () => void) => void;
 }
 
-// Base z-index for the menu component hierarchy. Using a base value with offsets ensures related elements maintain their stacking order when the base needs to be adjusted to account for new components that might conflict with z-index layering.
-const baseZindex = 100;
-
-const StyledMenuItem = styled.li<{ $flyouts?: boolean; $menuDepth: number }>`
-  ${props =>
-    props?.$flyouts &&
-    props?.$menuDepth > 1 &&
-    `
-      border-style: solid;
-      border-color: white; /* hook up to module settings */
-      border-left-width: 10px;
-      border-right-width: 10px;
-      border-bottom-width: 10px;
-      padding: 0;
-
-      &:first-child {
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        border-top-width: 10px;
-      }
-      &:last-child {
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-      }
-  `}
-`;
-
-const StyledMenuItemLinkContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const StyledMenuItemLink = styled.a`
-  flex-grow: 1;
-  padding: var(--hsElevate--spacing--8, 8px);
-  display: block;
-`;
-
-const StyledMenuArrow = styled.span`
-  cursor: pointer;
-  font-size: var(--hsElevate--body--large__fontSize);
-  display: block;
-  margin-inline-start: var(--hsElevate--spacing--8, 8px);
-  line-height: 1;
-  height: 100%;
-
-  @media (max-width: 768px) {
-    padding-inline-end: var(--hsElevate--spacing--16, 16px);
-  }
-`;
-
-const StyledSubmenu = styled.ul<{ $flyouts?: boolean; $menuDepth: number }>`
-  ${props =>
-    props?.$flyouts &&
-    `
-      position: absolute;
-      right: var(--hsElevate--flyoutSubMenu__right, 'auto');
-      bottom: var(--hsElevate--flyoutSubMenu__bottom, 'auto');
-  `}
-
-  ${props =>
-    props?.$flyouts &&
-    props?.$menuDepth === 1 &&
-    `
-      top: var(--hsElevate--firstFlyoutMenu__top, 100%);
-      left: var(--hsElevate--firstFlyoutMenu__left, 0);
-  `}
-  ${props =>
-    props?.$flyouts &&
-    props?.$menuDepth > 1 &&
-    `
-      top: var(--hsElevate--flyoutSubMenu__top, calc(-1 * var(--hsElevate--spacing--12, 12px)));
-      left: var(--hsElevate--flyoutSubMenu__left, calc(100% + var(--hsElevate--spacing--12, 12px)));
-  `}
-
-  z-index: ${baseZindex + 10};
-  padding: 0px;
-`;
-
 export const getAnchorFromUrl = (url: string): string => {
   if (!url) {
     return '';
@@ -122,6 +44,11 @@ export const isCrossPageAnchor = (url: string): boolean => {
     return false;
   }
 
+  // Pure anchor links like '#anchor' are same-page
+  if (url.startsWith('#')) {
+    return false;
+  }
+
   try {
     // For full URLs, compare pathnames
     const linkUrl = new URL(url, window.location.origin);
@@ -133,12 +60,20 @@ export const isCrossPageAnchor = (url: string): boolean => {
       return urlPath !== window.location.pathname;
     }
 
-    // Pure anchor links like '#anchor' are same-page
     return false;
   }
 };
 
-export default function MenuItemComponent(props: MenuItemComponentProps) {
+// Components
+
+const MenuItemContainer = createComponent('li');
+const MenuItemLinkContainer = createComponent('div');
+const MenuItemLink = createComponent('a');
+const MenuItemSpan = createComponent('span');
+const MenuArrow = createComponent('span');
+const Submenu = createComponent('ul');
+
+export const MenuItemComponent = (props: MenuItemComponentProps) => {
   const {
     menuData,
     a11yController,
@@ -185,15 +120,7 @@ export default function MenuItemComponent(props: MenuItemComponentProps) {
     return isUnderMaxDepth() && children.length > 0;
   };
 
-  function getSubmenuClasses(): string {
-    const baseClass = 'hs-elevate-menu__submenu';
-    const flyoutClass = flyouts ? 'hs-elevate-menu__flyout-submenu' : '';
-    const mobileClass = isMobileMenu ? 'hs-elevate-menu__flyout-submenu--mobile' : '';
-
-    return `${baseClass} ${flyoutClass} ${mobileClass}`;
-  }
-
-  function addFlyoutVisiblity(visibleMenuItems): CSSProperties {
+  function addFlyoutVisibility(visibleMenuItems: string[]): CSSProperties {
     const displayValue = visibleMenuItems.includes(idString) ? 'block' : 'none';
 
     return { display: displayValue };
@@ -208,7 +135,7 @@ export default function MenuItemComponent(props: MenuItemComponentProps) {
     return currentLevel === 1 ? topLevelMenuItemStyles : subMenuItemStyles;
   }
 
-  function handleTriggeredMenuItem(idString) {
+  function handleTriggeredMenuItem(idString: string) {
     setTriggeredMenuItems([...triggeredMenuItems, idString]);
   }
 
@@ -224,6 +151,28 @@ export default function MenuItemComponent(props: MenuItemComponentProps) {
     }
 
     return '';
+  }
+
+  function getMenuItemClasses() {
+    const baseClasses = cx(getMenuItemClass(), styles.menuItem, {
+      [styles['menuItem--flyout']]: flyouts && currentLevel > 1,
+    });
+
+    return baseClasses;
+  }
+
+  function getSubmenuClasses() {
+    const baseClass = 'hs-elevate-menu__submenu';
+    const flyoutClass = flyouts ? 'hs-elevate-menu__flyout-submenu' : '';
+    const mobileClass = isMobileMenu ? 'hs-elevate-menu__flyout-submenu--mobile' : '';
+
+    const moduleClasses = cx(styles.submenu, {
+      [styles['submenu--flyout']]: flyouts,
+      [styles['submenu--flyout-depth-1']]: flyouts && currentLevel === 1,
+      [styles['submenu--flyout-depth-gt-1']]: flyouts && currentLevel > 1,
+    });
+
+    return `${baseClass} ${flyoutClass} ${mobileClass} ${moduleClasses}`;
   }
 
   const showNestedMenuIcon = (flyouts || isMobileMenu) && hasChildren && currentLevel != maxDepth;
@@ -281,10 +230,8 @@ export default function MenuItemComponent(props: MenuItemComponentProps) {
   const linkAttributes = hasUrl && menuData.linkTarget === '_blank' && !isAnchorLink(menuData.url) ? { target: '_blank', rel: 'noopener' } : {};
 
   return (
-    <StyledMenuItem
-      $menuDepth={currentLevel}
-      $flyouts={flyouts}
-      className={getMenuItemClass()}
+    <MenuItemContainer
+      className={getMenuItemClasses()}
       data-hs-elevate-menuitem-depth={currentLevel}
       onFocus={event => handleFocus(event, idString)}
       onBlur={handleBlur}
@@ -295,29 +242,35 @@ export default function MenuItemComponent(props: MenuItemComponentProps) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <StyledMenuItemLinkContainer className="hs-elevate-menu__menu-item-link-container">
+      <MenuItemLinkContainer className={cx('hs-elevate-menu__menu-item-link-container', styles.menuItemLinkContainer)}>
         {/* If the menu item has a URL, render a link. Otherwise, render a span. */}
-        <StyledMenuItemLink
-          {...sharedMenuItemLinkProps}
-          {...(hasUrl
-            ? { onClick: e => handleAnchorClick(e), href: menuData.url, ...linkAttributes }
-            : { as: 'span', onClick: () => isMobileMenu && menuData.children.length > 0 && handleTriggeredMenuItem(idString) })}
-        >
-          {menuData.label}
-        </StyledMenuItemLink>
-        {showNestedMenuIcon && (
-          <StyledMenuArrow className="hs-elevate-menu__arrow" onClick={() => handleTriggeredMenuItem(idString)}>
-            <ArrowComponent />
-          </StyledMenuArrow>
+        {hasUrl ? (
+          <MenuItemLink
+            {...sharedMenuItemLinkProps}
+            className={cx(sharedMenuItemLinkProps.className, styles.menuItemLink)}
+            onClick={e => handleAnchorClick(e)}
+            href={menuData.url}
+            {...linkAttributes}
+          >
+            {menuData.label}
+          </MenuItemLink>
+        ) : (
+          <MenuItemSpan
+            {...sharedMenuItemLinkProps}
+            className={cx(sharedMenuItemLinkProps.className, styles.menuItemLink)}
+            onClick={() => isMobileMenu && menuData.children.length > 0 && handleTriggeredMenuItem(idString)}
+          >
+            {menuData.label}
+          </MenuItemSpan>
         )}
-      </StyledMenuItemLinkContainer>
+        {showNestedMenuIcon && (
+          <MenuArrow className={cx('hs-elevate-menu__arrow', styles.menuArrow)} onClick={() => handleTriggeredMenuItem(idString)}>
+            <ArrowComponent />
+          </MenuArrow>
+        )}
+      </MenuItemLinkContainer>
       {showChildrenUnorderList(menuData.children) && (
-        <StyledSubmenu
-          $menuDepth={currentLevel}
-          $flyouts={flyouts}
-          className={getSubmenuClasses()}
-          style={flyouts ? addFlyoutVisiblity(visibleMenuItems) : undefined}
-        >
+        <Submenu className={getSubmenuClasses()} style={flyouts ? addFlyoutVisibility(visibleMenuItems) : undefined}>
           {menuData.children.map((child, childIndex) => {
             const joinedIdString = `${idString}-${childIndex}`;
             return (
@@ -342,8 +295,8 @@ export default function MenuItemComponent(props: MenuItemComponentProps) {
               />
             );
           })}
-        </StyledSubmenu>
+        </Submenu>
       )}
-    </StyledMenuItem>
+    </MenuItemContainer>
   );
-}
+};

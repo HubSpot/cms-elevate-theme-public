@@ -8,9 +8,11 @@ import { SectionStyleFieldLibraryType } from '../../fieldLibrary/SectionStyle/ty
 import { HeadingStyleFieldLibraryType } from '../../fieldLibrary/HeadingStyle/types.js';
 import { HeadingAndTextFieldLibraryType } from '../../fieldLibrary/HeadingAndText/types.js';
 import { sectionColorsMap } from '../../utils/section-color-map.js';
-import cx from '../../utils/classnames.js';
+import { staticWithModule } from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
 import { CSSPropertiesMap } from '../../types/components.js';
+
+const swm = staticWithModule(styles);
 
 // Types
 
@@ -48,7 +50,7 @@ export const Component = (props: HeadingProps) => {
   };
 
   return (
-    <HeadingContainer style={cssVarsMap} className={cx('hs-elevate-heading-container', styles['hs-elevate-heading-container'])}>
+    <HeadingContainer style={cssVarsMap} className={swm('hs-elevate-heading-container')}>
       <HeadingComponent
         additionalClassArray={['hs-elevate-heading-container__heading']}
         headingLevel={headingAndTextHeadingLevel}

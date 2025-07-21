@@ -12,9 +12,11 @@ import { HeadingStyleFieldLibraryType } from '../../fieldLibrary/HeadingStyle/ty
 import { CardStyleFieldLibraryType } from '../../fieldLibrary/CardStyle/types.js';
 import { HeadingAndTextFieldLibraryType } from '../../fieldLibrary/HeadingAndText/types.js';
 import styles from './pricing-card.module.css';
-import cx from '../../utils/classnames.js';
+import { staticWithModule } from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
 import { CSSPropertiesMap } from '../../types/components.js';
+
+const swm = staticWithModule(styles);
 
 // Types
 
@@ -107,7 +109,7 @@ const PricingCardSummary = (props: PricingCardSummaryProps & HeadingStyleFieldLi
   } = props;
 
   return (
-    <PricingCardSummaryContainer className={cx('hs-elevate-pricing-card-container__summary', styles['hs-elevate-pricing-card-container__summary'])}>
+    <PricingCardSummaryContainer className={swm('hs-elevate-pricing-card-container__summary')}>
       {headingAndTextHeading && (
         <HeadingComponent
           additionalClassArray={['hs-elevate-pricing-card-container__title']}
@@ -116,20 +118,10 @@ const PricingCardSummary = (props: PricingCardSummaryProps & HeadingStyleFieldLi
           headingStyleVariant={headingStyleVariant}
         />
       )}
-      {description && (
-        <PricingCardDescription className={cx('hs-elevate-pricing-card-container__description', styles['hs-elevate-pricing-card-container__description'])}>
-          {description}
-        </PricingCardDescription>
-      )}
-      <PricingCardPriceContainer
-        className={cx('hs-elevate-pricing-card-container__price-container', styles['hs-elevate-pricing-card-container__price-container'])}
-      >
-        <PricingCardPrice className={cx('hs-elevate-pricing-card-container__price', styles['hs-elevate-pricing-card-container__price'])}>
-          {price}
-        </PricingCardPrice>
-        <PricingCardTimePeriod className={cx('hs-elevate-pricing-card-container__time-period', styles['hs-elevate-pricing-card-container__time-period'])}>
-          {timePeriod}
-        </PricingCardTimePeriod>
+      {description && <PricingCardDescription className={swm('hs-elevate-pricing-card-container__description')}>{description}</PricingCardDescription>}
+      <PricingCardPriceContainer className={swm('hs-elevate-pricing-card-container__price-container')}>
+        <PricingCardPrice className={swm('hs-elevate-pricing-card-container__price')}>{price}</PricingCardPrice>
+        <PricingCardTimePeriod className={swm('hs-elevate-pricing-card-container__time-period')}>{timePeriod}</PricingCardTimePeriod>
       </PricingCardPriceContainer>
     </PricingCardSummaryContainer>
   );
@@ -154,7 +146,7 @@ const PricingCardFeatures = (props: PricingCardFeaturesProps & HeadingStyleField
   } = props;
 
   return (
-    <PricingCardFeaturesContainer className={cx('hs-elevate-pricing-card-container__features', styles['hs-elevate-pricing-card-container__features'])}>
+    <PricingCardFeaturesContainer className={swm('hs-elevate-pricing-card-container__features')}>
       {headingAndTextHeading && (
         <HeadingComponent
           additionalClassArray={['hs-elevate-pricing-card-container__features-title']}
@@ -163,12 +155,9 @@ const PricingCardFeatures = (props: PricingCardFeaturesProps & HeadingStyleField
           headingStyleVariant={headingStyleVariant}
         />
       )}
-      <PricingCardFeaturesList className={cx('hs-elevate-pricing-card-container__features-list', styles['hs-elevate-pricing-card-container__features-list'])}>
+      <PricingCardFeaturesList className={swm('hs-elevate-pricing-card-container__features-list')}>
         {groupFeatures.map((features, index) => (
-          <PricingCardFeaturesListItem
-            key={index}
-            className={cx('hs-elevate-pricing-card-container__features-list-item', styles['hs-elevate-pricing-card-container__features-list-item'])}
-          >
+          <PricingCardFeaturesListItem key={index} className={swm('hs-elevate-pricing-card-container__features-list-item')}>
             <ListArrow />
             {features.feature}
           </PricingCardFeaturesListItem>
@@ -197,20 +186,15 @@ export const Component = (props: PricingCardProps) => {
   };
 
   return (
-    <PricingCardsWrapper style={cssVarsMap} className={cx('hs-elevate-pricing-card-container', styles['hs-elevate-pricing-card-container'])}>
+    <PricingCardsWrapper style={cssVarsMap} className={swm('hs-elevate-pricing-card-container')}>
       {groupPricingCards.map((pricingCard, index) => (
-        <Card
-          key={index}
-          additionalClassArray={[cx('hs-elevate-pricing-card-container__card', styles['hs-elevate-pricing-card-container__card'])]}
-          cardStyleVariant={cardStyleVariant}
-          cardOrientation="column"
-        >
+        <Card key={index} additionalClassArray={[swm('hs-elevate-pricing-card-container__card')]} cardStyleVariant={cardStyleVariant} cardOrientation="column">
           <PricingCardSummary groupSummary={pricingCard.groupSummary} headingStyleVariant={summaryHeadingStyleVariant} />
           <PricingCardFeatures groupPlanFeatures={pricingCard.groupPlanFeatures} headingStyleVariant={planFeaturesHeadingStyleVariant} />
           {pricingCard.groupButton.showButton && (
-            <ButtonWrapper className={cx('hs-elevate-pricing-card-container__button-container', styles['hs-elevate-pricing-card-container__button-container'])}>
+            <ButtonWrapper className={swm('hs-elevate-pricing-card-container__button-container')}>
               <Button
-                additionalClassArray={[cx('hs-elevate-pricing-card-container__button', styles['hs-elevate-pricing-card-container__button'])]}
+                additionalClassArray={[swm('hs-elevate-pricing-card-container__button')]}
                 buttonStyle={buttonStyleVariant}
                 buttonSize={buttonStyleSize}
                 href={getLinkFieldHref(pricingCard.groupButton.buttonContentLink)}

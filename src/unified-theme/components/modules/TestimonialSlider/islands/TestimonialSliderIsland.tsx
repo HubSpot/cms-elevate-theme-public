@@ -1,7 +1,7 @@
 import { Splide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import styles from '../testimonial-slider.module.css';
-import cx from '../../../utils/classnames.js';
+import cx, { staticWithModule } from '../../../utils/classnames.js';
 import { createComponent } from '../../../utils/create-component.js';
 import { TestimonialLinkProps, TestimonialMetaProps, TestimonialProps, TestimonialSliderProps } from '../types.js';
 import { CardVariantType } from '../../../types/fields.js';
@@ -9,6 +9,8 @@ import { getLinkFieldHref, getLinkFieldRel, getLinkFieldTarget } from '../../../
 import { useEffect, useId, useState } from 'react';
 import { getCardVariantClassName } from '../../../utils/card-variants.js';
 import { CSSPropertiesMap } from '../../../types/components.js';
+
+const swm = staticWithModule(styles);
 
 // Checks if an image path corresponds to one of the default images used on the testimonial slider module in one of our sections/templates
 
@@ -40,7 +42,7 @@ const NavigationArrow = (props: NavigationArrowProps) => {
       height="39"
       viewBox="0 0 24 39"
       fill="none"
-      className={cx('hs-elevate-testimonial-slider__navigation-icon', styles['hs-elevate-testimonial-slider__navigation-icon'])}
+      className={swm('hs-elevate-testimonial-slider__navigation-icon')}
     >
       {altText && (
         <title className="hs-elevate-testimonial-slider__navigation-icon-title" id={uniqueInstanceId}>
@@ -62,14 +64,10 @@ const NavigationButton = createComponent('button');
 const Navigation = ({ previousAltText, nextAltText }: NavigationProps) => {
   return (
     <div className="splide__arrows hs-elevate-testimonial-slider__navigation">
-      <NavigationButton
-        className={cx('splide__arrow', 'splide__arrow--prev', 'hs-elevate-testimonial-slider__prev', styles['hs-elevate-testimonial-slider__prev'])}
-      >
+      <NavigationButton className={cx('splide__arrow', 'splide__arrow--prev', swm('hs-elevate-testimonial-slider__prev'))}>
         <NavigationArrow altText={previousAltText} />
       </NavigationButton>
-      <NavigationButton
-        className={cx('splide__arrow', 'splide__arrow--next', 'hs-elevate-testimonial-slider__next', styles['hs-elevate-testimonial-slider__next'])}
-      >
+      <NavigationButton className={cx('splide__arrow', 'splide__arrow--next', swm('hs-elevate-testimonial-slider__next'))}>
         <NavigationArrow altText={nextAltText} />
       </NavigationButton>
     </div>
@@ -88,7 +86,7 @@ const LinkArrow = () => {
       viewBox="0 0 8 15"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={cx('hs-elevate-testimonial-slider__link-icon', styles['hs-elevate-testimonial-slider__link-icon'])}
+      className={swm('hs-elevate-testimonial-slider__link-icon')}
     >
       <path d="M7.70625 6.79414C8.09688 7.18477 8.09688 7.81914 7.70625 8.20977L1.70625 14.2098C1.31563 14.6004 0.681251 14.6004 0.290626 14.2098C-0.0999985 13.8191 -0.0999985 13.1848 0.290626 12.7941L5.58438 7.50039L0.293751 2.20664C-0.0968735 1.81602 -0.0968735 1.18164 0.293751 0.791016C0.684376 0.400391 1.31875 0.400391 1.70938 0.791016L7.70938 6.79102L7.70625 6.79414Z" />
     </LinkArrowImage>
@@ -106,12 +104,7 @@ const TestimonialLink = (props: TestimonialLinkProps) => {
   return (
     <>
       {linkText && (
-        <Link
-          className={cx('hs-elevate-testimonial-slider__link', styles['hs-elevate-testimonial-slider__link'])}
-          href={linkHref}
-          rel={linkRel}
-          target={linkTarget}
-        >
+        <Link className={swm('hs-elevate-testimonial-slider__link')} href={linkHref} rel={linkRel} target={linkTarget}>
           {linkText} <LinkArrow />
         </Link>
       )}
@@ -135,20 +128,18 @@ const TestimonialMeta = (props: TestimonialMetaProps) => {
 
   const isDefaultAuthorImage = authorImage.src && isDefaultTestimonialImage(authorImage.src);
 
-  const authorImageClasses = cx('hs-elevate-testimonial-slider__author-image', styles['hs-elevate-testimonial-slider__author-image'], {
+  const authorImageClasses = cx(swm('hs-elevate-testimonial-slider__author-image'), {
     [styles['hs-elevate-testimonial-slider__author-image--use-background']]: isDefaultAuthorImage,
   });
 
   return (
     <>
       {(hasAuthorElement || linkText) && (
-        <Footer className={cx('hs-elevate-testimonial-slider__footer', styles['hs-elevate-testimonial-slider__footer'])}>
+        <Footer className={swm('hs-elevate-testimonial-slider__footer')}>
           {hasAuthorElement && (
-            <AuthorContainer className={cx('hs-elevate-testimonial-slider__author-container', styles['hs-elevate-testimonial-slider__author-container'])}>
+            <AuthorContainer className={swm('hs-elevate-testimonial-slider__author-container')}>
               {authorImage.src && (
-                <AuthorImageContainer
-                  className={cx('hs-elevate-testimonial-slider__author-image-container', styles['hs-elevate-testimonial-slider__author-image-container'])}
-                >
+                <AuthorImageContainer className={swm('hs-elevate-testimonial-slider__author-image-container')}>
                   <AuthorImage
                     data-splide-lazy={authorImage.src}
                     alt={authorImage.alt}
@@ -160,16 +151,8 @@ const TestimonialMeta = (props: TestimonialMetaProps) => {
               )}
               {(authorName || authorTitle) && (
                 <div>
-                  {authorName && (
-                    <AuthorName className={cx('hs-elevate-testimonial-slider__author-name', styles['hs-elevate-testimonial-slider__author-name'])}>
-                      {authorName}
-                    </AuthorName>
-                  )}
-                  {authorTitle && (
-                    <AuthorTitle className={cx('hs-elevate-testimonial-slider__author-title', styles['hs-elevate-testimonial-slider__author-title'])}>
-                      {authorTitle}
-                    </AuthorTitle>
-                  )}
+                  {authorName && <AuthorName className={swm('hs-elevate-testimonial-slider__author-name')}>{authorName}</AuthorName>}
+                  {authorTitle && <AuthorTitle className={swm('hs-elevate-testimonial-slider__author-title')}>{authorTitle}</AuthorTitle>}
                 </div>
               )}
             </AuthorContainer>
@@ -208,19 +191,19 @@ const Testimonial = (props: TestimonialProps) => {
 
   const isDefaultImage = image.src && isDefaultTestimonialImage(image.src);
 
-  const testimonialImageClasses = cx('hs-elevate-testimonial-slider__image', styles['hs-elevate-testimonial-slider__image'], {
+  const testimonialImageClasses = cx(swm('hs-elevate-testimonial-slider__image'), {
     [styles['hs-elevate-testimonial-slider__image--use-background']]: isDefaultImage,
   });
 
   return (
-    <SlideContainer style={cssVarsMap} className={cx('hs-elevate-testimonial-slider__slide', styles['hs-elevate-testimonial-slider__slide'])}>
+    <SlideContainer style={cssVarsMap} className={swm('hs-elevate-testimonial-slider__slide')}>
       {showImage && image.src && (
-        <ImageContainer className={cx('hs-elevate-testimonial-slider__image-container', styles['hs-elevate-testimonial-slider__image-container'])}>
+        <ImageContainer className={swm('hs-elevate-testimonial-slider__image-container')}>
           <TestimonialImage className={cx(testimonialImageClasses)} data-splide-lazy={image.src} alt={image.alt} width={image.width} height={image.height} />
         </ImageContainer>
       )}
-      <ContentContainer className={cx('hs-elevate-testimonial-slider__content-container', styles['hs-elevate-testimonial-slider__content-container'])}>
-        <QuoteText className={cx('hs-elevate-testimonial-slider__quote-text', styles['hs-elevate-testimonial-slider__quote-text'])}>{quote}</QuoteText>
+      <ContentContainer className={swm('hs-elevate-testimonial-slider__content-container')}>
+        <QuoteText className={swm('hs-elevate-testimonial-slider__quote-text')}>{quote}</QuoteText>
         <TestimonialMeta authorName={authorName} authorTitle={authorTitle} authorImage={authorImage} linkText={linkText} link={link} />
       </ContentContainer>
     </SlideContainer>
@@ -298,12 +281,9 @@ const TestimonialSlider = (props: TestimonialSliderProps) => {
   const cardVariantClassName = getCardVariantClassName({ cardVariant: cardStyleVariant, fallbackCardVariant: 'card_variant_1' });
 
   return (
-    <TestimonialSliderContainer
-      style={cssVarsMap}
-      className={cx('hs-elevate-testimonial-slider', styles['hs-elevate-testimonial-slider'], cardVariantClassName)}
-    >
+    <TestimonialSliderContainer style={cssVarsMap} className={cx(swm('hs-elevate-testimonial-slider'), cardVariantClassName)}>
       <Splide
-        className={cx('hs-elevate-testimonial-slider__slider', styles['hs-elevate-testimonial-slider__slider'])}
+        className={swm('hs-elevate-testimonial-slider__slider')}
         hasTrack={false}
         options={{
           lazyLoad: true,

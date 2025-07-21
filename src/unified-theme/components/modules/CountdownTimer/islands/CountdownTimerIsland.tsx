@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { CountdownTimerProps, GroupStyle, TimeLeft, EndDate, CounterStyles, CounterLabelsStyles } from '../types.js';
 import styles from '../countdown-timer.module.css';
-import cx from '../../../utils/classnames.js';
+import cx, { staticWithModule } from '../../../utils/classnames.js';
 import { createComponent } from '../../../utils/create-component.js';
 import { CSSPropertiesMap } from '../../../types/components.js';
+
+const swm = staticWithModule(styles);
 
 // Components
 const CountdownTimer = createComponent('time');
@@ -64,17 +66,14 @@ const TimeUnit = (props: TimeUnitProps) => {
     ...generateCounterLabelsCssVars(counterLabels),
   };
 
-  const valueClasses = cx('hs-elevate-countdown-timer__value', styles['hs-elevate-countdown-timer__value'], {
+  const valueClasses = cx(swm('hs-elevate-countdown-timer__value'), {
     [styles['hs-elevate-countdown-timer__value--filled']]: counter?.fill === 'filled',
   });
 
   return (
-    <TimeUnitContainer
-      className={cx('hs-elevate-countdown-timer__time-unit-container', styles['hs-elevate-countdown-timer__time-unit-container'])}
-      style={cssVarsMap}
-    >
+    <TimeUnitContainer className={swm('hs-elevate-countdown-timer__time-unit-container')} style={cssVarsMap}>
       <Value className={valueClasses}>{formatNumber(value)}</Value>
-      <Label className={cx('hs-elevate-countdown-timer__label', styles['hs-elevate-countdown-timer__label'])}>{label}</Label>
+      <Label className={swm('hs-elevate-countdown-timer__label')}>{label}</Label>
     </TimeUnitContainer>
   );
 };
@@ -117,17 +116,14 @@ export default function CountdownTimerIsland(props: CountdownTimerProps) {
   // If countdown is complete, show a message
   if (endDate <= Date.now()) {
     return (
-      <CompletedMessage
-        className={cx('hs-elevate-countdown-timer__completed-message', styles['hs-elevate-countdown-timer__completed-message'])}
-        style={completedMessageCssVars}
-      >
+      <CompletedMessage className={swm('hs-elevate-countdown-timer__completed-message')} style={completedMessageCssVars}>
         {completedMessage}
       </CompletedMessage>
     );
   }
 
   return (
-    <CountdownTimer className={cx('hs-elevate-countdown-timer', styles['hs-elevate-countdown-timer'])} dateTime={dateTimeString}>
+    <CountdownTimer className={swm('hs-elevate-countdown-timer')} dateTime={dateTimeString}>
       <TimeUnit value={timeLeft.days} label={days} groupStyle={groupStyle} />
       <TimeUnit value={timeLeft.hours} label={hours} groupStyle={groupStyle} />
       <TimeUnit value={timeLeft.minutes} label={minutes} groupStyle={groupStyle} />

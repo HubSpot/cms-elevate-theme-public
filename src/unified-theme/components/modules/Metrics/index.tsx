@@ -2,13 +2,15 @@ import { ModuleMeta } from '../../types/modules.js';
 import { TextFieldType } from '@hubspot/cms-components/fields';
 import { SectionVariantType } from '../../types/fields.js';
 import styles from './metrics.module.css';
-import cx from '../../utils/classnames.js';
+import cx, { staticWithModule } from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
 import chartIconSvg from './assets/chart.svg';
 import { SectionStyleFieldLibraryType } from '../../fieldLibrary/SectionStyle/types.js';
 import { HeadingStyleFieldLibraryType, HeadingStyleVariant } from '../../fieldLibrary/HeadingStyle/types.js';
 import { sectionColorsMap } from '../../utils/section-color-map.js';
 import { CSSPropertiesMap } from '../../types/components.js';
+
+const swm = staticWithModule(styles);
 
 type GroupStyle = SectionStyleFieldLibraryType & HeadingStyleFieldLibraryType;
 
@@ -80,7 +82,7 @@ export const Component = (props: MetricProps) => {
   const metricCountClass = getMetricCountClass(groupMetrics.length);
 
   return (
-    <MetricsWrapper className={cx('hs-elevate-metrics', styles['hs-elevate-metrics'])}>
+    <MetricsWrapper className={swm('hs-elevate-metrics')}>
       <MetricsContainer
         className={cx('hs-elevate-metrics-container', styles['hs-elevate-metrics__container'], metricCountClass && styles[metricCountClass])}
         style={cssVarsMap}

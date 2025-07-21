@@ -6,9 +6,11 @@ import styles from './list.module.css';
 import { SectionVariantType } from '../../types/fields.js';
 import { SectionStyleFieldLibraryType } from '../../fieldLibrary/SectionStyle/types.js';
 import { sectionColorsMap } from '../../utils/section-color-map.js';
-import cx from '../../utils/classnames.js';
+import { staticWithModule } from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
 import { CSSPropertiesMap } from '../../types/components.js';
+
+const swm = staticWithModule(styles);
 
 // Types
 
@@ -52,16 +54,13 @@ export const Component = (props: ListProps) => {
   const cssColorVars = { ...generateColorCssVars(sectionStyleVariant) };
 
   return (
-    <ListContainer className={cx('hs-elevate-list-container', styles['hs-elevate-list-container'])} style={cssColorVars}>
+    <ListContainer className={swm('hs-elevate-list-container')} style={cssColorVars}>
       {groupListItems.map((item, index) => {
         return (
-          <ListItem
-            className={cx('hs-elevate-list-container__item', styles['hs-elevate-list-container__item'])}
-            key={`${index} ${item.groupListContent.listItemContent}`}
-          >
+          <ListItem className={swm('hs-elevate-list-container__item')} key={`${index} ${item.groupListContent.listItemContent}`}>
             {listIcon.name && (
-              <IconContainer className={cx('hs-elevate-list-container__icon-container', styles['hs-elevate-list-container__icon-container'])}>
-                <Icon className={cx('hs-elevate-list-container__icon', styles['hs-elevate-list-container__icon'])} fieldPath="listIcon" purpose="DECORATIVE" />
+              <IconContainer className={swm('hs-elevate-list-container__icon-container')}>
+                <Icon className={swm('hs-elevate-list-container__icon')} fieldPath="listIcon" purpose="DECORATIVE" />
               </IconContainer>
             )}
             {item.groupListContent.listItemContent}

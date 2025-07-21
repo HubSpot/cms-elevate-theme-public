@@ -8,9 +8,11 @@ import { Button } from '../../ButtonComponent/index.js';
 import buttonIconSvg from './assets/button.svg';
 import { ButtonContentType } from '../../fieldLibrary/ButtonContent/types.js';
 import { ButtonStyleFieldLibraryType } from '../../fieldLibrary/ButtonStyle/types.js';
-import cx from '../../utils/classnames.js';
+import { staticWithModule } from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
 import { CSSPropertiesMap } from '../../types/components.js';
+
+const swm = staticWithModule(styles);
 
 // Types
 enum LinkType {
@@ -103,8 +105,8 @@ export const Component = (props: ButtonProps) => {
   };
 
   return (
-    <ButtonWrapper className={cx('hs-elevate-button-wrapper', styles['hs-elevate-button-wrapper'])} style={cssVarsMap}>
-      <ButtonContainer className={cx('hs-elevate-button-container', styles['hs-elevate-button-container'])}>
+    <ButtonWrapper className={swm('hs-elevate-button-wrapper')} style={cssVarsMap}>
+      <ButtonContainer className={swm('hs-elevate-button-container')}>
         {groupButtons.map((button, index) => (
           <Button
             key={index}

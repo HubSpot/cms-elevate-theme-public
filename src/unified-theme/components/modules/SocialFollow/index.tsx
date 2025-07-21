@@ -7,9 +7,11 @@ import { getLinkFieldRel, getLinkFieldTarget } from '../../utils/content-fields.
 import { ButtonStyleFieldLibraryType } from '../../fieldLibrary/ButtonStyle/types.js';
 import { getAlignmentFieldCss } from '../../utils/style-fields.js';
 import styles from './social-follow.module.css';
-import cx from '../../utils/classnames.js';
+import { staticWithModule } from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
 import { CSSPropertiesMap } from '../../types/components.js';
+
+const swm = staticWithModule(styles);
 
 // Types
 
@@ -291,7 +293,7 @@ export const Component = (props: SocialFollowProps) => {
   };
 
   return (
-    <SocialFollowContainer className={cx('hs-elevate-social-follow', styles['hs-elevate-social-follow'])} style={cssVarsMap}>
+    <SocialFollowContainer className={swm('hs-elevate-social-follow')} style={cssVarsMap}>
       {groupSocialLinks.map((socialLink, index) => {
         const {
           groupLink: { link },
@@ -312,14 +314,14 @@ export const Component = (props: SocialFollowProps) => {
 
         return (
           <SocialLink
-            className={cx('hs-elevate-social-follow__link', styles['hs-elevate-social-follow__link'])}
+            className={swm('hs-elevate-social-follow__link')}
             key={index}
             rel={getLinkFieldRel(link)}
             target={getLinkFieldTarget(link)}
             href={link.url.href}
             aria-label={socialIcon.aria_label}
           >
-            <Icon className={cx('hs-elevate-social-follow__icon', styles['hs-elevate-social-follow__icon'])} purpose="DECORATIVE" fieldPath={iconFieldPath} />
+            <Icon className={swm('hs-elevate-social-follow__icon')} purpose="DECORATIVE" fieldPath={iconFieldPath} />
           </SocialLink>
         );
       })}
