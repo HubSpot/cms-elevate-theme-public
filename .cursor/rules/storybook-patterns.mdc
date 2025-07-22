@@ -1,0 +1,269 @@
+---
+description: Storybook Patterns
+globs:
+---
+
+# Storybook Patterns & Conventions
+
+This document outlines the established patterns and conventions for Storybook implementation in the cms-elevate-theme project.
+
+## Configuration
+
+### Setup
+- **Version**: Storybook 8.6.14
+- **Framework**: React + Vite (`@storybook/react-vite`)
+- **Location**: `/src/unified-theme/.storybook/`
+
+### Key Configuration Files
+- `main.js` - Main Storybook configuration
+- `preview.js` - Preview configuration and story sorting
+- `theme.css` - Extensive theme styling (25,000+ tokens)
+
+### Addons
+```javascript
+addons: [
+  '@storybook/addon-essentials',
+  '@storybook/addon-interactions',
+  '@storybook/addon-docs'
+]
+```
+
+## File Structure Patterns
+
+### Story File Organization
+```
+components/
+├── ComponentName/
+│   ├── index.tsx                          # Main component
+│   ├── component.module.css               # Component styles
+│   └── stories/
+│       ├── ComponentName.stories.tsx      # Main stories
+│       ├── ComponentName.variants.stories.tsx  # Variant stories
+│       └── componentArgs.ts               # Shared arguments
+```
+
+### Naming Conventions
+- **Main Stories**: `ComponentName.stories.tsx`
+- **Variant Stories**: `ComponentName.[variant].stories.tsx`
+  - Examples: `ButtonComponent.sizes.stories.tsx`, `HeadingComponent.alignment.stories.tsx`
+- **Args Files**: `componentArgs.ts` (camelCase)
+
+## Story Implementation Patterns
+
+### Meta Configuration Template
+```typescript
+import type { Meta, StoryObj } from '@storybook/react';
+import { expect, within, userEvent, fn } from '@storybook/test';
+import ComponentName from '../index.js';
+import { baseArgs } from './componentArgs.js';
+
+const meta: Meta<typeof ComponentName> = {
+  title: 'Components/ComponentName',
+  component: ComponentName,
+  parameters: {
+    layout: 'centered',
+    docs: {
+      description: {
+        component: 'Brief description of component functionality',
+      },
+    },
+  },
+  args: baseArgs,
+  argTypes: {
+    propName: {
+      control: { type: 'select' },
+      options: ['option1', 'option2'],
+      description: 'Description of the prop',
+    },
+  },
+  tags: ['autodocs'],
+};
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+```
+
+### Story Types & Patterns
+
+#### 1. Default Story
+```typescript
+export const Default: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const element = canvas.getByRole('button');
+
+    await expect(element).toBeInTheDocument();
+    await expect(element).toHaveTextContent('Expected Text');
+  },
+};
+```
+
+#### 2. Playground Story
+```typescript
+export const Playground: Story = {
+  args: {
+    children: 'Interactive Component',
+  },
+  parameters: {
+    controls: {
+      expanded: true,
+    },
+  },
+};
+```
+
+#### 3. Interaction Testing Story
+```typescript
+export const InteractionTest: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const user = userEvent.setup();
+
+    const button = canvas.getByRole('button');
+
+    const clickHandler = fn();
+    button.addEventListener('click', clickHandler);
+
+    await user.click(button);
+    await expect(clickHandler).toHaveBeenCalledTimes(1);
+  },
+  tags: ['!dev'], // Exclude from dev mode
+};
+```
+
+## Component Arguments Pattern
+
+### Shared Args File Structure
+```typescript
+// componentArgs.ts
+export const baseArgs = {
+  propName: 'default value',
+  booleanProp: false,
+  objectProp: { key: 'value' },
+  arrayProp: [] as string[],
+  enumProp: 'option1' as const,
+};
+```
+
+### Common Prop Patterns
+- **CSS Classes**: `additionalClassArray: [] as string[]`
+- **Content**: `children: 'Default Content'`
+- **Styling**: `componentStyle: 'primary' as const`
+- **Sizing**: `componentSize: 'medium' as const`
+- **Accessibility**: `ariaLabel: 'Component description'`
+
+## Testing Patterns
+
+### Interaction Testing
+- Use `@storybook/test` for user interactions
+- Test keyboard navigation with `user.tab()` and `user.keyboard('{Enter}')`
+- Verify focus management with `expect(element).toHaveFocus()`
+- Test click handlers with `fn()` mock functions
+
+### Accessibility Testing
+```typescript
+// Test semantic HTML
+expect(heading.tagName.toLowerCase()).toBe('h2');
+
+// Test ARIA attributes
+await expect(button).toHaveAttribute('aria-label', 'Expected Label');
+
+// Test keyboard navigation
+await user.tab();
+await expect(button).toHaveFocus();
+```
+
+### CSS Class Testing
+```typescript
+await expect(element).toHaveClass('hs-elevate-component');
+await expect(element).toHaveClass('hs-elevate-component--variant');
+```
+
+## Documentation Standards
+
+### Component Descriptions
+```typescript
+docs: {
+  description: {
+    component: 'A brief, clear description of component functionality and use cases',
+  },
+},
+```
+
+### ArgTypes Documentation
+```typescript
+argTypes: {
+  propName: {
+    control: { type: 'select' },
+    options: ['option1', 'option2'],
+    description: 'Clear description of what this prop controls',
+  },
+}
+```
+
+## Story Organization
+
+### Title Structure
+- Components: `'Components/ComponentName'`
+- Modules: `'Components/ModuleName'` (for CMS modules)
+
+### Story Sorting
+Configured in `preview.js`:
+```javascript
+storySort: {
+  order: ['Components'],
+}
+```
+
+## Build & Deployment
+
+### NPM Scripts
+```json
+{
+  "storybook": "storybook dev -p 6006",
+  "build-storybook": "storybook build --output-dir ../../cms-elevate-theme-static-assets/static/dist",
+  "test-storybook": "test-storybook",
+  "preview-storybook": "npx serve ../../cms-elevate-theme-static-assets/static/dist -l 8080"
+}
+```
+
+### Build Output
+- **Target**: `../../cms-elevate-theme-static-assets/static/dist`
+- **Static Assets**: Served from `.storybook/public/`
+
+## Best Practices
+
+### Story Variants
+Group stories with similar cases. Example variants:
+- **Sizes**: `.sizes.stories.tsx`
+- **Styles**: `.styles.stories.tsx`
+- **Edge Cases**: `.edgecases.stories.tsx`
+- **Orientations**: `.orientations.stories.tsx`
+- **Alignment**: `.alignment.stories.tsx`
+
+### Testing Guidelines
+- Always include a `Default` story with basic functionality tests
+- Add interaction tests for clickable elements
+- Test keyboard navigation for accessibility
+- Include edge case testing for robustness
+- Use `tags: ['!dev']` for stories that shouldn't run in development
+
+### Documentation Guidelines
+- Provide clear component descriptions
+- Document all props with descriptions
+- Use appropriate control types for different prop types
+- Include usage examples in story implementations
+
+## Static Assets
+
+### Image Assets
+- Location: `.storybook/public/images/`
+- Usage: Reference as `/images/filename.png` in stories
+- Common assets: hero-banner.png, dashboard.png, gallery images
+
+### CSS Integration
+- Main theme CSS: `.storybook/theme.css`
+- Includes HubSpot-specific styles and variables
+- Component-specific styles: `component.module.css`
+
+---

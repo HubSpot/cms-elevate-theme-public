@@ -7,6 +7,7 @@ import HeadingComponent from '../HeadingComponent/index.js';
 import SanitizedContent from '../SanitizeHTML/index.js';
 import { CardVariantType, HeadingLevelType } from '../types/fields.js';
 import { HeadingStyleVariant } from '../fieldLibrary/HeadingStyle/types.js';
+import { CSSPropertiesMap } from '../types/components.js';
 
 // Types
 
@@ -53,8 +54,6 @@ const TagList = ({ tags }: TagListProps) => {
 };
 
 // Functions to generate CSS variables
-
-type CSSPropertiesMap = { [key: string]: string };
 
 function generateColorCssVars(cardStyleVariant: string): CSSPropertiesMap {
   const iconColorsMap = {

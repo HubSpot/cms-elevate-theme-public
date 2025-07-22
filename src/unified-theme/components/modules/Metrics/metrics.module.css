@@ -41,15 +41,9 @@
 .hs-elevate-metrics__metric-number {
   max-width: 100%;
   color: var(--hsElevate--metrics__accentColor);
-  font-size: var(--hsElevate--metrics__minFontSize);
+  font-size: clamp(var(--hsElevate--metrics__minFontSize), calc(1vw + var(--hsElevate--metrics__minFontSize)), var(--hsElevate--metrics__maxFontSize));
   line-height: var(--hsElevate--heading__lineHeight);
   text-align: center;
-}
-
-@media (width >= 768px) {
-  .hs-elevate-metrics__metric-number {
-    font-size: clamp(var(--hsElevate--metrics__minFontSize), calc(1vw + var(--hsElevate--metrics__minFontSize)), var(--hsElevate--metrics__maxFontSize));
-  }
 }
 
 .hs-elevate-metrics__metric-description {

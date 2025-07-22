@@ -9,10 +9,9 @@ import { LanguageSwitcherProps } from '../types/language.js';
 import { useLanguageVariants, Icon } from '@hubspot/cms-components';
 import GlobeIcon from './assets/Globe.js';
 import { useDocumentLang } from '../hooks/useDocumentLang.js';
+import { CSSPropertiesMap } from '../types/components.js';
 
 // Functions to generate CSS variables
-
-type CSSPropertiesMap = { [key: string]: string };
 
 type ColorProps = {
   menuBackgroundColor: string;
@@ -75,9 +74,13 @@ const MobileSiteHeaderLanguageSwitcher = (props: LanguageSwitcherProps) => {
     [styles['hs-elevate-site-header__language-switcher-overlay--open']]: isOpen,
   });
 
-  const languageSwitcherContainerClassNames = cx('hs-elevate-site-header__language-switcher-container', styles['hs-elevate-site-header__language-switcher-container'], {
-    [styles['hs-elevate-site-header__language-switcher-container--open']]: isOpen,
-  });
+  const languageSwitcherContainerClassNames = cx(
+    'hs-elevate-site-header__language-switcher-container',
+    styles['hs-elevate-site-header__language-switcher-container'],
+    {
+      [styles['hs-elevate-site-header__language-switcher-container--open']]: isOpen,
+    }
+  );
 
   const cssVarsMap = {
     ...generateColorCssVars({ menuBackgroundColor, menuBackgroundColorHover, textColor, textColorHover }),
@@ -86,10 +89,7 @@ const MobileSiteHeaderLanguageSwitcher = (props: LanguageSwitcherProps) => {
   return (
     <>
       {isOpen && <Overlay onClick={() => setIsOpen(false)} className={overlayClassNames} />}
-      <MobileLanguageSwitcherContainer
-        className={languageSwitcherContainerClassNames}
-        style={cssVarsMap}
-      >
+      <MobileLanguageSwitcherContainer className={languageSwitcherContainerClassNames} style={cssVarsMap}>
         <LanguageSwitcherButton
           ref={buttonRef}
           onClick={toggleLanguageOptions}
@@ -97,7 +97,9 @@ const MobileSiteHeaderLanguageSwitcher = (props: LanguageSwitcherProps) => {
           aria-controls="language-options"
           className={cx('hs-elevate-site-header__language-switcher-button', styles['hs-elevate-site-header__language-switcher-button'])}
         >
-          <LanguageButtonContent className={cx('hs-elevate-site-header__language-switcher-button-content', styles['hs-elevate-site-header__language-switcher-button-content'])}>
+          <LanguageButtonContent
+            className={cx('hs-elevate-site-header__language-switcher-button-content', styles['hs-elevate-site-header__language-switcher-button-content'])}
+          >
             {langSwitcherIcon}
             <span className="hs-elevate-site-header__language-switcher-current-language">{currentPageLanguageDisplayName}</span>
           </LanguageButtonContent>
@@ -105,10 +107,20 @@ const MobileSiteHeaderLanguageSwitcher = (props: LanguageSwitcherProps) => {
         <LanguageOptionsContainer
           className={cx('hs-elevate-site-header__language-switcher-options-container', styles['hs-elevate-site-header__language-switcher-options-container'])}
         >
-          <LanguageLabel className={cx('hs-elevate-site-header__language-switcher-select-language-label', styles['hs-elevate-site-header__language-switcher-select-language-label'])}>
+          <LanguageLabel
+            className={cx(
+              'hs-elevate-site-header__language-switcher-select-language-label',
+              styles['hs-elevate-site-header__language-switcher-select-language-label']
+            )}
+          >
             {languageSwitcherSelectText}
           </LanguageLabel>
-          <OptionsScrollWrapper className={cx('hs-elevate-site-header__language-switcher-options-scroll-wrapper', styles['hs-elevate-site-header__language-switcher-options-scroll-wrapper'])}>
+          <OptionsScrollWrapper
+            className={cx(
+              'hs-elevate-site-header__language-switcher-options-scroll-wrapper',
+              styles['hs-elevate-site-header__language-switcher-options-scroll-wrapper']
+            )}
+          >
             <LanguageOptions
               translations={translations}
               menuBackgroundColorHover={menuBackgroundColorHover}

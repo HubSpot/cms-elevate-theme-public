@@ -1,7 +1,9 @@
 import styles from './card.module.css';
-import cx from '../utils/classnames.js';
+import cx, { staticWithModule } from '../utils/classnames.js';
 import { CardStyleFieldLibraryType } from '../fieldLibrary/CardStyle/types.js';
 import { getCardVariantClassName } from '../utils/card-variants.js';
+
+const swm = staticWithModule(styles);
 
 // Types
 
@@ -27,7 +29,7 @@ export const Card = (props: CardProps) => {
   const { cardStyleVariant, additionalClassArray, inlineStyles, cardOrientation, children } = props;
   const cardClassName = getCardVariantClassName({ cardVariant: cardStyleVariant, fallbackCardVariant: 'card_variant_1' });
   const additionalClasses = additionalClassArray ? additionalClassArray.join(' ') : '';
-  const cardClasses = cx('hs-elevate-card', styles['hs-elevate-card'], cardClassName, additionalClasses, {
+  const cardClasses = cx(swm('hs-elevate-card'), cardClassName, additionalClasses, {
     [styles['hs-elevate-card--row']]: cardOrientation === 'row',
     [styles['hs-elevate-card--column']]: cardOrientation === 'column',
   });

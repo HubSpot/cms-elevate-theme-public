@@ -8,10 +8,9 @@ import { Button } from '../../../ButtonComponent/index.js';
 import { getLinkFieldHref, getLinkFieldRel, getLinkFieldTarget } from '../../../utils/content-fields.js';
 import { MobileMenuIslandProps } from '../types.js';
 import MobileSiteHeaderLanguageSwitcher from '../../../LanguageSwitcherComponent/MobileSiteHeaderLanguageSwitcherComponent.js';
+import { CSSPropertiesMap } from '../../../types/components.js';
 
 // Functions to generate CSS variables
-
-type CSSPropertiesMap = { [key: string]: string };
 
 type ColorProps = {
   menuTextColor: string;

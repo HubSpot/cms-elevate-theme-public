@@ -12,10 +12,9 @@ import { useLanguageVariants, Icon } from '@hubspot/cms-components';
 import { useIsInEditor } from '../hooks/useIsInEditor.js';
 import GlobeIcon from './assets/Globe.js';
 import useDocumentLang from '../hooks/useDocumentLang.js';
+import { CSSPropertiesMap } from '../types/components.js';
 
 // Functions to generate CSS variables
-
-type CSSPropertiesMap = { [key: string]: string };
 
 type ColorProps = {
   textColor: string;

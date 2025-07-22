@@ -38,3 +38,38 @@ export default function cx(...args: unknown[]): string {
   // Join all classes with a single space
   return classes.join(' ');
 }
+
+/**
+ * scopedClass — maps global class names to their CSS Modules equivalents
+ * and combines them into a single className string.
+ *
+ * Usage:
+ *   const swm = scopedClass(styles);
+ *
+ *   // Single class (string)
+ *   className={swm('hs-button')}
+ *
+ *   // Multiple classes (string, space-separated)
+ *   className={swm('hs-button hs-button--primary')}
+ *
+ * Example output:
+ *   "hs-button hs-button_xyz123 hs-button--primary hs-button--primary_abc456"
+ *
+ * @param styles - The CSS Modules object (e.g., import styles from './Component.module.css')
+ * @returns A function that takes one or more base class names and returns the combined className string
+ */
+export const staticWithModule = (styles: Record<string, string>) => {
+  return (classNames: string): string => {
+    // Normalize to an array of class names
+    if (!classNames || typeof classNames !== 'string') {
+      return '';
+    }
+    const classList = classNames.trim().split(/\s+/);
+
+    // For each class name, include both the global and CSS module version (if present)
+    const mapped = classList.flatMap(cls => [cls, styles[cls]].filter(Boolean));
+
+    // Combine into a clean, space-separated string
+    return cx(mapped);
+  };
+};

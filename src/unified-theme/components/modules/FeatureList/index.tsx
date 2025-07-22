@@ -9,8 +9,11 @@ import { SectionStyleFieldLibraryType } from '../../fieldLibrary/SectionStyle/ty
 import { HeadingStyleFieldLibraryType } from '../../fieldLibrary/HeadingStyle/types.js';
 import { HeadingAndTextFieldLibraryType } from '../../fieldLibrary/HeadingAndText/types.js';
 import { sectionColorsMap } from '../../utils/section-color-map.js';
-import cx from '../../utils/classnames.js';
+import cx, { staticWithModule } from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
+import { CSSPropertiesMap } from '../../types/components.js';
+
+const swm = staticWithModule(styles);
 
 // Types
 
@@ -38,8 +41,6 @@ type FeatureListProps = {
 
 // Functions to pull in corresponding CSS variables on component based on field values
 
-type CSSPropertiesMap = { [key: string]: string };
-
 function generateColorCssVars(sectionVariantField: SectionVariantType): CSSPropertiesMap {
   return {
     '--hsElevate--featureList__textColor': sectionColorsMap[sectionVariantField].textColor,
@@ -65,22 +66,18 @@ export const Component = (props: FeatureListProps) => {
     ...generateColorCssVars(sectionStyleVariant),
   };
 
-  const featureListClasses = cx('hs-elevate-feature-list', styles['hs-elevate-feature-list'], {
+  const featureListClasses = cx(swm('hs-elevate-feature-list'), {
     [styles[`hs-elevate-feature-list--${columns}-columns`]]: columns,
   });
 
   return (
     <FeatureList className={featureListClasses} style={cssVarsMap}>
       {groupFeatures.map((feature, index) => (
-        <Feature className={cx('hs-elevate-feature-list__feature', styles['hs-elevate-feature-list__feature'])} key={index}>
+        <Feature className={swm('hs-elevate-feature-list__feature')} key={index}>
           {feature.groupIcon.showIcon && feature.groupIcon.icon && feature.groupIcon.icon.name && (
-            <Icon
-              className={cx('hs-elevate-feature-list__icon', styles['hs-elevate-feature-list__icon'])}
-              fieldPath={`groupFeatures[${index}].groupIcon.icon`}
-              purpose="DECORATIVE"
-            />
+            <Icon className={swm('hs-elevate-feature-list__icon')} fieldPath={`groupFeatures[${index}].groupIcon.icon`} purpose="DECORATIVE" />
           )}
-          <ContentContainer className={cx('hs-elevate-feature-list__content-container', styles['hs-elevate-feature-list__content-container'])}>
+          <ContentContainer className={swm('hs-elevate-feature-list__content-container')}>
             {feature.groupFeatureContent.headingAndTextHeading && (
               <HeadingComponent
                 additionalClassArray={['hs-elevate-feature-list__title']}
@@ -90,9 +87,7 @@ export const Component = (props: FeatureListProps) => {
               />
             )}
             {feature.groupFeatureContent.featureDescription && (
-              <FeatureParagraph className={cx('hs-elevate-feature-list__body', styles['hs-elevate-feature-list__body'])}>
-                {feature.groupFeatureContent.featureDescription}
-              </FeatureParagraph>
+              <FeatureParagraph className={swm('hs-elevate-feature-list__body')}>{feature.groupFeatureContent.featureDescription}</FeatureParagraph>
             )}
           </ContentContainer>
         </Feature>
