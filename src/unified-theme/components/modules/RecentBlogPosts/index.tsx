@@ -80,7 +80,7 @@ export const Component = (props: RecentBlogPostsProps) => {
               headingStyleVariant={headingStyleVariant}
               cardStyleVariant={cardStyleVariant}
               gatedContentIds={gatedContentIds.map(id => id.toString())}
-              additionalClassArray={['hs-elevate-recent-blog-posts__blog-card', styles['hs-elevate-recent-blog-posts__blog-card']]}
+              additionalClassArray={[swm('hs-elevate-recent-blog-posts__blog-card')]}
             />
           ))
         )}

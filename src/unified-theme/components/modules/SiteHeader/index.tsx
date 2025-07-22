@@ -5,13 +5,13 @@ import MenuComponent from '../../MenuComponent/index.js?island';
 import SiteHeaderSVG from './assets/Header.svg';
 import { Button } from '../../ButtonComponent/index.js';
 import styles from './site-header.module.css';
-import cx from '../../utils/classnames.js';
+import cx, { staticWithModule } from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
 // @ts-expect-error -- ?island not typed
 import MobileMenuIsland from './islands/MobileMenuIsland.js?island';
 // @ts-expect-error -- ?island not typed
 import MobileLogoBackButton from './islands/MobileLogoBackButton.js?island';
-import StyledIsland from '../../StyledComponentsRegistry/StyledIsland.js';
+import { Island } from '@hubspot/cms-components';
 import { SharedIslandState, useLanguageVariants } from '@hubspot/cms-components';
 import { getLinkFieldHref, getLinkFieldRel, getLinkFieldTarget } from '../../utils/content-fields.js';
 import { MenuModulePropTypes } from './types.js';
@@ -19,6 +19,8 @@ import { PlaceholderEmptyContent } from '../../PlaceholderComponent/PlaceholderE
 // @ts-expect-error -- ?island not typed
 import LanguageSwitcherIsland from '../../LanguageSwitcherComponent/index.js?island';
 import { CSSPropertiesMap } from '../../types/components.js';
+
+const swm = staticWithModule(styles);
 
 // Functions to generate CSS variables
 
@@ -82,9 +84,7 @@ export const Component = (props: MenuModulePropTypes) => {
   const {
     groupMenu: {
       menuAlignment,
-      menuBackgroundColor: { color: menuBackgroundColor } = {
-        color: '#ffffff',
-      },
+      menuBackgroundColor: { color: menuBackgroundColor } = { color: '#ffffff' },
       menuAccentColor: { color: menuAccentColor } = { color: '#D3DAE4' },
       menuTextColor: { color: menuTextColor } = { color: '#09152B' },
       menuTextHoverColor: { color: menuTextHoverColor } = { color: '#F7F9FC' },
@@ -96,21 +96,17 @@ export const Component = (props: MenuModulePropTypes) => {
   const showLanguageSwitcher = translations?.length > 1;
   const langSwitcherIconFieldPath = 'globe_icon';
 
-  const cssVarsMap = {
-    ...generateColorCssVars({ menuTextColor, menuTextHoverColor, menuBackgroundColor, menuAccentColor }),
-  };
+  const cssVarsMap = { ...generateColorCssVars({ menuTextColor, menuTextHoverColor, menuBackgroundColor, menuAccentColor }) };
 
-  const siteHeaderClassNames = cx('hs-elevate-site-header', styles['hs-elevate-site-header'], {
-    [styles['hs-elevate-site-header--has-language-switcher']]: showLanguageSwitcher,
-  });
+  const siteHeaderClassNames = cx(swm('hs-elevate-site-header'), { [styles['hs-elevate-site-header--has-language-switcher']]: showLanguageSwitcher });
 
   return (
     <SiteHeader className={siteHeaderClassNames} style={cssVarsMap}>
       <SharedIslandState value={[]}>
         {/* Controls back button when mobile nav is open */}
-        <SiteHeaderContainer className={cx('hs-elevate-site-header__header-container', styles['hs-elevate-site-header__header-container'])}>
-          <LogoButtonContainer className={cx('hs-elevate-site-header__logo-container', styles['hs-elevate-site-header__logo-container'])}>
-            <StyledIsland
+        <SiteHeaderContainer className={swm('hs-elevate-site-header__header-container')}>
+          <LogoButtonContainer className={swm('hs-elevate-site-header__logo-container')}>
+            <Island
               module={MobileLogoBackButton}
               logoField={logoToUse}
               companyName={companyName}
@@ -121,8 +117,8 @@ export const Component = (props: MenuModulePropTypes) => {
           {navDataArray.length === 0 && isEditorMode ? (
             <PlaceholderEmptyContent title={placeholderTitle} description={placeholderDescription} />
           ) : (
-            <MainNav className={cx('hs-elevate-site-header__main-nav', styles['hs-elevate-site-header__main-nav'])}>
-              <StyledIsland
+            <MainNav className={swm('hs-elevate-site-header__main-nav')}>
+              <Island
                 module={MenuComponent}
                 menuDataArray={navDataArray}
                 flow="horizontal"
@@ -136,10 +132,8 @@ export const Component = (props: MenuModulePropTypes) => {
             </MainNav>
           )}
           {showLanguageSwitcher && (
-            <LanguageSwitcherContainer
-              className={cx('hs-elevate-site-header__language-switcher-container', styles['hs-elevate-site-header__language-switcher-container'])}
-            >
-              <StyledIsland
+            <LanguageSwitcherContainer className={swm('hs-elevate-site-header__language-switcher-container')}>
+              <Island
                 module={LanguageSwitcherIsland}
                 menuBackgroundColor={menuBackgroundColor}
                 menuBackgroundColorHover={menuAccentColor}
@@ -152,7 +146,7 @@ export const Component = (props: MenuModulePropTypes) => {
           )}
 
           {showButton && (
-            <ButtonContainer className={cx('hs-elevate-site-header__button-container', styles['hs-elevate-site-header__button-container'])}>
+            <ButtonContainer className={swm('hs-elevate-site-header__button-container')}>
               <Button
                 href={getLinkFieldHref(buttonLink)}
                 buttonStyle={buttonStyleVariant}
@@ -169,8 +163,8 @@ export const Component = (props: MenuModulePropTypes) => {
             </ButtonContainer>
           )}
 
-          <MobileMenuContainer className={cx('hs-elevate-site-header__mobile-menu-container', styles['hs-elevate-site-header__mobile-menu-container'])}>
-            <StyledIsland
+          <MobileMenuContainer className={swm('hs-elevate-site-header__mobile-menu-container')}>
+            <Island
               module={MobileMenuIsland}
               menuDataArray={navDataArray}
               flow="horizontal"

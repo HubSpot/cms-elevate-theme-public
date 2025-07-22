@@ -31,11 +31,9 @@ type PricingCardSummaryProps = {
 type PricingCardFeaturesProps = {
   groupPlanFeatures: HeadingAndTextFieldLibraryType & {
     featuresTitle: TextFieldType['default'];
-    groupFeatures: [
-      {
-        feature: TextFieldType['default'];
-      }
-    ];
+    groupFeatures: Array<{
+      feature: TextFieldType['default'];
+    }>;
   };
 };
 

@@ -1,8 +1,10 @@
 import { LanguageVariant } from '@hubspot/cms-components';
 import styles from './language-options.module.css';
-import cx from '../utils/classnames.js';
+import cx, { staticWithModule } from '../utils/classnames.js';
 import { createComponent } from '../utils/create-component.js';
 import { CSSPropertiesMap } from '../types/components.js';
+
+const swm = staticWithModule(styles);
 
 // Types
 
@@ -39,9 +41,7 @@ type TypographyProps = {
 function generateTypographyCssVars(props: TypographyProps): CSSPropertiesMap {
   const { fontSize } = props;
 
-  return {
-    '--hsElevate--languageSwitcher__fontSize': fontSize,
-  };
+  return { '--hsElevate--languageSwitcher__fontSize': fontSize };
 }
 
 // Components
@@ -67,16 +67,12 @@ export const LanguageOptions = ({
   };
 
   return (
-    <LanguageList
-      style={cssVarsMap}
-      role="menu"
-      className={cx('hs-elevate-language-switcher__language-list', styles['hs-elevate-language-switcher__language-list'])}
-    >
+    <LanguageList style={cssVarsMap} role="menu" className={swm('hs-elevate-language-switcher__language-list')}>
       {translations.map(translation => (
         <LanguageItem
           key={translation.languageCode}
           role="menuitem"
-          className={cx('hs-elevate-language-switcher__language-item', styles['hs-elevate-language-switcher__language-item'], {
+          className={cx(swm('hs-elevate-language-switcher__language-item'), {
             [styles['hs-elevate-language-switcher__language-item--active']]: translation.isActive,
           })}
         >
@@ -84,7 +80,7 @@ export const LanguageOptions = ({
             href={translation.localizedUrl}
             lang={translation.languageCode}
             hrefLang={translation.languageCode}
-            className={cx('hs-elevate-language-switcher__language-link', styles['hs-elevate-language-switcher__language-link'])}
+            className={swm('hs-elevate-language-switcher__language-link')}
           >
             {translation.languageDisplayName.LOCALIZED}
           </LanguageLink>

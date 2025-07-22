@@ -1,6 +1,6 @@
 // For testing purposes / local developement swap out translations with dummyTranslations
 import styles from './mobile-site-header-language-switcher.module.css';
-import cx from '../utils/classnames.js';
+import cx, { staticWithModule } from '../utils/classnames.js';
 import { createComponent } from '../utils/create-component.js';
 import { useState, useRef, useMemo } from 'react';
 import { getLanguageDisplayName, shouldDisplayLanguageSwitcher, createTranslationsArrayAsObject } from './utils.js';
@@ -10,6 +10,8 @@ import { useLanguageVariants, Icon } from '@hubspot/cms-components';
 import GlobeIcon from './assets/Globe.js';
 import { useDocumentLang } from '../hooks/useDocumentLang.js';
 import { CSSPropertiesMap } from '../types/components.js';
+
+const swm = staticWithModule(styles);
 
 // Functions to generate CSS variables
 
@@ -70,21 +72,15 @@ const MobileSiteHeaderLanguageSwitcher = (props: LanguageSwitcherProps) => {
     setIsOpen(!isOpen);
   };
 
-  const overlayClassNames = cx('hs-elevate-site-header__language-switcher-overlay', styles['hs-elevate-site-header__language-switcher-overlay'], {
+  const overlayClassNames = cx(swm('hs-elevate-site-header__language-switcher-overlay'), {
     [styles['hs-elevate-site-header__language-switcher-overlay--open']]: isOpen,
   });
 
-  const languageSwitcherContainerClassNames = cx(
-    'hs-elevate-site-header__language-switcher-container',
-    styles['hs-elevate-site-header__language-switcher-container'],
-    {
-      [styles['hs-elevate-site-header__language-switcher-container--open']]: isOpen,
-    }
-  );
+  const languageSwitcherContainerClassNames = cx(swm('hs-elevate-site-header__language-switcher-container'), {
+    [styles['hs-elevate-site-header__language-switcher-container--open']]: isOpen,
+  });
 
-  const cssVarsMap = {
-    ...generateColorCssVars({ menuBackgroundColor, menuBackgroundColorHover, textColor, textColorHover }),
-  };
+  const cssVarsMap = { ...generateColorCssVars({ menuBackgroundColor, menuBackgroundColorHover, textColor, textColorHover }) };
 
   return (
     <>
@@ -95,32 +91,16 @@ const MobileSiteHeaderLanguageSwitcher = (props: LanguageSwitcherProps) => {
           onClick={toggleLanguageOptions}
           aria-expanded={isOpen}
           aria-controls="language-options"
-          className={cx('hs-elevate-site-header__language-switcher-button', styles['hs-elevate-site-header__language-switcher-button'])}
+          className={swm('hs-elevate-site-header__language-switcher-button')}
         >
-          <LanguageButtonContent
-            className={cx('hs-elevate-site-header__language-switcher-button-content', styles['hs-elevate-site-header__language-switcher-button-content'])}
-          >
+          <LanguageButtonContent className={swm('hs-elevate-site-header__language-switcher-button-content')}>
             {langSwitcherIcon}
             <span className="hs-elevate-site-header__language-switcher-current-language">{currentPageLanguageDisplayName}</span>
           </LanguageButtonContent>
         </LanguageSwitcherButton>
-        <LanguageOptionsContainer
-          className={cx('hs-elevate-site-header__language-switcher-options-container', styles['hs-elevate-site-header__language-switcher-options-container'])}
-        >
-          <LanguageLabel
-            className={cx(
-              'hs-elevate-site-header__language-switcher-select-language-label',
-              styles['hs-elevate-site-header__language-switcher-select-language-label']
-            )}
-          >
-            {languageSwitcherSelectText}
-          </LanguageLabel>
-          <OptionsScrollWrapper
-            className={cx(
-              'hs-elevate-site-header__language-switcher-options-scroll-wrapper',
-              styles['hs-elevate-site-header__language-switcher-options-scroll-wrapper']
-            )}
-          >
+        <LanguageOptionsContainer className={swm('hs-elevate-site-header__language-switcher-options-container')}>
+          <LanguageLabel className={swm('hs-elevate-site-header__language-switcher-select-language-label')}>{languageSwitcherSelectText}</LanguageLabel>
+          <OptionsScrollWrapper className={swm('hs-elevate-site-header__language-switcher-options-scroll-wrapper')}>
             <LanguageOptions
               translations={translations}
               menuBackgroundColorHover={menuBackgroundColorHover}
