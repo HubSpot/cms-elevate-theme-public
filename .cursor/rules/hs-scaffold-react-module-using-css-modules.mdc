@@ -26,7 +26,7 @@ Index.tsx file example.
     const {text} = props
 
     return (
-      <div className={styles.defaultContainer}>
+      <div className={styles['defaultContainer']}>
         <h1>Scaffold default content</h1>
         <p>{ text }</p>
       </div>

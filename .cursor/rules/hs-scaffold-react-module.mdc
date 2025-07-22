@@ -1,6 +1,6 @@
 ---
 description: Scaffold a new module
-globs: 
+globs:
 ---
 # Scaffold a React Module
 
@@ -28,15 +28,30 @@ src/unified-theme/components/modules/[ModuleName]/
 ### index.tsx
 ```tsx
 import { ModuleMeta } from '../../types/modules.js';
-import { styled } from 'styled-components';
-import StyledComponentsRegistry from '../../StyledComponentsRegistry/StyledComponentsRegistry.jsx';
+import { createComponent } from '../../utils/create-component.js';
+import { CSSPropertiesMap } from '../../types/components.js';
+import styles from './[module-name].module.css';
+import cx, { staticWithModule } from '../../utils/classnames.js';
 import { ModuleProps } from './types.js';
 
+const swm = staticWithModule(styles);
+
+// Components
+const ModuleContainer = createComponent('div');
+
 export const Component = (props: ModuleProps) => {
+  // Generate CSS variables if needed
+  const cssVarsMap: CSSPropertiesMap = {
+    // Add CSS custom properties here
+  };
+
   return (
-    <StyledComponentsRegistry>
+    <ModuleContainer
+      className={swm('hs-elevate-[module-name]')}
+      style={cssVarsMap}
+    >
       {/* TODO: Implement module content */}
-    </StyledComponentsRegistry>
+    </ModuleContainer>
   );
 };
 
@@ -85,18 +100,33 @@ export interface ModuleProps {
 
 ### [Name]Island.tsx (if needed)
 ```tsx
-import { styled } from 'styled-components';
-import StyledComponentsRegistry from '../../../StyledComponentsRegistry/StyledComponentsRegistry.jsx';
+import { createComponent } from '../../../utils/create-component.js';
+import { CSSPropertiesMap } from '../../../types/components.js';
+import styles from './[island-name].module.css';
+import cx, { staticWithModule } from '../../../utils/classnames.js';
+
+const swm = staticWithModule(styles);
 
 interface IslandProps {
   // TODO: Define island props
 }
 
+// Components
+const IslandContainer = createComponent('div');
+
 const [Name]Island = (props: IslandProps) => {
+  // Generate CSS variables if needed
+  const cssVarsMap: CSSPropertiesMap = {
+    // Add CSS custom properties here
+  };
+
   return (
-    <StyledComponentsRegistry>
+    <IslandContainer
+      className={swm('hs-elevate-[island-name]')}
+      style={cssVarsMap}
+    >
       {/* TODO: Implement island content */}
-    </StyledComponentsRegistry>
+    </IslandContainer>
   );
 };
 
@@ -131,7 +161,7 @@ export default [Name]Island;
 
 ## Best Practices
 - Use TypeScript for all files
-- Include StyledComponentsRegistry in all rendered components
+- Use createComponent utility for semantic component creation
 - Follow HubSpot module naming conventions
 - Add clear TODOs for future implementation
 - Keep initial implementation minimal
@@ -195,16 +225,23 @@ src/unified-theme/components/modules/FeaturedProducts/
 ### index.tsx
 ```tsx
 import { ModuleMeta } from '../../types/modules.js';
-import { styled } from 'styled-components';
 import { Island } from '@hubspot/cms-components';
-import StyledComponentsRegistry from '../../StyledComponentsRegistry/StyledComponentsRegistry.jsx';
+import { createComponent } from '../../utils/create-component.js';
+import { CSSPropertiesMap } from '../../types/components.js';
+import styles from './featured-products.module.css';
+import cx, { staticWithModule } from '../../utils/classnames.js';
 import moduleIconSvg from './assets/module-icon.svg';
 import ProductDetailsIsland from './islands/ProductDetailsIsland.js?island';
+
+const swm = staticWithModule(styles);
 
 // Types
 type ModuleProps = {
   // Define module props here based on fields.tsx
 };
+
+// Components
+const ModuleContainer = createComponent('div');
 
 // Utility Functions
 const handleProductExpand = () => {
@@ -217,10 +254,17 @@ const formatProductPrice = () => {
 
 // Main Component
 export const Component = (props: ModuleProps) => {
+  const cssVarsMap: CSSPropertiesMap = {
+    // Add CSS custom properties here
+  };
+
   return (
-    <StyledComponentsRegistry>
+    <ModuleContainer
+      className={swm('hs-elevate-featured-products')}
+      style={cssVarsMap}
+    >
       {/*TODO: Module content will be implemented here */}
-    </StyledComponentsRegistry>
+    </ModuleContainer>
   );
 };
 
@@ -262,12 +306,20 @@ export const fields = (
 
 ### islands/ProductDetailsIsland.tsx
 ```tsx
-import { styled } from 'styled-components';
-import StyledComponentsRegistry from '../../../StyledComponentsRegistry/StyledComponentsRegistry.jsx';
+import { useState } from 'react';
+import { createComponent } from '../../../utils/create-component.js';
+import { CSSPropertiesMap } from '../../../types/components.js';
+import styles from './product-details-island.module.css';
+import cx, { staticWithModule } from '../../../utils/classnames.js';
+
+const swm = staticWithModule(styles);
 
 type ProductDetailsProps = {
   // Define island props here
 };
+
+// Components
+const IslandContainer = createComponent('div');
 
 const ProductDetailsIsland = (props: ProductDetailsProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -276,10 +328,17 @@ const ProductDetailsIsland = (props: ProductDetailsProps) => {
     // Handle expand/collapse state
   };
 
+  const cssVarsMap: CSSPropertiesMap = {
+    // Add CSS custom properties here
+  };
+
   return (
-    <StyledComponentsRegistry>
+    <IslandContainer
+      className={swm('hs-elevate-product-details')}
+      style={cssVarsMap}
+    >
       {/* Island content will be implemented here */}
-    </StyledComponentsRegistry>
+    </IslandContainer>
   );
 };
 
