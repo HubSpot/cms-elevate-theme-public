@@ -2,8 +2,10 @@ import { ModuleMeta } from '../../types/modules.js';
 import { TextFieldType } from '@hubspot/cms-components/fields';
 import styles from './anchor.module.css';
 import anchorIconSvg from './assets/anchor.svg';
-import cx from '../../utils/classnames.js';
+import cx, { staticWithModule } from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
+
+const swm = staticWithModule(styles);
 
 // Types
 
@@ -25,8 +27,8 @@ export const Component = (props: AnchorProps) => {
   const showAnchorVisual = hublData.isInEditor ? true : false;
 
   return (
-    <Anchor className={cx('hs-elevate-anchor', styles['hs-elevate-anchor'])} id={anchor}>
-      {showAnchorVisual && <AnchorVisual className={cx('hs-elevate-anchor__visual', styles['hs-elevate-anchor__visual'])}></AnchorVisual>}
+    <Anchor className={swm('hs-elevate-anchor')} id={anchor}>
+      {showAnchorVisual && <AnchorVisual className={swm('hs-elevate-anchor__visual')}></AnchorVisual>}
     </Anchor>
   );
 };

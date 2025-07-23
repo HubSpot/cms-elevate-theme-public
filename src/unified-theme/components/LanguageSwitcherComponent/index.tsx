@@ -1,8 +1,10 @@
-// For testing purposes / local developement swap out translations with dummyTranslations
-// import { dummyTranslations, dummyTranslationsAsObject } from './dummyData.js';
+/*
+ * For testing purposes / local developement swap out translations with dummyTranslations
+ * import { dummyTranslations, dummyTranslationsAsObject } from './dummyData.js';
+ */
 
 import styles from './language-switcher.module.css';
-import cx from '../utils/classnames.js';
+import cx, { staticWithModule } from '../utils/classnames.js';
 import { createComponent } from '../utils/create-component.js';
 import { shouldDisplayLanguageSwitcher, getLanguageDisplayName, createTranslationsArrayAsObject } from './utils.jsx';
 import LanguageOptions from './LanguageOptions.jsx';
@@ -12,10 +14,11 @@ import { useLanguageVariants, Icon } from '@hubspot/cms-components';
 import { useIsInEditor } from '../hooks/useIsInEditor.js';
 import GlobeIcon from './assets/Globe.js';
 import useDocumentLang from '../hooks/useDocumentLang.js';
+import { CSSPropertiesMap } from '../types/components.js';
+
+const swm = staticWithModule(styles);
 
 // Functions to generate CSS variables
-
-type CSSPropertiesMap = { [key: string]: string };
 
 type ColorProps = {
   textColor: string;
@@ -80,29 +83,19 @@ const LanguageSwitcherIsland = (props: LanguageSwitcherProps) => {
     setIsOpen(!isOpen);
   }
 
-  const cssVarsMap = {
-    ...generateColorCssVars({ textColor, menuBackgroundColor }),
-  };
+  const cssVarsMap = { ...generateColorCssVars({ textColor, menuBackgroundColor }) };
 
-  const overlayClasses = cx('hs-elevate-language-switcher__overlay', styles['hs-elevate-language-switcher__overlay'], {
-    [styles['hs-elevate-language-switcher__overlay--open']]: isOpen,
-  });
+  const overlayClasses = cx(swm('hs-elevate-language-switcher__overlay'), { [styles['hs-elevate-language-switcher__overlay--open']]: isOpen });
 
-  const sidePanelClasses = cx('hs-elevate-language-switcher__side-panel', styles['hs-elevate-language-switcher__side-panel'], {
-    [styles['hs-elevate-language-switcher__side-panel--open']]: isOpen,
-  });
+  const sidePanelClasses = cx(swm('hs-elevate-language-switcher__side-panel'), { [styles['hs-elevate-language-switcher__side-panel--open']]: isOpen });
 
   return (
-    <LanguageSwitcherNav
-      style={cssVarsMap}
-      onClick={handleContainerClick}
-      className={cx('hs-elevate-language-switcher', styles['hs-elevate-language-switcher'])}
-    >
+    <LanguageSwitcherNav style={cssVarsMap} onClick={handleContainerClick} className={swm('hs-elevate-language-switcher')}>
       <LanguageSwitcherButton
         aria-expanded={isOpen}
         aria-label={currentPageLanguageDisplayName}
         onClick={handleLanguageSwitcherClick}
-        className={cx('hs-elevate-language-switcher__button', styles['hs-elevate-language-switcher__button'])}
+        className={swm('hs-elevate-language-switcher__button')}
       >
         {langSwitcherIcon}
         <span className="hs-elevate-language-switcher__current-language">{currentPageLanguageDisplayName}</span>
@@ -110,22 +103,14 @@ const LanguageSwitcherIsland = (props: LanguageSwitcherProps) => {
       {isOpen && <Overlay onClick={closeSidePanel} className={overlayClasses} />}
       {!isInEditor && (
         <SidePanel className={sidePanelClasses}>
-          <PanelHeader className={cx('hs-elevate-language-switcher__side-panel-header', styles['hs-elevate-language-switcher__side-panel-header'])}>
-            <PanelTitle className={cx('hs-elevate-language-switcher__side-panel-title', styles['hs-elevate-language-switcher__side-panel-title'])}>
-              {languageSwitcherSelectText}
-            </PanelTitle>
-            <CloseButton
-              onClick={closeSidePanel}
-              aria-label="Close language selector"
-              className={cx('hs-elevate-language-switcher__side-panel-close-button', styles['hs-elevate-language-switcher__side-panel-close-button'])}
-            >
+          <PanelHeader className={swm('hs-elevate-language-switcher__side-panel-header')}>
+            <PanelTitle className={swm('hs-elevate-language-switcher__side-panel-title')}>{languageSwitcherSelectText}</PanelTitle>
+            <CloseButton onClick={closeSidePanel} aria-label="Close language selector" className={swm('hs-elevate-language-switcher__side-panel-close-button')}>
               ✕
             </CloseButton>
           </PanelHeader>
 
-          <PanelContent
-            className={cx('hs-elevate-language-switcher__side-panel-options-container', styles['hs-elevate-language-switcher__side-panel-options-container'])}
-          >
+          <PanelContent className={swm('hs-elevate-language-switcher__side-panel-options-container')}>
             <LanguageOptions
               translations={translations}
               menuBackgroundColorHover={menuBackgroundColorHover}

@@ -5,15 +5,16 @@ import { SectionVariantType } from '../../types/fields.js';
 import richTextIconSvg from './assets/rich-text.svg';
 import { SectionStyleFieldLibraryType } from '../../fieldLibrary/SectionStyle/types.js';
 import { sectionColorsMap } from '../../utils/section-color-map.js';
-import cx from '../../utils/classnames.js';
+import { CSSPropertiesMap } from '../../types/components.js';
+import { staticWithModule } from '../../utils/classnames.js';
+
+const swm = staticWithModule(styles);
 
 type RichTextProps = {
   groupStyle: SectionStyleFieldLibraryType;
 };
 
 // Function to generate CSS variables for colors
-
-type CSSPropertiesMap = { [key: string]: string };
 
 function generateColorCssVars(sectionVariantField: SectionVariantType): CSSPropertiesMap {
   return {
@@ -40,7 +41,7 @@ export const Component = (props: RichTextProps) => {
     ...generateColorCssVars(sectionStyleVariant),
   };
 
-  return <RichText className={cx('hs-elevate-rich-text', styles['hs-elevate-rich-text'])} fieldPath="richTextContentHTML" style={cssVarsMap} />;
+  return <RichText className={swm('hs-elevate-rich-text')} fieldPath="richTextContentHTML" style={cssVarsMap} />;
 };
 
 export { fields } from './fields.js';

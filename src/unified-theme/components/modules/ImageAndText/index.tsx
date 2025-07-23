@@ -15,8 +15,11 @@ import { RichTextContentFieldLibraryType } from '../../fieldLibrary/RichTextCont
 import { HeadingStyleFieldLibraryType } from '../../fieldLibrary/HeadingStyle/types.js';
 import { HeadingAndTextFieldLibraryType } from '../../fieldLibrary/HeadingAndText/types.js';
 import { sectionColorsMap } from '../../utils/section-color-map.js';
-import cx from '../../utils/classnames.js';
+import { staticWithModule } from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
+import { CSSPropertiesMap } from '../../types/components.js';
+
+const swm = staticWithModule(styles);
 
 // Types
 
@@ -51,8 +54,6 @@ type ImageAndTextProps = {
 // Image and text component
 
 // Functions to pull in corresponding CSS variables on component based on field values
-
-type CSSPropertiesMap = { [key: string]: string };
 
 function generateColorCssVars(sectionVariantField: SectionVariantType): CSSPropertiesMap {
   return {
@@ -113,11 +114,11 @@ export const Component = (props: ImageAndTextProps) => {
   };
 
   return (
-    <ImageAndText className={cx('hs-elevate-image-and-text', styles['hs-elevate-image-and-text'])} style={cssVarsMap}>
+    <ImageAndText className={swm('hs-elevate-image-and-text')} style={cssVarsMap}>
       {image.src && (
-        <ImageContainer className={cx('hs-elevate-image-and-text__image-container', styles['hs-elevate-image-and-text__image-container'])}>
+        <ImageContainer className={swm('hs-elevate-image-and-text__image-container')}>
           <Image
-            className={cx('hs-elevate-image-and-text__image', styles['hs-elevate-image-and-text__image'])}
+            className={swm('hs-elevate-image-and-text__image')}
             src={image.src}
             alt={image.alt}
             width={image.width}
@@ -127,7 +128,7 @@ export const Component = (props: ImageAndTextProps) => {
         </ImageContainer>
       )}
       {hasContent && (
-        <ContentContainer className={cx('hs-elevate-image-and-text__content-container', styles['hs-elevate-image-and-text__content-container'])}>
+        <ContentContainer className={swm('hs-elevate-image-and-text__content-container')}>
           {headingAndTextHeading && (
             <HeadingComponent
               additionalClassArray={['hs-elevate-image-and-text__title']}

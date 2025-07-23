@@ -1,8 +1,10 @@
 import styles from './pagination.module.css';
-import cx from '../../utils/classnames.js';
+import cx, { staticWithModule } from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
 import Chevron from './chevron.js';
 import { usePageUrl } from '@hubspot/cms-components';
+
+const swm = staticWithModule(styles);
 
 // Types
 
@@ -19,10 +21,13 @@ type PaginationProps = {
 // Helper functions
 
 export function standardizePathName(currentPathName: string) {
-  // If the pathname is '/' return an empty string
-  // This is to avoid having a double slash in the basePagePath
-  // This only happens if the blog is setup in the root directory of the website
-  // or exists on a subdomain ex: https://blog.example.com/
+  /*
+   * If the pathname is '/' return an empty string
+   * This is to avoid having a double slash in the basePagePath
+   * This only happens if the blog is setup in the root directory of the website
+   * or exists on a subdomain ex: https://blog.example.com/
+   */
+
   return currentPathName === '/' ? '' : currentPathName;
 }
 
@@ -33,14 +38,20 @@ export function buildPaginationNumbers(currentPageNumber: number, totalPageCount
   let displayPreviousEllipsis = false;
   let displayNextEllipsis = false;
 
-  // Threshold allows us to manipulate the array above(standardizedPageNumbers)
-  // to change how many pages we want to display
-  // without needing to change other parts of the function.
+  /*
+   * Threshold allows us to manipulate the array above(standardizedPageNumbers)
+   * to change how many pages we want to display
+   * without needing to change other parts of the function.
+   */
+
   const threshold = Math.abs(standardizedPageNumbers[0]);
 
   if (totalPageCount <= standardizedPageNumbers.length) {
-    // If we have less than the length of the standardizedPageNumbers array
-    // Then just display all the pages.
+    /*
+     * If we have less than the length of the standardizedPageNumbers array
+     * Then just display all the pages.
+     */
+
     return {
       pagesToDisplay: Array.from({ length: totalPageCount }, (_, i) => i + 1),
       displayFirstNumber,
@@ -81,9 +92,9 @@ export function buildPaginationNumbers(currentPageNumber: number, totalPageCount
   }
 
   // display standardized pages around the current page
-  displayFirstNumber = currentPageNumber === threshold + 1 ? false : true;
-  displayPreviousEllipsis = currentPageNumber === threshold + 1 ? false : true;
-  displayNextEllipsis = currentPageNumber === totalPageCount - threshold - 1 ? false : true;
+  displayFirstNumber = currentPageNumber !== threshold + 1;
+  displayPreviousEllipsis = currentPageNumber !== threshold + 1;
+  displayNextEllipsis = currentPageNumber !== totalPageCount - threshold - 1;
   displayLastNumber = true;
   return {
     pagesToDisplay: standardizedPageNumbers.map(pageNumber => currentPageNumber + pageNumber),
@@ -130,20 +141,18 @@ export default function Pagination(props: PaginationProps) {
     totalPageCount
   );
 
-  const previousNavLinkClasses = cx('hs-elevate-blog-listing__nav-link', styles['hs-elevate-blog-listing__nav-link'], {
+  const previousNavLinkClasses = cx(swm('hs-elevate-blog-listing__nav-link'), {
     [styles['hs-elevate-blog-listing__nav-link--disabled']]: !enablePreviousButton,
   });
 
-  const chevronClasses = cx('hs-elevate-blog-listing__pagination-icon', styles['hs-elevate-blog-listing__pagination-icon']);
+  const chevronClasses = swm('hs-elevate-blog-listing__pagination-icon');
 
-  const paginationLinkClasses = cx('hs-elevate-blog-listing__pagination-link', styles['hs-elevate-blog-listing__pagination-link']);
+  const paginationLinkClasses = swm('hs-elevate-blog-listing__pagination-link');
 
-  const nextNavLinkClasses = cx('hs-elevate-blog-listing__nav-link', styles['hs-elevate-blog-listing__nav-link'], {
-    [styles['hs-elevate-blog-listing__nav-link--disabled']]: !enableNextButton,
-  });
+  const nextNavLinkClasses = cx(swm('hs-elevate-blog-listing__nav-link'), { [styles['hs-elevate-blog-listing__nav-link--disabled']]: !enableNextButton });
 
   return (
-    <PaginationContainer className={cx('hs-elevate-blog-listing__pagination-container', styles['hs-elevate-blog-listing__pagination-container'])}>
+    <PaginationContainer className={swm('hs-elevate-blog-listing__pagination-container')}>
       <NavLink className={previousNavLinkClasses} href={previousPageUrl}>
         <Chevron additionalClassArray={[chevronClasses, 'hs-elevate-helper--rotate-180', styles['hs-elevate-helper--rotate-180']]} />
         <ScreenReadyOnly content={defaultContent.previousPage} />
@@ -157,9 +166,7 @@ export default function Pagination(props: PaginationProps) {
       {displayPreviousEllipsis && <Ellipsis />}
       {pagesToDisplay.map(index => (
         <PaginationLink
-          className={cx(paginationLinkClasses, {
-            [styles['hs-elevate-blog-listing__pagination-link--active']]: currentPageNumber === index,
-          })}
+          className={cx(paginationLinkClasses, { [styles['hs-elevate-blog-listing__pagination-link--active']]: currentPageNumber === index })}
           key={index}
           href={`${basePagePath}/${index}`}
         >

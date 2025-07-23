@@ -1,4 +1,4 @@
-import cx from './classnames.js';
+import cx, { staticWithModule } from './classnames.js';
 import { describe, it, expect } from 'vitest';
 
 describe('cx', () => {
@@ -83,5 +83,48 @@ describe('cx', () => {
 
   it('should trim keys in objects', () => {
     expect(cx({ '  foo  ': true, 'bar  ': true })).toBe('foo bar');
+  });
+});
+
+describe('staticWithModule', () => {
+  const styles = {
+    'hs-button': 'hs-button_xyz123',
+    'hs-button--primary': 'hs-button--primary_abc456',
+    'with-space': 'with-space_def789',
+  };
+  const swm = staticWithModule(styles);
+
+  it('should return global and mapped classes for single string input', () => {
+    expect(swm('hs-button')).toBe('hs-button hs-button_xyz123');
+  });
+
+  it('should return global and mapped classes for multiple space-separated class names', () => {
+    expect(swm('hs-button hs-button--primary')).toBe('hs-button hs-button_xyz123 hs-button--primary hs-button--primary_abc456');
+  });
+
+  it('should return only global classes if no match in styles', () => {
+    expect(swm('unmapped-class')).toBe('unmapped-class');
+  });
+
+  it('should trim class names', () => {
+    expect(swm('  hs-button  hs-button--primary  ')).toBe('hs-button hs-button_xyz123 hs-button--primary hs-button--primary_abc456');
+  });
+
+  it('should work when no styles match', () => {
+    const scEmpty = staticWithModule({});
+    expect(scEmpty('foo bar')).toBe('foo bar');
+  });
+
+  it('should not add undefined or empty class names from styles', () => {
+    const scPartial = staticWithModule({ 'known-class': 'mapped-class' });
+    expect(scPartial('known-class unknown-class')).toBe('known-class mapped-class unknown-class');
+  });
+
+  it('should handle duplicate class names without duplication in output', () => {
+    expect(swm('hs-button hs-button')).toBe('hs-button hs-button_xyz123 hs-button hs-button_xyz123');
+  });
+
+  it('should handle class names with dashes and special characters', () => {
+    expect(swm('with-space')).toBe('with-space with-space_def789');
   });
 });

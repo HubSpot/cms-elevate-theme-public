@@ -1,6 +1,6 @@
 import { ModuleMeta } from '../../types/modules.js';
 import styles from './recent-blog-posts.module.css';
-import cx from '../../utils/classnames.js';
+import { staticWithModule } from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
 import { withUrlPath } from '@hubspot/cms-components';
 import cardIconSvg from './assets/card-icon-temp.svg';
@@ -10,6 +10,8 @@ import { HeadingLevelType } from '../../types/fields.js';
 import { CardVariantType } from '../../types/fields.js';
 import { HeadingStyleFieldLibraryType } from '../../fieldLibrary/HeadingStyle/types.js';
 import { PlaceholderEmptyContent } from '../../PlaceholderComponent/PlaceholderEmptyContent.js';
+
+const swm = staticWithModule(styles);
 
 // Types
 
@@ -62,8 +64,8 @@ export const Component = (props: RecentBlogPostsProps) => {
   const postsToUse = posts || [];
 
   return (
-    <RecentBlogPosts className={cx('hs-elevate-recent-blog-posts', styles['hs-elevate-recent-blog-posts'])}>
-      <BlogCardsContainer className={cx('hs-elevate-recent-blog-posts__blog-card-container', styles['hs-elevate-recent-blog-posts__blog-card-container'])}>
+    <RecentBlogPosts className={swm('hs-elevate-recent-blog-posts')}>
+      <BlogCardsContainer className={swm('hs-elevate-recent-blog-posts__blog-card-container')}>
         {postsToUse.length === 0 && isInEditor ? (
           <PlaceholderEmptyContent title={placeholderTitle} description={placeholderDescription} icon={meta.icon} />
         ) : (
@@ -78,7 +80,7 @@ export const Component = (props: RecentBlogPostsProps) => {
               headingStyleVariant={headingStyleVariant}
               cardStyleVariant={cardStyleVariant}
               gatedContentIds={gatedContentIds.map(id => id.toString())}
-              additionalClassArray={['hs-elevate-recent-blog-posts__blog-card', styles['hs-elevate-recent-blog-posts__blog-card']]}
+              additionalClassArray={[swm('hs-elevate-recent-blog-posts__blog-card')]}
             />
           ))
         )}

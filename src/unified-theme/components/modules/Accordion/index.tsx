@@ -1,18 +1,21 @@
 import { ModuleMeta } from '../../types/modules.js';
 import { RichText } from '@hubspot/cms-components';
 import { TextFieldType } from '@hubspot/cms-components/fields';
-import { CardVariantType } from '../../types/fields.js';
+import { CardVariantType, StandardSizeType } from '../../types/fields.js';
 import accordionIconSvg from './assets/down.svg';
 import styles from './accordion.module.css';
 import { RichTextContentFieldLibraryType } from '../../fieldLibrary/RichTextContent/types.js';
 import { CardStyleFieldLibraryType } from '../../fieldLibrary/CardStyle/types.js';
 import { getCardVariantClassName } from '../../utils/card-variants.js';
-import cx from '../../utils/classnames.js';
+import cx, { staticWithModule } from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
+import { CSSPropertiesMap } from '../../types/components.js';
+
+const swm = staticWithModule(styles);
 
 // Types
 
-type Gap = 'small' | 'medium' | 'large';
+type Gap = StandardSizeType;
 
 type GroupAccordions = RichTextContentFieldLibraryType & {
   title: TextFieldType['default'];
@@ -31,8 +34,6 @@ type AccordionProps = {
 };
 
 // Functions to pull in corresponding CSS variables on component based on field values
-
-type CSSPropertiesMap = { [key: string]: string };
 
 function generateGapCssVars(gapField: Gap): CSSPropertiesMap {
   const gapMap = {
@@ -126,13 +127,11 @@ export const Component = (props: AccordionProps) => {
   };
 
   return (
-    <AccordionContainer className={cx('hs-elevate-accordion-container', styles['hs-elevate-accordion-container'])} style={cssVarsMap}>
+    <AccordionContainer className={swm('hs-elevate-accordion-container')} style={cssVarsMap}>
       {groupAccordions.map((accordion, index) => (
-        <Accordion className={cx('hs-elevate-accordion', cardClassName, styles['hs-elevate-accordion'])} key={index}>
-          <AccordionTitle className={cx('hs-elevate-accordion__title', styles['hs-elevate-accordion__title'])}>
-            <AccordionTitleText className={cx('hs-elevate-accordion__title-text', styles['hs-elevate-accordion__title-text'])}>
-              {accordion.title}
-            </AccordionTitleText>
+        <Accordion className={cx(swm('hs-elevate-accordion'), cardClassName)} key={index}>
+          <AccordionTitle className={swm('hs-elevate-accordion__title')}>
+            <AccordionTitleText className={swm('hs-elevate-accordion__title-text')}>{accordion.title}</AccordionTitleText>
             {icon === 'chevron' ? (
               <AccordionArrow />
             ) : (
@@ -142,11 +141,7 @@ export const Component = (props: AccordionProps) => {
               </>
             )}
           </AccordionTitle>
-          <RichText
-            className={cx('hs-elevate-accordion__body', styles['hs-elevate-accordion__body'])}
-            fieldPath={`groupAccordions[${index}].richTextContentHTML`}
-            tag="div"
-          />
+          <RichText className={swm('hs-elevate-accordion__body')} fieldPath={`groupAccordions[${index}].richTextContentHTML`} tag="div" />
         </Accordion>
       ))}
     </AccordionContainer>

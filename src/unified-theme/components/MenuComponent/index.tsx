@@ -1,6 +1,6 @@
 import { useState, useRef, KeyboardEvent, FocusEvent, useEffect, useCallback, useMemo } from 'react';
 import { MenuComponentProps, MenuItemRefsType, LinkRefsType, A11yControllerType, visibleMenuItemsControllerType } from './types.js';
-import MenuItemComponent from './MenuItemComponent.js';
+import { MenuItemComponent } from './MenuItemComponent.js';
 import { getAlignmentFieldCss } from '../utils/style-fields.js';
 
 function MenuComponent(props: MenuComponentProps) {

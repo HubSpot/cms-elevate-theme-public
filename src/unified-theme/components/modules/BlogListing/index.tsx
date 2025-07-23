@@ -1,6 +1,6 @@
 import { ModuleMeta } from '../../types/modules.js';
 import styles from './blog-listing.module.css';
-import cx from '../../utils/classnames.js';
+import cx, { staticWithModule } from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
 import blogSVG from './assets/blog.svg';
 import { withUrlPath } from '@hubspot/cms-components';
@@ -10,6 +10,8 @@ import { HeadingStyleFieldLibraryType } from '../../fieldLibrary/HeadingStyle/ty
 import { CardStyleFieldLibraryType } from '../../fieldLibrary/CardStyle/types.js';
 import { HeadingAndTextFieldLibraryType } from '../../fieldLibrary/HeadingAndText/types.js';
 import fetchGatedPosts from '../../utils/ServerSideProps/fetchGatedBlogPosts.js';
+
+const swm = staticWithModule(styles);
 
 // Types
 
@@ -58,13 +60,13 @@ export const Component = (props: BlogListingProps) => {
     defaultContent,
   } = props;
 
-  const blogListingClasses = cx('hs-elevate-blog-listing', styles['hs-elevate-blog-listing'], {
+  const blogListingClasses = cx(swm('hs-elevate-blog-listing'), {
     [styles['hs-elevate-blog-listing--has-featured-post']]: (currentPageNumber === 1 || currentPageNumber === undefined) && use_featured_image_in_summary,
   });
 
   return (
     <BlogListing className={blogListingClasses}>
-      <BlogCardsContainer className={cx('hs-elevate-blog-listing__blog-card-container', styles['hs-elevate-blog-listing__blog-card-container'])}>
+      <BlogCardsContainer className={swm('hs-elevate-blog-listing__blog-card-container')}>
         {blogPosts.map(post => {
           return (
             <BlogCardComponent
@@ -77,7 +79,7 @@ export const Component = (props: BlogListingProps) => {
               headingStyleVariant={headingStyleVariant}
               cardStyleVariant={cardStyleVariant}
               gatedContentIds={gatedContentIds.map(id => id.toString())}
-              additionalClassArray={['hs-elevate-blog-listing__blog-card', styles['hs-elevate-blog-listing__blog-card']]}
+              additionalClassArray={[swm('hs-elevate-blog-listing__blog-card')]}
             />
           );
         })}

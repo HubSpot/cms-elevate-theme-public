@@ -1,5 +1,5 @@
 import styles from '../mobile-menu.module.css';
-import cx from '../../../utils/classnames.js';
+import cx, { staticWithModule } from '../../../utils/classnames.js';
 import { createComponent } from '../../../utils/create-component.js';
 import MenuComponent from '../../../MenuComponent/index.js';
 import { useEffect, useState } from 'react';
@@ -8,10 +8,11 @@ import { Button } from '../../../ButtonComponent/index.js';
 import { getLinkFieldHref, getLinkFieldRel, getLinkFieldTarget } from '../../../utils/content-fields.js';
 import { MobileMenuIslandProps } from '../types.js';
 import MobileSiteHeaderLanguageSwitcher from '../../../LanguageSwitcherComponent/MobileSiteHeaderLanguageSwitcherComponent.js';
+import { CSSPropertiesMap } from '../../../types/components.js';
+
+const swm = staticWithModule(styles);
 
 // Functions to generate CSS variables
-
-type CSSPropertiesMap = { [key: string]: string };
 
 type ColorProps = {
   menuTextColor: string;
@@ -127,7 +128,9 @@ export default function MobileMenuIsland(props: MobileMenuIslandProps) {
   useEffect(() => {
     const header = document.querySelector('.hs-elevate-site-header') as HTMLElement;
 
-    if (!header) return;
+    if (!header) {
+      return;
+    }
 
     const updateHeight = () => {
       setHeaderHeight(header.offsetHeight);
@@ -151,7 +154,9 @@ export default function MobileMenuIsland(props: MobileMenuIslandProps) {
   useEffect(() => {
     const headerMobileLanguageSwitcherButton = document.querySelector('.hs-elevate-site-header__language-switcher-button') as HTMLElement;
 
-    if (!headerMobileLanguageSwitcherButton) return;
+    if (!headerMobileLanguageSwitcherButton) {
+      return;
+    }
 
     const updateHeight = () => {
       const height = headerMobileLanguageSwitcherButton.offsetHeight;
@@ -207,9 +212,7 @@ export default function MobileMenuIsland(props: MobileMenuIslandProps) {
     setIsAnimating(!isAnimating);
   };
 
-  const topLevelMenuItemStyles = {
-    '--hsElevate--menu--topLevel__gap': '0',
-  } as CSSPropertiesMap;
+  const topLevelMenuItemStyles = { '--hsElevate--menu--topLevel__gap': '0' } as CSSPropertiesMap;
 
   // Handles smooth scrolling to an anchor link when mobile menu is closed
   const handleMobileAnchorClick = (cb: () => void) => {
@@ -222,17 +225,15 @@ export default function MobileMenuIsland(props: MobileMenuIslandProps) {
     ...generateSizeCssVars({ headerHeight, mobileButtonContainerHeight, headerMobileLanguageSwitcherHeight }),
   };
 
-  const menuContainerClassNames = cx('hs-elevate-site-header__menu-container', styles['hs-elevate-site-header__menu-container'], {
+  const menuContainerClassNames = cx(swm('hs-elevate-site-header__menu-container'), {
     [styles['hs-elevate-site-header__menu-container--is-sliding']]: isMenuSliding,
     [styles['hs-elevate-site-header__menu-container--is-hidden']]: !showMenu,
   });
 
-  const hamburgerMenuClassNames = cx('hs-elevate-site-header__hamburger-menu', styles['hs-elevate-site-header__hamburger-menu'], {
-    [styles['hs-elevate-site-header__hamburger-menu--active']]: showMenu,
-  });
+  const hamburgerMenuClassNames = cx(swm('hs-elevate-site-header__hamburger-menu'), { [styles['hs-elevate-site-header__hamburger-menu--active']]: showMenu });
 
   return (
-    <MobileMenu style={cssVarsMap} className={cx('hs-elevate-site-header__mobile-menu', styles['hs-elevate-site-header__mobile-menu'])}>
+    <MobileMenu style={cssVarsMap} className={swm('hs-elevate-site-header__mobile-menu')}>
       <HamburgerMenu className={hamburgerMenuClassNames} tab-index="1" onClick={handleOpenCloseMenu}>
         <div></div>
         <div></div>
@@ -251,9 +252,7 @@ export default function MobileMenuIsland(props: MobileMenuIslandProps) {
           additionalClassArray={['hs-elevate-site-header__menu']}
         />
         {showButton && (
-          <MobileSlideoutButtonContainer
-            className={cx('hs-elevate-site-header__mobile-button-container', styles['hs-elevate-site-header__mobile-button-container'])}
-          >
+          <MobileSlideoutButtonContainer className={swm('hs-elevate-site-header__mobile-button-container')}>
             <Button
               href={getLinkFieldHref(buttonLink)}
               buttonStyle={buttonStyleVariant}
@@ -263,7 +262,7 @@ export default function MobileMenuIsland(props: MobileMenuIslandProps) {
               showIcon={showIcon}
               iconFieldPath="groupButton.buttonContentIcon"
               iconPosition={iconPosition}
-              additionalClassArray={['hs-elevate-site-header__mobile-button', styles['hs-elevate-site-header__mobile-button']]}
+              additionalClassArray={[swm('hs-elevate-site-header__mobile-button')]}
             >
               {buttonText}
             </Button>

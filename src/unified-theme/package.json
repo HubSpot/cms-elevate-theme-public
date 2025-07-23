@@ -6,9 +6,10 @@
     "start": "hs-cms-dev-server .",
     "generate-tmp-json-for-translations": "jsx-module-fields-to-fields-json",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build --output-dir ../../cms-elevate-theme-static-assets/dist",
+    "build-storybook": "storybook build --output-dir ../../cms-elevate-theme-static-assets/static/dist",
     "test-storybook": "test-storybook",
-    "preview-storybook": "npx serve ../../cms-elevate-theme-static-assets/dist -l 8080"
+    "preview-storybook": "npx serve ../../cms-elevate-theme-static-assets/static/dist -l 8080",
+    "clean-storybook": "rm -rf ../../cms-elevate-theme-static-assets/static/dist"
   },
   "type": "module",
   "keywords": [],
@@ -20,7 +21,6 @@
     "isomorphic-dompurify": "^2.15.0",
     "prop-types": "^15.8",
     "react": "^18",
-    "styled-components": "^6",
     "react-dom": "^18"
   },
   "devDependencies": {
@@ -28,6 +28,7 @@
     "@testing-library/react": "^16",
     "@vitejs/plugin-react": "^4",
     "@storybook/addon-actions": "^8.6.14",
+    "@storybook/addon-docs": "^8.6.14",
     "@storybook/addon-essentials": "^8.6.14",
     "@storybook/addon-interactions": "^8.6.14",
     "@storybook/addon-links": "^8.6.14",

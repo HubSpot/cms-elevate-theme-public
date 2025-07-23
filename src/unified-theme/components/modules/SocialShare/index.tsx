@@ -6,8 +6,11 @@ import { StandardSizeType, ButtonStyleType } from '../../types/fields.js';
 import { getAlignmentFieldCss } from '../../utils/style-fields.js';
 import { ButtonStyleFieldLibraryType } from '../../fieldLibrary/ButtonStyle/types.js';
 import styles from './social-share.module.css';
-import cx from '../../utils/classnames.js';
+import { staticWithModule } from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
+import { CSSPropertiesMap } from '../../types/components.js';
+
+const swm = staticWithModule(styles);
 
 // Types
 
@@ -33,8 +36,6 @@ type SocialShareProps = {
 };
 
 // Functions to pull in corresponding CSS variables on component based on field values
-
-type CSSPropertiesMap = { [key: string]: string };
 
 function generateIconSizeAndPaddingCssVars(iconSizeField: StandardSizeType): CSSPropertiesMap {
   const iconSizing = {
@@ -224,19 +225,19 @@ export const Component = (props: SocialShareProps) => {
   }
 
   return (
-    <SocialShareContainer className={cx('hs-elevate-social-share', styles['hs-elevate-social-share'])} style={cssVarsMap}>
+    <SocialShareContainer className={swm('hs-elevate-social-share')} style={cssVarsMap}>
       {platforms.map(platform => {
         const platformMetaData = getPlatformMetaData(platform, groupDefaultText);
         let iconFieldPath = `groupDefaultIcons.${platformMetaData.name}`;
 
         return (
           <SocialLink
-            className={cx('hs-elevate-social-share__link', styles['hs-elevate-social-share__link'])}
+            className={swm('hs-elevate-social-share__link')}
             key={platform}
             href={`${platformMetaData.base_url}${encodeURIComponent(currentUrl)}`}
             aria-label={platformMetaData.aria_label}
           >
-            <Icon className={cx('hs-elevate-social-share__icon', styles['hs-elevate-social-share__icon'])} purpose="DECORATIVE" fieldPath={iconFieldPath} />
+            <Icon className={swm('hs-elevate-social-share__icon')} purpose="DECORATIVE" fieldPath={iconFieldPath} />
           </SocialLink>
         );
       })}
