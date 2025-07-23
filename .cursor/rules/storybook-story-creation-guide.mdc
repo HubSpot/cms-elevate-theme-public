@@ -1,0 +1,943 @@
+---
+description: Storybook Story Creation Guide for CMS Elevate Theme
+globs:
+  - "**/*.stories.tsx"
+  - "**/stories/**"
+---
+
+# Storybook Story Creation Guide for CMS Elevate Theme
+
+This guide teaches Claude how to create consistent, well-structured Storybook stories following the established patterns in the cms-elevate-theme project.
+
+## Quick Start Checklist
+
+For any new component/module story, follow this checklist:
+
+### Essential Files (Always Required):
+1. **Args File**: `[component]Args.ts` - Contains `baseArgs` with all default prop values
+2. **Main Story File**: `[Component].stories.tsx` - Contains meta configuration and Default story
+3. **Unified Decorator**: Import `withStorybookContainer` from shared location *(to be implemented)*
+
+### Basic Story Structure:
+```typescript
+// 1. Standard imports
+import type { Meta, StoryObj } from '@storybook/react';
+import { ComponentName } from '../index.js';
+import { baseArgs } from './componentArgs.js';
+import { withStorybookContainer } from '../../../stories/sharedDecorator.js'; // (to be implemented)
+
+// 2. Meta configuration
+const meta: Meta<typeof ComponentName> = {
+  title: 'Components/ComponentName', // or 'Modules/ModuleName'
+  component: ComponentName,
+  parameters: { layout: 'centered', docs: { description: { component: '...' } } },
+  args: baseArgs,
+  decorators: [withStorybookContainer()], // if needed
+  tags: ['autodocs'],
+};
+
+// 3. Required exports
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Default: Story = {};
+```
+
+### Common Additional Files:
+- `[Component].styles.stories.tsx` - Style variants (when component has 3+ styles)
+- `[Component].edgecases.stories.tsx` - Edge cases and error states (recommended for all)
+- `[Component].sizes.stories.tsx` - Size variants (when applicable)
+- `[component]Utils.ts` - Helper functions (when component has complex props)
+
+---
+
+## Table of Contents
+
+1. [**File Organization Rules**](#file-organization-rules) - Directory structure, naming conventions, file types
+2. [**Meta Configuration Template**](#meta-configuration-template) - Standard meta object structure, titles, parameters
+3. [**Story Creation Guidelines**](#story-creation-guidelines) - Story exports, naming, structure, patterns
+4. [**Utility File Patterns**](#utility-file-patterns) - Args files, utils files, unified decorator
+
+---
+
+## File Organization Rules
+
+### Directory Structure
+
+#### Components
+```
+src/unified-theme/components/[ComponentName]/
+├── stories/
+│   ├── [ComponentName].stories.tsx           # Main story file
+│   ├── [ComponentName].[category].stories.tsx # Category-specific stories
+│   ├── [component]Args.ts                     # Shared base arguments
+│   ├── [component]Utils.ts                    # Utility functions (optional)
+│   └── [component]Decorator.tsx               # Custom decorators (optional)
+├── index.js
+└── [ComponentName].tsx
+```
+
+#### Modules
+```
+src/unified-theme/components/modules/[ModuleName]/
+├── stories/
+│   ├── [ModuleName]Module.stories.tsx         # Main story file
+│   ├── [ModuleName]Module.[category].stories.tsx # Category-specific stories
+│   ├── [module]Args.ts                        # Shared base arguments
+│   ├── [module]Utils.ts                       # Utility functions
+│   └── [module]ContainerDecorator.tsx         # Custom decorators
+├── index.js
+└── [ModuleName].tsx
+```
+
+### File Naming Conventions
+
+#### Main Story Files
+- **Components**: `[ComponentName].stories.tsx`
+  - Examples: `ButtonComponent.stories.tsx`, `HeadingComponent.stories.tsx`
+- **Modules**: `[ModuleName]Module.stories.tsx` 
+  - Examples: `MetricsModule.stories.tsx`, `CardModule.stories.tsx`
+
+#### Category Story Files
+Use the pattern `[ComponentName].[category].stories.tsx`:
+
+**Common Categories (most components use these):**
+- `.styles.stories.tsx` - Style variants (primary, secondary, etc.) - Used by most styled components
+- `.edgecases.stories.tsx` - Edge cases and error states - Used by most components for robustness testing
+- `.sizes.stories.tsx` - Size variants (small, medium, large) - Used when components have size options
+
+**Frequently Used Categories:**
+- `.variants.stories.tsx` - Different visual variants - Common for modules with multiple display modes
+- `.orientations.stories.tsx` - Layout orientations - Used for components with horizontal/vertical layouts
+- `.icons.stories.tsx` - Icon-related variations - Used for components with icon support
+
+**Specialized Categories (use when applicable):**
+- `.gaps.stories.tsx` - Spacing variations - For modules with configurable spacing
+- `.counts.stories.tsx` - Different quantities/counts - For components that display variable numbers of items
+- `.containers.stories.tsx` - Container/layout variations - For modules needing different container contexts
+- `.content.stories.tsx` - Content variations - For components with rich content options
+- `.types.stories.tsx` - Different types/modes - For components with distinct operational modes
+- `.columns.stories.tsx` - Column layout variations - For grid/column-based layouts
+- `.headings.stories.tsx` - Heading variations - For components with heading hierarchy options
+- `.alignment.stories.tsx` - Text/content alignment - For components with alignment controls
+- `.customclasses.stories.tsx` - Custom CSS class testing - For testing additional class functionality
+- `.levels.stories.tsx` - Hierarchical levels (h1, h2, etc.) - For heading components specifically
+
+**Note:** Not every component needs all categories. Choose categories based on the component's features and complexity. Simple components may only need `.styles` and `.edgecases`, while complex modules might use many categories.
+
+#### Support Files
+- **Args Files**: `[component]Args.ts` (camelCase)
+  - Examples: `buttonArgs.ts`, `metricsUtils.ts`
+- **Utils Files**: `[component]Utils.ts` (camelCase)
+  - Examples: `cardUtils.ts`, `metricsUtils.ts`
+- **Decorators**: `[component]ContainerDecorator.tsx` or `[component]Decorator.tsx`
+  - Examples: `metricsContainerDecorator.tsx`, `cardContainerDecorator.tsx`
+
+### File Extension Standards
+- **Story Files**: Always use `.tsx` (contains JSX)
+- **Args Files**: Use `.ts` (pure TypeScript, no JSX)
+- **Utils Files**: Use `.ts` (pure TypeScript, no JSX)  
+- **Decorators**: Use `.tsx` (contains JSX)
+
+### When to Create Category Files
+
+#### Always Create Separate Files For:
+- **Styles**: When component has 3+ style variants
+- **Edge Cases**: When testing error states, empty content, long text, etc.
+- **Sizes**: When component has multiple size options
+
+#### Consider Separate Files For:
+- **Variants**: When component has distinct visual modes
+- **Orientations**: When component supports horizontal/vertical layouts
+- **Complex Utilities**: When story needs extensive helper functions
+
+#### Keep in Main File For:
+- Simple components with few variations
+- Components with only Default and basic variant stories
+- When total stories would be < 5
+
+### Support File Requirements
+
+#### Args Files (Required)
+Every component/module MUST have a `[component]Args.ts` file containing:
+```typescript
+// Shared base arguments for [ComponentName] stories
+export const baseArgs = {
+  // All default prop values
+};
+```
+
+#### Utils Files (Optional)
+Create when you need:
+- Helper functions for generating test data
+- Complex argument creation functions
+- Shared constants or defaults
+
+#### Decorators (Optional) 
+Create when you need:
+- Consistent container styling across stories
+- Layout context for modules
+- Theme or styling wrappers
+
+## Meta Configuration Template
+
+### Standard Meta Object Structure
+
+#### For Components
+```typescript
+import type { Meta, StoryObj } from '@storybook/react';
+import { ComponentName } from '../index.js';
+import { baseArgs } from './componentArgs.js';
+
+const meta: Meta<typeof ComponentName> = {
+  title: 'Components/ComponentName',
+  component: ComponentName,
+  parameters: {
+    layout: 'centered', // or 'fullscreen' | 'padded'
+    docs: {
+      description: {
+        component: 'A clear, concise description of what this component does and its main features.',
+      },
+    },
+  },
+  args: baseArgs,
+  argTypes: {
+    // Control configurations with descriptions
+  },
+  tags: ['autodocs'],
+};
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+```
+
+#### For Modules
+```typescript
+import type { Meta, StoryObj } from '@storybook/react';
+import { Component as ModuleName } from '../index.js';
+import { baseArgs } from './moduleArgs.js';
+import { withContainer } from './moduleContainerDecorator.js';
+
+const meta: Meta<typeof ModuleName> = {
+  title: 'Modules/ModuleName',
+  component: ModuleName,
+  parameters: {
+    layout: 'fullscreen', // modules often need more space
+    docs: {
+      description: {
+        component: 'A CMS module that [describes main purpose and functionality].',
+      },
+    },
+  },
+  decorators: [withContainer({})], // if needed
+  args: baseArgs,
+  argTypes: {
+    // Control configurations with descriptions
+  },
+  tags: ['autodocs'],
+};
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+```
+
+### Title Patterns
+
+#### Main Story Files
+- **Components**: `'Components/ComponentName'`
+  - Examples: `'Components/ButtonComponent'`, `'Components/HeadingComponent'`
+- **Modules**: `'Modules/ModuleName'`
+  - Examples: `'Modules/Metrics'`, `'Modules/Card'`
+
+#### Category Story Files  
+- **Components**: `'Components/ComponentName/Category'`
+  - Examples: `'Components/ButtonComponent/Styles'`, `'Components/HeadingComponent/Edge Cases'`
+- **Modules**: `'Modules/ModuleName/Category'`
+  - Examples: `'Modules/Metrics/Variants'`, `'Modules/Card/Orientations'`
+
+### Parameters Configuration
+
+#### Layout Options
+- **`centered`**: Default for most components, centers content in viewport
+- **`fullscreen`**: For modules or components that need full viewport width
+- **`padded`**: For components that need consistent padding around them
+
+#### Documentation Description
+Always include a `docs.description.component` that:
+- Clearly explains the component's purpose
+- Mentions key features or capabilities
+- Is concise but informative (1-2 sentences)
+
+**Examples:**
+```typescript
+// Component example
+docs: {
+  description: {
+    component: 'A versatile button component supporting multiple styles, sizes, and icon integration',
+  },
+}
+
+// Module example  
+docs: {
+  description: {
+    component: 'A CMS module for showcasing key performance indicators and business metrics.',
+  },
+}
+```
+
+### ArgTypes Standards
+
+Configure argTypes with detailed information for better developer experience:
+
+```typescript
+argTypes: {
+  propName: {
+    control: { type: 'select' }, // or 'boolean' | 'text' | 'object'
+    options: ['option1', 'option2'], // for select controls
+    description: 'Clear explanation of what this prop does and when to use it',
+    table: {
+      type: { summary: 'PropType' },
+      defaultValue: { summary: 'defaultValue' },
+    },
+  },
+}
+```
+
+#### Common ArgTypes Patterns
+```typescript
+// Style variants
+buttonStyle: {
+  control: { type: 'select' },
+  options: ['primary', 'secondary', 'tertiary', 'accent'],
+  description: 'Visual style variant of the button',
+},
+
+// Boolean toggles
+showIcon: {
+  control: 'boolean',
+  description: 'Toggle icon visibility',
+},
+
+// Object controls (for complex props)
+groupMetrics: {
+  control: 'object',
+  description: 'Array of metric configurations (1-4 metrics)',
+  table: {
+    type: { summary: 'MetricItem[]' },
+    defaultValue: { summary: 'baseArgs metrics' },
+  },
+},
+```
+
+### Required Fields
+
+#### Always Include:
+- `title` - Following established patterns
+- `component` - Reference to the component
+- `parameters.layout` - Appropriate layout option
+- `parameters.docs.description.component` - Clear component description
+- `args: baseArgs` - Reference to shared arguments
+- `tags: ['autodocs']` - For automatic documentation generation
+
+#### Include When Applicable:
+- `argTypes` - When component has configurable props
+- `decorators` - When component needs consistent styling/context
+- `parameters.docs.description.story` - For individual story context (in story files)
+
+### Tags Usage
+
+#### Standard Tags:
+- `['autodocs']` - Always include for automatic documentation
+- `['!dev']` - For stories that shouldn't run in development mode (testing stories)
+
+### Decorators Integration
+
+When using decorators, include them in the meta object:
+
+```typescript
+// Single decorator
+decorators: [withContainer({})],
+
+// Multiple decorators
+decorators: [withContainer({}), withTheme('dark')],
+
+// Decorator with configuration
+decorators: [withContainer({ width: '1200px', padding: '2rem' })],
+```
+
+## Story Creation Guidelines
+
+### Standard Story Export Pattern
+
+All stories follow this basic structure:
+
+```typescript
+export const StoryName: Story = {
+  args: {
+    // Override baseArgs when needed
+  },
+  parameters: {
+    // Story-specific configuration
+  },
+  // Additional story configuration
+};
+```
+
+### Required Stories
+
+#### Every Component/Module Must Have:
+- **`Default`**: Shows the component with standard/default configuration
+  ```typescript
+  export const Default: Story = {
+    // Minimal configuration, relies on baseArgs
+  };
+  ```
+
+#### Components Should Also Have:
+- **Style variants** (if component has multiple styles)
+- **Edge cases** for robustness testing
+
+#### Modules Should Also Have:
+- **Content variations** showing different data scenarios
+- **Container/layout examples** if applicable
+
+### Story Naming Conventions
+
+#### Use PascalCase for all story names:
+```typescript
+// Good
+export const Default: Story = {};
+export const SingleMetric: Story = {};
+export const LongText: Story = {};
+export const EmptyContent: Story = {};
+
+// Bad
+export const default: Story = {};
+export const single_metric: Story = {};
+export const longText: Story = {};
+```
+
+#### Common Story Name Patterns:
+
+**Default and Basic Variants:**
+- `Default` - Standard configuration
+- `SingleItem` - One item/element
+- `TwoItems`, `ThreeItems` - Multiple items
+- `NoButton`, `NoIcon` - Variations without certain elements
+
+**Style Variations:**
+- `Primary`, `Secondary`, `Tertiary`, `Accent` - Style variants
+- `Small`, `Medium`, `Large` - Size variants
+- `Horizontal`, `Vertical` - Orientation variants
+
+**Content Focus:**
+- `LongText` - Testing with extensive content
+- `ShortText` - Testing with minimal content
+- `EmptyContent`, `EmptyText` - Testing empty states
+- `SpecialCharacters` - Testing character handling
+- `HTMLContent` - Testing HTML content
+
+**Edge Cases:**
+- `InvalidData` - Testing with invalid inputs
+- `MissingRequired` - Testing missing required props
+- `MaximumItems` - Testing upper limits
+- `MinimumItems` - Testing lower limits
+
+### Story Object Structure
+
+#### Basic Story Structure:
+```typescript
+export const StoryName: Story = {
+  args: {
+    // Override specific props from baseArgs
+    propName: 'custom value',
+  },
+  parameters: {
+    // Story-specific parameters
+    docs: {
+      description: {
+        story: 'Description of what this story demonstrates.',
+      },
+    },
+  },
+};
+```
+
+#### Story with Custom Configuration:
+```typescript
+export const AdvancedExample: Story = {
+  args: {
+    // Multiple prop overrides
+    title: 'Custom Title',
+    variant: 'special',
+    showFeature: true,
+  },
+  parameters: {
+    layout: 'fullscreen', // Override meta layout if needed
+    docs: {
+      description: {
+        story: 'Shows the component in a special configuration with custom features enabled.',
+      },
+    },
+  },
+};
+```
+
+### Story-Specific Documentation
+
+#### Always Include Story Descriptions for:
+- **Complex configurations** that aren't immediately obvious
+- **Edge cases** explaining what's being tested
+- **Special features** being demonstrated
+
+```typescript
+export const EdgeCaseExample: Story = {
+  args: {
+    content: '',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Tests component behavior with empty content to ensure graceful handling.',
+      },
+    },
+  },
+};
+```
+
+### Using Utility Functions in Stories
+
+When using utility functions to generate args:
+
+```typescript
+// Using utility function
+export const MultipleCards: Story = {
+  args: {
+    ...createCards([
+      { heading: 'Card 1', content: 'Content 1' },
+      { heading: 'Card 2', content: 'Content 2' },
+    ]),
+  },
+};
+
+// Using utility with options
+export const CustomVariant: Story = {
+  args: createMetrics({
+    metrics: [{ metric: '100', description: 'Custom metric' }],
+    options: { variant: 'special' },
+  }),
+};
+```
+
+### Component vs Module Story Differences
+
+#### Components:
+- **Focus on individual props** and their variations
+- **Test styling variants** (primary, secondary, etc.)
+- **Test size variants** when applicable
+- **Simple configurations** are usually sufficient
+
+```typescript
+export const Primary: Story = {
+  args: {
+    buttonStyle: 'primary',
+    children: 'Primary Button',
+  },
+};
+```
+
+#### Modules:
+- **Focus on content scenarios** and data variations
+- **Test different quantities** of items (1, 2, 3+ items)
+- **Show real-world usage** with realistic content
+- **Often need decorators** for proper context
+
+```typescript
+export const ThreeMetrics: Story = {
+  args: createMetrics({
+    metrics: [
+      { metric: '100', description: 'First metric' },
+      { metric: '200', description: 'Second metric' },
+      { metric: '300', description: 'Third metric' },
+    ],
+  }),
+  decorators: [withContainer({})],
+};
+```
+
+### Common Story Patterns
+
+#### Testing Empty States:
+```typescript
+export const EmptyContent: Story = {
+  args: {
+    content: '',
+    title: '',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Component behavior with empty content.',
+      },
+    },
+  },
+};
+```
+
+#### Testing Maximum Content:
+```typescript
+export const LongContent: Story = {
+  args: {
+    title: 'This is a very long title that tests how the component handles extensive content and whether it wraps properly',
+    content: 'Very long content here...',
+  },
+};
+```
+
+#### Testing Variants:
+```typescript
+export const AllVariants: Story = {
+  render: () => (
+    <div style={{ display: 'flex', gap: '1rem' }}>
+      <ComponentName variant="primary" />
+      <ComponentName variant="secondary" />
+      <ComponentName variant="tertiary" />
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Shows all available style variants side by side for comparison.',
+      },
+    },
+  },
+};
+```
+
+## Utility File Patterns
+
+### Args Files (Required)
+
+Every component/module MUST have an args file following this pattern:
+
+#### Components: `[component]Args.ts`
+```typescript
+// Shared base arguments for [ComponentName] stories
+export const baseArgs = {
+  // All default prop values with realistic content
+  children: 'Button Text',
+  variant: 'primary',
+  size: 'medium',
+  disabled: false,
+  ariaLabel: 'Button example',
+  additionalClassArray: [] as string[],
+  // Include all component props with sensible defaults
+};
+```
+
+#### Modules: `[module]Args.ts`
+```typescript
+// Shared base arguments for [ModuleName] stories
+import { createModule } from './moduleUtils.js';
+
+export const baseArgs = createModule({
+  // Default configuration using utility function
+  items: [
+    { title: 'Default Item 1', content: 'Default content 1' },
+    { title: 'Default Item 2', content: 'Default content 2' },
+    { title: 'Default Item 3', content: 'Default content 3' },
+  ],
+  options: {
+    variant: 'variant_1',
+    layout: 'horizontal',
+  },
+});
+```
+
+### Utils Files (Optional)
+
+Create utils files when you need helper functions for generating test data or complex configurations:
+
+#### Basic Utils File Structure:
+```typescript
+// Utility functions for [ComponentName] stories
+
+// Type definitions (import from component or define locally)
+type ItemType = {
+  title: string;
+  content: string;
+  showButton?: boolean;
+  buttonText?: string;
+};
+
+type OptionsType = {
+  variant?: 'variant_1' | 'variant_2' | 'variant_3';
+  layout?: 'horizontal' | 'vertical';
+  styleOverrides?: object;
+};
+
+// Default configurations
+const DEFAULT_ITEM: ItemType = {
+  title: 'Default Title',
+  content: '<p>Default content for testing purposes.</p>',
+  showButton: true,
+  buttonText: 'Learn More',
+};
+
+const DEFAULT_OPTIONS: OptionsType = {
+  variant: 'variant_1',
+  layout: 'horizontal',
+};
+
+// Utility functions
+export const createItem = (overrides: Partial<ItemType> = {}): ItemType => ({
+  ...DEFAULT_ITEM,
+  ...overrides,
+});
+
+export const createItems = (
+  items: Partial<ItemType>[],
+  options: OptionsType = {}
+) => {
+  const groupItems = items.map(override => createItem(override));
+  const groupStyle = {
+    ...DEFAULT_OPTIONS,
+    ...options,
+  };
+
+  return {
+    groupItems,
+    groupStyle,
+  };
+};
+
+// Predefined common configurations
+export const defaultItems = [
+  { title: 'First Item', content: '<p>First item content.</p>' },
+  { title: 'Second Item', content: '<p>Second item content.</p>' },
+  { title: 'Third Item', content: '<p>Third item content.</p>' },
+];
+
+// Base arguments using utility functions
+export const baseArgs = createItems(defaultItems);
+```
+
+#### Advanced Utils with Type Safety:
+```typescript
+// Advanced utility functions with full type support
+import { TextFieldType } from '@hubspot/cms-components/fields';
+import { SectionStyleFieldLibraryType } from '../../../fieldLibrary/SectionStyle/types.js';
+import { HeadingStyleFieldLibraryType } from '../../../fieldLibrary/HeadingStyle/types.js';
+
+// Type definitions based on actual component types
+type GroupStyle = SectionStyleFieldLibraryType & HeadingStyleFieldLibraryType;
+
+type MetricItem = {
+  metric: TextFieldType['default'];
+  description: TextFieldType['default'];
+};
+
+type MetricsOptions = {
+  sectionVariant?: 'section_variant_1' | 'section_variant_2' | 'section_variant_3' | 'section_variant_4';
+  headingVariant?: 'display_1' | 'display_2' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  groupStyleOverrides?: Partial<GroupStyle>;
+};
+
+// Constants
+const METRICS_DEFAULTS = {
+  metric: {
+    metric: '100',
+    description: 'Default metric',
+  },
+  groupStyle: {
+    sectionStyleVariant: 'section_variant_1' as const,
+    headingStyleVariant: 'display_1' as const,
+  },
+};
+
+// Export default configurations
+export const defaultMetric: MetricItem = METRICS_DEFAULTS.metric;
+
+// Main utility function
+export const createMetrics = ({ 
+  metrics, 
+  options = {} 
+}: { 
+  metrics: Partial<MetricItem>[]; 
+  options?: MetricsOptions 
+}) => {
+  const { sectionVariant = 'section_variant_1', headingVariant = 'display_1', groupStyleOverrides = {} } = options;
+
+  const groupMetrics = metrics.map(override => ({
+    ...defaultMetric,
+    ...override,
+  }));
+
+  const groupStyle = {
+    ...METRICS_DEFAULTS.groupStyle,
+    sectionStyleVariant: sectionVariant,
+    headingStyleVariant: headingVariant,
+    ...groupStyleOverrides,
+  };
+
+  return {
+    groupMetrics,
+    groupStyle,
+  };
+};
+
+// Predefined common sets
+export const defaultMetrics = [
+  { metric: '100', description: 'First metric' },
+  { metric: '200', description: 'Second metric' },
+  { metric: '300', description: 'Third metric' }
+];
+
+// Base arguments
+export const baseArgs = createMetrics({
+  metrics: defaultMetrics,
+  options: {
+    groupStyleOverrides: {
+      sectionStyleVariant: 'section_variant_1',
+      headingStyleVariant: 'display_1',
+    },
+  },
+});
+```
+
+### Unified Decorator (Recommended)
+
+Use the shared decorator for consistent styling across all stories:
+
+#### Shared Decorator Usage:
+```typescript
+// Import the unified decorator (to be implemented)
+import { withStorybookContainer } from '../../../stories/sharedDecorator.js';
+
+// In meta configuration - default usage
+const meta: Meta<typeof Component> = {
+  // ... other meta config
+  decorators: [withStorybookContainer()],
+};
+
+// In meta configuration - with custom config
+const meta: Meta<typeof Component> = {
+  // ... other meta config
+  decorators: [withStorybookContainer({ 
+    width: '800px',
+    layout: 'fullscreen' 
+  })],
+};
+```
+
+#### Configuration Options:
+```typescript
+type DecoratorConfig = {
+  width?: string;        // Default: '1200px'
+  padding?: string;      // Default: '1rem'  
+  layout?: 'centered' | 'fullscreen' | 'padded';  // Default: 'centered'
+  background?: string;   // Default: 'transparent'
+};
+```
+
+#### Common Usage Patterns:
+```typescript
+// Default centered layout (most components)
+decorators: [withStorybookContainer()],
+
+// Full width for modules
+decorators: [withStorybookContainer({ layout: 'fullscreen' })],
+
+// Custom width
+decorators: [withStorybookContainer({ width: '800px' })],
+
+// Padded layout with background
+decorators: [withStorybookContainer({ 
+  layout: 'padded', 
+  background: '#f5f5f5' 
+})],
+```
+
+### Custom Decorators (Only When Necessary)
+
+Only create custom decorators for very specific needs that the unified decorator cannot handle:
+
+#### When to Create Custom Decorators:
+- Component requires very specific styling that cannot be achieved with the unified decorator
+- Component needs complex layout logic or interactive elements in the decorator
+- Component requires theme-specific styling beyond background color
+
+#### Custom Decorator Structure:
+```typescript
+// [component]CustomDecorator.tsx (only when truly needed)
+export const withSpecialLayout = () => (Story: any) => (
+  <div style={{ /* very specific layout requirements */ }}>
+    <Story />
+  </div>
+);
+```
+
+### File Organization Best Practices
+
+#### Keep Utils Files Focused:
+```typescript
+// Good - focused on one component's needs
+export const createButton = (text: string, style: string) => ({ ... });
+export const createButtonGroup = (buttons: ButtonConfig[]) => ({ ... });
+
+// Bad - mixing concerns
+export const createButton = () => ({ ... });
+export const createCard = () => ({ ... });  // Should be in separate file
+export const createMetrics = () => ({ ... }); // Should be in separate file
+```
+
+#### Use Consistent Naming:
+```typescript
+// Args files
+export const baseArgs = { ... };
+
+// Utils files  
+export const createItem = () => ({ ... });
+export const createItems = () => ({ ... });
+export const defaultItem = { ... };
+export const defaultItems = [ ... ];
+
+// Decorators
+export const withContainer = () => (Story) => ({ ... });
+export const withTheme = () => (Story) => ({ ... });
+```
+
+#### Import and Export Patterns:
+```typescript
+// In utils file - export everything needed
+export const baseArgs = { ... };
+export const createItems = () => ({ ... });
+export const defaultItems = [ ... ];
+
+// In story file - import what you need
+import { baseArgs } from './componentArgs.js';
+import { createItems, defaultItems } from './componentUtils.js';
+import { withStorybookContainer } from '../../../stories/sharedDecorator.js'; // (to be implemented)
+```
+
+### When to Create Each File Type
+
+#### Always Create Args Files:
+- Every component/module needs shared base arguments
+- Ensures consistency across all stories
+- Required by meta configuration
+
+#### Create Utils Files When:
+- Component has complex prop structures
+- Multiple stories need similar data generation
+- Testing different quantities/combinations of items
+- Need type-safe configuration builders
+
+#### Use Unified Decorator When:
+- Component needs container styling (use withStorybookContainer)
+- Module requires layout context (use withStorybookContainer with layout config)
+- Testing different backgrounds (use withStorybookContainer with background config)
+
+#### Create Custom Decorator Files Only When:
+- Component has very specific styling requirements that cannot be met by the unified decorator
+- Component needs complex interactive elements in the decorator
+- Component requires specialized theme logic beyond basic background/color changes
