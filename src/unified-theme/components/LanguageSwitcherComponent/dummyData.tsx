@@ -203,6 +203,16 @@ export const dummyTranslationsAsObject = {
     },
     localizedUrl: 'https://www.example.com/hu/asdfasd',
   },
+  fa: {
+    isActive: false,
+    languageCode: 'fa',
+    languageDisplayName: {
+      PAGELANG: 'Persisch',
+      LOCALIZED: 'فارسی',
+      HYBRID: 'فارسی (Persisch)',
+    },
+    localizedUrl: 'https://www.example.com/fa/asdfasd',
+  },
 };
 
 export const dummyTranslations: CustomLanguageVariant[] = [
@@ -395,5 +405,15 @@ export const dummyTranslations: CustomLanguageVariant[] = [
       HYBRID: 'Magyar (Ungarisch)',
     },
     localizedUrl: 'https://www.example.com/hu/asdfasd',
+  },
+  {
+    isActive: false,
+    languageCode: 'fa',
+    languageDisplayName: {
+      PAGELANG: 'Persisch',
+      LOCALIZED: 'فارسی',
+      HYBRID: 'فارسی (Persisch)',
+    },
+    localizedUrl: 'https://www.example.com/fa/asdfasd',
   },
 ];
