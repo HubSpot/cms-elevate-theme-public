@@ -2,8 +2,10 @@ import { useSharedIslandState } from '@hubspot/cms-components';
 import ArrowComponent from '../../../MenuComponent/ArrowComponent.js';
 import { LogoFieldType } from '@hubspot/cms-components/fields';
 import styles from '../mobile-logo-back-button.module.css';
-import cx from '../../../utils/classnames.js';
+import cx, { staticWithModule } from '../../../utils/classnames.js';
 import { createComponent } from '../../../utils/create-component.js';
+
+const swm = staticWithModule(styles);
 
 // Types
 
@@ -37,33 +39,27 @@ export default function MobileLogoBackButton(props: MobileLogoBackButtonProps) {
   };
   const isFileTypeSvg = logoSrc ? logoSrc.endsWith('.svg') : false;
 
-  const backButtonContainerClasses = cx('hs-elevate-site-header__back-button-container', styles['hs-elevate-site-header__back-button-container'], {
+  const backButtonContainerClasses = cx(swm('hs-elevate-site-header__back-button-container'), {
     [styles['hs-elevate-site-header__back-button-container--show-back-button']]: showBackButton,
   });
 
-  const logoImageClasses = cx('hs-elevate-site-header__logo', styles['hs-elevate-site-header__logo'], {
-    [styles['hs-elevate-site-header__logo--is-svg']]: isFileTypeSvg,
-  });
+  const logoImageClasses = cx(swm('hs-elevate-site-header__logo'), { [styles['hs-elevate-site-header__logo--is-svg']]: isFileTypeSvg });
 
   return (
     <BackButtonContainer className={backButtonContainerClasses}>
       {showBackButton && (
-        <BackButton className={cx('hs-elevate-site-header__back-button', styles['hs-elevate-site-header__back-button'])} onClick={goBackOneLevel}>
+        <BackButton className={swm('hs-elevate-site-header__back-button')} onClick={goBackOneLevel}>
           <ArrowComponent additionalClassArray={['hs-elevate-site-header__back-button-icon']} />
           Back
         </BackButton>
       )}
       {logoSrc && (
-        <LogoLink className={cx('hs-elevate-site-header__logo-link', styles['hs-elevate-site-header__logo-link'])} href={logoLink || '#'}>
+        <LogoLink className={swm('hs-elevate-site-header__logo-link')} href={logoLink || '#'}>
           <LogoImage className={logoImageClasses} src={logoSrc} alt={logoAlt} loading="eager" width={logoWidth} height={logoHeight} />
           <LogoLinkScreenReader className={cx(styles['hs-elevate-site-header__logo-link-screen-reader'])}>{logoLinkAriaText}</LogoLinkScreenReader>
         </LogoLink>
       )}
-      {!logoSrc && !suppress_company_name && (
-        <CompanyNameFallback className={cx('hs-elevate-site-header__company-name', styles['hs-elevate-site-header__company-name'])}>
-          {companyName}
-        </CompanyNameFallback>
-      )}
+      {!logoSrc && !suppress_company_name && <CompanyNameFallback className={swm('hs-elevate-site-header__company-name')}>{companyName}</CompanyNameFallback>}
     </BackButtonContainer>
   );
 }

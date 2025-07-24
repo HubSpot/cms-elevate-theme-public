@@ -1,12 +1,15 @@
 import { Card } from '../CardComponent/index.js';
 import styles from './blog-card.module.css';
-import cx from '../utils/classnames.js';
+import cx, { staticWithModule } from '../utils/classnames.js';
 import { createComponent } from '../utils/create-component.js';
 import { TagComponent } from '../TagComponent/index.js';
 import HeadingComponent from '../HeadingComponent/index.js';
 import SanitizedContent from '../SanitizeHTML/index.js';
 import { CardVariantType, HeadingLevelType } from '../types/fields.js';
 import { HeadingStyleVariant } from '../fieldLibrary/HeadingStyle/types.js';
+import { CSSPropertiesMap } from '../types/components.js';
+
+const swm = staticWithModule(styles);
 
 // Types
 
@@ -42,7 +45,7 @@ const TagList = ({ tags }: TagListProps) => {
   }
 
   return (
-    <CardTagContainer className={cx(`hs-elevate-card--blog__tag-container`, styles['hs-elevate-card--blog__tag-container'])}>
+    <CardTagContainer className={swm('hs-elevate-card--blog__tag-container')}>
       {tags.map((tag: string, index: number) => (
         <TagComponent key={index}>
           <SanitizedContent content={tag} />
@@ -53,8 +56,6 @@ const TagList = ({ tags }: TagListProps) => {
 };
 
 // Functions to generate CSS variables
-
-type CSSPropertiesMap = { [key: string]: string };
 
 function generateColorCssVars(cardStyleVariant: string): CSSPropertiesMap {
   const iconColorsMap = {
@@ -95,23 +96,16 @@ function BlogCardComponent(props: BlogCardComponentProps) {
 
   const additionalClasses = additionalClassArray ? additionalClassArray.join(' ') : '';
 
-  const cssVarsMap = {
-    ...generateColorCssVars(cardStyleVariant),
-  };
+  const cssVarsMap = { ...generateColorCssVars(cardStyleVariant) };
 
   return (
-    <CardWrapper style={cssVarsMap} className={cx(`hs-elevate-card--blog__card-wrapper`, styles['hs-elevate-card--blog__card-wrapper'], additionalClasses)}>
-      <Card
-        key={post.id}
-        cardOrientation="column"
-        cardStyleVariant={cardStyleVariant}
-        additionalClassArray={['hs-elevate-card--blog', styles['hs-elevate-card--blog']]}
-      >
-        <CardLink className={cx('hs-elevate-card--blog__link', styles['hs-elevate-card--blog__link'])} href={post.absoluteUrl}>
-          <ImageContainer className={cx(`hs-elevate-card--blog__image-container`, styles['hs-elevate-card--blog__image-container'])}>
+    <CardWrapper style={cssVarsMap} className={cx(swm('hs-elevate-card--blog__card-wrapper'), additionalClasses)}>
+      <Card key={post.id} cardOrientation="column" cardStyleVariant={cardStyleVariant} additionalClassArray={[swm('hs-elevate-card--blog')]}>
+        <CardLink className={swm('hs-elevate-card--blog__link')} href={post.absoluteUrl}>
+          <ImageContainer className={swm('hs-elevate-card--blog__image-container')}>
             {post.featuredImage && (
               <Image
-                className={cx(`hs-elevate-card--blog__image`, styles['hs-elevate-card--blog__image'])}
+                className={swm('hs-elevate-card--blog__image')}
                 src={post.featuredImage}
                 alt={post.featuredImageAltText || ''}
                 width={post.featuredImageWidth}
@@ -119,21 +113,17 @@ function BlogCardComponent(props: BlogCardComponentProps) {
               />
             )}
           </ImageContainer>
-          <CardContentContainer className={cx(`hs-elevate-card--blog__content-container`, styles['hs-elevate-card--blog__content-container'])}>
+          <CardContentContainer className={swm('hs-elevate-card--blog__content-container')}>
             <TagList tags={post?.topicNames || []} />
             <CardHeadingContainer>
               <HeadingComponent
                 heading={post.title}
                 headingLevel={headingAndTextHeadingLevel}
                 headingStyleVariant={headingStyleVariant}
-                additionalClassArray={['hs-elevate-card--blog__heading', styles['hs-elevate-card--blog__heading']]}
+                additionalClassArray={[swm('hs-elevate-card--blog__heading')]}
               />
               {gatedContentIds.includes(post.id) && (
-                <GateIconImage
-                  className={cx('hs-elevate-card--blog__gate-icon', styles['hs-elevate-card--blog__gate-icon'])}
-                  aria-label="Gated content"
-                  role="presentation"
-                />
+                <GateIconImage className={swm('hs-elevate-card--blog__gate-icon')} aria-label="Gated content" role="presentation" />
               )}
             </CardHeadingContainer>
           </CardContentContainer>

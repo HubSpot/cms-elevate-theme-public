@@ -1,7 +1,10 @@
 import { ButtonStyleType, StandardSizeType, ElementPositionType } from '../types/fields.js';
 import styles from './button.module.css';
-import cx from '../utils/classnames.js';
+import cx, { staticWithModule } from '../utils/classnames.js';
 import { Icon } from '@hubspot/cms-components';
+import { CSSPropertiesMap } from '../types/components.js';
+
+const swm = staticWithModule(styles);
 
 // Types
 
@@ -34,8 +37,6 @@ function getButtonClassName(buttonStyle: ButtonStyleType) {
 
 // Function to pull in corresponding CSS variables on component based on prop values
 
-type CSSPropertiesMap = { [key: string]: string };
-
 function generatePaddingCSSVars(buttonSize: StandardSizeType): CSSPropertiesMap {
   const paddingMap = {
     small: 'var(--hsElevate--spacing--12, 12px) var(--hsElevate--spacing--20, 20px)',
@@ -61,7 +62,7 @@ export const Button = (props: ButtonProps) => {
 
   const buttonClassName = getButtonClassName(buttonStyle);
   const additionalClasses = additionalClassArray ? additionalClassArray.join(' ') : '';
-  const iconClasses = cx('hs-elevate-button__icon', styles['hs-elevate-button__icon'], {
+  const iconClasses = cx(swm('hs-elevate-button__icon'), {
     [styles['hs-elevate-button__icon--left']]: iconPosition === 'left',
     [styles['hs-elevate-button__icon--right']]: iconPosition === 'right',
   });
@@ -69,7 +70,7 @@ export const Button = (props: ButtonProps) => {
   return (
     <a
       style={cssVarsMap}
-      className={cx('hs-elevate-button', styles['hs-elevate-button'], buttonClassName, additionalClasses)}
+      className={cx(swm('hs-elevate-button'), buttonClassName, additionalClasses)}
       target={target}
       href={href}
       rel={rel}

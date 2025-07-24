@@ -1,6 +1,6 @@
 ---
 description: Implement and finish building a scaffolded module
-globs: 
+globs:
 ---
 # HubSpot React Module Implementation Guide
 
@@ -13,8 +13,8 @@ This rule guides you through implementing a HubSpot React module after the initi
 
 ## IMPORTANT: NEVER dangerouslySetInnerHTML
 - Never, under any circumstance, is it OK to use `dangerouslySetInnerHTML`
-  - Instead you should find another way to implement setting of content. 
-  - There are plenty of examples on how to correctly do this at the bottom of this file. 
+  - Instead you should find another way to implement setting of content.
+  - There are plenty of examples on how to correctly do this at the bottom of this file.
 
 ## Implementation Steps
 
@@ -30,19 +30,23 @@ This rule guides you through implementing a HubSpot React module after the initi
 1. Import necessary dependencies:
    ```typescript
    import { ModuleMeta } from '../../types/modules.js';
-   import { styled } from 'styled-components';
-   import StyledComponentsRegistry from '../../StyledComponentsRegistry/StyledComponentsRegistry.jsx';
+   import styles from '../component.module.css';
+   import { createComponent } from '../../utils/create-component.js';
+   import cx, { staticWithModule } from '../../utils/classnames.js';
    // Add other required imports
    ```
 
-2. Define styled components using styled-components:
+2. Define styled components using CSS Modules and createComponent:
    ```typescript
-   const StyledContainer = styled.div`
-     // Add base styling
-     max-width: var(--hsElevate--container--maxWidth, 1200px);
-     margin: 0 auto;
-     padding: var(--hsElevate--spacing--48, 48px) var(--hsElevate--spacing--24, 24px);
-   `;
+   const swm = staticWithModule(styles);
+
+   const StyledContainer = createComponent('div');
+   // inside the CSS Module file:
+   // .className-one {
+   // max-width: var(--hsElevate--container--maxWidth, 1200px);
+   // margin: 0 auto;
+   // padding: var(--hsElevate--spacing--48, 48px) var(--hsElevate--spacing--24, 24px);
+   // }
    ```
 
 3. Implement the main Component:
@@ -51,11 +55,9 @@ This rule guides you through implementing a HubSpot React module after the initi
      // Destructure props
      // Implement component logic
      return (
-       <StyledComponentsRegistry>
-         <StyledContainer>
+        <StyledContainer className={cx(swm('className-one'), 'className-two')}>
            {/* Component JSX */}
-         </StyledContainer>
-       </StyledComponentsRegistry>
+        </StyledContainer>
      );
    };
    ```
@@ -64,7 +66,7 @@ This rule guides you through implementing a HubSpot React module after the initi
 If the module requires client-side interactivity:
 1. Create an island component in `islands/` directory
 2. Use the `?island` suffix when importing
-3. Wrap with `StyledIsland` component
+3. Use regular `Island` component from `@hubspot/cms-components`
 4. Set appropriate hydration strategy
 
 ### 4. Module Metadata
@@ -172,29 +174,27 @@ export const Component = (props: MenuModulePropTypes) => {
   } = styles;
 
   return (
-    <StyledComponentsRegistry>
-      <SiteHeader $navBarBackgroundColor={menuBackgroundColor}>
-        <SiteHeaderContainer>
-          {/* Use destructured fields */}
-          <LogoContainer>
-            {showButton && (
-              <Button
-                buttonStyle={buttonStyleVariant}
-                buttonSize={buttonStyleSize}
-              >
-                {buttonText}
-              </Button>
-            )}
-          </LogoContainer>
-          <MainNavWrapper $menuTextColor={menuTextColor}>
-            <MenuComponent
-              menuDataArray={navDataArray}
-              menuAlignment={menuAlignment}
-            />
-          </MainNavWrapper>
-        </SiteHeaderContainer>
-      </SiteHeader>
-    </StyledComponentsRegistry>
+    <SiteHeader>
+      <SiteHeaderContainer>
+        {/* Use destructured fields */}
+        <LogoContainer>
+          {showButton && (
+            <Button
+              buttonStyle={buttonStyleVariant}
+              buttonSize={buttonStyleSize}
+            >
+              {buttonText}
+            </Button>
+          )}
+        </LogoContainer>
+        <MainNavWrapper>
+          <MenuComponent
+            menuDataArray={navDataArray}
+            menuAlignment={menuAlignment}
+          />
+        </MainNavWrapper>
+      </SiteHeaderContainer>
+    </SiteHeader>
   );
 };
 ```
@@ -205,40 +205,47 @@ Key patterns demonstrated:
 3. Renaming during destructuring for clarity
 4. Type safety with TypeScript interfaces
 5. Organized grouping of related fields
-6. Proper consumption in styled-components and child components
+6. Proper consumption of CSS Modules styles in component and child components
 
 ### 3. Interactive Module with Islands and State Management
 Example showing proper island component implementation with state management from the SiteHeader's mobile menu:
 
 ```typescript
 // islands/MobileMenuIsland.tsx
-import { useEffect, useState } from 'react';
+import { useEffect, useState, CSSProperties } from 'react';
 import { useSharedIslandState } from '@hubspot/cms-components';
-import { styled } from 'styled-components';
+import styles from '../menu.module.css';
+import { createComponent } from '../../utils/create-component.js';
+import cx, { staticWithModule } from '../../utils/classnames.js';
 
-type MenuContainerProps = {
-  $isMenuSliding: boolean;
-  $showMenu: boolean;
-  $headerHeight: number;
-  $menuBackgroundColor: string;
-  $menuTextColor: string;
-  $menuAccentColor: string;
-};
+interface MobileMenuIslandProps {
+  menuBackgroundColor: string;
+  menuTextColor: string;
+  menuAccentColor: string;
+  headerHeight: number;
+}
 
-const MenuContainer = styled.div<MenuContainerProps>`
-  position: absolute;
-  background-color: ${({ $menuBackgroundColor }) => $menuBackgroundColor};
-  top: 100%;
-  left: ${({ $isMenuSliding }) => ($isMenuSliding ? '0' : '100%')};
-  width: 100%;
-  height: ${({ $headerHeight }) => `calc(100vh - ${$headerHeight}px)`};
-  transition: all 0.3s ease;
-  display: ${({ $showMenu }) => ($showMenu ? 'flex' : 'none')};
+const MenuContainer = createComponent('div');
+const HamburgerButton = createComponent('button');
 
-  // ... other styles
-`;
+// CSS Modules approach - menu.module.css:
+// .hs-elevate-menu-container {
+//   position: absolute;
+//   background-color: var(--hsElevate--menu__backgroundColor);
+//   color: var(--hsElevate--menu__textColor);
+//   top: 100%;
+//   width: 100%;
+//   height: var(--hsElevate--menu__height);
+//   transition: all 0.3s ease;
+//   left: 100%; /* Default hidden state */
+// }
+// .hs-elevate-menu-container--sliding { left: 0; }
+// .hs-elevate-menu-container--show { display: flex; }
+// .hs-elevate-menu-container--hidden { display: none; }
 
 export default function MobileMenuIsland(props: MobileMenuIslandProps) {
+  const { menuBackgroundColor, menuTextColor, menuAccentColor, headerHeight } = props;
+
   // Local state for animations and UI
   const [isAnimating, setIsAnimating] = useState(false);
   const [isMenuSliding, setIsMenuSliding] = useState(false);
@@ -247,9 +254,6 @@ export default function MobileMenuIsland(props: MobileMenuIslandProps) {
 
   // Shared state across islands
   const [triggeredMenuItems, setTriggeredMenuItems] = useSharedIslandState();
-
-  // State for dynamic measurements
-  const [headerHeight, setHeaderHeight] = useState(0);
 
   // Effect for handling menu open/close animation
   useEffect(() => {
@@ -283,15 +287,30 @@ export default function MobileMenuIsland(props: MobileMenuIslandProps) {
     setIsAnimating(!isAnimating);
   };
 
+  // CSS custom properties for dynamic styling
+  const menuContainerStyle: CSSProperties = {
+    '--hsElevate--menu__backgroundColor': menuBackgroundColor,
+    '--hsElevate--menu__textColor': menuTextColor,
+    '--hsElevate--menu__accentColor': menuAccentColor,
+    '--hsElevate--menu__height': `calc(100vh - ${headerHeight}px)`,
+  } as CSSProperties;
+
+  // Generate dynamic classes based on state
+  const menuContainerClasses = cx(
+    'hs-elevate-menu-container',
+    styles['hs-elevate-menu-container'],
+    {
+      [styles['hs-elevate-menu-container--show']]: showMenu,
+      [styles['hs-elevate-menu-container--sliding']]: isMenuSliding,
+      [styles['hs-elevate-menu-container--hidden']]: !showMenu,
+    }
+  );
+
   return (
     <>
       <MenuContainer
-        $isMenuSliding={isMenuSliding}
-        $showMenu={showMenu}
-        $headerHeight={headerHeight}
-        $menuBackgroundColor={props.menuBackgroundColor}
-        $menuTextColor={props.menuTextColor}
-        $menuAccentColor={props.menuAccentColor}
+        className={menuContainerClasses}
+        style={menuContainerStyle}
       >
         {/* Menu content */}
       </MenuContainer>
@@ -313,11 +332,11 @@ Key patterns demonstrated:
    - Coordinated state updates
    - Document body modifications
    - Cleanup on unmount
-4. Styled-components with dynamic props
-5. TypeScript prop typing for both component and styled-components
+4. CSS Modules with CSS custom properties for dynamic styling
+5. TypeScript prop typing for component props and CSS variables
 
 ## Common Patterns
-- Use `StyledComponentsRegistry` for styled-components
+- Use CSS Modules and the createComponent util fn for styling and naming components
 - Leverage existing field libraries when possible
 - Follow existing module patterns for consistency
 - Use CSS variables for theming
@@ -325,7 +344,7 @@ Key patterns demonstrated:
 
 ## Final Checklist
 - [ ] All props are properly typed
-- [ ] Styled components use theme variables
+- [ ] Components use CSS Modules with CSS custom properties for theming
 - [ ] Module meta is properly configured
 - [ ] Islands are properly implemented (if needed)
 - [ ] Accessibility is considered
@@ -341,8 +360,10 @@ Example showing proper static module implementation with styling and theme varia
 ```typescript
 // Metrics/index.tsx
 import { ModuleMeta } from '../../types/modules.js';
-import { styled } from 'styled-components';
-import StyledComponentsRegistry from '../../StyledComponentsRegistry/StyledComponentsRegistry.jsx';
+import { staticWithModule } from '../../utils/classnames.js';
+import styles from './metrics.modules.css';
+
+const swm = staticWithModule(styles);
 
 type MetricProps = {
   groupMetrics: {
@@ -352,20 +373,22 @@ type MetricProps = {
   groupStyle: GroupStyle;
 };
 
-// Styled components with theme variables
-const MetricsContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
+// Named components
+const MetricsContainer = createComponent('div');
+const Metric = createComponent('div');
+const MetricNumber = createComponent('div');
+const MetricDescription = createComponent('div');
+// inside metrics.module.css file:
+// .hs-elevate-metrics {
+  // display: flex;
+  // justify-content: space-around;
+  // flex-direction: column;
 
-  @media (min-width: 768px) {
-    flex-direction: row;
-  }
-`;
-
-const MetricNumber = styled.div`
-  color: var(--hsElevate--metrics__accentColor);
-`;
+  // @media (min-width: 768px) {
+  //   flex-direction: row;
+  // }
+// }
+// same for .hs-elevate-metrics__number
 
 export const Component = (props: MetricProps) => {
   const {
@@ -373,17 +396,29 @@ export const Component = (props: MetricProps) => {
     groupStyle: { headingStyleVariant, sectionStyleVariant },
   } = props;
 
+  const cssVarsMap: CSSPropertiesMap = {
+    '--hsElevate--metrics__accentColor': 'var(--theme-color-primary)',
+  };
+
   return (
-    <StyledComponentsRegistry>
-      <MetricsContainer>
-        {groupMetrics.map((metric, index) => (
-          <Metric key={index}>
-            <MetricNumber>{metric.metric}</MetricNumber>
-            <MetricDescription>{metric.description}</MetricDescription>
-          </Metric>
-        ))}
-      </MetricsContainer>
-    </StyledComponentsRegistry>
+    <MetricsContainer
+      className={swm('hs-elevate-metrics')}
+      style={cssVarsMap}
+    >
+      {groupMetrics.map((metric, index) => (
+        <Metric
+          key={index}
+          className={swm('hs-elevate-metrics__metric')}
+        >
+          <MetricNumber className={swm('hs-elevate-metrics__number')}>
+            {metric.metric}
+          </MetricNumber>
+          <MetricDescription className={swm('hs-elevate-metrics__description')}>
+            {metric.description}
+          </MetricDescription>
+        </Metric>
+      ))}
+    </MetricsContainer>
   );
 };
 ```
@@ -414,6 +449,8 @@ export const Component = (props: TestimonialSliderProps) => {
 Example of proper theme variable implementation:
 
 ```typescript
+import { CSSPropertiesMap } from '../../types/components.ts;
+
 function generateColorCssVars(sectionVariantField: SectionVariantType): CSSPropertiesMap {
   const sectionColorsMap = {
     section_variant_1: {
