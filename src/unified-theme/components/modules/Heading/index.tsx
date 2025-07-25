@@ -29,9 +29,9 @@ type HeadingProps = HeadingAndTextFieldLibraryType & {
 // Functions to pull in corresponding CSS variables on component based on field values
 
 function generateColorCssVars(sectionVariantField: SectionVariantType): CSSPropertiesMap {
-  return {
-    '--hsElevate--heading__textColor': sectionColorsMap[sectionVariantField].textColor,
-  };
+  const textColor = sectionColorsMap[sectionVariantField]?.textColor || sectionColorsMap['section_variant_1'].textColor;
+
+  return { '--hsElevate--heading__textColor': textColor };
 }
 
 // Components
@@ -45,9 +45,7 @@ export const Component = (props: HeadingProps) => {
     groupStyle: { alignment, headingStyleVariant, sectionStyleVariant },
   } = props;
 
-  const cssVarsMap = {
-    ...generateColorCssVars(sectionStyleVariant),
-  };
+  const cssVarsMap = { ...generateColorCssVars(sectionStyleVariant) };
 
   return (
     <HeadingContainer style={cssVarsMap} className={swm('hs-elevate-heading-container')}>
