@@ -8,6 +8,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build --output-dir ../../cms-elevate-theme-static-assets/static/dist",
     "test-storybook": "test-storybook",
+    "test-storybook-published": "test-storybook --url https://app.hubspotqa.com/cms-elevate-theme-storybook/ --testTimeout 30000",
     "preview-storybook": "npx serve ../../cms-elevate-theme-static-assets/static/dist -l 8080",
     "clean-storybook": "rm -rf ../../cms-elevate-theme-static-assets/static/dist"
   },

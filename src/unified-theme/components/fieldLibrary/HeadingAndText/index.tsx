@@ -10,6 +10,8 @@ type HeadingAndTextProps = {
   textVisibility?: AdvancedVisibility;
 };
 
+export const HEADING_TEXT_FIELD_NAME = 'headingAndTextHeading';
+
 export default function HeadingAndText(props: HeadingAndTextProps) {
   const {
     headingLevelDefault = 'h3',
@@ -30,7 +32,7 @@ export default function HeadingAndText(props: HeadingAndTextProps) {
 
   return (
     <>
-      <TextField label={headingTextLabel} name="headingAndTextHeading" visibilityRules="ADVANCED" advancedVisibility={textVisibility} default={textDefault} />
+      <TextField label={headingTextLabel} name={HEADING_TEXT_FIELD_NAME} visibilityRules="ADVANCED" advancedVisibility={textVisibility} default={textDefault} />
       <ChoiceField
         label={headingLevelLabel}
         name="headingAndTextHeadingLevel"
