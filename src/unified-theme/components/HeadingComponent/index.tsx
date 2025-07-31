@@ -1,3 +1,4 @@
+import { CSSProperties } from 'react';
 import { TextFieldType, TextAlignmentFieldType } from '@hubspot/cms-components/fields';
 import { HeadingLevelType } from '../types/fields.js';
 import { HeadingStyleFieldLibraryType } from '../fieldLibrary/HeadingStyle/types.js';
@@ -6,7 +7,7 @@ import SanitizedContent from '../SanitizeHTML/index.js';
 // Types
 
 type HeadingInlineStyleProps = {
-  inlineStyles?: React.CSSProperties;
+  inlineStyles?: CSSProperties;
   alignment?: TextAlignmentFieldType['default'];
 };
 
@@ -15,6 +16,7 @@ type HeadingProps = HeadingInlineStyleProps &
     additionalClassArray?: string[];
     heading: TextFieldType['default'];
     headingLevel: HeadingLevelType;
+    inlineDataToken?: string;
   };
 
 // Maps the heading class based on the headingStyle option
@@ -35,11 +37,11 @@ const headingClasses = {
 function makeHeadingStyles(styleParams: HeadingInlineStyleProps) {
   const { inlineStyles, alignment } = styleParams;
 
-  const stylesToReturn = {
-    ...inlineStyles,
-  };
+  const stylesToReturn = { ...inlineStyles };
 
-  if (alignment) stylesToReturn.textAlign = alignment.text_align.toLowerCase() as 'left' | 'right' | 'center' | 'justify';
+  if (alignment) {
+    stylesToReturn.textAlign = alignment.text_align.toLowerCase() as 'left' | 'right' | 'center' | 'justify';
+  }
 
   return stylesToReturn;
 }
@@ -47,13 +49,13 @@ function makeHeadingStyles(styleParams: HeadingInlineStyleProps) {
 // Component
 
 function HeadingComponent(props: HeadingProps) {
-  const { additionalClassArray, inlineStyles, headingLevel: HeadingLevel, heading, alignment, headingStyleVariant } = props;
+  const { additionalClassArray, inlineStyles, headingLevel: HeadingLevel, heading, alignment, headingStyleVariant, inlineDataToken } = props;
 
   const headingClass = headingStyleVariant ? headingClasses[headingStyleVariant] : '';
   const additionalClasses = additionalClassArray ? additionalClassArray.join(' ') : '';
 
   return (
-    <HeadingLevel className={`${headingClass} ${additionalClasses}`} style={makeHeadingStyles({ inlineStyles, alignment })}>
+    <HeadingLevel className={`${headingClass} ${additionalClasses}`} style={makeHeadingStyles({ inlineStyles, alignment })} data-hs-token={inlineDataToken}>
       <SanitizedContent content={heading} />
     </HeadingLevel>
   );
