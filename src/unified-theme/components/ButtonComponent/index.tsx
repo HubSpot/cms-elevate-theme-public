@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { ButtonStyleType, StandardSizeType, ElementPositionType } from '../types/fields.js';
 import styles from './button.module.css';
 import cx, { staticWithModule } from '../utils/classnames.js';
@@ -16,10 +17,11 @@ type ButtonProps = {
   rel: string;
   href: string;
   target: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
   showIcon: boolean;
   iconFieldPath?: string;
   iconPosition?: ElementPositionType;
+  inlineDataToken?: string;
 };
 
 // Function to set the button class name
@@ -54,11 +56,10 @@ const DefaultContent = () => (
 );
 
 export const Button = (props: ButtonProps) => {
-  const { ariaLabel, additionalClassArray, rel, href, target, buttonStyle, buttonSize, children, showIcon, iconFieldPath, iconPosition } = props;
+  const { ariaLabel, additionalClassArray, rel, href, target, buttonStyle, buttonSize, children, showIcon, iconFieldPath, iconPosition, inlineDataToken } =
+    props;
 
-  const cssVarsMap = {
-    ...generatePaddingCSSVars(buttonSize),
-  };
+  const cssVarsMap = { ...generatePaddingCSSVars(buttonSize) };
 
   const buttonClassName = getButtonClassName(buttonStyle);
   const additionalClasses = additionalClassArray ? additionalClassArray.join(' ') : '';
@@ -75,6 +76,7 @@ export const Button = (props: ButtonProps) => {
       href={href}
       rel={rel}
       aria-label={ariaLabel}
+      data-hs-token={inlineDataToken}
     >
       {iconFieldPath && showIcon && <Icon className={cx(iconClasses)} purpose="DECORATIVE" fieldPath={iconFieldPath} />}
       {children || <DefaultContent />}

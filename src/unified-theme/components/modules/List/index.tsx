@@ -20,9 +20,9 @@ type ListProps = {
   groupStyle: GroupStyle;
 };
 
-type GroupStyle = SectionStyleFieldLibraryType;
+export type GroupStyle = SectionStyleFieldLibraryType;
 
-type GroupListItems = {
+export type GroupListItems = {
   groupListContent: {
     listItemContent: TextFieldType['default'];
   };

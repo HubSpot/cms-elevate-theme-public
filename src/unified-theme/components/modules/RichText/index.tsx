@@ -7,10 +7,13 @@ import { SectionStyleFieldLibraryType } from '../../fieldLibrary/SectionStyle/ty
 import { sectionColorsMap } from '../../utils/section-color-map.js';
 import { CSSPropertiesMap } from '../../types/components.js';
 import { staticWithModule } from '../../utils/classnames.js';
+import { RICH_TEXT_FIELD_NAME } from '../../fieldLibrary/RichTextContent/index.js';
+import { generateInlineFieldsToken } from '../../utils/generate-inline-field-token.js';
 
 const swm = staticWithModule(styles);
 
 type RichTextProps = {
+  moduleName: string;
   groupStyle: SectionStyleFieldLibraryType;
 };
 
@@ -35,13 +38,14 @@ function generateColorCssVars(sectionVariantField: SectionVariantType): CSSPrope
 export const Component = (props: RichTextProps) => {
   const {
     groupStyle: { sectionStyleVariant },
+    moduleName,
   } = props;
 
-  const cssVarsMap = {
-    ...generateColorCssVars(sectionStyleVariant),
-  };
+  const cssVarsMap = { ...generateColorCssVars(sectionStyleVariant) };
 
-  return <RichText className={swm('hs-elevate-rich-text')} fieldPath="richTextContentHTML" style={cssVarsMap} />;
+  const dataToken = generateInlineFieldsToken(moduleName, RICH_TEXT_FIELD_NAME);
+
+  return <RichText className={swm('hs-elevate-rich-text')} fieldPath={RICH_TEXT_FIELD_NAME} style={cssVarsMap} data-hs-token={dataToken} />;
 };
 
 export { fields } from './fields.js';
