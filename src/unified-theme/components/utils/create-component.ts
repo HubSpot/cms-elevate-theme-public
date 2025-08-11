@@ -1,4 +1,5 @@
-import { createElement } from 'react';
+import { createElement, forwardRef } from 'react';
+
 /**
  * Creates a named React component for any HTML element.
  * Useful for creating semantic components without styled-components overhead.
@@ -27,9 +28,9 @@ export type HTMLElementTag = keyof JSX.IntrinsicElements;
 export type HTMLElementProps<Tag extends HTMLElementTag> = JSX.IntrinsicElements[Tag];
 
 export const createComponent = <Tag extends HTMLElementTag>(tag: Tag) => {
-  const NamedComponent = (props: HTMLElementProps<Tag>) => {
-    return createElement(tag, props);
-  };
+  const NamedComponent = forwardRef<HTMLElement, HTMLElementProps<Tag>>((props, ref) => {
+    return createElement(tag, { ...props, ref });
+  });
 
   NamedComponent.displayName = `Component(${tag})`;
 
