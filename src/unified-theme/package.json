@@ -8,8 +8,10 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build --output-dir ../../cms-elevate-theme-static-assets/static/dist",
     "test-storybook": "test-storybook",
-    "test-storybook-published": "test-storybook --url https://app.hubspotqa.com/cms-elevate-theme-storybook/ --testTimeout 30000",
-    "preview-storybook": "npx serve ../../cms-elevate-theme-static-assets/static/dist -l 8080",
+    "test-storybook-local": "test-storybook --url http://localhost:8080",
+    "test-storybook-ci": "./scripts/test-storybook-ci.sh",
+    "test-storybook-published": "test-storybook --url https://app.hubspotqa.com/cms-elevate-theme-storybook/",
+    "preview-storybook": "npx serve ../../cms-elevate-theme-static-assets/static/dist -l 8080 -L",
     "clean-storybook": "rm -rf ../../cms-elevate-theme-static-assets/static/dist"
   },
   "type": "module",
@@ -26,8 +28,6 @@
   },
   "devDependencies": {
     "@hubspot/cms-dev-server": "^1.0.0",
-    "@testing-library/react": "^16",
-    "@vitejs/plugin-react": "^4",
     "@storybook/addon-actions": "^8.6.14",
     "@storybook/addon-docs": "^8.6.14",
     "@storybook/addon-essentials": "^8.6.14",
@@ -38,6 +38,8 @@
     "@storybook/react-vite": "^8.6.14",
     "@storybook/test": "^8.6.14",
     "@storybook/test-runner": "^0.19.1",
+    "@testing-library/react": "^16",
+    "@vitejs/plugin-react": "^4",
     "storybook": "^8.6.14"
   }
 }
