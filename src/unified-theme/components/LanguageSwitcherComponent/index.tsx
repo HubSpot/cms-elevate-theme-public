@@ -92,6 +92,7 @@ const LanguageSwitcherIsland = (props: LanguageSwitcherProps) => {
   return (
     <LanguageSwitcherNav style={cssVarsMap} onClick={handleContainerClick} className={swm('hs-elevate-language-switcher')}>
       <LanguageSwitcherButton
+        role="button"
         aria-expanded={isOpen}
         aria-label={currentPageLanguageDisplayName}
         onClick={handleLanguageSwitcherClick}
