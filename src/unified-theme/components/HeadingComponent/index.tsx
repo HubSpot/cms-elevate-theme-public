@@ -16,7 +16,6 @@ type HeadingProps = HeadingInlineStyleProps &
     additionalClassArray?: string[];
     heading: TextFieldType['default'];
     headingLevel: HeadingLevelType;
-    inlineDataToken?: string;
   };
 
 // Maps the heading class based on the headingStyle option
@@ -49,13 +48,13 @@ function makeHeadingStyles(styleParams: HeadingInlineStyleProps) {
 // Component
 
 function HeadingComponent(props: HeadingProps) {
-  const { additionalClassArray, inlineStyles, headingLevel: HeadingLevel, heading, alignment, headingStyleVariant, inlineDataToken } = props;
+  const { additionalClassArray, inlineStyles, headingLevel: HeadingLevel, heading, alignment, headingStyleVariant } = props;
 
   const headingClass = headingStyleVariant ? headingClasses[headingStyleVariant] : '';
   const additionalClasses = additionalClassArray ? additionalClassArray.join(' ') : '';
 
   return (
-    <HeadingLevel className={`${headingClass} ${additionalClasses}`} style={makeHeadingStyles({ inlineStyles, alignment })} data-hs-token={inlineDataToken}>
+    <HeadingLevel className={`${headingClass} ${additionalClasses}`} style={makeHeadingStyles({ inlineStyles, alignment })}>
       <SanitizedContent content={heading} />
     </HeadingLevel>
   );
