@@ -21,7 +21,6 @@ type ButtonProps = {
   showIcon: boolean;
   iconFieldPath?: string;
   iconPosition?: ElementPositionType;
-  inlineDataToken?: string;
 };
 
 // Function to set the button class name
@@ -56,8 +55,7 @@ const DefaultContent = () => (
 );
 
 export const Button = (props: ButtonProps) => {
-  const { ariaLabel, additionalClassArray, rel, href, target, buttonStyle, buttonSize, children, showIcon, iconFieldPath, iconPosition, inlineDataToken } =
-    props;
+  const { ariaLabel, additionalClassArray, rel, href, target, buttonStyle, buttonSize, children, showIcon, iconFieldPath, iconPosition } = props;
 
   const cssVarsMap = { ...generatePaddingCSSVars(buttonSize) };
 
@@ -76,7 +74,6 @@ export const Button = (props: ButtonProps) => {
       href={href}
       rel={rel}
       aria-label={ariaLabel}
-      data-hs-token={inlineDataToken}
     >
       {iconFieldPath && showIcon && <Icon className={cx(iconClasses)} purpose="DECORATIVE" fieldPath={iconFieldPath} />}
       {children || <DefaultContent />}

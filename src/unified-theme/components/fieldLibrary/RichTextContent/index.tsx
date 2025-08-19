@@ -47,8 +47,6 @@ const extendedFeatureSet = [
   'visual_blocks',
 ] as RichTextFieldType['enabledFeatures'];
 
-export const RICH_TEXT_FIELD_NAME = 'richTextContentHTML';
-
 export default function RichTextContent(props: RichTextProps) {
   const {
     label = 'Content',
@@ -60,7 +58,7 @@ export default function RichTextContent(props: RichTextProps) {
   return (
     <RichTextField
       label={label}
-      name={RICH_TEXT_FIELD_NAME}
+      name="richTextContentHTML"
       visibilityRules="ADVANCED"
       advancedVisibility={richTextVisibility}
       enabledFeatures={featureSet === 'text' ? textFeatureSet : extendedFeatureSet}
