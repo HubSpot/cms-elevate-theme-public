@@ -11,8 +11,6 @@ import { sectionColorsMap } from '../../utils/section-color-map.js';
 import { staticWithModule } from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
 import { CSSPropertiesMap } from '../../types/components.js';
-import { HEADING_TEXT_FIELD_NAME } from '../../fieldLibrary/HeadingAndText/index.js';
-import { generateInlineFieldsToken } from '../../utils/generate-inline-field-token.js';
 
 const swm = staticWithModule(styles);
 
@@ -23,7 +21,6 @@ type GroupStyle = SectionStyleFieldLibraryType &
     alignment?: TextAlignmentFieldType['default'];
   };
 type HeadingProps = HeadingAndTextFieldLibraryType & {
-  moduleName: string;
   groupStyle: GroupStyle;
 };
 
@@ -46,11 +43,9 @@ export const Component = (props: HeadingProps) => {
     headingAndTextHeadingLevel,
     headingAndTextHeading,
     groupStyle: { alignment, headingStyleVariant, sectionStyleVariant },
-    moduleName,
   } = props;
 
   const cssVarsMap = { ...generateColorCssVars(sectionStyleVariant) };
-  const dataToken = generateInlineFieldsToken(moduleName, HEADING_TEXT_FIELD_NAME);
 
   return (
     <HeadingContainer style={cssVarsMap} className={swm('hs-elevate-heading-container')}>
@@ -60,7 +55,6 @@ export const Component = (props: HeadingProps) => {
         heading={headingAndTextHeading}
         alignment={alignment}
         headingStyleVariant={headingStyleVariant}
-        inlineDataToken={dataToken}
       />
     </HeadingContainer>
   );
