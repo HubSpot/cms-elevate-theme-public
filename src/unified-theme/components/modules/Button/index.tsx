@@ -82,9 +82,7 @@ function generateGapCssVars(gapField: StandardSizeType): CSSPropertiesMap {
 
 function generateAlignmentCssVars(alignmentField: AlignmentFieldType['default']): CSSPropertiesMap {
   const alignment = getAlignmentFieldCss(alignmentField);
-  return {
-    '--hsElevate--buttons__alignment': alignment.justifyContent || 'flex-start',
-  };
+  return { '--hsElevate--buttons__alignment': alignment.justifyContent || 'flex-start' };
 }
 
 // Components

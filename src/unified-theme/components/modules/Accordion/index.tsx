@@ -53,9 +53,7 @@ function generateIconColorCssVar(cardVariantField: CardVariantType): CSSProperti
     card_variant_4: 'var(--hsElevate--card--variant4__iconColor)',
   };
 
-  return {
-    '--hsElevate--cardIcon__fillColor': iconColorsMap[cardVariantField],
-  };
+  return { '--hsElevate--cardIcon__fillColor': iconColorsMap[cardVariantField] };
 }
 
 // Components
@@ -130,7 +128,7 @@ export const Component = (props: AccordionProps) => {
     <AccordionContainer className={swm('hs-elevate-accordion-container')} style={cssVarsMap}>
       {groupAccordions.map((accordion, index) => (
         <Accordion className={cx(swm('hs-elevate-accordion'), cardClassName)} key={index}>
-          <AccordionTitle className={swm('hs-elevate-accordion__title')}>
+          <AccordionTitle className={swm('hs-elevate-accordion__title')} role="button" tabIndex={0}>
             <AccordionTitleText className={swm('hs-elevate-accordion__title-text')}>{accordion.title}</AccordionTitleText>
             {icon === 'chevron' ? (
               <AccordionArrow />

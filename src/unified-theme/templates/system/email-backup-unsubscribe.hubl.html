@@ -12,10 +12,7 @@
     {% module_block module "email_simple_subscription"
       path="@hubspot/email_simple_subscription"
       extra_classes="hs-elevate-backup-unsubscribe",
-      header={{ template_translations.backup_unsubscribe_header.message }},
-      input_help_text={{ template_translations.backup_unsubscribe_input_help_text.message }},
-      input_placeholder="email@example.com",
-      button_text={{ template_translations.backup_unsubscribe_button_text.message }}
+      header={{ template_translations.backup_unsubscribe_header.message }}
     %}
       {% module_attribute "subheader" %}
         {% if business_unit().name %}
