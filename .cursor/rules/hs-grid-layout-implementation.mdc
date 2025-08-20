@@ -1,0 +1,231 @@
+---
+description: This rule is to be used to help facilitate adding grid layout implementations into existing templates and sections.
+alwaysApply: false
+---
+# HubSpot Conditional Grid Layout Implementation Guide
+
+You are assisting with implementing conditional CSS Grid layouts within existing HubSpot CMS templates and sections. This adds modern grid capabilities alongside the existing LayoutSection layouts through conditional rendering.
+
+## Overview & Methodology
+
+### Implementation Goals
+- Add CSS Grid layout paths alongside existing LayoutSection implementations
+- Enable dual-path rendering (grid-enabled vs. grid-disabled) within same files
+- Preserve existing LayoutSection functionality while adding grid capabilities
+- Support modern layout patterns through conditional grid implementation
+
+### Conditional Implementation Approach
+1. **Analyze existing structure** - Understand current LayoutSection patterns
+2. **Plan grid equivalent** - Design appropriate CSS Grid implementation
+3. **Implement conditional rendering** - Add `{% if grids %}` blocks for grid paths
+4. **Preserve existing code** - Keep LayoutSection implementation in `{% else %}` blocks
+
+## HubL Conditional Grid Implementation
+
+### Grid Layout Tag Mappings
+
+When implementing grid paths, use these equivalent tags:
+
+#### Tag Mapping for Grid Paths
+- `{% dnd_section %}` → `{% dnd_grid_section %}`
+- `{% dnd_row %}` → `{% dnd_grid_row %}`
+- `{% dnd_column %}` → `{% dnd_grid_module %}` (note: columns become modules in grid)
+- `{% dnd_module %}` → `{% dnd_grid_module %}`
+
+#### Conditional Implementation Example
+```hubl
+<!-- Add grid path alongside existing LayoutSection -->
+{% dnd_area "Main Content" %}
+  {% if grids %}
+    <!-- Grid Layout Path -->
+    {% dnd_grid_section %}
+      {% dnd_grid_row %}
+        {% dnd_grid_module %}
+      {% end_dnd_grid_row %}
+    {% end_dnd_grid_section %}
+  {% else %}
+    <!-- Existing LayoutSection Path (preserved) -->
+    {% dnd_section %}
+      {% dnd_row %}
+        {% dnd_column %}
+          {% dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_row %}
+    {% end_dnd_section %}
+  {% endif %}
+{% end_dnd_area %}
+```
+
+#### New Grid-Specific Tags
+```hubl
+<!-- 2D Grid Table with explicit rows/columns -->
+{% dnd_grid_table rows=["auto", "auto"] columns=["1fr", "1fr"] %}
+  {% dnd_grid_module %}
+  {% dnd_grid_module %}
+  {% dnd_grid_module %}
+  {% dnd_grid_module %}
+{% end_dnd_grid_table %}
+
+<!-- Locked layouts for structured content -->
+{% dnd_area "Main Content" locked_layout="column" %}
+  {% dnd_grid_module %}
+  {% dnd_grid_module %}
+{% end_dnd_area %}
+```
+
+## Conditional Rendering Implementation
+
+### Dual-Path Pattern
+**CRITICAL:** All implementations must support both grid-enabled and grid-disabled rendering.
+
+```hubl
+{% if grids %}
+  <!-- Grid Layout Version -->
+  {% dnd_area "main" %}
+    {% dnd_grid_section %}
+      {% dnd_grid_row %}
+        {% dnd_grid_module %}
+      {% end_dnd_grid_row %}
+    {% end_dnd_grid_section %}
+  {% end_dnd_area %}
+{% else %}
+  <!-- LayoutSection Fallback -->
+  {% dnd_area "main" %}
+    {% dnd_section %}
+      {% dnd_row %}
+        {% dnd_column %}
+          {% dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_row %}
+    {% end_dnd_section %}
+  {% end_dnd_area %}
+{% endif %}
+```
+
+## Grid-Specific Features
+
+### CSS Grid Properties Available
+- `rows` - Define grid row sizes: `["auto", "1fr", "200px"]`
+- `columns` - Define grid column sizes: `["1fr", "2fr", "1fr"]`
+- `gap` - Grid gap spacing (responsive across breakpoints)
+- `position` - Manual positioning of grid items
+- `spanning` - Allow items to span multiple rows/columns
+
+### Responsive Grid Configuration
+```hubl
+{% dnd_grid_table
+   rows=["auto", "auto"]
+   columns=["1fr", "1fr"]
+   gap_mobile="10px"
+   gap_tablet="20px"
+   gap_desktop="30px" %}
+```
+
+### Background Layer Optimization
+Grid layouts render backgrounds as HTML elements instead of CSS:
+```hubl
+<!-- Grid background rendering -->
+<div class="hs-dnd-grid-background">
+  <img src="{{ background_image.src }}"
+       srcset="{{ background_image.srcset }}"
+       sizes="100vw" />
+</div>
+```
+
+## Common Implementation Patterns
+
+### Simple Section Implementation
+```hubl
+<!-- Add conditional grid implementation to existing section -->
+{% if grids %}
+  {% dnd_grid_section %}
+    {% dnd_grid_row %}
+      {% dnd_grid_module path="../modules/heading" %}
+    {% end_dnd_grid_row %}
+  {% end_dnd_grid_section %}
+{% else %}
+  <!-- Existing LayoutSection Section (preserved) -->
+  {% dnd_section %}
+    {% dnd_row %}
+      {% dnd_column width=12 %}
+        {% dnd_module path="../modules/heading" %}
+      {% end_dnd_column %}
+    {% end_dnd_row %}
+  {% end_dnd_section %}
+{% endif %}
+```
+
+### Multi-Column Grid Table Implementation
+```hubl
+<!-- Add grid table alongside existing multi-column layout -->
+{% if grids %}
+  {% dnd_grid_section %}
+    {% dnd_grid_table rows=["auto"] columns=["1fr", "1fr"] %}
+      {% dnd_grid_module path="../modules/text" %}
+      {% dnd_grid_module path="../modules/image" %}
+    {% end_dnd_grid_table %}
+  {% end_dnd_grid_section %}
+{% else %}
+  <!-- Existing Multi-Column LayoutSection (preserved) -->
+  {% dnd_section %}
+    {% dnd_row %}
+      {% dnd_column width=6 %}
+        {% dnd_module path="../modules/text" %}
+      {% end_dnd_column %}
+      {% dnd_column width=6 %}
+        {% dnd_module path="../modules/image" %}
+      {% end_dnd_column %}
+    {% end_dnd_row %}
+  {% end_dnd_section %}
+{% endif %}
+```
+
+## Quality Assurance Checklist
+
+### Pre-Implementation Validation
+- [ ] Analyze existing section structure and layout patterns
+- [ ] Plan appropriate grid equivalent structure
+
+### Post-Implementation Validation
+- [ ] Both grid and non-grid paths render correctly
+- [ ] Visual parity between grid and LayoutSection paths
+- [ ] Performance metrics acceptable
+- [ ] Cross-browser compatibility verified
+- [ ] Mobile responsiveness maintained for both paths
+
+### Code Quality Checks
+- [ ] HubL syntax is valid and follows conventions
+- [ ] CSS classes follow grid naming standards
+- [ ] No mixing of grid and non-grid tags in same area
+- [ ] Proper conditional rendering implementation
+
+## Troubleshooting Common Issues
+
+### Mixed Grid Systems Error
+**Error:** Cannot mix grid systems in the same dnd_area
+**Solution:** Ensure conditional blocks completely separate grid and non-grid implementations
+
+---
+
+## Quick Reference
+
+### Essential HubL Tags
+- `{% if grids %}` - Grid feature detection
+- `{% dnd_grid_section %}` - Grid section container
+- `{% dnd_grid_row %}` - Horizontal container
+- `{% dnd_grid_table %}` - 2D grid with explicit rows/columns
+- `{% dnd_grid_module %}` - Grid module/content
+
+### Key CSS Classes
+- `.hs-dnd-grid-section` - Grid section styling
+- `.hs-dnd-grid-table` - CSS Grid container
+- `.hs-dnd-grid-background` - Background layer container
+- `.hs-container-root` - New root container class
+
+### Critical Requirements
+- Always implement dual-path rendering
+- Preserve existing LayoutSection functionality
+- Test both grid-enabled and grid-disabled modes
+- Maintain visual parity between both paths
+
+Remember: Grid implementations must preserve existing LayoutSection functionality while adding modern grid capabilities. When in doubt, prioritize maintaining existing functionality while adding conditional grid enhancements.
