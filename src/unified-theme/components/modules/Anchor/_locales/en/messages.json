@@ -13,5 +13,10 @@
     "message": "Enter a name for your anchor. It must begin with a letter and contain only letters, numbers, hyphens, underscores, colons and periods. You can separate multiple words in an anchor with hyphens. <a href=\"https://knowledge.hubspot.com/website-pages/insert-and-manage-anchor-links\">Learn more</a>",
     "description": "",
     "placeholders": null
+  },
+  "anchor.validation_error_message": {
+    "message": "Anchor must start with a letter and can only contain letters, numbers, hyphens, underscores, colons, and periods.",
+    "description": "",
+    "placeholders": null
   }
 }
