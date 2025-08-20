@@ -1,0 +1,75 @@
+/* Base button styles using CSS custom properties */
+@layer hscl-library {
+  .button {
+    position: var(--hscl-button-position, revert-layer);
+    z-index: var(--hscl-button-z-index, revert-layer);
+
+    /* Essential layout styles */
+    display: var(--hscl-button-display, revert-layer);
+    height: var(--hscl-button-height, revert-layer);
+    max-height: var(--hscl-button-max-height, revert-layer);
+    min-height: var(--hscl-button-min-height, revert-layer);
+
+    /* Size properties */
+    width: var(--hscl-button-width, revert-layer);
+    max-width: var(--hscl-button-max-width, revert-layer);
+    min-width: var(--hscl-button-min-width, revert-layer);
+    padding-top: var(--hsElevate--button__padding, var(--hscl-button-background-color-button-padding-top, revert-layer));
+    padding-right: var(--hsElevate--button__padding, var(--hscl-button-padding-right, revert-layer));
+    padding-bottom: var(--hsElevate--button__padding, var(--hscl-button-padding-bottom, revert-layer));
+    padding-left: var(--hsElevate--button__padding, var(--hscl-button-padding-left, revert-layer));
+    padding: var(--hsElevate--button__padding);
+    border-color: var(--hscl-button-border-color, revert-layer);
+
+    /* Layout properties with CSS variable fallbacks */
+    border-radius: var(--hscl-button-border-radius, revert-layer);
+    border-style: var(--hscl-button-border-style, revert-layer);
+    border-width: var(--hscl-button-border-width, revert-layer);
+
+    /* Spacing properties - only individual properties, no shorthands */
+    margin-top: var(--hscl-button-margin-top, revert-layer);
+    margin-right: var(--hscl-button-margin-right, revert-layer);
+    margin-bottom: var(--hscl-button-margin-bottom, revert-layer);
+    margin-left: var(--hscl-button-margin-left, revert-layer);
+
+    /* Visual properties - only applied when explicitly set */
+    background-color: var(--hscl-button-background-color, revert-layer);
+    box-shadow: var(--hscl-button-box-shadow, revert-layer);
+    color: var(--hscl-button-color, revert-layer);
+    cursor: var(--hscl-button-cursor, pointer);
+    font-family: var(--hscl-button-font-family, revert-layer);
+
+    /* Typography properties - no fallbacks, only applied when explicitly set */
+    font-size: var(--hscl-button-font-size, revert-layer);
+    font-weight: var(--hscl-button-font-weight, revert-layer);
+
+    /* Position properties */
+    top: var(--hscl-button-top, revert-layer);
+    right: var(--hscl-button-right, revert-layer);
+    bottom: var(--hscl-button-bottom, revert-layer);
+    left: var(--hscl-button-left, revert-layer);
+    letter-spacing: var(--hscl-button-letter-spacing, revert-layer);
+    line-height: var(--hscl-button-line-height, revert-layer);
+    opacity: var(--hscl-button-opacity, revert-layer);
+    text-align: var(--hscl-button-text-align, revert-layer);
+    -webkit-text-decoration: var(--hscl-button-text-decoration, revert-layer);
+    text-decoration: var(--hscl-button-text-decoration, revert-layer);
+    text-transform: var(--hscl-button-text-transform, revert-layer);
+    transform: var(--hscl-button-transform, revert-layer);
+    transition: var(--hscl-button-transition, revert-layer);
+  }
+  .button:hover:not(:disabled) {
+    border-color: var(--hscl-button-hover-border-color, var(--hscl-button-border-color, revert-layer));
+    background-color: var(--hscl-button-hover-background-color, var(--hscl-button-background-color, revert-layer));
+    box-shadow: var(--hscl-button-hover-box-shadow, var(--hscl-button-box-shadow, revert-layer));
+    color: var(--hscl-button-hover-color, var(--hscl-button-color, revert-layer));
+    opacity: var(--hscl-button-hover-opacity, var(--hscl-button-opacity, revert-layer));
+    transform: var(--hscl-button-hover-transform, var(--hscl-button-transform, revert-layer));
+  }
+
+  .disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+}

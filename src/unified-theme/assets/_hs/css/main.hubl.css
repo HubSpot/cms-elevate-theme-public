@@ -1,26 +1,23 @@
-/* Settings */
+@layer hsElevateBase, hscl-library;
 
-@import './settings/_variables.hubl.css';
+/* Settings */
+@import url('./settings/_variables.hubl.css') layer(hsElevateBase);
 
 /* Generic */
-
-@import './generic/_reset.css';
-@import './generic/_normalize.css';
+@import url('./generic/_reset.css') layer(hsElevateBase);
+@import url('./generic/_normalize.css') layer(hsElevateBase);
 
 /* Objects */
-
-@import './objects/_layout.css';
+@import url('./objects/_layout.css') layer(hsElevateBase);
 
 /* Elements */
-
-@import './elements/_typography.hubl.css';
-@import './elements/_buttons.hubl.css';
-@import './elements/_cards.hubl.css';
-@import './elements/_forms.hubl.css';
+@import url('./elements/_typography.hubl.css') layer(hsElevateBase);
+@import url('./elements/_buttons.hubl.css') layer(hsElevateBase);
+@import url('./elements/_cards.hubl.css') layer(hsElevateBase);
+@import url('./elements/_forms.hubl.css') layer(hsElevateBase);
 
 /* Components */
-
-@import './components/_header.hubl.css';
-@import './components/_footer.hubl.css';
-@import './components/_menu.hubl.css';
-@import './components/_default-modules.css';
+@import url('./components/_header.hubl.css') layer(hsElevateBase);
+@import url('./components/_footer.hubl.css') layer(hsElevateBase);
+@import url('./components/_menu.hubl.css') layer(hsElevateBase);
+@import url('./components/_default-modules.css') layer(hsElevateBase);
