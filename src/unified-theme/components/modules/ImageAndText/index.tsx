@@ -2,54 +2,19 @@ import { ModuleMeta } from '../../types/modules.js';
 import { RichText } from '@hubspot/cms-components';
 import HeadingComponent from '../../HeadingComponent/index.js';
 import { Button } from '../../ButtonComponent/index.js';
-import { ImageFieldType, BooleanFieldType, AlignmentFieldType } from '@hubspot/cms-components/fields';
+import { AlignmentFieldType } from '@hubspot/cms-components/fields';
 import { ElementPositionType, SectionVariantType } from '../../types/fields.js';
 import { getLinkFieldHref, getLinkFieldRel, getLinkFieldTarget } from '../../utils/content-fields.js';
 import { getAlignmentFieldCss } from '../../utils/style-fields.js';
 import styles from './image-and-text.module.css';
 import imageAndTextIconSvg from './assets/image.svg';
-import { ButtonContentType } from '../../fieldLibrary/ButtonContent/types.js';
-import { ButtonStyleFieldLibraryType } from '../../fieldLibrary/ButtonStyle/types.js';
-import { SectionStyleFieldLibraryType } from '../../fieldLibrary/SectionStyle/types.js';
-import { RichTextContentFieldLibraryType } from '../../fieldLibrary/RichTextContent/types.js';
-import { HeadingStyleFieldLibraryType } from '../../fieldLibrary/HeadingStyle/types.js';
-import { HeadingAndTextFieldLibraryType } from '../../fieldLibrary/HeadingAndText/types.js';
 import { sectionColorsMap } from '../../utils/section-color-map.js';
 import { staticWithModule } from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
 import { CSSPropertiesMap } from '../../types/components.js';
+import { ImageAndTextProps } from './types.js';
 
 const swm = staticWithModule(styles);
-
-// Types
-
-interface GroupButton extends ButtonContentType {
-  showButton: BooleanFieldType['default'];
-}
-
-type GroupButtonStyle = ButtonStyleFieldLibraryType;
-
-type GroupContentStyle = SectionStyleFieldLibraryType &
-  HeadingStyleFieldLibraryType & {
-    verticalAlignment: AlignmentFieldType['default'];
-  };
-
-type GroupStyle = {
-  groupContent: GroupContentStyle;
-  groupButton: GroupButtonStyle;
-};
-
-type GroupContent = RichTextContentFieldLibraryType & HeadingAndTextFieldLibraryType;
-
-type ImageAndTextProps = {
-  groupImage: {
-    image?: ImageFieldType['default'];
-    imagePosition: ElementPositionType;
-  };
-  groupContent: GroupContent;
-  groupButton: GroupButton;
-  groupStyle: GroupStyle;
-};
 
 // Image and text component
 
@@ -71,17 +36,13 @@ function generateImagePositionCssVars(imagePositionField: ElementPositionType): 
     right: '1',
   };
 
-  return {
-    '--hsElevate--imageAndText__order': imagePositionMap[imagePositionField],
-  };
+  return { '--hsElevate--imageAndText__order': imagePositionMap[imagePositionField] };
 }
 
 function generateAlignmentCssVars(alignmentField: AlignmentFieldType['default']): CSSPropertiesMap {
   const alignmentCss = getAlignmentFieldCss(alignmentField);
 
-  return {
-    '--hsElevate--imageAndText__alignItems': alignmentCss.alignItems || 'center',
-  };
+  return { '--hsElevate--imageAndText__alignItems': alignmentCss.alignItems || 'center' };
 }
 
 // Components
