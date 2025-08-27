@@ -8,11 +8,11 @@
 {% extends "../layouts/base.hubl.html" %}
 
 {% block body %}
-  <section class="hs-elevate-content-wrapper hs-elevate-content-padding" style="text-align: center;">
+  <section class="hs-elevate-content-wrapper hs-elevate-content-wrapper--sm hs-elevate-content-padding" style="text-align: center;">
     <img class="success-image" src='{{ get_asset_url("../../images/success.png") }}' height="76" width="76" loading="eager" alt="">
 
     {% email_subscriptions_confirmation "email_subscriptions_confirmation"
-      extra_classes="hs-elevate-email-subscription-confirmation",
+      extra_classes="hs-elevate-email-subscription-confirmation hs-elevate-system-form hs-elevate-system-form--confirmation",
       email_heading_level="p"
       header="",
       unsubscribe_all_success={{ template_translations.subscription_confirmation_unsubscribe_all_success.message }},

@@ -5,6 +5,12 @@ import cx, { staticWithModule } from '../utils/classnames.js';
 import { Icon } from '@hubspot/cms-components';
 import { CSSPropertiesMap } from '../types/components.js';
 
+export const BUTTON_SIZE_PADDING_MAP: Record<StandardSizeType, string> = {
+  small: 'var(--hsElevate--spacing--12, 12px) var(--hsElevate--spacing--20, 20px)',
+  medium: 'var(--hsElevate--spacing--16, 16px) var(--hsElevate--spacing--24, 24px)',
+  large: 'var(--hsElevate--spacing--20, 20px) var(--hsElevate--spacing--32, 32px)',
+};
+
 const swm = staticWithModule(styles);
 
 // Types
@@ -39,13 +45,7 @@ function getButtonClassName(buttonStyle: ButtonStyleType) {
 // Function to pull in corresponding CSS variables on component based on prop values
 
 function generatePaddingCSSVars(buttonSize: StandardSizeType): CSSPropertiesMap {
-  const paddingMap = {
-    small: 'var(--hsElevate--spacing--12, 12px) var(--hsElevate--spacing--20, 20px)',
-    medium: 'var(--hsElevate--spacing--16, 16px) var(--hsElevate--spacing--24, 24px)',
-    large: 'var(--hsElevate--spacing--20, 20px) var(--hsElevate--spacing--32, 32px)',
-  };
-
-  return { '--hsElevate--button__padding': paddingMap[buttonSize] };
+  return { '--hsElevate--button__padding': BUTTON_SIZE_PADDING_MAP[buttonSize] };
 }
 
 const DefaultContent = () => (

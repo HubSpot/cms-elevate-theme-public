@@ -2,11 +2,11 @@
 
 /* Makes h2/h3 appear as paragraph content */
 .hs-elevate-backup-unsubscribe :is(h2, h3) {
+  color: var(--hsElevate--section--lightSection--1__textColor);
   font-family: var(--hsElevate--body__font);
   font-size: var(--hsElevate--body__fontSize);
-  font-weight: var(--hsElevate--body__fontWeight) !important;
   font-style: var(--hsElevate--body__fontStyle);
-  color: var(--hsElevate--section--lightSection--1__textColor);
+  font-weight: var(--hsElevate--body__fontWeight) !important;
   line-height: var(--hsElevate--body__lineHeight);
 }
 
@@ -23,13 +23,30 @@
   margin-block-end: 0;
 }
 
+#hs-subscriptions-unsubscribe-survey-options {
+  text-align: left;
+}
+
+#hs-subscriptions-unsubscribe-survey-options > div {
+  display: flex;
+  align-items: center;
+}
+
+#hs-subscriptions-unsubscribe-survey-options input[type="radio"] {
+  flex-shrink: 0;
+}
+
+#hs-subscriptions-unsubscribe-survey-options > div > label {
+  margin-block-end: 0;
+}
+
 /***** EMAIL SUBSCRIPTION PREFERENCES *****/
 
 /* Allows for email to show above the form without form styles */
-.hs-elevate-system-form--subscription-preferences {
+.hs-elevate-system-form--subscription-preferences form {
   padding: 0;
-  background: transparent;
   border: none;
+  background: transparent;
 }
 
 /* Hides spacing on blank h1 */
@@ -76,8 +93,8 @@
 /* Applies styles to the global unsubscribe option so it visually stands out */
 .hs-elevate-system-form--subscription-preferences .subscribe-options {
   border-top: 1px solid var(--hsElevate--form__borderColor);
-  padding-block-start: var(--hsElevate--formField__marginBottom);
   margin-block: var(--hsElevate--formField__marginBottom);
+  padding-block-start: var(--hsElevate--formField__marginBottom);
 }
 
 .hs-elevate-system-form--subscription-preferences .subscribe-options p {
@@ -94,25 +111,25 @@
 .hs-download-data__button {
   width: auto;
   min-width: 45%;
-  font-family: var(--hsElevate--button--primary__font);
-  font-size: var(--hsElevate--button--primary__fontSize);
-  font-weight: var(--hsElevate--button--primary__fontWeight);
-  font-style: var(--hsElevate--button--primary__fontStyle);
-  color: var(--hsElevate--button--primary__textColor);
-  border-width: var(--hsElevate--button--primary__borderThickness);
-  background-color: var(--hsElevate--button--primary__backgroundColor);
-  border-style: solid;
   border-color: var(--hsElevate--button--primary__borderColor);
   border-radius: var(--hsElevate--button--primary__borderRadius);
+  border-style: solid;
+  border-width: var(--hsElevate--button--primary__borderThickness);
+  background-color: var(--hsElevate--button--primary__backgroundColor);
+  color: var(--hsElevate--button--primary__textColor);
+  font-family: var(--hsElevate--button--primary__font);
+  font-size: var(--hsElevate--button--primary__fontSize);
+  font-style: var(--hsElevate--button--primary__fontStyle);
+  font-weight: var(--hsElevate--button--primary__fontWeight);
   text-decoration: none;
 }
 
 .hs-delete-data__button:hover,
 .hs-download-data__button:hover {
-  color: var(--hsElevate--button--primary__hover--textColor);
-  background-color: var(--hsElevate--button--primary__hover--backgroundColor);
   border-color: var(--hsElevate--button--primary__hover--borderColor);
   border-width: var(--hsElevate--button--primary__hover--borderThickness);
+  background-color: var(--hsElevate--button--primary__hover--backgroundColor);
+  color: var(--hsElevate--button--primary__hover--textColor);
   text-decoration: none;
 }
 
@@ -124,29 +141,29 @@
 
 .hs-delete-data__button:active,
 .hs-download-data__button:active {
+  border-width: var(--hsElevate--button--primary__hover--borderThickness);
   color: var(--hsElevate--button--primary__hover--textColor);
+  text-decoration: none;
   background-color: {{ primary_button_active_background_color }};
   border-color: {{ primary_button_active_border_color }};
-  border-width: var(--hsElevate--button--primary__hover--borderThickness);
-  text-decoration: none;
 }
 
 /***** PASSWORD PROMPT *****/
 
 /* Resets some styles on the input to match other form field styles */
 .hs-elevate-system-form--password-prompt input[type='password'] {
-  margin-block-end: var(--hsElevate--formField__marginBottom);
   height: auto !important;
   margin-top: 0 !important;
+  margin-block-end: var(--hsElevate--formField__marginBottom);
 }
 
 /***** SEARCH RESULTS *****/
 
 /* Removes form wrapper styles */
-.hs-elevate-system-form--search {
+.hs-elevate-system-form--search form {
   padding: 0;
-  background: transparent;
   border: none;
+  background: transparent;
 }
 
 /* Allows search button to appear as part of the input */
@@ -156,12 +173,9 @@
 }
 
 .hs-elevate-system-form--search .hs-search-field__button {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  border-top-right-radius: var(--hsElevate--formField__borderRadius);
-  border-bottom-right-radius: var(--hsElevate--formField__borderRadius);
-  border-width: var(--hsElevate--formField__borderThickness);
   border-color: var(--hsElevate--button--primary__borderColor);
+  border-radius: 0 var(--hsElevate--formField__borderRadius) var(--hsElevate--formField__borderRadius) 0;
+  border-width: var(--hsElevate--formField__borderThickness);
   background-color: var(--hsElevate--button--primary__backgroundColor);
   padding-block: var(--hsElevate--spacing--20);
   padding-inline: var(--hsElevate--spacing--24);
