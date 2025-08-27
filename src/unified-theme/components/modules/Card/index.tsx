@@ -117,7 +117,9 @@ function generateColorCssVars(cardVariantField: string): CSSPropertiesMap {
 // Checks if image path has '-use-background-' in its name to get the card icon's background color applied
 
 function imageShouldUseBackground(imagePath: string): boolean {
-  if (!imagePath) return false;
+  if (!imagePath) {
+    return false;
+  }
   return /-use-background-/.test(imagePath);
 }
 
@@ -145,9 +147,7 @@ export const Component = (props: CardProps) => {
   const isImage = imageOrIcon === 'image';
   const textAlignment = alignment.horizontal_align?.toLowerCase() as 'left' | 'right' | 'center';
 
-  const headingInlineStyles = {
-    textAlign: textAlignment,
-  };
+  const headingInlineStyles = { textAlign: textAlignment };
 
   const cssVarsMap = {
     ...generateColorCssVars(cardStyleVariant),

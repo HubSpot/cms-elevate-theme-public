@@ -1,61 +1,18 @@
 import { ModuleMeta } from '../../types/modules.js';
-import { TextFieldType, BooleanFieldType } from '@hubspot/cms-components/fields';
 import HeadingComponent from '../../HeadingComponent/index.js';
 import { Button } from '../../ButtonComponent/index.js';
 import { Card } from '../../CardComponent/index.js';
 import { getLinkFieldHref, getLinkFieldRel, getLinkFieldTarget } from '../../utils/content-fields.js';
 import { CardVariantType } from '../../types/fields.js';
 import pricingCardIconSvg from './assets/quotes.svg';
-import { ButtonContentType } from '../../fieldLibrary/ButtonContent/types.js';
-import { ButtonStyleFieldLibraryType } from '../../fieldLibrary/ButtonStyle/types.js';
 import { HeadingStyleFieldLibraryType } from '../../fieldLibrary/HeadingStyle/types.js';
-import { CardStyleFieldLibraryType } from '../../fieldLibrary/CardStyle/types.js';
-import { HeadingAndTextFieldLibraryType } from '../../fieldLibrary/HeadingAndText/types.js';
 import styles from './pricing-card.module.css';
 import { staticWithModule } from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
 import { CSSPropertiesMap } from '../../types/components.js';
+import type { PricingCardProps, PricingCardSummaryProps, PricingCardFeaturesProps } from './types.js';
 
 const swm = staticWithModule(styles);
-
-// Types
-
-type PricingCardSummaryProps = {
-  groupSummary: HeadingAndTextFieldLibraryType & {
-    description: TextFieldType['default'];
-    price: TextFieldType['default'];
-    timePeriod: TextFieldType['default'];
-  };
-};
-
-type PricingCardFeaturesProps = {
-  groupPlanFeatures: HeadingAndTextFieldLibraryType & {
-    featuresTitle: TextFieldType['default'];
-    groupFeatures: Array<{
-      feature: TextFieldType['default'];
-    }>;
-  };
-};
-
-type PricingCardButtonContentProps = {
-  groupButton: ButtonContentType & {
-    showButton: BooleanFieldType['default'];
-  };
-};
-
-type PricingCardContentProps = PricingCardSummaryProps & PricingCardFeaturesProps & PricingCardButtonContentProps;
-
-type GroupStyle = {
-  groupCard: CardStyleFieldLibraryType;
-  groupSummary: HeadingStyleFieldLibraryType;
-  groupPlanFeatures: HeadingStyleFieldLibraryType;
-  groupButton: ButtonStyleFieldLibraryType;
-};
-
-type PricingCardProps = {
-  groupPricingCards: PricingCardContentProps[];
-  groupStyle: GroupStyle;
-};
 
 // Function to generate CSS variables
 
@@ -88,9 +45,7 @@ function generateIconCssVars(cardVariantField: CardVariantType): CSSPropertiesMa
     card_variant_4: 'var(--hsElevate--card--variant4__iconColor)',
   };
 
-  return {
-    '--hsElevate--cardIcon__color': iconColorsMap[cardVariantField],
-  };
+  return { '--hsElevate--cardIcon__color': iconColorsMap[cardVariantField] };
 }
 
 const PricingCardsWrapper = createComponent('div');

@@ -1,7 +1,7 @@
 /* Form */
 
 .hs-form,
-.hs-elevate-system-form,
+.hs-elevate-system-form form,
 .hs-elevate-system-form--subscription-preferences form .email-prefs {
   padding: var(--hsElevate--form__padding);
   border-color: var(--hsElevate--form__borderColor);
@@ -220,7 +220,8 @@
 /* Form button */
 
 .hs-form .hs-button,
-:is(.hs-form, .hs-elevate-system-form) input[type='submit'] {
+:is(.hs-form, .hs-elevate-system-form) input[type='submit'],
+#hs-subscriptions-survey-submit-button {
   display: inline-block;
   width: 100%;
   border-color: var(--hsElevate--button--primary__borderColor);
@@ -245,7 +246,9 @@
 .hs-form .hs-button:hover,
 .hs-form .hs-button:focus,
 :is(.hs-form, .hs-elevate-system-form) input[type='submit']:hover,
-:is(.hs-form, .hs-elevate-system-form) input[type='submit']:focus {
+:is(.hs-form, .hs-elevate-system-form) input[type='submit']:focus,
+#hs-subscriptions-survey-submit-button:hover,
+#hs-subscriptions-survey-submit-button:focus {
   border-color: var(--hsElevate--button--primary__hover--borderColor);
   border-width: var(--hsElevate--button--primary__hover--borderThickness);
   background-color: var(--hsElevate--button--primary__hover--backgroundColor);
