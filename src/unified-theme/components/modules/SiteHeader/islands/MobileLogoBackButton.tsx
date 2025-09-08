@@ -4,6 +4,7 @@ import { LogoFieldType } from '@hubspot/cms-components/fields';
 import styles from '../mobile-logo-back-button.module.css';
 import cx, { staticWithModule } from '../../../utils/classnames.js';
 import { createComponent } from '../../../utils/create-component.js';
+import { PlaceholderEmptyContent } from '../../../PlaceholderComponent/PlaceholderEmptyContent.js';
 
 const swm = staticWithModule(styles);
 
@@ -14,6 +15,11 @@ type MobileLogoBackButtonProps = {
   companyName: string;
   logoLink: string;
   logoLinkAriaText: string;
+  isInEditor: boolean;
+  logoPlaceholderTitle: string;
+  logoPlaceholderDescription: string;
+  companyPlaceholderTitle: string;
+  companyPlaceholderDescription: string;
 };
 
 // Components
@@ -31,6 +37,11 @@ export default function MobileLogoBackButton(props: MobileLogoBackButtonProps) {
     logoField: { src: logoSrc, alt: logoAlt, width: logoWidth, height: logoHeight, suppress_company_name },
     logoLink,
     logoLinkAriaText,
+    isInEditor,
+    logoPlaceholderTitle,
+    logoPlaceholderDescription,
+    companyPlaceholderTitle,
+    companyPlaceholderDescription,
   } = props;
   const [triggeredMenuItems, setTriggeredMenuItems] = useSharedIslandState();
   const showBackButton = triggeredMenuItems.length > 0;
@@ -44,6 +55,18 @@ export default function MobileLogoBackButton(props: MobileLogoBackButtonProps) {
   });
 
   const logoImageClasses = cx(swm('hs-elevate-site-header__logo'), { [styles['hs-elevate-site-header__logo--is-svg']]: isFileTypeSvg });
+
+  const renderLogoAreaPlaceholder = () => {
+    const showCompanyName = !suppress_company_name;
+
+    if (!showCompanyName) {
+      return <PlaceholderEmptyContent title={logoPlaceholderTitle} description={logoPlaceholderDescription} />;
+    }
+    if (showCompanyName && !companyName) {
+      return <PlaceholderEmptyContent title={companyPlaceholderTitle} description={companyPlaceholderDescription} />;
+    }
+    return null;
+  };
 
   return (
     <BackButtonContainer className={backButtonContainerClasses}>
@@ -60,6 +83,7 @@ export default function MobileLogoBackButton(props: MobileLogoBackButtonProps) {
         </LogoLink>
       )}
       {!logoSrc && !suppress_company_name && <CompanyNameFallback className={swm('hs-elevate-site-header__company-name')}>{companyName}</CompanyNameFallback>}
+      {!logoSrc && isInEditor && renderLogoAreaPlaceholder()}
     </BackButtonContainer>
   );
 }
