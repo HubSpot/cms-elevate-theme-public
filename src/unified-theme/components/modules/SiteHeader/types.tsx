@@ -56,6 +56,10 @@ export interface MenuModulePropTypes extends MenuModuleContentFields {
     languageSwitcherSelectText: string;
     placeholderTitle: string;
     placeholderDescription: string;
+    logoPlaceholderTitle: string;
+    logoPlaceholderDescription: string;
+    companyPlaceholderTitle: string;
+    companyPlaceholderDescription: string;
   };
   accessibility: {
     menuName: TextFieldType['default'];

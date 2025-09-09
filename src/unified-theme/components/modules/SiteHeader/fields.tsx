@@ -38,9 +38,7 @@ export const fields = (
       <BooleanField label="Show button" name="showButton" display="toggle" default={true} />
       <ButtonContent
         textDefault="Get started"
-        linkDefault={{
-          open_in_new_tab: false,
-        }}
+        linkDefault={{ open_in_new_tab: false }}
         iconPositionDefault="right"
         textVisibility={advancedShowButton}
         linkVisibility={advancedShowButton}
@@ -49,20 +47,22 @@ export const fields = (
     <FieldGroup label="Default content" name="defaultContent" locked={true}>
       <TextField label="Logo link aria text" name="logoLinkAriaText" default="Homepage" locked={true} />
       <TextField label="Lang switcher select text" name="languageSwitcherSelectText" default="Select a language" locked={true} />
-      <TextField label="Placeholder title" name="placeholderTitle" default="No menu selected" />
+      <TextField label="Menu placeholder title" name="placeholderTitle" default="No menu selected" />
       <TextField
-        label="Placeholder description"
+        label="Menu placeholder description"
         name="placeholderDescription"
-        default="Select an existing menu from the sidebar, or create a new one by navigating to the Navigation Menus tool"
+        default="Click to add a navigation menu. After you publish, it appears here."
       />
+      <TextField label="Logo placeholder title" name="logoPlaceholderTitle" default="No logo" />
+      <TextField label="Logo placeholder description" name="logoPlaceholderDescription" default="Click to add a logo" />
+      <TextField label="Company placeholder title" name="companyPlaceholderTitle" default="No company name" />
+      <TextField label="Company placeholder description" name="companyPlaceholderDescription" default="Click to set your company name" />
     </FieldGroup>
     <IconField
       label="Language switcher icon"
       name="globe_icon"
       iconSet="fontawesome-6.4.2"
-      default={{
-        name: 'earth-americas',
-      }}
+      default={{ name: 'earth-americas' }}
       required={true}
       locked={true}
     />
@@ -72,47 +72,29 @@ export const fields = (
           label="Text color (default)"
           name="menuTextColor"
           helpText="Controls the color of text in the navigation bar. Also controls the color of the hamburger menu."
-          visibility={{
-            hidden_subfields: {
-              opacity: true,
-            },
-          }}
+          visibility={{ hidden_subfields: { opacity: true } }}
           limitedOptions={limitedOptionsColorsSet}
           default={{ color: '#09152B' }}
         />
         <ColorField
           label="Text color (hover)"
           name="menuTextHoverColor"
-          visibility={{
-            hidden_subfields: {
-              opacity: true,
-            },
-          }}
+          visibility={{ hidden_subfields: { opacity: true } }}
           limitedOptions={limitedOptionsColorsSet}
-          inheritedValuePropertyValuePaths={{
-            color: 'module.styles.groupMenu.menuTextColor.color',
-          }}
+          inheritedValuePropertyValuePaths={{ color: 'module.styles.groupMenu.menuTextColor.color' }}
         />
         <ColorField
           label="Accent color"
           name="menuAccentColor"
           helpText="Controls the color of menu item hover states and the border color of flyout menus."
-          visibility={{
-            hidden_subfields: {
-              opacity: true,
-            },
-          }}
+          visibility={{ hidden_subfields: { opacity: true } }}
           limitedOptions={limitedOptionsColorsSet}
           default={{ color: '#F7F9FC' }}
         />
         <ColorField
           label="Background color"
           name="menuBackgroundColor"
-          visibility={{
-            hidden_subfields: {
-              opacity: true,
-            },
-          }}
+          visibility={{ hidden_subfields: { opacity: true } }}
           limitedOptions={limitedColorDefaults.themeSectionBackgroundColors}
           default={{ color: '#ffffff' }}
         />

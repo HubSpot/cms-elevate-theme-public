@@ -2,13 +2,14 @@
   display: flex;
   height: 100%;
   width: 100%;
-  padding: var(--hsElevate--spacing--32, 32px) var(--hsElevate--spacing--24, 24px) var(--hsElevate--spacing--12, 12px) var(--hsElevate--spacing--24, 24px);
+  padding: var(--hsElevate--spacing--16, 16px) var(--hsElevate--spacing--24, 24px) 0 var(--hsElevate--spacing--24, 24px);
   border: 1px dashed #516f90;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: #f5f8fae6;
   color: #425b76;
+  text-align: center;
 
   h5 {
     margin-bottom: 0;
@@ -16,7 +17,7 @@
 
   p {
     margin-bottom: var(--hsElevate--spacing--20, 20px);
-    text-align: center;
+    font-size: var(--hsElevate--heading--h6__fontSize, 14px);
   }
 }
 
