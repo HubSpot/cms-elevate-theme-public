@@ -62,7 +62,16 @@ export const Component = (props: MenuModulePropTypes) => {
       isInEditor,
     },
     groupLogo: { logo: logoField },
-    defaultContent: { logoLinkAriaText, languageSwitcherSelectText, placeholderTitle, placeholderDescription },
+    defaultContent: {
+      logoLinkAriaText,
+      languageSwitcherSelectText,
+      placeholderTitle,
+      placeholderDescription,
+      logoPlaceholderTitle,
+      logoPlaceholderDescription,
+      companyPlaceholderTitle,
+      companyPlaceholderDescription,
+    },
     groupButton,
     styles: groupStyles,
   } = props;
@@ -112,6 +121,11 @@ export const Component = (props: MenuModulePropTypes) => {
               companyName={companyName}
               logoLinkAriaText={logoLinkAriaText}
               logoLink={logoLink}
+              isInEditor={isEditorMode}
+              logoPlaceholderTitle={logoPlaceholderTitle}
+              logoPlaceholderDescription={logoPlaceholderDescription}
+              companyPlaceholderTitle={companyPlaceholderTitle}
+              companyPlaceholderDescription={companyPlaceholderDescription}
             />
           </LogoButtonContainer>
           {navDataArray.length === 0 && isEditorMode ? (

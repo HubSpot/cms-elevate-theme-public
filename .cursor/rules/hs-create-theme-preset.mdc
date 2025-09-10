@@ -1,0 +1,199 @@
+---
+description: Create a new theme preset
+globs:
+alwaysApply: false
+---
+# Create Theme Preset
+
+When creating a new theme preset, follow these guidelines to generate a complete, well-structured preset file that matches the theme's field structure. The preset will be created in the `src/unified-theme/presets/` directory.
+
+## Key Principles
+
+- Create a complete preset JSON file with all required properties
+- Use the existing `blue.json` preset as a reference for structure
+- Reference `src/unified-theme/fields.json` for understanding available properties
+- Support both complete preset creation and piece-by-piece building
+- Generate intelligent defaults when values aren't provided
+- Use the preset name (capitalized) as the label
+
+## Core Concepts
+
+### Preset Structure
+
+A theme preset is a JSON file that defines default values for theme customization. The structure follows the field hierarchy defined in `fields.json`:
+
+```json
+{
+  "name": "preset-name",
+  "label": "Preset Name",
+  "values": {
+    "group_foundation": {
+      "group_fonts": { /* Font configurations */ },
+      "group_colors": { /* Color configurations */ }
+    },
+    "group_elements": {
+      "group_forms": { /* Form styling */ },
+      "group_button_types": { /* Button variants */ },
+      "group_cards": { /* Card variants */ },
+      "group_links": { /* Link styling */ },
+      "group_tags": { /* Tag styling */ }
+    }
+  }
+}
+```
+
+### Required Parameters
+
+- **presetName** (string): The name for the preset (used for filename and internal name)
+
+### Optional Parameters
+
+- **elements** (array): Specific elements to build (e.g., ["fonts", "colors", "buttons"])
+- **manualValues** (object): Manual overrides for specific properties
+- **mockupImage** (file): Image file for automatic color/font extraction
+
+## Implementation Steps
+
+### 1. Validation
+
+- Check if `presetName` is provided, ask if missing
+- Validate that `presetName` is valid for filename (no spaces, special chars)
+- Check if file already exists, warn user
+- Generate `presetLabel` from `presetName` (capitalize first letter)
+
+### 2. Element Selection
+
+- If `elements` array provided: Only build specified elements
+- If no `elements` specified: Build complete preset
+- Never use default values! Either use the values that are specified in the prompt/mock or add the value as an empty string.
+- If `mockupImage` provided: Extract colors/fonts from image first
+
+### 3. Value Generation
+
+- **From Image**: Use AI vision to extract dominant colors, font suggestions
+- **From Manual Values**: Use provided overrides
+- **Default Fallbacks**: Use sensible defaults for missing values
+
+### 4. File Creation
+
+- Create `{presetName}.json` in `src/unified-theme/presets/`
+- Use proper JSON formatting with 2-space indentation
+- Include all required properties with generated/default values
+
+## Component Categories
+
+### Foundation
+
+#### Fonts
+
+- **Base font**: Font family, font set, variants
+- **Heading fonts**: H1-H6 with sizes
+- **Body font**: Paragraph styling
+- **Other elements**: Blockquote, caption styling
+
+#### Colors
+
+- **Base colors**: Primary colors
+- **Accent colors**: Accent colors for highlights
+- **Section colors**: Light and dark section variants with text/background colors
+
+### Elements
+
+#### Forms
+
+- **Field styling**: Background, shape, border, colors
+- **Text styling**: Labels, inputs, placeholders
+- **Form container**: Background, shape, border
+
+#### Button Types
+
+- **Primary button**: Filled style with hover states
+- **Secondary button**: Outline style with hover states
+- **Tertiary button**: Alternative filled style
+- **Accent button**: Alternative outline style
+
+#### Cards
+
+- **Card variants**: Different color schemes and styling
+- **Icon colors**: Fill and background colors for card icons
+
+#### Links
+
+- **Primary links**: Default and hover states
+- **Secondary links**: Alternative link styling
+
+#### Tags
+
+- **Background**: Fill color and shape
+- **Text**: Font and color styling
+- **Border**: Optional border styling
+
+
+### Buttons/Cards/Links
+
+- Use color palette to generate consistent variants
+- Ensure proper contrast ratios
+- Follow accessibility guidelines
+
+## Usage Examples
+
+### Complete Preset
+
+```md
+Create a theme preset called "ocean" with blue color scheme
+```
+
+### Partial Preset
+
+```md
+Create a theme preset called "minimal" with just fonts and colors
+```
+
+### Manual Override
+
+```md
+Create a theme preset called "corporate" with primary color #1E3A8A and font "Roboto"
+```
+
+### From Image
+
+```md
+Create a theme preset called "sunset" using this mockup image for color inspiration
+```
+
+## Best Practices
+
+### Code Formatting
+
+- Use 2-space indentation for JSON
+- Maintain consistent property ordering
+- Use proper JSON syntax with double quotes
+- Follow the exact structure from `blue.json`
+
+
+### File Organization
+
+- Place all presets in `src/unified-theme/presets/`
+- Use kebab-case for filenames
+
+## Error Handling
+
+- **File exists**: Warn user, offer to overwrite or rename
+- **Invalid name**: Suggest valid alternatives (kebab-case, no spaces)
+- **Image processing fails**: Fall back to manual values or defaults
+- **Missing required fields**: Use intelligent defaults from `blue.json`
+
+## Output
+
+The rule will:
+
+1. Create the preset file in `src/unified-theme/presets/{presetName}.json`
+2. Display a summary of what was generated
+3. Show any warnings or fallbacks used
+4. Provide next steps for customization
+
+## Reference Files
+
+- **Structure reference**: `src/unified-theme/presets/blue.json`
+- **Field definitions**: `src/unified-theme/fields.json`
+- **Theme configuration**: `src/unified-theme/theme.json`

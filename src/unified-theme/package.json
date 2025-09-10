@@ -4,7 +4,7 @@
   "description": "Assets for the Elevate theme",
   "scripts": {
     "start": "hs-cms-dev-server .",
-    "generate-tmp-json-for-translations": "jsx-module-fields-to-fields-json",
+    "generate-tmp-json-for-translations": "jsx-module-fields-to-fields-json"
   },
   "type": "module",
   "keywords": [],

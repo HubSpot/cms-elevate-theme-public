@@ -195,7 +195,27 @@
     "placeholders": null
   },
   "defaultContent.placeholderDescription.default": {
-    "message": "Select an existing menu from the sidebar, or create a new one by navigating to the Navigation Menus tool",
+    "message": "Click to add a navigation menu. After you publish, it appears here.",
+    "description": "",
+    "placeholders": null
+  },
+  "defaultContent.logoPlaceholderTitle.default": {
+    "message": "No logo",
+    "description": "",
+    "placeholders": null
+  },
+  "defaultContent.logoPlaceholderDescription.default": {
+    "message": "Click to add a logo",
+    "description": "",
+    "placeholders": null
+  },
+  "defaultContent.companyPlaceholderTitle.default": {
+    "message": "No company name",
+    "description": "",
+    "placeholders": null
+  },
+  "defaultContent.companyPlaceholderDescription.default": {
+    "message": "Click to set your company name",
     "description": "",
     "placeholders": null
   }
