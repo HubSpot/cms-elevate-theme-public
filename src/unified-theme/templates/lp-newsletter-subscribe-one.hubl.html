@@ -9,7 +9,7 @@
 {% extends "./layouts/base.hubl.html" %}
 
 {% block header %}
-  {% global_partial path="./partials/lp-header.hubl.html" %}
+  {% global_partial path="./partials/lp-header.hubl.html" type="HEADER" %}
 {% endblock header %}
 
 {% set experts_section_content = "<p>{{ scaffold_content.group_experts_insights.content or template_translations.lp_newsletter_subscribe_one_experts_content.message }}</p>" %}
@@ -193,5 +193,5 @@
 {% endblock body %}
 
 {% block footer %}
-  {% global_partial path="./partials/lp-footer.hubl.html" %}
+  {% global_partial path="./partials/lp-footer.hubl.html" type="FOOTER" %}
 {% endblock footer %}

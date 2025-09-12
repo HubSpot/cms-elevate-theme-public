@@ -9,7 +9,7 @@
 {% extends "./layouts/base.hubl.html" %}
 
 {% block header %}
-  {% global_partial path="./partials/lp-header.hubl.html" %}
+  {% global_partial path="./partials/lp-header.hubl.html" type="HEADER" %}
 {% endblock header %}
 
 {% set accordion_one_answer = "<p>{{ scaffold_content.group_faq.group_faq_one.content or template_translations.lp_product_free_trial_two_faq_one_content.message }}</p>" %}
@@ -181,5 +181,5 @@
 {% endblock body %}
 
 {% block footer %}
-  {% global_partial path="./partials/lp-footer.hubl.html" %}
+  {% global_partial path="./partials/lp-footer.hubl.html" type="FOOTER" %}
 {% endblock footer %}

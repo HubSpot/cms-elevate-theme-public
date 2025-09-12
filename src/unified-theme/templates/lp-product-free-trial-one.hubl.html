@@ -20,7 +20,7 @@
 {% set accordion_six_answer = "<p>{{ scaffold_content.group_faqs.group_faq_six.answer or template_translations.lp_product_free_trial_one_faq_six_answer.message }}</p>" %}
 
 {% block header %}
-  {% global_partial path="./partials/lp-header.hubl.html" %}
+  {% global_partial path="./partials/lp-header.hubl.html" type="HEADER" %}
 {% endblock header %}
 
 {% block body %}
@@ -273,5 +273,5 @@
 {% endblock body %}
 
 {% block footer %}
-  {% global_partial path="./partials/lp-footer.hubl.html" %}
+  {% global_partial path="./partials/lp-footer.hubl.html" type="FOOTER" %}
 {% endblock footer %}

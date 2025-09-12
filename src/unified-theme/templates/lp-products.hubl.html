@@ -25,7 +25,7 @@
 {% set card_three_content = "<p>{{ scaffold_content.group_cards.group_card_three.description or template_translations.lp_products_card_three_content.message }}</p>" %}
 
 {% block header %}
-  {% global_partial path="./partials/lp-header.hubl.html" %}
+  {% global_partial path="./partials/lp-header.hubl.html" type="HEADER" %}
 {% endblock header %}
 
 {% block body %}
@@ -491,5 +491,5 @@
 {% endblock body %}
 
 {% block footer %}
-  {% global_partial path="./partials/lp-footer.hubl.html" %}
+  {% global_partial path="./partials/lp-footer.hubl.html" type="FOOTER" %}
 {% endblock footer %}
