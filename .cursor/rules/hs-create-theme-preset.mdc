@@ -79,7 +79,11 @@ A theme preset is a JSON file that defines overrides for theme customization. Th
 
 ### 3. Value Generation
 
-- **From Image**: Use AI vision to extract dominant colors, font suggestions
+- **From Mock Images**:
+  - Use AI vision to extract dominant colors, font suggestions
+  - **Use exact hex values** specified in the mock (e.g., `#DCEFF4`, `#0D1C1F`)
+  - **Identify selected options** by looking for the darkest background - selected buttons/options will have a darker background color than unselected ones
+  - Pay attention to slider positions for numeric values (e.g., border thickness)
 - **From Manual Values**: Use provided overrides
 - **Inheritance-Aware Generation**:
   - Check `fields.json` for `inherited_value` definitions
