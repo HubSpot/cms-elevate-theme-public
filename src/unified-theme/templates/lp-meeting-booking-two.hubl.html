@@ -9,24 +9,29 @@
 {% extends "./layouts/base.hubl.html" %}
 
 {% block header %}
-  {% global_partial path="./partials/lp-header.hubl.html" %}
+  {% global_partial path="./partials/lp-header.hubl.html" type="HEADER" %}
 {% endblock header %}
 
 {% block body %}
-  {% dnd_area "dnd_area" label="Main section" %}
+  {% if grids %}
+    {% dnd_area "dnd_area" label="Main section" %}
 
-    {# Hero banner section #}
+      {# Hero banner section #}
 
-    {% dnd_section
-      background_color={{ dark_section_1_background_color }},
-      max_width={{ section_width_medium }},
-      padding={
-        "bottom": section_vertical_spacing_extra_small
-      }
-    %}
-      {% dnd_column %}
-        {% dnd_row %}
-          {% dnd_module
+      {% dnd_grid_section
+        content_width={{ section_width_medium }},
+        background_layers=[
+          {
+            "type": "color",
+            "value": dark_section_1_background_color
+          }
+        ]
+      %}
+        {% dnd_grid_container
+          type="vertical_stack"
+          gap={{ spacing_0 }}
+        %}
+          {% dnd_grid_module
             path="../components/modules/Heading",
             headingAndTextHeading={{ scaffold_content.group_banner.heading or template_translations.lp_meeting_booking_two_banner_heading.message }},
             groupStyle={
@@ -37,10 +42,8 @@
               "sectionStyleVariant": "section_variant_4"
             }
           %}
-          {% end_dnd_module %}
-        {% end_dnd_row %}
-        {% dnd_row %}
-          {% dnd_module
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
             path="../components/modules/RichText",
             groupStyle={
               "sectionStyleVariant": "section_variant_4"
@@ -51,10 +54,8 @@
                 <p>{{ scaffold_content.group_banner.description or template_translations.lp_meeting_booking_two_banner_description.message }}</p>
               </div>
             {% end_module_attribute %}
-          {% end_dnd_module %}
-        {% end_dnd_row %}
-        {% dnd_row %}
-          {% dnd_module
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
             path="../components/modules/Button",
             groupButtons=[
               {
@@ -79,156 +80,814 @@
               "buttonStyleVariant": "tertiary"
             }
           %}
-          {% end_dnd_module %}
-        {% end_dnd_row %}
-      {% end_dnd_column %}
-    {% end_dnd_section %}
+          {% end_dnd_grid_module %}
+        {% end_dnd_grid_container %}
+      {% end_dnd_grid_section %}
 
-    {# Hero banner image section #}
+      {# Hero banner image section #}
 
-    {% dnd_section
-      background_color={{ dark_section_1_background_color }},
-      padding={
-        "top": 0,
-        "bottom": 0
-      }
-    %}
-      {% dnd_module
-        path="@hubspot/linked_image",
-        img={
-          "alt": scaffold_content.group_banner.image.alt or "",
-          "loading": scaffold_content.group_banner.image.loading or "eager",
-          "max_height": scaffold_content.group_banner.image.height or 473,
-          "max_width": scaffold_content.group_banner.image.width or 1232,
-          "size_type": "auto_custom_max",
-          "src": scaffold_content.group_banner.image.src or get_asset_url("../images/dashboard-full.png"),
-        },
-        horizontal_alignment="CENTER"
+      {% dnd_grid_section
+        background_layers=[
+          {
+            "type": "color",
+            "value": dark_section_1_background_color
+          }
+        ],
+        padding={
+          "top": 0,
+          "bottom": 0
+        }
       %}
-      {% end_dnd_module %}
-    {% end_dnd_section %}
+        {% dnd_grid_container
+          type="vertical_stack"
+          gap={{ spacing_0 }}
+        %}
+          {% dnd_grid_module
+            path="@hubspot/linked_image",
+            img={
+              "alt": scaffold_content.group_banner.image.alt or "",
+              "loading": scaffold_content.group_banner.image.loading or "eager",
+              "max_height": scaffold_content.group_banner.image.height or 473,
+              "max_width": scaffold_content.group_banner.image.width or 1232,
+              "size_type": "auto_custom_max",
+              "src": scaffold_content.group_banner.image.src or get_asset_url("../images/dashboard-full.png"),
+            },
+            horizontal_alignment="CENTER"
+          %}
+          {% end_dnd_grid_module %}
+        {% end_dnd_grid_container %}
+      {% end_dnd_grid_section %}
 
-    {# Services section #}
+      {# Services section #}
 
-    {% include_dnd_partial
-      path="../sections/heading-with-three-cards.hubl.html",
-      context={
-        "background_color": light_section_2_background_color,
-        "section_variant": "section_variant_2",
-        "card_variant": "card_variant_1",
-        "label": scaffold_content.group_services.label or template_translations.lp_meeting_booking_two_services_label.message,
-        "heading": {
-          "text": scaffold_content.group_services.heading or template_translations.lp_meeting_booking_two_services_heading.message
-        },
-        "cards": [
+      {% dnd_grid_section
+        background_layers=[
           {
-            "heading": scaffold_content.group_services.group_service_one.heading,
-            "content": scaffold_content.group_services.group_service_one.content or template_translations.lp_meeting_booking_two_service_one_content.message
-          },
-          {
-            "icon": "chart-column",
-            "heading": scaffold_content.group_services.group_service_two.heading,
-            "content": scaffold_content.group_services.group_service_two.content or template_translations.lp_meeting_booking_two_service_two_content.message
-          },
-          {
-            "icon": "timeline",
-            "heading": scaffold_content.group_services.group_service_three.heading,
-            "content": scaffold_content.group_services.group_service_three.content or template_translations.lp_meeting_booking_two_service_three_content.message
+            "type": "color",
+            "value": light_section_2_background_color
           }
         ]
-      }
-    %}
+      %}
+        {% dnd_grid_container
+          type="vertical_stack"
+          gap={{ spacing_0 }}
+        %}
+          {% dnd_grid_module
+            path="../components/modules/Anchor",
+            anchor={{ scaffold_content.services.anchor_id or "" }}
+          %}
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
+            path="../components/modules/RichText",
+            groupStyle={
+              "sectionStyleVariant": "section_variant_2"
+            }
+          %}
+            {% module_attribute "richTextContentHTML" %}
+              <div style="text-align: center;">
+                <p>{{ scaffold_content.group_services.label or template_translations.lp_meeting_booking_two_services_label.message }}</p>
+              </div>
+            {% end_module_attribute %}
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
+            path="../components/modules/Heading",
+            headingAndTextHeadingLevel="h2",
+            headingAndTextHeading={{ scaffold_content.group_services.heading or template_translations.lp_meeting_booking_two_services_heading.message }},
+            groupStyle={
+              "alignment": {
+                "text_align": "CENTER"
+              },
+              "headingStyleVariant": "h1",
+              "sectionStyleVariant": "section_variant_2"
+            }
+          %}
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
+            path="../components/modules/Card",
+            padding={
+              "top": spacing_32
+            },
+            groupCards=[
+              {
+                "groupImage": {
+                  "image": {
+                    "src": get_asset_url("../images/newsletter.png"),
+                    "alt": "",
+                    "loading": "lazy",
+                    "size_type": "auto_custom_max"
+                  }
+                },
+                "groupIcon": {
+                  "icon": {
+                    "name": "play-circle"
+                  }
+                },
+                "groupContent": {
+                  "headingAndTextHeadingLevel": "h3",
+                  "headingAndTextHeading": scaffold_content.group_services.group_service_one.heading or template_translations.section_heading_with_three_cards_card_one_heading.message,
+                  "richTextContentHTML": scaffold_content.group_services.group_service_one.content or template_translations.lp_meeting_booking_two_service_one_content.message
+                },
+                "groupButton": {
+                  "showButton": false
+                }
+              },
+              {
+                "groupImage": {
+                  "image": {
+                    "src": get_asset_url("../images/newsletter.png"),
+                    "alt": "",
+                    "loading": "lazy",
+                    "size_type": "auto_custom_max"
+                  }
+                },
+                "groupIcon": {
+                  "icon": {
+                    "name": "chart-column"
+                  }
+                },
+                "groupContent": {
+                  "headingAndTextHeadingLevel": "h3",
+                  "headingAndTextHeading": scaffold_content.group_services.group_service_two.heading or template_translations.section_heading_with_three_cards_card_two_heading.message,
+                  "richTextContentHTML": scaffold_content.group_services.group_service_two.content or template_translations.lp_meeting_booking_two_service_two_content.message
+                },
+                "groupButton": {
+                  "showButton": false
+                }
+              },
+              {
+                "groupImage": {
+                  "image": {
+                    "src": get_asset_url("../images/newsletter.png"),
+                    "alt": "",
+                    "loading": "lazy",
+                    "size_type": "auto_custom_max"
+                  }
+                },
+                "groupIcon": {
+                  "icon": {
+                    "name": "timeline"
+                  }
+                },
+                "groupContent": {
+                  "headingAndTextHeadingLevel": "h3",
+                  "headingAndTextHeading": scaffold_content.group_services.group_service_three.heading or template_translations.section_heading_with_three_cards_card_three_heading.message,
+                  "richTextContentHTML": scaffold_content.group_services.group_service_three.content or template_translations.lp_meeting_booking_two_service_three_content.message
+                },
+                "groupButton": {
+                  "showButton": false
+                }
+              }
+            ],
+            groupStyle={
+              "groupCard": {
+                "cardStyleVariant": "card_variant_1",
+                "cardOrientation": "column"
+              },
+              "groupContent": {
+                "headingStyleVariant": "h3"
+              }
+            }
+          %}
+          {% end_dnd_grid_module %}
+        {% end_dnd_grid_container %}
+      {% end_dnd_grid_section %}
 
-    {# Benefits section #}
+      {# Benefits section #}
 
-    {% include_dnd_partial
-      path="../sections/products-and-services-list.hubl.html",
-      context={
-        "background_color": dark_section_1_background_color,
-        "section_variant": "section_variant_4",
-        "heading": scaffold_content.group_benefits.heading or template_translations.lp_meeting_booking_two_benefits_heading.message,
-        "image": {
-          "alt": scaffold_content.group_benefits.image.alt or "",
-          "loading": scaffold_content.group_benefits.image.loading,
-          "max_height": scaffold_content.group_benefits.image.height,
-          "max_width": scaffold_content.group_benefits.image.width,
-          "src": scaffold_content.group_benefits.image.src or get_asset_url("../images/products-services-feature-image-dark.png")
-        },
-        "list": [
-          {"content": scaffold_content.group_benefits.group_benefit_one.content or template_translations.lp_meeting_booking_two_benefit_one_content.message},
-          {"content": scaffold_content.group_benefits.group_benefit_two.content or template_translations.lp_meeting_booking_two_benefit_two_content.message},
-          {"content": scaffold_content.group_benefits.group_benefit_three.content or template_translations.lp_meeting_booking_two_benefit_three_content.message},
-          {"content": scaffold_content.group_benefits.group_benefit_four.content or template_translations.lp_meeting_booking_two_benefit_four_content.message},
-          {"content": scaffold_content.group_benefits.group_benefit_five.content or template_translations.lp_meeting_booking_two_benefit_five_content.message}
-        ]
-      }
-    %}
-
-    {# Products and services section #}
-
-    {% include_dnd_partial
-      path="../sections/products-and-services.hubl.html",
-      context={
-        "background_color": light_section_1_background_color,
-        "section_variant": "section_variant_1",
-        "heading": scaffold_content.group_products.heading,
-        "card_variant": "card_variant_2",
-        "cards": [
+      {% dnd_grid_section
+        background_layers=[
           {
-            "heading": scaffold_content.group_products.group_product_one.heading,
-            "content": scaffold_content.group_products.group_product_one.content or template_translations.lp_meeting_booking_two_product_one_content.message
-          },
-          {
-            "heading": scaffold_content.group_products.group_product_two.heading,
-            "content": scaffold_content.group_products.group_product_two.content or template_translations.lp_meeting_booking_two_product_two_content.message
-          },
-          {
-            "heading": scaffold_content.group_products.group_product_three.heading,
-            "content": scaffold_content.group_products.group_product_three.content or template_translations.lp_meeting_booking_two_product_three_content.message
-          },
-          {
-            "heading": scaffold_content.group_products.group_product_four.heading,
-            "content": scaffold_content.group_products.group_product_four.content or template_translations.lp_meeting_booking_two_product_four_content.message
-          },
-          {
-            "heading": scaffold_content.group_products.group_product_five.heading,
-            "content": scaffold_content.group_products.group_product_five.content or template_translations.lp_meeting_booking_two_product_five_content.message
-          },
-          {
-            "heading": scaffold_content.group_products.group_product_six.heading,
-            "content": scaffold_content.group_products.group_product_six.content or template_translations.lp_meeting_booking_two_product_six_content.message
+            "type": "color",
+            "value": dark_section_1_background_color
           }
         ]
-      }
-    %}
+      %}
+        {% dnd_grid_container
+          type="grid"
+          rows=["auto"]
+          columns=["7fr", "5fr"]
+          align_items="CENTER"
+          gap={{ spacing_0 }}
+        %}
+          {# Left-hand side: image #}
+          {% dnd_grid_module
+            path="@hubspot/linked_image",
+            img={
+              "alt": scaffold_content.group_benefits.image.alt or "",
+              "loading": scaffold_content.group_benefits.image.loading or "lazy",
+              "max_height": scaffold_content.group_benefits.image.height or 450,
+              "max_width": scaffold_content.group_benefits.image.width or 655,
+              "size_type": "auto_custom_max",
+              "src": scaffold_content.group_benefits.image.src or get_asset_url("../images/products-services-feature-image-dark.png")
+            },
+            padding={
+              "mobile": {
+                "bottom": spacing_32
+              }
+            }
+          %}
+          {% end_dnd_grid_module %}
 
-    {# Metrics section #}
+          {% dnd_grid_container
+            type="vertical_stack"
+            gap={{ spacing_0 }}
+          %}
+            {% dnd_grid_module
+              path="../components/modules/Heading",
+              headingAndTextHeadingLevel="h2",
+              headingAndTextHeading={{ scaffold_content.group_benefits.heading or template_translations.lp_meeting_booking_two_benefits_heading.message }},
+              groupStyle={
+                "headingStyleVariant": "h2",
+                "sectionStyleVariant": "section_variant_4"
+              }
+            %}
+            {% end_dnd_grid_module %}
+            {% dnd_grid_module
+              path="../components/modules/List",
+              groupListItems=[
+                {
+                  "groupListContent": {
+                    "listItemContent": scaffold_content.group_benefits.group_benefit_one.content or template_translations.lp_meeting_booking_two_benefit_one_content.message
+                  }
+                },
+                {
+                  "groupListContent": {
+                    "listItemContent": scaffold_content.group_benefits.group_benefit_two.content or template_translations.lp_meeting_booking_two_benefit_two_content.message
+                  }
+                },
+                {
+                  "groupListContent": {
+                    "listItemContent": scaffold_content.group_benefits.group_benefit_three.content or template_translations.lp_meeting_booking_two_benefit_three_content.message
+                  }
+                },
+                {
+                  "groupListContent": {
+                    "listItemContent": scaffold_content.group_benefits.group_benefit_four.content or template_translations.lp_meeting_booking_two_benefit_four_content.message
+                  }
+                },
+                {
+                  "groupListContent": {
+                    "listItemContent": scaffold_content.group_benefits.group_benefit_five.content or template_translations.lp_meeting_booking_two_benefit_five_content.message
+                  }
+                }
+              ],
+              groupStyle={
+                "sectionStyleVariant": "section_variant_4"
+              }
+            %}
+            {% end_dnd_grid_module %}
+          {% end_dnd_grid_container %}
+        {% end_dnd_grid_container %}
+      {% end_dnd_grid_section %}
 
-    {% include_dnd_partial
-      path="../sections/metrics.hubl.html",
-      context={
-        "section_variant": "section_variant_3",
-        "background_color": light_section_3_background_color,
-        "metrics": [
+
+      {# Products and services section #}
+
+      {% dnd_grid_section
+        background_layers=[
           {
-            "value": scaffold_content.group_metrics.group_metric_one.value,
-            "description": scaffold_content.group_metrics.group_metric_one.description
-          },
-          {
-            "value": scaffold_content.group_metrics.group_metric_two.value,
-            "description": scaffold_content.group_metrics.group_metric_two.description
-          },
-          {
-            "value": scaffold_content.group_metrics.group_metric_three.value,
-            "description": scaffold_content.group_metrics.group_metric_three.description
+            "type": "color",
+            "value": light_section_1_background_color
           }
         ]
-      }
-    %}
+      %}
+        {% dnd_grid_container
+          type="vertical_stack"
+          gap={{ spacing_0 }}
+        %}
+          {% dnd_grid_module
+            path="../components/modules/Heading",
+            headingAndTextHeadingLevel="h2",
+            headingAndTextHeading={{ scaffold_content.group_products.heading or template_translations.section_products_and_services_heading.message }},
+            groupStyle={
+              "alignment": {
+                "text_align": "CENTER"
+              },
+              "headingStyleVariant": "h2",
+              "sectionStyleVariant": "section_variant_1"
+            }
+          %}
+          {% end_dnd_grid_module %}
 
-  {% end_dnd_area %}
+        {% dnd_grid_container
+          type={
+            "default": "grid",
+            "mobile": "vertical_stack"
+          }
+          columns={
+            "default": ["1fr", "1fr"]
+          }
+          padding={
+            "bottom": spacing_32
+          }
+          gap={{ spacing_24 }}
+        %}
+          {# First row: Two cards #}
+          {% dnd_grid_module
+            path="../components/modules/Card",
+            groupCards=[
+              {
+                "groupImage": {
+                  "image": {
+                    "src": get_asset_url("../images/newsletter.png"),
+                    "alt": "",
+                    "loading": "lazy",
+                    "size_type": "auto_custom_max"
+                  }
+                },
+                "groupIcon": {
+                  "icon": {
+                    "name": "circle-check",
+                    "type": "SOLID"
+                  }
+                },
+                "groupContent": {
+                  "headingAndTextHeadingLevel": "h3",
+                  "headingAndTextHeading": scaffold_content.group_products.group_product_one.heading or template_translations.section_products_and_services_card_one_title.message,
+                  "richTextContentHTML": scaffold_content.group_products.group_product_one.content or template_translations.lp_meeting_booking_two_product_one_content.message
+                },
+                "groupButton": {
+                  "showButton": false
+                }
+              }
+            ],
+            groupStyle={
+              "groupCard": {
+                "cardStyleVariant": "card_variant_2",
+                "cardOrientation": "column"
+              },
+              "groupContent": {
+                "headingStyleVariant": "h4"
+              }
+            }
+          %}
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
+            path="../components/modules/Card",
+            groupCards=[
+              {
+                "groupImage": {
+                  "image": {
+                    "src": get_asset_url("../images/newsletter.png"),
+                    "alt": "",
+                    "loading": "lazy",
+                    "size_type": "auto_custom_max"
+                  }
+                },
+                "groupIcon": {
+                  "icon": {
+                    "name": "circle-check",
+                    "type": "SOLID"
+                  }
+                },
+                "groupContent": {
+                  "headingAndTextHeadingLevel": "h3",
+                  "headingAndTextHeading": scaffold_content.group_products.group_product_two.heading or template_translations.section_products_and_services_card_two_title.message,
+                  "richTextContentHTML": scaffold_content.group_products.group_product_two.content or template_translations.lp_meeting_booking_two_product_two_content.message
+                },
+                "groupButton": {
+                  "showButton": false
+                }
+              }
+            ],
+            groupStyle={
+              "groupCard": {
+                "cardStyleVariant": "card_variant_2",
+                "cardOrientation": "column"
+              },
+              "groupContent": {
+                "headingStyleVariant": "h4"
+              }
+            }
+          %}
+          {% end_dnd_grid_module %}
+
+          {# Second row: Two cards #}
+          {% dnd_grid_module
+            path="../components/modules/Card",
+            groupCards=[
+              {
+                "groupImage": {
+                  "image": {
+                    "src": get_asset_url("../images/newsletter.png"),
+                    "alt": "",
+                    "loading": "lazy",
+                    "size_type": "auto_custom_max"
+                  }
+                },
+                "groupIcon": {
+                  "icon": {
+                    "name": "circle-check",
+                    "type": "SOLID"
+                  }
+                },
+                "groupContent": {
+                  "headingAndTextHeadingLevel": "h3",
+                  "headingAndTextHeading": scaffold_content.group_products.group_product_three.heading or template_translations.section_products_and_services_card_three_title.message,
+                  "richTextContentHTML": scaffold_content.group_products.group_product_three.content or template_translations.lp_meeting_booking_two_product_three_content.message
+                },
+                "groupButton": {
+                  "showButton": false
+                }
+              }
+            ],
+            groupStyle={
+              "groupCard": {
+                "cardStyleVariant": "card_variant_2",
+                "cardOrientation": "column"
+              },
+              "groupContent": {
+                "headingStyleVariant": "h4"
+              }
+            }
+          %}
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
+            path="../components/modules/Card",
+            groupCards=[
+              {
+                "groupImage": {
+                  "image": {
+                    "src": get_asset_url("../images/newsletter.png"),
+                    "alt": "",
+                    "loading": "lazy",
+                    "size_type": "auto_custom_max"
+                  }
+                },
+                "groupIcon": {
+                  "icon": {
+                    "name": "circle-check",
+                    "type": "SOLID"
+                  }
+                },
+                "groupContent": {
+                  "headingAndTextHeadingLevel": "h3",
+                  "headingAndTextHeading": scaffold_content.group_products.group_product_four.heading or template_translations.section_products_and_services_card_four_title.message,
+                  "richTextContentHTML": scaffold_content.group_products.group_product_four.content or template_translations.lp_meeting_booking_two_product_four_content.message
+                },
+                "groupButton": {
+                  "showButton": false
+                }
+              }
+            ],
+            groupStyle={
+              "groupCard": {
+                "cardStyleVariant": "card_variant_2",
+                "cardOrientation": "column"
+              },
+              "groupContent": {
+                "headingStyleVariant": "h4"
+              }
+            }
+          %}
+          {% end_dnd_grid_module %}
+
+          {# Third row: Two cards #}
+          {% dnd_grid_module
+            path="../components/modules/Card",
+            groupCards=[
+              {
+                "groupImage": {
+                  "image": {
+                    "src": get_asset_url("../images/newsletter.png"),
+                    "alt": "",
+                    "loading": "lazy",
+                    "size_type": "auto_custom_max"
+                  }
+                },
+                "groupIcon": {
+                  "icon": {
+                    "name": "circle-check",
+                    "type": "SOLID"
+                  }
+                },
+                "groupContent": {
+                  "headingAndTextHeadingLevel": "h3",
+                  "headingAndTextHeading": scaffold_content.group_products.group_product_five.heading or template_translations.section_products_and_services_card_five_title.message,
+                  "richTextContentHTML": scaffold_content.group_products.group_product_five.content or template_translations.lp_meeting_booking_two_product_five_content.message
+                },
+                "groupButton": {
+                  "showButton": false
+                }
+              }
+            ],
+            groupStyle={
+              "groupCard": {
+                "cardStyleVariant": "card_variant_2",
+                "cardOrientation": "column"
+              },
+              "groupContent": {
+                "headingStyleVariant": "h4"
+              }
+            }
+          %}
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
+            path="../components/modules/Card",
+            groupCards=[
+              {
+                "groupImage": {
+                  "image": {
+                    "src": get_asset_url("../images/newsletter.png"),
+                    "alt": "",
+                    "loading": "lazy",
+                    "size_type": "auto_custom_max"
+                  }
+                },
+                "groupIcon": {
+                  "icon": {
+                    "name": "circle-check",
+                    "type": "SOLID"
+                  }
+                },
+                "groupContent": {
+                  "headingAndTextHeadingLevel": "h3",
+                  "headingAndTextHeading": scaffold_content.group_products.group_product_six.heading or template_translations.section_products_and_services_card_six_title.message,
+                  "richTextContentHTML": scaffold_content.group_products.group_product_six.content or template_translations.lp_meeting_booking_two_product_six_content.message
+                },
+                "groupButton": {
+                  "showButton": false
+                }
+              }
+            ],
+            groupStyle={
+              "groupCard": {
+                "cardStyleVariant": "card_variant_2",
+                "cardOrientation": "column"
+              },
+              "groupContent": {
+                "headingStyleVariant": "h4"
+              }
+            }
+          %}
+          {% end_dnd_grid_module %}
+        {% end_dnd_grid_container %}
+        {% end_dnd_grid_container %}
+      {% end_dnd_grid_section %}
+
+      {# Metrics section #}
+
+      {% dnd_grid_section
+        background_layers=[
+          {
+            "type": "color",
+            "value": light_section_3_background_color
+          }
+        ]
+      %}
+        {% dnd_grid_container
+          type="vertical_stack"
+          gap={{ spacing_0 }}
+        %}
+          {% dnd_grid_module
+            path="../components/modules/Anchor",
+            anchor={{ scaffold_content.metrics.anchor_id or "" }}
+          %}
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
+            path="../components/modules/Metrics",
+            groupMetrics=[
+              {
+                "metric": scaffold_content.group_metrics.group_metric_one.value or template_translations.section_metrics_metric_one_metric.message,
+                "description": scaffold_content.group_metrics.group_metric_one.description or template_translations.section_metrics_metric_one_description.message
+              },
+              {
+                "metric": scaffold_content.group_metrics.group_metric_two.value or template_translations.section_metrics_metric_two_metric.message,
+                "description": scaffold_content.group_metrics.group_metric_two.description or template_translations.section_metrics_metric_two_description.message
+              },
+              {
+                "metric": scaffold_content.group_metrics.group_metric_three.value or template_translations.section_metrics_metric_three_metric.message,
+                "description": scaffold_content.group_metrics.group_metric_three.description or template_translations.section_metrics_metric_three_description.message
+              }
+            ],
+            groupStyle={
+              "sectionStyleVariant": "section_variant_3",
+              "headingStyleVariant": "display_1"
+            }
+          %}
+          {% end_dnd_grid_module %}
+        {% end_dnd_grid_container %}
+      {% end_dnd_grid_section %}
+
+    {% end_dnd_area %}
+  {% else %}
+    {% dnd_area "dnd_area" label="Main section" %}
+
+      {# Hero banner section #}
+
+      {% dnd_section
+        background_color={{ dark_section_1_background_color }},
+        max_width={{ section_width_medium }},
+        padding={
+          "bottom": section_vertical_spacing_extra_small
+        }
+      %}
+        {% dnd_column %}
+          {% dnd_row %}
+            {% dnd_module
+              path="../components/modules/Heading",
+              headingAndTextHeading={{ scaffold_content.group_banner.heading or template_translations.lp_meeting_booking_two_banner_heading.message }},
+              groupStyle={
+                "alignment": {
+                  "text_align": "CENTER"
+                },
+                "headingStyleVariant": "display_2",
+                "sectionStyleVariant": "section_variant_4"
+              }
+            %}
+            {% end_dnd_module %}
+          {% end_dnd_row %}
+          {% dnd_row %}
+            {% dnd_module
+              path="../components/modules/RichText",
+              groupStyle={
+                "sectionStyleVariant": "section_variant_4"
+              }
+            %}
+              {% module_attribute "richTextContentHTML" %}
+                <div style="text-align: center;">
+                  <p>{{ scaffold_content.group_banner.description or template_translations.lp_meeting_booking_two_banner_description.message }}</p>
+                </div>
+              {% end_module_attribute %}
+            {% end_dnd_module %}
+          {% end_dnd_row %}
+          {% dnd_row %}
+            {% dnd_module
+              path="../components/modules/Button",
+              groupButtons=[
+                {
+                  "buttonContentText": scaffold_content.group_banner.button_text or template_translations.lp_meeting_booking_two_banner_button_text.message,
+                  "buttonContentLink": {
+                    "url": {
+                      "href": scaffold_content.group_hero_banner.group_button_one.button_link.url.href or ""
+                    }
+                  },
+                  "buttonContentShowIcon": false,
+                  "buttonContentIcon": {
+                    "name": "arrow-right"
+                  },
+                  "buttonContentIconPosition": "right"
+                }
+              ],
+              groupStyle={
+                "alignment": {
+                  "horizontal_align": "CENTER"
+                },
+                "buttonStyleSize": "medium",
+                "buttonStyleVariant": "tertiary"
+              }
+            %}
+            {% end_dnd_module %}
+          {% end_dnd_row %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+
+      {# Hero banner image section #}
+
+      {% dnd_section
+        background_color={{ dark_section_1_background_color }},
+        padding={
+          "top": 0,
+          "bottom": 0
+        }
+      %}
+        {% dnd_module
+          path="@hubspot/linked_image",
+          img={
+            "alt": scaffold_content.group_banner.image.alt or "",
+            "loading": scaffold_content.group_banner.image.loading or "eager",
+            "max_height": scaffold_content.group_banner.image.height or 473,
+            "max_width": scaffold_content.group_banner.image.width or 1232,
+            "size_type": "auto_custom_max",
+            "src": scaffold_content.group_banner.image.src or get_asset_url("../images/dashboard-full.png"),
+          },
+          horizontal_alignment="CENTER"
+        %}
+        {% end_dnd_module %}
+      {% end_dnd_section %}
+
+      {# Services section #}
+
+      {% include_dnd_partial
+        path="../sections/heading-with-three-cards.hubl.html",
+        context={
+          "background_color": light_section_2_background_color,
+          "section_variant": "section_variant_2",
+          "card_variant": "card_variant_1",
+          "label": scaffold_content.group_services.label or template_translations.lp_meeting_booking_two_services_label.message,
+          "heading": {
+            "text": scaffold_content.group_services.heading or template_translations.lp_meeting_booking_two_services_heading.message
+          },
+          "cards": [
+            {
+              "heading": scaffold_content.group_services.group_service_one.heading or template_translations.section_heading_with_three_cards_card_one_heading.message,
+              "content": scaffold_content.group_services.group_service_one.content or template_translations.lp_meeting_booking_two_service_one_content.message
+            },
+            {
+              "icon": "chart-column",
+              "heading": scaffold_content.group_services.group_service_two.heading or template_translations.section_heading_with_three_cards_card_two_heading.message,
+              "content": scaffold_content.group_services.group_service_two.content or template_translations.lp_meeting_booking_two_service_two_content.message
+            },
+            {
+              "icon": "timeline",
+              "heading": scaffold_content.group_services.group_service_three.heading or template_translations.section_heading_with_three_cards_card_three_heading.message,
+              "content": scaffold_content.group_services.group_service_three.content or template_translations.lp_meeting_booking_two_service_three_content.message
+            }
+          ]
+        }
+      %}
+
+      {# Benefits section #}
+
+      {% include_dnd_partial
+        path="../sections/products-and-services-list.hubl.html",
+        context={
+          "background_color": dark_section_1_background_color,
+          "section_variant": "section_variant_4",
+          "heading": scaffold_content.group_benefits.heading or template_translations.lp_meeting_booking_two_benefits_heading.message,
+          "image": {
+            "alt": scaffold_content.group_benefits.image.alt or "",
+            "loading": scaffold_content.group_benefits.image.loading,
+            "max_height": scaffold_content.group_benefits.image.height,
+            "max_width": scaffold_content.group_benefits.image.width,
+            "src": scaffold_content.group_benefits.image.src or get_asset_url("../images/products-services-feature-image-dark.png")
+          },
+          "list": [
+            {"content": scaffold_content.group_benefits.group_benefit_one.content or template_translations.lp_meeting_booking_two_benefit_one_content.message},
+            {"content": scaffold_content.group_benefits.group_benefit_two.content or template_translations.lp_meeting_booking_two_benefit_two_content.message},
+            {"content": scaffold_content.group_benefits.group_benefit_three.content or template_translations.lp_meeting_booking_two_benefit_three_content.message},
+            {"content": scaffold_content.group_benefits.group_benefit_four.content or template_translations.lp_meeting_booking_two_benefit_four_content.message},
+            {"content": scaffold_content.group_benefits.group_benefit_five.content or template_translations.lp_meeting_booking_two_benefit_five_content.message}
+          ]
+        }
+      %}
+
+      {# Products and services section #}
+
+      {% include_dnd_partial
+        path="../sections/products-and-services.hubl.html",
+        context={
+          "background_color": light_section_1_background_color,
+          "section_variant": "section_variant_1",
+          "heading": scaffold_content.group_products.heading,
+          "card_variant": "card_variant_2",
+          "cards": [
+            {
+              "heading": scaffold_content.group_products.group_product_one.heading,
+              "content": scaffold_content.group_products.group_product_one.content or template_translations.lp_meeting_booking_two_product_one_content.message
+            },
+            {
+              "heading": scaffold_content.group_products.group_product_two.heading,
+              "content": scaffold_content.group_products.group_product_two.content or template_translations.lp_meeting_booking_two_product_two_content.message
+            },
+            {
+              "heading": scaffold_content.group_products.group_product_three.heading,
+              "content": scaffold_content.group_products.group_product_three.content or template_translations.lp_meeting_booking_two_product_three_content.message
+            },
+            {
+              "heading": scaffold_content.group_products.group_product_four.heading,
+              "content": scaffold_content.group_products.group_product_four.content or template_translations.lp_meeting_booking_two_product_four_content.message
+            },
+            {
+              "heading": scaffold_content.group_products.group_product_five.heading,
+              "content": scaffold_content.group_products.group_product_five.content or template_translations.lp_meeting_booking_two_product_five_content.message
+            },
+            {
+              "heading": scaffold_content.group_products.group_product_six.heading,
+              "content": scaffold_content.group_products.group_product_six.content or template_translations.lp_meeting_booking_two_product_six_content.message
+            }
+          ]
+        }
+      %}
+
+      {# Metrics section #}
+
+      {% include_dnd_partial
+        path="../sections/metrics.hubl.html",
+        context={
+          "section_variant": "section_variant_3",
+          "background_color": light_section_3_background_color,
+          "metrics": [
+            {
+              "value": scaffold_content.group_metrics.group_metric_one.value,
+              "description": scaffold_content.group_metrics.group_metric_one.description
+            },
+            {
+              "value": scaffold_content.group_metrics.group_metric_two.value,
+              "description": scaffold_content.group_metrics.group_metric_two.description
+            },
+            {
+              "value": scaffold_content.group_metrics.group_metric_three.value,
+              "description": scaffold_content.group_metrics.group_metric_three.description
+            }
+          ]
+        }
+      %}
+
+    {% end_dnd_area %}
+  {% endif %}
 {% endblock body %}
 
 {% block footer %}
-  {% global_partial path="./partials/lp-footer.hubl.html" %}
+  {% global_partial path="./partials/lp-footer.hubl.html" type="FOOTER" %}
 {% endblock footer %}
