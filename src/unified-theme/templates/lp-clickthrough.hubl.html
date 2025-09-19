@@ -16,7 +16,7 @@
 {% set image_and_text_two_description = "<p>{{ scaffold_content.group_image_and_text_2.description or template_translations.lp_clickthrough_image_and_text_2_description.message }}</p>" %}
 
 {% block header %}
-  {% global_partial path="./partials/lp-header.hubl.html" %}
+  {% global_partial path="./partials/lp-header.hubl.html" type="HEADER" %}
 {% endblock header %}
 
 {% block body %}
@@ -354,5 +354,5 @@
 {% endblock body %}
 
 {% block footer %}
-  {% global_partial path="./partials/lp-footer.hubl.html" %}
+  {% global_partial path="./partials/lp-footer.hubl.html" type="FOOTER" %}
 {% endblock footer %}

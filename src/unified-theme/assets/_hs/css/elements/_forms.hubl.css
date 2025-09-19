@@ -219,9 +219,8 @@
 
 /* Form button */
 
-.hs-form .hs-button,
-:is(.hs-form, .hs-elevate-system-form) input[type='submit'],
-#hs-subscriptions-survey-submit-button {
+:is(.hs-form, .hs-elevate-system-form) .hs-button,
+:is(.hs-form, .hs-elevate-system-form) input[type='submit'] {
   display: inline-block;
   width: 100%;
   border-color: var(--hsElevate--button--primary__borderColor);
@@ -243,12 +242,10 @@
   white-space: normal !important;
 }
 
-.hs-form .hs-button:hover,
-.hs-form .hs-button:focus,
+:is(.hs-form, .hs-elevate-system-form) .hs-button:hover,
+:is(.hs-form, .hs-elevate-system-form) .hs-button:focus,
 :is(.hs-form, .hs-elevate-system-form) input[type='submit']:hover,
-:is(.hs-form, .hs-elevate-system-form) input[type='submit']:focus,
-#hs-subscriptions-survey-submit-button:hover,
-#hs-subscriptions-survey-submit-button:focus {
+:is(.hs-form, .hs-elevate-system-form) input[type='submit']:focus {
   border-color: var(--hsElevate--button--primary__hover--borderColor);
   border-width: var(--hsElevate--button--primary__hover--borderThickness);
   background-color: var(--hsElevate--button--primary__hover--backgroundColor);
