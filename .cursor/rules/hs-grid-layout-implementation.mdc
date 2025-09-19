@@ -64,28 +64,31 @@ Templates use a SINGLE `{% if grids %}` conditional wrapping complete `dnd_area`
 {% block body %}
   {% if grids %}
     {# Grid Implementation - Complete dnd_area with grid sections #}
-    {% dnd_area label="Main content" %}
+    {% dnd_area "dnd_area" 
+      label="Main content" 
+    %}
       {% dnd_grid_section
-        size={{ section_width_narrow }},
+        content_width={{ section_width_narrow }},
         background_layers=[
           {
             "type": "color",
-            "color": {{ context.background_color or light_section_3_background_color }}
+            "value": light_section_3_background_color
           }
         ]
       %}
         {% dnd_grid_container
-           type="vertical_stack" %}
+           type="vertical_stack",
+           gap={{ spacing_0 }}
+        %}
           {% dnd_grid_module
             path="../components/modules/Anchor",
-            anchor={{ context.anchor_id or scaffold_content.anchor.anchor_id }}
+            anchor={{ scaffold_content.anchor.anchor_id }}
           %}
           {% end_dnd_grid_module %}
-
           {% dnd_grid_module
             path="../components/modules/Heading",
             headingAndTextHeadingLevel="h1",
-            headingAndTextHeading={{ context.heading or template_translations.contact_heading.message }}
+            headingAndTextHeading={{ template_translations.contact_heading.message }}
           %}
           {% end_dnd_grid_module %}
         {% end_dnd_grid_container %}
@@ -93,7 +96,9 @@ Templates use a SINGLE `{% if grids %}` conditional wrapping complete `dnd_area`
     {% end_dnd_area %}
   {% else %}
     {# Bootstrap Implementation - Complete dnd_area with Bootstrap sections #}
-    {% dnd_area label="Main content" %}
+    {% dnd_area "dnd_area" 
+      label="Main content" 
+    %}
       {% include_dnd_partial name="contact" %}
     {% end_dnd_area %}
   {% endif %}
@@ -110,12 +115,15 @@ For templates with multiple sections, use a SINGLE `{% if grids %}` conditional 
 {% block body %}
   {% if grids %}
     {# Grid Implementation - Complete dnd_area with all grid sections #}
-    {% dnd_area label="Main content" %}
+    {% dnd_area "dnd_area" 
+      label="Main content" 
+    %}
       {% dnd_grid_section %}
         {% dnd_grid_container
-           type="grid"
-           rows=["1fr"]
-           columns=["1fr", "1fr"] %}
+           type="grid",
+           rows=["1fr"],
+           columns=["1fr", "1fr"] 
+        %}
           {% dnd_grid_module path="../modules/hero-content" %}
           {% end_dnd_grid_module %}
           {% dnd_grid_module path="../modules/hero-image" %}
@@ -125,14 +133,15 @@ For templates with multiple sections, use a SINGLE `{% if grids %}` conditional 
 
       {% dnd_grid_section %}
         {% dnd_grid_container
-           type="grid"
-           rows=["auto", "auto"]
-           columns=["1fr", "1fr", "1fr"]
+           type="grid",
+           rows=["auto", "auto"],
+           columns=["1fr", "1fr", "1fr"],
            grid_spanning={
              "1": {
                "columns_spanned": "3"
              }
-           } %}
+           } 
+        %}
           {% dnd_grid_module path="../modules/section-header" %}
           {% end_dnd_grid_module %}
           {% dnd_grid_module path="../modules/feature-card" %}
@@ -146,7 +155,9 @@ For templates with multiple sections, use a SINGLE `{% if grids %}` conditional 
     {% end_dnd_area %}
   {% else %}
     {# Bootstrap Implementation - Complete dnd_area with all Bootstrap sections #}
-    {% dnd_area label="Main content" %}
+    {% dnd_area "dnd_area" 
+      label="Main content" 
+    %}
       {% include_dnd_partial name="hero" %}
       {% include_dnd_partial name="features" %}
     {% end_dnd_area %}
@@ -174,7 +185,9 @@ When implementing grid conditionals, you **CANNOT** simply use `include_dnd_part
 #### Step 1: Template Analysis
 ```hubl
 <!-- Example: templates/lp-meeting-booking-two.hubl.html (Bootstrap version) -->
-{% dnd_area "content" %}
+{% dnd_area "dnd_area" 
+  label="Main content" 
+%}
   {% include_dnd_partial name="heading-with-three-cards" %}
   {% include_dnd_partial name="testimonial-section" %}
 {% end_dnd_area %}
@@ -213,32 +226,40 @@ Convert the partial structure to inline grid code within the template:
 ```hubl
 <!-- templates/lp-meeting-booking-two.hubl.html (Grid implementation) -->
 {% if grids %}
-  {% dnd_area "content" %}
+  {% dnd_area "dnd_area" 
+    label="Main content" 
+  %}
     {# Convert heading-with-three-cards partial to inline grid code #}
     {% dnd_grid_section %}
-      {% dnd_grid_container type="vertical_stack" %}
+      {% dnd_grid_container 
+        type="vertical_stack",
+        gap={{ spacing_0 }}
+      %}
         {# Header module from the partial #}
         {% dnd_grid_module path="../components/modules/Heading" %}
         {% end_dnd_grid_module %}
-      {% end_dnd_grid_container %}
-
-      {% dnd_grid_container
-         type="grid"
-         rows=["auto"]
-         columns=["1fr", "1fr", "1fr"] %}
-        {# Three feature cards from the partial #}
-        {% dnd_grid_module path="../components/modules/FeatureCard" %}
-        {% end_dnd_grid_module %}
-        {% dnd_grid_module path="../components/modules/FeatureCard" %}
-        {% end_dnd_grid_module %}
-        {% dnd_grid_module path="../components/modules/FeatureCard" %}
-        {% end_dnd_grid_module %}
+        {% dnd_grid_container
+          type="grid",
+          rows=["auto"],
+          columns=["1fr", "1fr", "1fr"] 
+        %}
+          {# Three feature cards from the partial #}
+          {% dnd_grid_module path="../components/modules/FeatureCard" %}
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module path="../components/modules/FeatureCard" %}
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module path="../components/modules/FeatureCard" %}
+          {% end_dnd_grid_module %}
+        {% end_dnd_grid_container %}
       {% end_dnd_grid_container %}
     {% end_dnd_grid_section %}
 
     {# Convert testimonial-section partial to inline grid code #}
     {% dnd_grid_section %}
-      {% dnd_grid_container type="vertical_stack" %}
+      {% dnd_grid_container 
+        type="vertical_stack",
+        gap={{ spacing_0 }}
+      %}
         {% dnd_grid_module path="../components/modules/Testimonial" %}
         {% end_dnd_grid_module %}
       {% end_dnd_grid_container %}
@@ -246,7 +267,9 @@ Convert the partial structure to inline grid code within the template:
   {% end_dnd_area %}
 {% else %}
   {# Bootstrap Implementation - Original partial references preserved #}
-  {% dnd_area "content" %}
+  {% dnd_area "dnd_area" 
+    label="Main content" 
+  %}
     {% include_dnd_partial name="heading-with-three-cards" %}
     {% include_dnd_partial name="testimonial-section" %}
   {% end_dnd_area %}
@@ -296,16 +319,11 @@ Convert the partial structure to inline grid code within the template:
 ```hubl
 {# 2D Grid Container with explicit layout #}
 {% dnd_grid_container
-   type="grid"
-   rows=["auto", "1fr", "auto"]
-   columns=["1fr", "2fr", "1fr"]
-   gap={
-     type="UNIFIED",
-     size={
-       unit="px",
-       value="20"
-     }
-   } %}
+   type="grid",
+   rows=["auto", "1fr", "auto"],
+   columns=["1fr", "2fr", "1fr"],
+   gap={{ spacing_32 }}
+%}
   {% dnd_grid_module %}
   {% dnd_grid_module %}
   {% dnd_grid_module %}
@@ -325,7 +343,10 @@ Convert the partial structure to inline grid code within the template:
 {% end_dnd_grid_container %}
 
 {# Locked layouts for structured content #}
-{% dnd_area "content" locked_layout="column" %}
+{% dnd_area "dnd_area" 
+  label="Main content",
+  locked_layout="column"
+%}
   {% dnd_grid_module %}
   {% dnd_grid_module %}
 {% end_dnd_area %}
@@ -342,7 +363,9 @@ Convert the partial structure to inline grid code within the template:
 {% extends "./layouts/base.hubl.html" %}
 
 {% block body %}
-  {% dnd_area label="Main content" %}
+  {% dnd_area "dnd_area" 
+    label="Main content" 
+  %}
     {% include_dnd_partial name="features" %}
   {% end_dnd_area %}
 {% endblock %}
@@ -384,18 +407,24 @@ Examine `partials/features.hubl.html` to understand its Bootstrap structure:
 {% block body %}
   {% if grids %}
     {# Grid Implementation - Complete dnd_area with grid sections and inline conversion of features partial #}
-    {% dnd_area label="Main content" %}
+    {% dnd_area "dnd_area" 
+      label="Main content" 
+    %}
       {% dnd_grid_section %}
-        {% dnd_grid_container type="vertical_stack" %}
+        {% dnd_grid_container 
+          type="vertical_stack",
+          gap={{ spacing_0 }}
+        %}
           {# Heading module from features partial #}
           {% dnd_grid_module path="../components/modules/Heading" %}
           {% end_dnd_grid_module %}
         {% end_dnd_grid_container %}
 
         {% dnd_grid_container
-           type="grid"
-           rows=["auto"]
-           columns=["1fr", "1fr", "1fr"] %}
+           type="grid",
+           rows=["auto"],
+           columns=["1fr", "1fr", "1fr"] 
+        %}
           {# Three feature cards from features partial #}
           {% dnd_grid_module path="../modules/feature-card" %}
           {% end_dnd_grid_module %}
@@ -408,7 +437,9 @@ Examine `partials/features.hubl.html` to understand its Bootstrap structure:
     {% end_dnd_area %}
   {% else %}
     {# Bootstrap Implementation - Complete dnd_area with Bootstrap sections and preserved partial reference #}
-    {% dnd_area label="Main content" %}
+    {% dnd_area "dnd_area" 
+      label="Main content" 
+    %}
       {% include_dnd_partial name="features" %}
     {% end_dnd_area %}
   {% endif %}
@@ -425,24 +456,21 @@ Examine `partials/features.hubl.html` to understand its Bootstrap structure:
 {% block body %}
   {% if grids %}
     {# Grid Implementation - Complete dnd_area with grid sections #}
-    {% dnd_area label="Main content" %}
+    {% dnd_area "dnd_area" 
+      label="Main content" 
+    %}
       {% dnd_grid_section %}
         {% dnd_grid_container
-           type="grid"
-           rows=["auto", "1fr", "auto"]
-           columns=["1fr", "1fr", "1fr", "1fr"]
-           gap={
-             type="UNIFIED",
-             size={
-               unit="px",
-               value="24"
-             }
-           }
+           type="grid",
+           rows=["auto", "1fr", "auto"],
+           columns=["1fr", "1fr", "1fr", "1fr"],
+           gap={{ spacing_32 }},
            grid_spanning={
              "1": {
                "columns_spanned": "4"
              }
-           } %}
+           } 
+        %}
 
           {# Header row spanning all columns #}
           {% dnd_grid_module path="../modules/section-header" %}
@@ -463,7 +491,9 @@ Examine `partials/features.hubl.html` to understand its Bootstrap structure:
     {% end_dnd_area %}
   {% else %}
     {# Bootstrap Implementation - Complete dnd_area with Bootstrap sections #}
-    {% dnd_area label="Main content" %}
+    {% dnd_area "dnd_area" 
+      label="Main content" 
+    %}
       {% include_dnd_partial name="pricing" %}
     {% end_dnd_area %}
   {% endif %}
@@ -475,32 +505,23 @@ Examine `partials/features.hubl.html` to understand its Bootstrap structure:
 ### Responsive Grid Configuration
 ```hubl
 {% dnd_grid_container
-   type={
-     "default": "grid",
-     "mobile": "vertical_stack"
-   }
-   rows={
-     "default": ["auto", "auto"]
-   }
-   columns={
-     "default": ["1fr", "1fr"]
-   }
-   gap={
-     type="UNIFIED",
-     size={
-       unit="px",
-       value={
-         "default": "32",
-         "tablet": "24", 
-         "mobile": "16"
-       }
-     }
-   }
-   align_items={
-     "default": "start",
-     "mobile": "center"
-   }
-   justify_content="center" %}
+  type={
+    "default": "grid",
+    "mobile": "vertical_stack"
+  },
+  rows={
+    "default": ["auto", "auto"]
+  },
+  columns={
+    "default": ["1fr", "1fr"]
+  },
+  gap={{ spacing_32 }},
+  align_items={
+    "default": "start",
+    "mobile": "center"
+  },
+  justify_content="center" 
+%}
 ```
 
 ## Quality Assurance Checklist
@@ -542,11 +563,15 @@ Examine `partials/features.hubl.html` to understand its Bootstrap structure:
 ```hubl
 <!-- DON'T DO THIS: include_dnd_partial is NOT supported in grid blocks -->
 {% if grids %}
-  {% dnd_area "content" %}
+  {% dnd_area "dnd_area" 
+    label="Main content" 
+  %}
     {% include_dnd_partial name="features" %}  {# ERROR: Not supported in grid blocks #}
   {% end_dnd_area %}
 {% else %}
-  {% dnd_area "content" %}
+  {% dnd_area "dnd_area" 
+    label="Main content" 
+  %}
     {% include_dnd_partial name="features" %}
   {% end_dnd_area %}
 {% endif %}
@@ -596,7 +621,9 @@ Examine `partials/features.hubl.html` to understand its Bootstrap structure:
 ### ❌ Wrong Approach - Mixing Grid Systems in Same Area
 ```hubl
 <!-- DON'T DO THIS: Using both grid and Bootstrap in same dnd_area -->
-{% dnd_area "content" %}
+{% dnd_area "dnd_area" 
+  label="Main content" 
+%}
   {% if grids %}
     {% dnd_grid_section %}
     {% end_dnd_grid_section %}
@@ -612,9 +639,14 @@ Examine `partials/features.hubl.html` to understand its Bootstrap structure:
 <!-- DO THIS: Single conditional wrapping complete dnd_area implementations -->
 {% if grids %}
   {# Grid Implementation - Complete dnd_area block #}
-  {% dnd_area "Main content" %}
+  {% dnd_area "dnd_area" 
+    label="Main content" 
+  %}
     {% dnd_grid_section %}
-      {% dnd_grid_container type="vertical_stack" %}
+      {% dnd_grid_container 
+        type="vertical_stack",
+        gap={{ spacing_0 }}
+      %}
         {% dnd_grid_module path="../modules/contact-form" %}
         {% end_dnd_grid_module %}
       {% end_dnd_grid_container %}
@@ -622,7 +654,9 @@ Examine `partials/features.hubl.html` to understand its Bootstrap structure:
   {% end_dnd_area %}
 {% else %}
   {# Bootstrap Implementation - Complete dnd_area block #}
-  {% dnd_area "Main content" %}
+  {% dnd_area "dnd_area" 
+    label="Main content" 
+  %}
     {% include_dnd_partial name="contact" %}
   {% end_dnd_area %}
 {% endif %}
