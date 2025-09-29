@@ -23,21 +23,26 @@
   margin-block-end: 0;
 }
 
-#hs-subscriptions-unsubscribe-survey-options {
+.hs-elevate-system-form--confirmation form {
+  margin-block-start: var(--hsElevate--spacing--32);
+}
+
+#hs-subscriptions-unsubscribe-survey-legend {
+  margin-block-end: var(--hsf-module__vertical-spacing);
   text-align: left;
 }
 
-#hs-subscriptions-unsubscribe-survey-options > div {
-  display: flex;
+#hs-subscriptions-unsubscribe-survey-options {
+  margin-block-end: var(--hsf-row__vertical-spacing);
+  text-align: left;
+}
+
+#hs-subscriptions-unsubscribe-survey-options label {
   align-items: center;
 }
 
 #hs-subscriptions-unsubscribe-survey-options input[type="radio"] {
   flex-shrink: 0;
-}
-
-#hs-subscriptions-unsubscribe-survey-options > div > label {
-  margin-block-end: 0;
 }
 
 /***** EMAIL SUBSCRIPTION PREFERENCES *****/
