@@ -3,7 +3,7 @@
   TODO: Remove this file and its references from main.hubl.css
 */
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .hs-elevate-footer .hs-elevate-menu {
     display: flex;
     flex-direction: column;
