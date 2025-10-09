@@ -39,18 +39,18 @@
             "mobile": "vertical_stack"
           },
           columns=["1fr", "1fr"],
-          gap={{ spacing_32 }},
-          align_items="center"
+          rows=["auto"],
+          align_items="center",
+          gap={
+            "default": spacing_32,
+            "mobile": spacing_0
+          }
         %}
           {% dnd_grid_container
             type="vertical_stack",
             gap={{ spacing_0 }},
             padding={
-              "default": {
-                "right": spacing_20
-              },
               "mobile": {
-                "right": 0,
                 "bottom": spacing_32
               }
             }
@@ -115,8 +115,6 @@
             %}
             {% end_dnd_grid_module %}
           {% end_dnd_grid_container %}
-
-          {# Image column #}
           {% dnd_grid_module
             path="@hubspot/linked_image",
             img={
@@ -161,6 +159,14 @@
           {% end_dnd_grid_module %}
           {% dnd_grid_module
             path="../components/modules/RichText",
+            margin={
+              "default": {
+                "bottom": spacing_32
+              },
+              "mobile": {
+                "bottom": 0
+              }
+            },
             groupStyle={
               "sectionStyleVariant": "section_variant_4"
             }
@@ -171,18 +177,16 @@
               </div>
             {% end_module_attribute %}
           {% end_dnd_grid_module %}
-
           {% dnd_grid_container
             type={
               "default": "grid",
               "mobile": "vertical_stack"
             },
             columns=["4fr", "8fr"],
-            gap={{ spacing_16 }}
-            margin={
-              "default": {
-                "top": spacing_24
-              }
+            rows=["auto"],
+            gap={
+              "default": spacing_16,
+              "mobile": spacing_0
             }
           %}
             {% dnd_grid_module
@@ -194,11 +198,17 @@
                 "max_width": 372,
                 "size_type": "auto_custom_max",
                 "src": scaffold_content.group_features.image.src or get_asset_url("../images/features.png")
+              },
+              margin={
+                "default": {
+                  "bottom": 0
+                },
+                "mobile": {
+                  "bottom": spacing_32
+                }
               }
             %}
             {% end_dnd_grid_module %}
-
-            {# Features list #}
             {% dnd_grid_module
               path="../components/modules/FeatureList",
               groupFeatures=[
@@ -325,12 +335,7 @@
             "type": "color",
             "value": light_section_2_background_color
           }
-        ],
-        padding={
-          "default": {
-            "bottom": spacing_32
-          }
-        }
+        ]
       %}
         {% dnd_grid_container
           type="vertical_stack",
@@ -354,7 +359,7 @@
             groupStyle={
               "sectionStyleVariant": "section_variant_2"
             },
-            padding={
+            margin={
               "default": {
                 "bottom": spacing_48
               }
@@ -366,14 +371,17 @@
               </div>
             {% end_module_attribute %}
           {% end_dnd_grid_module %}
-
           {% dnd_grid_container
             type={
               "default": "grid",
               "mobile": "vertical_stack"
             },
             columns=["2fr", "1fr"],
-            gap={{ spacing_24 }}
+            rows=["auto"],
+            gap={
+              "default": spacing_24,
+              "mobile": spacing_0
+            }
           %}
             {% dnd_grid_module
               path="../components/modules/Accordion",
@@ -410,7 +418,6 @@
               }
             %}
             {% end_dnd_grid_module %}
-
             {% dnd_grid_module
               path="@hubspot/linked_image",
               img={

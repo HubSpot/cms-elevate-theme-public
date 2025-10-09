@@ -20,7 +20,7 @@
       {# Banner #}
 
       {% dnd_grid_section
-        content_width=773,
+        content_width={{ section_width_narrow }},
         padding={
           "top": section_vertical_spacing_large,
           "bottom": section_vertical_spacing_large
@@ -148,7 +148,11 @@
               "mobile": "vertical_stack"
             },
             columns=["1fr", "1fr", "1fr"],
-            gap={{ spacing_32 }}
+            rows=["auto"],
+            gap={
+              "default": spacing_32,
+              "mobile": spacing_0
+            }
           %}
             {% dnd_grid_container
               type="vertical_stack",
@@ -310,7 +314,7 @@
       {# Banner #}
 
       {% dnd_section
-        max_width=773,
+        max_width={{ section_width_narrow }},
         padding={
           "top": section_vertical_spacing_large,
           "bottom": section_vertical_spacing_large

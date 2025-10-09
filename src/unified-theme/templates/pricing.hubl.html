@@ -27,7 +27,7 @@
           "top": section_vertical_spacing_medium,
           "bottom": section_vertical_spacing_medium
         },
-        content_width=830
+        content_width={{ section_width_compact }}
       %}
         {% dnd_grid_container
            type="vertical_stack",
@@ -94,11 +94,6 @@
            type="vertical_stack",
            gap={{ spacing_0 }}
         %}
-          {% dnd_grid_module
-            path="../components/modules/Anchor",
-            anchor={{ scaffold_content.anchor.anchor_id }}
-          %}
-          {% end_dnd_grid_module %}
           {% dnd_grid_module
             path="../components/modules/PricingCard",
             groupPricingCards=[
@@ -254,11 +249,6 @@
            gap={{ spacing_0 }}
         %}
           {% dnd_grid_module
-            path="../components/modules/Anchor",
-            anchor={{ scaffold_content.anchor.anchor_id }}
-          %}
-          {% end_dnd_grid_module %}
-          {% dnd_grid_module
             path="../components/modules/Card"
             imageOrIcon="image",
             groupCards=[
@@ -327,11 +317,6 @@
            type="vertical_stack",
            gap={{ spacing_0 }}
         %}
-          {% dnd_grid_module
-            path="../components/modules/Anchor",
-            anchor={{ scaffold_content.anchor.anchor_id }}
-          %}
-          {% end_dnd_grid_module %}
           {% dnd_grid_module
             path="../components/modules/RichText"
             groupStyle={
@@ -410,11 +395,6 @@
            gap={{ spacing_0 }}
         %}
           {% dnd_grid_module
-            path="../components/modules/Anchor",
-            anchor={{ scaffold_content.anchor.anchor_id }}
-          %}
-          {% end_dnd_grid_module %}
-          {% dnd_grid_module
             path="../components/modules/Heading",
             headingAndTextHeadingLevel="h2",
             headingAndTextHeading={{ scaffold_content.group_faqs.heading or template_translations.section_faq_heading_updated.message }},
@@ -475,11 +455,6 @@
            type="vertical_stack",
            gap={{ spacing_0 }}
         %}
-          {% dnd_grid_module
-            path="../components/modules/Anchor",
-            anchor={{ scaffold_content.anchor.anchor_id }}
-          %}
-          {% end_dnd_grid_module %}
           {% dnd_grid_module
             path="../components/modules/Heading",
             headingAndTextHeadingLevel="h2",

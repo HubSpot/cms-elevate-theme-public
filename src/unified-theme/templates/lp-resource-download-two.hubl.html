@@ -27,10 +27,13 @@
             "mobile": "vertical_stack"
           },
           columns=["1fr", "1fr"],
-          gap={{ spacing_32 }},
+          rows=["auto"],
+          gap={
+            "default": spacing_32,
+            "mobile": spacing_0
+          },
           align_items="center"
         %}
-          {# Left column - text content #}
           {% dnd_grid_container
             type="vertical_stack",
             gap={{ spacing_0 }},
@@ -40,7 +43,6 @@
               }
             }
           %}
-            {# Tag line #}
             {% dnd_grid_module
               path="../components/modules/RichText"
             %}
@@ -48,8 +50,6 @@
                 <p>{{ scaffold_content.group_hero_banner.tag_line or template_translations.lp_resource_download_two_tag_line.message }}</p>
               {% end_module_attribute %}
             {% end_dnd_grid_module %}
-
-            {# Main heading #}
             {% dnd_grid_module
               path="../components/modules/Heading",
               headingAndTextHeadingLevel="h1",
@@ -60,8 +60,6 @@
               }
             %}
             {% end_dnd_grid_module %}
-
-            {# List #}
             {% dnd_grid_module
               path="../components/modules/List",
               listIcon={
@@ -89,8 +87,6 @@
               }
             %}
             {% end_dnd_grid_module %}
-
-            {# CTA Button #}
             {% dnd_grid_module
               path="../components/modules/Button",
               groupButtons=[
@@ -118,8 +114,6 @@
             %}
             {% end_dnd_grid_module %}
           {% end_dnd_grid_container %}
-
-          {# Right column - image #}
           {% dnd_grid_module
             path="@hubspot/linked_image",
             img={
@@ -143,7 +137,6 @@
           gap={{ spacing_0 }},
           align_items="center"
         %}
-          {# Section Heading #}
           {% dnd_grid_module
             path="../components/modules/Heading",
             headingAndTextHeadingLevel="h2",
@@ -157,8 +150,6 @@
             }
           %}
           {% end_dnd_grid_module %}
-
-          {# Section Subheading #}
           {% dnd_grid_module
             path="../components/modules/RichText",
             groupStyle={
@@ -171,17 +162,18 @@
               </div>
             {% end_module_attribute %}
           {% end_dnd_grid_module %}
-
-          {# 3 Column Feature Grid #}
           {% dnd_grid_container
             type={
               "default": "grid",
               "mobile": "vertical_stack"
             },
             columns=["1fr", "1fr", "1fr"],
-            gap={{ spacing_32 }}
+            rows=["auto"],
+            gap={
+              "default": spacing_32,
+              "mobile": spacing_0
+            }
           %}
-            {# Feature 1 #}
             {% dnd_grid_container
               type="vertical_stack",
               gap={{ spacing_0 }}
@@ -224,8 +216,6 @@
                 {% end_module_attribute %}
               {% end_dnd_grid_module %}
             {% end_dnd_grid_container %}
-
-            {# Feature 2 #}
             {% dnd_grid_container
               type="vertical_stack",
               gap={{ spacing_0 }}
@@ -268,8 +258,6 @@
                 {% end_module_attribute %}
               {% end_dnd_grid_module %}
             {% end_dnd_grid_container %}
-
-            {# Feature 3 #}
             {% dnd_grid_container
               type="vertical_stack",
               gap={{ spacing_0 }}
@@ -424,9 +412,13 @@
             "mobile": "vertical_stack"
           },
           columns=["7fr", "5fr"],
-          align_items="center"
+          rows=["auto"],
+          align_items="center",
+          gap={
+            "default": spacing_32,
+            "mobile": spacing_0
+          }
         %}
-          {# Left column - image #}
           {% dnd_grid_module
             path="@hubspot/linked_image",
             img={
@@ -438,15 +430,9 @@
             }
           %}
           {% end_dnd_grid_module %}
-
-          {# Right column - heading + list #}
           {% dnd_grid_container
             type="vertical_stack",
-            gap={{ spacing_0 }},
-            padding={
-              "top": spacing_32,
-              "bottom": spacing_32
-            }
+            gap={{ spacing_0 }}
           %}
             {% dnd_grid_module
               path="../components/modules/Heading",
@@ -512,6 +498,9 @@
           {% end_dnd_grid_module %}
           {% dnd_grid_module
             path="../components/modules/RichText",
+            margin={
+              "bottom": section_vertical_spacing_small
+            },
             groupStyle={
               "sectionStyleVariant": "section_variant_1"
             }
@@ -522,18 +511,6 @@
               </div>
             {% end_module_attribute %}
           {% end_dnd_grid_module %}
-        {% end_dnd_grid_container %}
-      {% end_dnd_grid_section %}
-
-      {% dnd_grid_section
-        padding={
-          "top": spacing_0
-        }
-      %}
-        {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
-        %}
           {% dnd_grid_module
             path="../components/modules/PricingCard",
             groupPricingCards=[
@@ -658,8 +635,8 @@
                 }
               }
             ]
-            %}
-            {% end_dnd_grid_module %}
+          %}
+          {% end_dnd_grid_module %}
         {% end_dnd_grid_container %}
       {% end_dnd_grid_section %}
 

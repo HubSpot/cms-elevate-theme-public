@@ -41,7 +41,11 @@
             "mobile": "vertical_stack"
            },
            columns=["1fr", "1fr"],
-           gap={{ spacing_32 }}
+           rows=["auto"],
+           gap={
+            "default": spacing_32,
+            "mobile": spacing_0
+           }
         %}
           {% dnd_grid_container
             type="vertical_stack",
@@ -49,14 +53,6 @@
           %}
             {% dnd_grid_module
               path="../components/modules/Heading",
-              margin={
-                "default": {
-                  "bottom": 0
-                },
-                "mobile": {
-                  "bottom": spacing_32
-                }
-              },
               headingAndTextHeadingLevel="h1",
               headingAndTextHeading={{ scaffold_content.group_banner.heading or template_translations.lp_products_heading.message }},
               groupStyle={
@@ -80,6 +76,14 @@
             {% end_dnd_grid_module %}
             {% dnd_grid_module
               path="../components/modules/Button",
+              margin={
+                "default": {
+                  "bottom": 0
+                },
+                "mobile": {
+                  "bottom": spacing_32
+                }
+              },
               groupButtons=[
                 {
                   "buttonContentText": scaffold_content.group_banner.button_text or template_translations.lp_products_button_text.message,
@@ -139,7 +143,7 @@
             path="@hubspot/logo_grid",
             styles={
               "group_logo_grid": {
-                "column_count": 6,
+                "column_count": 6
               }
             },
             group_logos=[
@@ -334,9 +338,12 @@
             "default": "grid",
             "mobile": "vertical_stack"
             },
-            rows=["auto"]
-            columns=["1fr", "2fr"]
-            gap={{ spacing_32 }}
+            rows=["auto"],
+            columns=["1fr", "2fr"],
+            gap={
+              "default": spacing_32,
+              "mobile": spacing_0
+            }
           %}
             {% dnd_grid_module
               path="@hubspot/linked_image",
@@ -354,7 +361,7 @@
                 "max_height": scaffold_content.group_features.image.height or 524,
                 "max_width": scaffold_content.group_features.image.width or 372,
                 "size_type": "auto_custom_max",
-                "src": scaffold_content.group_features.image.src or get_asset_url("../images/features.png"),
+                "src": scaffold_content.group_features.image.src or get_asset_url("../images/features.png")
               }
             %}
             {% end_dnd_grid_module %}
@@ -405,7 +412,7 @@
                   "groupIcon": {
                     "showIcon": true,
                     "icon": {
-                      "name": "puzzle-piece",
+                      "name": "puzzle-piece"
                     }
                   },
                   "groupFeatureContent": {
@@ -418,7 +425,7 @@
                   "groupIcon": {
                     "showIcon": true,
                     "icon": {
-                      "name": "wand-magic-sparkles",
+                      "name": "wand-magic-sparkles"
                     }
                   },
                   "groupFeatureContent": {
@@ -445,7 +452,7 @@
                   "groupIcon": {
                     "showIcon": true,
                     "icon": {
-                      "name": "robot",
+                      "name": "robot"
                     }
                   },
                   "groupFeatureContent": {
@@ -458,7 +465,7 @@
                   "groupIcon": {
                     "showIcon": true,
                     "icon": {
-                      "name": "share-nodes",
+                      "name": "share-nodes"
                     }
                   },
                   "groupFeatureContent": {
@@ -582,22 +589,13 @@
 
       {# Multi-row alternating section #}
 
-      {% dnd_grid_section
-        padding={
-          "top": 0,
-          "bottom": 0
-        }
-      %}
+      {% dnd_grid_section %}
         {% dnd_grid_container
           type="vertical_stack",
           gap={{ spacing_0 }}
         %}
           {% dnd_grid_module
             path="../components/modules/ImageAndText",
-            margin={
-              "top": section_vertical_spacing_medium,
-              "bottom": 0
-            },
             groupImage={
               "imagePosition": "left",
               "image": {
@@ -631,8 +629,7 @@
           {% dnd_grid_module
             path="../components/modules/ImageAndText",
             margin={
-              "top": section_vertical_spacing_medium,
-              "bottom": 0
+              "top": section_vertical_spacing_medium
             },
             groupImage={
               "imagePosition": "right",
@@ -667,8 +664,7 @@
           {% dnd_grid_module
             path="../components/modules/ImageAndText",
             margin={
-              "top": section_vertical_spacing_medium,
-              "bottom": section_vertical_spacing_medium
+              "top": section_vertical_spacing_medium
             },
             groupImage={
               "imagePosition": "left",
@@ -725,7 +721,7 @@
                 },
                 "groupIcon": {
                     "icon": {
-                      "name": 'play-circle',
+                      "name": "play-circle"
                     },
                   },
                 "groupContent": {

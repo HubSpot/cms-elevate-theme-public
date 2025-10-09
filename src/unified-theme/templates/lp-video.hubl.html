@@ -49,7 +49,10 @@
           },
            rows=["auto"],
            columns=["1fr", "1fr"],
-           gap={{ spacing_32 }}
+           gap={
+            "default": spacing_32,
+            "mobile": spacing_0
+           }
         %}
           {% dnd_grid_container
              type="vertical_stack",
@@ -120,7 +123,7 @@
             path="@hubspot/logo_grid",
             styles={
               "group_logo_grid": {
-                "column_count": 6,
+                "column_count": 6
               }
             },
             group_logos=[
