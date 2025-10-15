@@ -15,167 +15,652 @@
 {% set accordion_five_answer = "<p>{{ scaffold_content.group_faqs.group_faq_five.answer or template_translations.shared_faq_answer_5.message }}</p>" %}
 
 {% block body %}
-  {% dnd_area "dnd_area"
-    label="Main section"
-  %}
+  {% if grids %}
+    {% dnd_area "dnd_area"
+      label="Main section"
+    %}
 
-    {# Hero banner #}
+      {# Hero banner #}
 
-    {% include_dnd_partial
-      path="../sections/hero-banner-centered.hubl.html",
-      context={
-        "heading": {
-          "text": scaffold_content.group_banner.heading
+      {% dnd_grid_section
+        padding={
+          "top": section_vertical_spacing_medium,
+          "bottom": section_vertical_spacing_medium
         },
-        "content": scaffold_content.group_banner.description,
-        "button": {
-          "text": scaffold_content.group_banner.button_text,
-          "href": scaffold_content.group_banner.button_link.url.href
-        }
-      }
-    %}
-
-    {# Pricing cards #}
-
-    {% include_dnd_partial
-      path="../sections/pricing.hubl.html",
-      context={
-        "pricing_cards": [
-          {
-            "heading": scaffold_content.group_pricing_cards.group_pricing_card_one.heading,
-            "description": scaffold_content.group_pricing_cards.group_pricing_card_one.description,
-            "price": scaffold_content.group_pricing_cards.group_pricing_card_one.price,
-            "time_period": scaffold_content.group_pricing_cards.group_pricing_card_one.time_period,
-            "features_title": scaffold_content.group_pricing_cards.group_pricing_card_one.features_title,
-            "features": [
-              scaffold_content.group_pricing_cards.group_pricing_card_one.group_features.feature_one,
-              scaffold_content.group_pricing_cards.group_pricing_card_one.group_features.feature_two,
-              scaffold_content.group_pricing_cards.group_pricing_card_one.group_features.feature_three,
-              scaffold_content.group_pricing_cards.group_pricing_card_one.group_features.feature_four
-            ],
-            "button_text": scaffold_content.group_pricing_cards.group_pricing_card_one.button_text,
-            "button_link": scaffold_content.group_pricing_cards.group_pricing_card_one.button_link.url.href
-          },
-          {
-            "heading": scaffold_content.group_pricing_cards.group_pricing_card_two.heading,
-            "description": scaffold_content.group_pricing_cards.group_pricing_card_two.description,
-            "price": scaffold_content.group_pricing_cards.group_pricing_card_two.price,
-            "time_period": scaffold_content.group_pricing_cards.group_pricing_card_two.time_period,
-            "features_title": scaffold_content.group_pricing_cards.group_pricing_card_two.features_title,
-            "features": [
-              scaffold_content.group_pricing_cards.group_pricing_card_two.group_features.feature_one,
-              scaffold_content.group_pricing_cards.group_pricing_card_two.group_features.feature_two,
-              scaffold_content.group_pricing_cards.group_pricing_card_two.group_features.feature_three,
-              scaffold_content.group_pricing_cards.group_pricing_card_two.group_features.feature_four
-            ],
-            "button_text": scaffold_content.group_pricing_cards.group_pricing_card_two.button_text,
-            "button_link": scaffold_content.group_pricing_cards.group_pricing_card_two.button_link.url.href
-          },
-          {
-            "heading": scaffold_content.group_pricing_cards.group_pricing_card_three.heading,
-            "description": scaffold_content.group_pricing_cards.group_pricing_card_three.description,
-            "price": scaffold_content.group_pricing_cards.group_pricing_card_three.price,
-            "time_period": scaffold_content.group_pricing_cards.group_pricing_card_three.time_period,
-            "features_title": scaffold_content.group_pricing_cards.group_pricing_card_three.features_title,
-            "features": [
-              scaffold_content.group_pricing_cards.group_pricing_card_three.group_features.feature_one,
-              scaffold_content.group_pricing_cards.group_pricing_card_three.group_features.feature_two,
-              scaffold_content.group_pricing_cards.group_pricing_card_three.group_features.feature_three,
-              scaffold_content.group_pricing_cards.group_pricing_card_three.group_features.feature_four
-            ],
-            "button_text": scaffold_content.group_pricing_cards.group_pricing_card_three.button_text,
-            "button_link": scaffold_content.group_pricing_cards.group_pricing_card_three.button_link.url.href
-          }
-        ]
-      }
-    %}
-
-    {# Two column CTA #}
-
-    {% include_dnd_partial
-      path="../sections/two-column-call-to-action.hubl.html",
-      context={
-        "section_padding_top": section_vertical_spacing_extra_small,
-        "section_padding_bottom": section_vertical_spacing_extra_small,
-        "cards": [
-          {
-            "image": {
-              "src": scaffold_content.group_two_col_call_to_action.image.src,
-              "alt": scaffold_content.group_two_col_call_to_action.image.alt,
-            },
-            "heading": {
-              "text": scaffold_content.group_two_col_call_to_action.heading
-            },
-            "button": {
-              "text": scaffold_content.group_two_col_call_to_action.button_text,
-              "href": scaffold_content.group_two_col_call_to_action.button_link.url.href
+        content_width={{ section_width_compact }}
+      %}
+        {% dnd_grid_container
+           type="vertical_stack",
+           gap={{ spacing_0 }}
+        %}
+          {% dnd_grid_module
+            path="../components/modules/Heading",
+            headingAndTextHeadingLevel="h1",
+            headingAndTextHeading={{ scaffold_content.group_banner.heading or template_translations.section_hero_centered_heading.message }},
+            groupStyle={
+              "alignment": {
+                "text_align": "CENTER"
+              },
+              "headingStyleVariant": "display_2",
+              "sectionStyleVariant": "section_variant_1"
             }
-          }
-        ]
-      }
-    %}
+          %}
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
+            path="../components/modules/RichText",
+            groupStyle={
+              "sectionStyleVariant": "section_variant_1"
+            }
+          %}
+            {% module_attribute "richTextContentHTML" %}
+              <div style="text-align: center;">
+                <p>{{ scaffold_content.group_banner.description or template_translations.section_hero_centered_content.message }}</p>
+              </div>
+            {% end_module_attribute %}
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
+            path="../components/modules/Button",
+            groupButtons=[
+              {
+                "buttonContentText": scaffold_content.group_banner.button_text or template_translations.section_hero_centered_button_text.message,
+                "buttonContentLink": {
+                  "url": {
+                    "href": scaffold_content.group_banner.button_link.url.href or ""
+                  }
+                },
+                "buttonContentShowIcon": false,
+                "buttonContentIcon": {
+                  "name": "arrow-right"
+                },
+                "buttonContentIconPosition": "right"
+              }
+            ],
+            groupStyle={
+              "alignment": {
+                "horizontal_align": "CENTER"
+              },
+              "buttonStyleSize": "medium",
+              "buttonStyleVariant": "primary"
+            }
+          %}
+          {% end_dnd_grid_module %}
+        {% end_dnd_grid_container %}
+      {% end_dnd_grid_section %}
 
-    {# Logo gallery #}
+      {# Pricing cards #}
 
-    {% include_dnd_partial
-      path="../sections/logo-gallery.hubl.html",
-      context={
-        "content": scaffold_content.group_logos.heading,
-        "logo_colors": light
-      }
-    %}
+      {% dnd_grid_section %}
+        {% dnd_grid_container
+           type="vertical_stack",
+           gap={{ spacing_0 }}
+        %}
+          {% dnd_grid_module
+            path="../components/modules/PricingCard",
+            groupPricingCards=[
+              {
+                "groupSummary": {
+                  "headingAndTextHeadingLevel": "h2",
+                  "headingAndTextHeading": scaffold_content.group_pricing_cards.group_pricing_card_one.heading or template_translations.section_pricing_card_one_heading.message,
+                  "description": scaffold_content.group_pricing_cards.group_pricing_card_one.description or template_translations.section_pricing_card_one_description.message,
+                  "price": scaffold_content.group_pricing_cards.group_pricing_card_one.price or template_translations.section_pricing_card_one_price.message,
+                  "timePeriod": scaffold_content.group_pricing_cards.group_pricing_card_one.time_period or template_translations.section_pricing_card_one_time_period.message,
+                },
+                "groupPlanFeatures": {
+                  "headingAndTextHeadingLevel": "h3",
+                  "headingAndTextHeading": scaffold_content.group_pricing_cards.group_pricing_card_one.features_title or template_translations.section_pricing_card_one_feature_title.message,
+                  "groupFeatures": [
+                    {
+                      "feature": scaffold_content.group_pricing_cards.group_pricing_card_one.group_features.feature_one or template_translations.section_pricing_card_one_feature_one.message
+                    },
+                    {
+                      "feature": scaffold_content.group_pricing_cards.group_pricing_card_one.group_features.feature_two or template_translations.section_pricing_card_one_feature_two.message
+                    },
+                    {
+                      "feature": scaffold_content.group_pricing_cards.group_pricing_card_one.group_features.feature_three or template_translations.section_pricing_card_one_feature_three.message
+                    },
+                    {
+                      "feature": scaffold_content.group_pricing_cards.group_pricing_card_one.group_features.feature_four or template_translations.section_pricing_card_one_feature_four.message
+                    }
+                  ],
+                },
+                "groupButton": {
+                  "showButton": true,
+                  "buttonContentText": scaffold_content.group_pricing_cards.group_pricing_card_one.button_text or template_translations.section_pricing_card_one_button_text.message,
+                  "buttonContentLink": {
+                    "url": {
+                      "href": scaffold_content.group_pricing_cards.group_pricing_card_one.button_link.url.href or ""
+                    },
+                    "open_in_new_tab": true
+                  },
+                  "buttonContentShowIcon": false,
+                  "buttonContentIcon": {
+                    "name": "dollar-sign"
+                  },
+                  "buttonContentIconPosition": "right"
+                }
+              },
+              {
+                "groupSummary": {
+                  "headingAndTextHeadingLevel": "h2",
+                  "headingAndTextHeading": scaffold_content.group_pricing_cards.group_pricing_card_two.heading or template_translations.section_pricing_card_two_heading.message,
+                  "description": scaffold_content.group_pricing_cards.group_pricing_card_two.description or template_translations.section_pricing_card_two_description.message,
+                  "price": scaffold_content.group_pricing_cards.group_pricing_card_two.price or template_translations.section_pricing_card_two_price.message,
+                  "timePeriod": scaffold_content.group_pricing_cards.group_pricing_card_two.time_period or template_translations.section_pricing_card_two_time_period.message,
+                },
+                "groupPlanFeatures": {
+                  "headingAndTextHeadingLevel": "h3",
+                  "headingAndTextHeading": scaffold_content.group_pricing_cards.group_pricing_card_two.features_title or template_translations.section_pricing_card_two_feature_title.message,
+                  "groupFeatures": [
+                    {
+                      "feature": scaffold_content.group_pricing_cards.group_pricing_card_two.group_features.feature_one or template_translations.section_pricing_card_two_feature_one.message
+                    },
+                    {
+                      "feature": scaffold_content.group_pricing_cards.group_pricing_card_two.group_features.feature_two or template_translations.section_pricing_card_two_feature_two.message
+                    },
+                    {
+                      "feature": scaffold_content.group_pricing_cards.group_pricing_card_two.group_features.feature_three or template_translations.section_pricing_card_two_feature_three.message
+                    },
+                    {
+                      "feature": scaffold_content.group_pricing_cards.group_pricing_card_two.group_features.feature_four or template_translations.section_pricing_card_two_feature_four.message
+                    },
+                    {
+                      "feature": scaffold_content.group_pricing_cards.group_pricing_card_two.group_features.feature_five or template_translations.section_pricing_card_two_feature_five.message
+                    }
+                  ],
+                },
+                "groupButton": {
+                  "showButton": true,
+                  "buttonContentText": scaffold_content.group_pricing_cards.group_pricing_card_two.button_text or template_translations.section_pricing_card_two_button_text.message,
+                  "buttonContentLink": {
+                    "url": {
+                      "href": scaffold_content.group_pricing_cards.group_pricing_card_two.button_link.url.href or ""
+                    },
+                    "open_in_new_tab": true
+                  },
+                  "buttonContentShowIcon": false,
+                  "buttonContentIcon": {
+                    "name": "dollar-sign"
+                  },
+                  "buttonContentIconPosition": "right"
+                }
+              },
+              {
+                "groupSummary": {
+                  "headingAndTextHeadingLevel": "h2",
+                  "headingAndTextHeading": scaffold_content.group_pricing_cards.group_pricing_card_three.heading or template_translations.section_pricing_card_three_heading.message,
+                  "description": scaffold_content.group_pricing_cards.group_pricing_card_three.description or template_translations.section_pricing_card_three_description.message,
+                  "price": scaffold_content.group_pricing_cards.group_pricing_card_three.price or template_translations.section_pricing_card_three_price.message,
+                  "timePeriod": scaffold_content.group_pricing_cards.group_pricing_card_three.time_period or template_translations.section_pricing_card_three_time_period.message,
+                },
+                "groupPlanFeatures": {
+                  "headingAndTextHeadingLevel": "h3",
+                  "headingAndTextHeading": scaffold_content.group_pricing_cards.group_pricing_card_three.features_title or template_translations.section_pricing_card_three_feature_title.message,
+                  "groupFeatures": [
+                    {
+                      "feature": scaffold_content.group_pricing_cards.group_pricing_card_three.group_features.feature_one or template_translations.section_pricing_card_three_feature_one.message
+                    },
+                    {
+                      "feature": scaffold_content.group_pricing_cards.group_pricing_card_three.group_features.feature_two or template_translations.section_pricing_card_three_feature_two.message
+                    },
+                    {
+                      "feature": scaffold_content.group_pricing_cards.group_pricing_card_three.group_features.feature_three or template_translations.section_pricing_card_three_feature_three.message
+                    },
+                    {
+                      "feature": scaffold_content.group_pricing_cards.group_pricing_card_three.group_features.feature_four or template_translations.section_pricing_card_three_feature_four.message
+                    },
+                    {
+                      "feature": scaffold_content.group_pricing_cards.group_pricing_card_three.group_features.feature_five or template_translations.section_pricing_card_three_feature_five.message
+                    }
+                  ],
+                },
+                "groupButton": {
+                  "showButton": true,
+                  "buttonContentText": scaffold_content.group_pricing_cards.group_pricing_card_three.button_text or template_translations.section_pricing_card_three_button_text.message,
+                  "buttonContentLink": {
+                    "url": {
+                      "href": scaffold_content.group_pricing_cards.group_pricing_card_three.button_link.url.href or ""
+                    },
+                    "open_in_new_tab": true
+                  },
+                  "buttonContentShowIcon": false,
+                  "buttonContentIcon": {
+                    "name": "dollar-sign"
+                  },
+                  "buttonContentIconPosition": "right"
+                }
+              }
+            ]
+          %}
+          {% end_dnd_grid_module %}
+        {% end_dnd_grid_container %}
+      {% end_dnd_grid_section %}
 
-    {# FAQs #}
+      {# Two column CTA #}
 
-    {% include_dnd_partial
-      path="../sections/faq.hubl.html",
-      context={
-        "card_variant": "card_variant_2",
-        "heading": {
-          "text": scaffold_content.group_faqs.heading
+      {% dnd_grid_section
+        padding={
+          "top": section_vertical_spacing_extra_small,
+          "bottom": section_vertical_spacing_extra_small
         },
-        "faqs": [
-          {
-            "title": scaffold_content.group_faqs.group_faq_one.question or template_translations.shared_faq_question_1.message,
-            "content": accordion_one_answer|render
-          },
-          {
-            "title": scaffold_content.group_faqs.group_faq_two.question or template_translations.shared_faq_question_2.message,
-            "content": accordion_two_answer|render
-          },
-          {
-            "title": scaffold_content.group_faqs.group_faq_three.question or template_translations.shared_faq_question_3.message,
-            "content": accordion_three_answer|render
-          },
-          {
-            "title": scaffold_content.group_faqs.group_faq_four.question or template_translations.shared_faq_question_4.message,
-            "content": accordion_four_answer|render
-          },
-          {
-            "title": scaffold_content.group_faqs.group_faq_five.question or template_translations.shared_faq_question_5.message,
-            "content": accordion_five_answer|render
-          }
-        ]
-      }
-    %}
+        content_width={{ section_width_wide }}
+      %}
+        {% dnd_grid_container
+           type="vertical_stack",
+           gap={{ spacing_0 }}
+        %}
+          {% dnd_grid_module
+            path="../components/modules/Card"
+            imageOrIcon="image",
+            groupCards=[
+              {
+                "groupImage": {
+                  "image": {
+                    "src": scaffold_content.group_two_col_call_to_action.image.src or get_asset_url("../images/newsletter.png"),
+                    "alt": scaffold_content.group_two_col_call_to_action.image.alt or template_translations.section_cta_centered_logo_alt.message,
+                    "loading": "lazy",
+                    "size_type": "auto_custom_max"
+                  }
+                },
+                "groupIcon": {
+                    "icon": {
+                      "name": 'play-circle',
+                    },
+                  },
+                "groupContent": {
+                  "headingAndTextHeadingLevel": "h2",
+                  "headingAndTextHeading": scaffold_content.group_two_col_call_to_action.heading or template_translations.section_two_col_cta_heading.message
+                },
+                "groupButton": {
+                  "showButton": true,
+                  "buttonContentText": scaffold_content.group_two_col_call_to_action.button_text or template_translations.section_two_col_cta_button_text.message,
+                  "buttonContentLink": {
+                    "url": {
+                      "href": scaffold_content.group_two_col_call_to_action.button_link.url.href or ""
+                    }
+                  },
+                  "buttonContentShowIcon": true,
+                  "buttonContentIcon": {
+                    "name": "arrow-right"
+                  },
+                  "buttonContentIconPosition": "right"
+                }
+              }
+            ]
+            groupStyle={
+              "groupCard": {
+                "cardOrientation": "row",
+                "cardStyleVariant": "card_variant_4"
+              },
+              "groupContent": {
+                "alignment": {
+                  "horizontal_align": "LEFT"
+                }
+              },
+              "groupButton": {
+                "buttonStyleVariant": "tertiary"
+              }
+            }
+          %}
+          {% end_dnd_grid_module %}
+        {% end_dnd_grid_container %}
+      {% end_dnd_grid_section %}
 
-    {# Call to action #}
+      {# Logo gallery #}
 
-    {% include_dnd_partial
-      path="../sections/call-to-action.hubl.html"
-      context={
-        "background_color": light_section_3_background_color,
-        "section_variant": "section_variant_3",
-        "heading": {
-          "text": scaffold_content.group_call_to_action.heading or template_translations.pricing_call_to_action_heading.message,
-          "style_variant": "h1"
-        },
-        "button": {
-          "text": scaffold_content.group_call_to_action.button_text or template_translations.pricing_call_to_action_button_text.message,
-          "href": scaffold_content.group_call_to_action.button_link.url.href
+      {% dnd_grid_section
+        padding={
+          "top": section_vertical_spacing_extra_small,
+          "bottom": section_vertical_spacing_extra_small
         }
-      }
+      %}
+        {% dnd_grid_container
+           type="vertical_stack",
+           gap={{ spacing_0 }}
+        %}
+          {% dnd_grid_module
+            path="../components/modules/RichText"
+            groupStyle={
+              "sectionStyleVariant": "section_variant_1"
+            }
+          %}
+            {% module_attribute "richTextContentHTML" %}
+              <div style="text-align: center;">
+                <p>{{ scaffold_content.group_logos.heading or template_translations.section_logo_gallery_heading.message }}</p>
+              </div>
+            {% end_module_attribute %}
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
+            path="@hubspot/logo_grid",
+            styles={
+              "group_logo_grid": {
+                "column_count": 6,
+              }
+            },
+            group_logos=[
+              {
+                "logo": {
+                  "alt": scaffold_content.group_logos.logo_one.alt or "",
+                  "src": scaffold_content.group_logos.logo_one.src or get_asset_url("../images/hexagontalxio-dark.png"),
+                  "loading": "eager"
+                }
+              },
+              {
+                "logo": {
+                  "alt": scaffold_content.group_logos.logo_two.alt or "",
+                  "src": scaffold_content.group_logos.logo_two.src or get_asset_url("../images/reviluxify-dark.png"),
+                  "loading": "eager"
+                }
+              },
+              {
+                "logo": {
+                  "alt": scaffold_content.group_logos.logo_three.alt or "",
+                  "src": scaffold_content.group_logos.logo_three.src or get_asset_url("../images/zyntellix-dark.png"),
+                  "loading": "eager"
+                }
+              },
+              {
+                "logo": {
+                  "alt": scaffold_content.group_logos.logo_four.alt or "",
+                  "src": scaffold_content.group_logos.logo_four.src or get_asset_url("../images/crypturon-dark.png"),
+                  "loading": "eager"
+                }
+              },
+              {
+                "logo": {
+                  "alt": scaffold_content.group_logos.logo_five.alt or "",
+                  "src": scaffold_content.group_logos.logo_five.src or get_asset_url("../images/spectroxium-dark.png"),
+                  "loading": "eager"
+                }
+              },
+              {
+                "logo": {
+                  "alt": scaffold_content.group_logos.logo_six.alt or "",
+                  "src": scaffold_content.group_logos.logo_six.src or get_asset_url("../images/lyraxionics-dark.png"),
+                  "loading": "eager"
+                }
+              }
+            ]
+          %}
+          {% end_dnd_grid_module %}
+        {% end_dnd_grid_container %}
+      {% end_dnd_grid_section %}
+
+      {# FAQs #}
+
+      {% dnd_grid_section
+        content_width={{ section_width_medium }}
+      %}
+        {% dnd_grid_container
+           type="vertical_stack",
+           gap={{ spacing_0 }}
+        %}
+          {% dnd_grid_module
+            path="../components/modules/Heading",
+            headingAndTextHeadingLevel="h2",
+            headingAndTextHeading={{ scaffold_content.group_faqs.heading or template_translations.section_faq_heading_updated.message }},
+            groupStyle={
+              "alignment": {
+                "text_align": "CENTER"
+              },
+              "headingStyleVariant": "h2",
+              "sectionStyleVariant": "section_variant_1"
+            }
+          %}
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
+            path="../components/modules/Accordion",
+            groupAccordions=[
+              {
+                "title": scaffold_content.group_faqs.group_faq_one.question or template_translations.shared_faq_question_1.message,
+                "richTextContentHTML": accordion_one_answer|render
+              },
+              {
+                "title": scaffold_content.group_faqs.group_faq_two.question or template_translations.shared_faq_question_2.message,
+                "richTextContentHTML": accordion_two_answer|render
+              },
+              {
+                "title": scaffold_content.group_faqs.group_faq_three.question or template_translations.shared_faq_question_3.message,
+                "richTextContentHTML": accordion_three_answer|render
+              },
+              {
+                "title": scaffold_content.group_faqs.group_faq_four.question or template_translations.shared_faq_question_4.message,
+                "richTextContentHTML": accordion_four_answer|render
+              },
+              {
+                "title": scaffold_content.group_faqs.group_faq_five.question or template_translations.shared_faq_question_5.message,
+                "richTextContentHTML": accordion_five_answer|render
+              }
+            ],
+            groupStyle={
+              "cardStyleVariant": "card_variant_2",
+              "gap": "medium"
+            }
+          %}
+          {% end_dnd_grid_module %}
+        {% end_dnd_grid_container %}
+      {% end_dnd_grid_section %}
+
+      {# Call to action #}
+
+      {% dnd_grid_section
+        background_layers=[
+          {
+            "type": "color",
+            "value": light_section_3_background_color
+          }
+        ],
+        content_width={{ section_width_narrow }}
+      %}
+        {% dnd_grid_container
+           type="vertical_stack",
+           gap={{ spacing_0 }}
+        %}
+          {% dnd_grid_module
+            path="../components/modules/Heading",
+            headingAndTextHeadingLevel="h2",
+            headingAndTextHeading={{ scaffold_content.group_call_to_action.heading or template_translations.pricing_call_to_action_heading.message }},
+            groupStyle={
+              "alignment": {
+                "text_align": "CENTER"
+              },
+              "headingStyleVariant": "h1",
+              "sectionStyleVariant": "section_variant_3"
+            }
+          %}
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
+            path="../components/modules/Button",
+            groupButtons=[
+              {
+                "buttonContentText": scaffold_content.group_call_to_action.button_text or template_translations.pricing_call_to_action_button_text.message,
+                "buttonContentLink": {
+                  "url": {
+                    "href": scaffold_content.group_call_to_action.button_link.url.href or ""
+                  }
+                },
+                "buttonContentShowIcon": false,
+                "buttonContentIcon": {
+                  "name": "arrow-right"
+                },
+                "buttonContentIconPosition": "right"
+              }
+            ],
+            groupStyle={
+              "alignment": {
+                "horizontal_align": "CENTER"
+              },
+              "buttonStyleSize": "medium",
+              "buttonStyleVariant": "primary"
+            }
+          %}
+          {% end_dnd_grid_module %}
+        {% end_dnd_grid_container %}
+      {% end_dnd_grid_section %}
+
+    {% end_dnd_area %}
+  {% else %}
+    {% dnd_area "dnd_area"
+      label="Main section"
     %}
 
-  {% end_dnd_area %}
+      {# Hero banner #}
+
+      {% include_dnd_partial
+        path="../sections/hero-banner-centered.hubl.html",
+        context={
+          "heading": {
+            "text": scaffold_content.group_banner.heading
+          },
+          "content": scaffold_content.group_banner.description,
+          "button": {
+            "text": scaffold_content.group_banner.button_text,
+            "href": scaffold_content.group_banner.button_link.url.href
+          }
+        }
+      %}
+
+      {# Pricing cards #}
+
+      {% include_dnd_partial
+        path="../sections/pricing.hubl.html",
+        context={
+          "pricing_cards": [
+            {
+              "heading": scaffold_content.group_pricing_cards.group_pricing_card_one.heading,
+              "description": scaffold_content.group_pricing_cards.group_pricing_card_one.description,
+              "price": scaffold_content.group_pricing_cards.group_pricing_card_one.price,
+              "time_period": scaffold_content.group_pricing_cards.group_pricing_card_one.time_period,
+              "features_title": scaffold_content.group_pricing_cards.group_pricing_card_one.features_title,
+              "features": [
+                scaffold_content.group_pricing_cards.group_pricing_card_one.group_features.feature_one,
+                scaffold_content.group_pricing_cards.group_pricing_card_one.group_features.feature_two,
+                scaffold_content.group_pricing_cards.group_pricing_card_one.group_features.feature_three,
+                scaffold_content.group_pricing_cards.group_pricing_card_one.group_features.feature_four
+              ],
+              "button_text": scaffold_content.group_pricing_cards.group_pricing_card_one.button_text,
+              "button_link": scaffold_content.group_pricing_cards.group_pricing_card_one.button_link.url.href
+            },
+            {
+              "heading": scaffold_content.group_pricing_cards.group_pricing_card_two.heading,
+              "description": scaffold_content.group_pricing_cards.group_pricing_card_two.description,
+              "price": scaffold_content.group_pricing_cards.group_pricing_card_two.price,
+              "time_period": scaffold_content.group_pricing_cards.group_pricing_card_two.time_period,
+              "features_title": scaffold_content.group_pricing_cards.group_pricing_card_two.features_title,
+              "features": [
+                scaffold_content.group_pricing_cards.group_pricing_card_two.group_features.feature_one,
+                scaffold_content.group_pricing_cards.group_pricing_card_two.group_features.feature_two,
+                scaffold_content.group_pricing_cards.group_pricing_card_two.group_features.feature_three,
+                scaffold_content.group_pricing_cards.group_pricing_card_two.group_features.feature_four
+              ],
+              "button_text": scaffold_content.group_pricing_cards.group_pricing_card_two.button_text,
+              "button_link": scaffold_content.group_pricing_cards.group_pricing_card_two.button_link.url.href
+            },
+            {
+              "heading": scaffold_content.group_pricing_cards.group_pricing_card_three.heading,
+              "description": scaffold_content.group_pricing_cards.group_pricing_card_three.description,
+              "price": scaffold_content.group_pricing_cards.group_pricing_card_three.price,
+              "time_period": scaffold_content.group_pricing_cards.group_pricing_card_three.time_period,
+              "features_title": scaffold_content.group_pricing_cards.group_pricing_card_three.features_title,
+              "features": [
+                scaffold_content.group_pricing_cards.group_pricing_card_three.group_features.feature_one,
+                scaffold_content.group_pricing_cards.group_pricing_card_three.group_features.feature_two,
+                scaffold_content.group_pricing_cards.group_pricing_card_three.group_features.feature_three,
+                scaffold_content.group_pricing_cards.group_pricing_card_three.group_features.feature_four
+              ],
+              "button_text": scaffold_content.group_pricing_cards.group_pricing_card_three.button_text,
+              "button_link": scaffold_content.group_pricing_cards.group_pricing_card_three.button_link.url.href
+            }
+          ]
+        }
+      %}
+
+      {# Two column CTA #}
+
+      {% include_dnd_partial
+        path="../sections/two-column-call-to-action.hubl.html",
+        context={
+          "section_padding_top": section_vertical_spacing_extra_small,
+          "section_padding_bottom": section_vertical_spacing_extra_small,
+          "cards": [
+            {
+              "image": {
+                "src": scaffold_content.group_two_col_call_to_action.image.src,
+                "alt": scaffold_content.group_two_col_call_to_action.image.alt,
+              },
+              "heading": {
+                "text": scaffold_content.group_two_col_call_to_action.heading
+              },
+              "button": {
+                "text": scaffold_content.group_two_col_call_to_action.button_text,
+                "href": scaffold_content.group_two_col_call_to_action.button_link.url.href
+              }
+            }
+          ]
+        }
+      %}
+
+      {# Logo gallery #}
+
+      {% include_dnd_partial
+        path="../sections/logo-gallery.hubl.html",
+        context={
+          "content": scaffold_content.group_logos.heading,
+          "logo_colors": light
+        }
+      %}
+
+      {# FAQs #}
+
+      {% include_dnd_partial
+        path="../sections/faq.hubl.html",
+        context={
+          "card_variant": "card_variant_2",
+          "heading": {
+            "text": scaffold_content.group_faqs.heading
+          },
+          "faqs": [
+            {
+              "title": scaffold_content.group_faqs.group_faq_one.question or template_translations.shared_faq_question_1.message,
+              "content": accordion_one_answer|render
+            },
+            {
+              "title": scaffold_content.group_faqs.group_faq_two.question or template_translations.shared_faq_question_2.message,
+              "content": accordion_two_answer|render
+            },
+            {
+              "title": scaffold_content.group_faqs.group_faq_three.question or template_translations.shared_faq_question_3.message,
+              "content": accordion_three_answer|render
+            },
+            {
+              "title": scaffold_content.group_faqs.group_faq_four.question or template_translations.shared_faq_question_4.message,
+              "content": accordion_four_answer|render
+            },
+            {
+              "title": scaffold_content.group_faqs.group_faq_five.question or template_translations.shared_faq_question_5.message,
+              "content": accordion_five_answer|render
+            }
+          ]
+        }
+      %}
+
+      {# Call to action #}
+
+      {% include_dnd_partial
+        path="../sections/call-to-action.hubl.html"
+        context={
+          "background_color": light_section_3_background_color,
+          "section_variant": "section_variant_3",
+          "heading": {
+            "text": scaffold_content.group_call_to_action.heading or template_translations.pricing_call_to_action_heading.message,
+            "style_variant": "h1"
+          },
+          "button": {
+            "text": scaffold_content.group_call_to_action.button_text or template_translations.pricing_call_to_action_button_text.message,
+            "href": scaffold_content.group_call_to_action.button_link.url.href
+          }
+        }
+      %}
+
+    {% end_dnd_area %}
+  {% endif %}
 {% endblock body %}
