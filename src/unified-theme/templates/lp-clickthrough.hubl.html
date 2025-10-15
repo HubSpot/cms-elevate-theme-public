@@ -40,8 +40,7 @@
         }
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",
@@ -63,9 +62,7 @@
             }
           %}
             {% module_attribute "richTextContentHTML" %}
-              <div style="text-align: center;">
-                <p>{{ scaffold_content.group_banner.description or template_translations.lp_clickthrough_banner_description.message }}</p>
-              </div>
+              <p style="text-align: center;">{{ scaffold_content.group_banner.description or template_translations.lp_clickthrough_banner_description.message }}</p>
             {% end_module_attribute %}
           {% end_dnd_grid_module %}
           {% dnd_grid_module
@@ -134,8 +131,7 @@
         }
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/RichText",
@@ -144,9 +140,7 @@
             }
           %}
             {% module_attribute "richTextContentHTML" %}
-              <div style="text-align: center;">
-                <p>{{ scaffold_content.group_logos.heading or template_translations.section_logo_gallery_heading.message }}</p>
-              </div>
+              <p style="text-align: center;">{{ scaffold_content.group_logos.heading or template_translations.section_logo_gallery_heading.message }}</p>
             {% end_module_attribute %}
           {% end_dnd_grid_module %}
           {% dnd_grid_module
@@ -337,89 +331,89 @@
         %}
           {% dnd_grid_module
             path="../components/modules/TestimonialSlider",
-          groupTestimonial=[
-            {
-              "groupQuote": {
-                "quote": template_translations.shared_testimonials_quote_1.message
-              },
-              "groupAuthor": {
-                "authorName": template_translations.shared_testimonials_author_name_1.message,
-                "authorTitle": template_translations.shared_testimonials_author_title_1.message,
-                "authorImage": {}
-              },
-              "groupImage": {
-                "showImage": true,
-                "image": {
-                  "alt": "",
-                  "loading": "lazy",
-                  "max_height": 300,
-                  "max_width": 300,
-                  "size_type": "auto_custom_max",
-                  "src": get_asset_url("../images/testimonial-user-image-1.png")
+            groupTestimonial=[
+              {
+                "groupQuote": {
+                  "quote": template_translations.shared_testimonials_quote_1.message
+                },
+                "groupAuthor": {
+                  "authorName": template_translations.shared_testimonials_author_name_1.message,
+                  "authorTitle": template_translations.shared_testimonials_author_title_1.message,
+                  "authorImage": {}
+                },
+                "groupImage": {
+                  "showImage": true,
+                  "image": {
+                    "alt": "",
+                    "loading": "lazy",
+                    "max_height": 300,
+                    "max_width": 300,
+                    "size_type": "auto_custom_max",
+                    "src": get_asset_url("../images/testimonial-user-image-1.png")
+                  }
+                },
+                "groupLink": {
+                  "linkText": template_translations.shared_testimonials_link_text.message,
+                  "link": {}
                 }
               },
-              "groupLink": {
-                "linkText": template_translations.shared_testimonials_link_text.message,
-                "link": {}
-              }
-            },
-            {
-              "groupQuote": {
-                "quote": template_translations.shared_testimonials_quote_2.message
-              },
-              "groupAuthor": {
-                "authorName": template_translations.shared_testimonials_author_name_2.message,
-                "authorTitle": template_translations.shared_testimonials_author_title_2.message,
-                "authorImage": {}
-              },
-              "groupImage": {
-                "showImage": true,
-                "image": {
-                  "alt": "",
-                  "loading": "lazy",
-                  "max_height": 300,
-                  "max_width": 300,
-                  "size_type": "auto_custom_max",
-                  "src": get_asset_url("../images/testimonial-user-image-2.png")
+              {
+                "groupQuote": {
+                  "quote": template_translations.shared_testimonials_quote_2.message
+                },
+                "groupAuthor": {
+                  "authorName": template_translations.shared_testimonials_author_name_2.message,
+                  "authorTitle": template_translations.shared_testimonials_author_title_2.message,
+                  "authorImage": {}
+                },
+                "groupImage": {
+                  "showImage": true,
+                  "image": {
+                    "alt": "",
+                    "loading": "lazy",
+                    "max_height": 300,
+                    "max_width": 300,
+                    "size_type": "auto_custom_max",
+                    "src": get_asset_url("../images/testimonial-user-image-2.png")
+                  }
+                },
+                "groupLink": {
+                  "linkText": template_translations.shared_testimonials_link_text.message,
+                  "link": {}
                 }
               },
-              "groupLink": {
-                "linkText": template_translations.shared_testimonials_link_text.message,
-                "link": {}
-              }
-            },
-            {
-              "groupQuote": {
-                "quote": template_translations.shared_testimonials_quote_3.message
-              },
-              "groupAuthor": {
-                "authorName": template_translations.shared_testimonials_author_name_3.message,
-                "authorTitle": template_translations.shared_testimonials_author_title_3.message,
-                "authorImage": {}
-              },
-              "groupImage": {
-                "showImage": true,
-                "image": {
-                  "alt": "",
-                  "loading": "lazy",
-                  "max_height": 300,
-                  "max_width": 300,
-                  "size_type": "auto_custom_max",
-                  "src": get_asset_url("../images/testimonial-user-image-3.png")
+              {
+                "groupQuote": {
+                  "quote": template_translations.shared_testimonials_quote_3.message
+                },
+                "groupAuthor": {
+                  "authorName": template_translations.shared_testimonials_author_name_3.message,
+                  "authorTitle": template_translations.shared_testimonials_author_title_3.message,
+                  "authorImage": {}
+                },
+                "groupImage": {
+                  "showImage": true,
+                  "image": {
+                    "alt": "",
+                    "loading": "lazy",
+                    "max_height": 300,
+                    "max_width": 300,
+                    "size_type": "auto_custom_max",
+                    "src": get_asset_url("../images/testimonial-user-image-3.png")
+                  }
+                },
+                "groupLink": {
+                  "linkText": template_translations.shared_testimonials_link_text.message,
+                  "link": {}
                 }
-              },
-              "groupLink": {
-                "linkText": template_translations.shared_testimonials_link_text.message,
-                "link": {}
               }
+            ],
+            groupStyle={
+              "shape": "sharp",
+              "cardStyleVariant": "card_variant_2"
             }
-          ],
-          groupStyle={
-            "shape": "sharp",
-            "cardStyleVariant": "card_variant_2"
-          }
-        %}
-        {% end_dnd_grid_module %}
+          %}
+          {% end_dnd_grid_module %}
         {% end_dnd_grid_container %}
       {% end_dnd_grid_section %}
 

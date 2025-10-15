@@ -41,15 +41,10 @@
             "mobile": "vertical_stack"
            },
            columns=["1fr", "1fr"],
-           rows=["auto"],
-           gap={
-            "default": spacing_32,
-            "mobile": spacing_0
-           }
+           rows=["auto"]
         %}
           {% dnd_grid_container
-            type="vertical_stack",
-            gap={{ spacing_0 }}
+            type="vertical_stack"
           %}
             {% dnd_grid_module
               path="../components/modules/Heading",
@@ -76,14 +71,6 @@
             {% end_dnd_grid_module %}
             {% dnd_grid_module
               path="../components/modules/Button",
-              margin={
-                "default": {
-                  "bottom": 0
-                },
-                "mobile": {
-                  "bottom": spacing_32
-                }
-              },
               groupButtons=[
                 {
                   "buttonContentText": scaffold_content.group_banner.button_text or template_translations.lp_products_button_text.message,
@@ -124,8 +111,7 @@
 
       {% dnd_grid_section %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/RichText"
@@ -134,9 +120,7 @@
             }
           %}
             {% module_attribute "richTextContentHTML" %}
-              <div style="text-align: center;">
-                <p>{{ scaffold_content.group_logos.heading or template_translations.section_logo_gallery_heading.message }}</p>
-              </div>
+              <p style="text-align: center;">{{ scaffold_content.group_logos.heading or template_translations.section_logo_gallery_heading.message }}</p>
             {% end_module_attribute %}
           {% end_dnd_grid_module %}
           {% dnd_grid_module
@@ -199,8 +183,7 @@
 
       {% dnd_grid_section %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Card",
@@ -297,8 +280,7 @@
         ]
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",
@@ -315,22 +297,12 @@
           {% end_dnd_grid_module %}
           {% dnd_grid_module
             path="../components/modules/RichText",
-            margin={
-              "default": {
-                "bottom": spacing_32
-              },
-              "mobile": {
-                "bottom": 0
-              }
-            },
             groupStyle={
               "sectionStyleVariant": "section_variant_2"
             }
           %}
             {% module_attribute "richTextContentHTML" %}
-              <div style="text-align: center;">
-                <p>{{ scaffold_content.group_features.description or template_translations.section_features_content.message }}</p>
-              </div>
+              <p style="text-align: center;">{{ scaffold_content.group_features.description or template_translations.section_features_content.message }}</p>
             {% end_module_attribute %}
           {% end_dnd_grid_module %}
           {% dnd_grid_container
@@ -339,22 +311,10 @@
             "mobile": "vertical_stack"
             },
             rows=["auto"],
-            columns=["1fr", "2fr"],
-            gap={
-              "default": spacing_32,
-              "mobile": spacing_0
-            }
+            columns=["1fr", "2fr"]
           %}
             {% dnd_grid_module
               path="@hubspot/linked_image",
-              margin={
-                "default": {
-                  "bottom": 0
-                },
-                "mobile": {
-                  "bottom": spacing_32
-                }
-              },
               img={
                 "alt": scaffold_content.group_features.image.alt or "",
                 "loading": "lazy",
@@ -496,8 +456,7 @@
         ]
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/TestimonialSlider",
@@ -592,7 +551,7 @@
       {% dnd_grid_section %}
         {% dnd_grid_container
           type="vertical_stack",
-          gap={{ spacing_0 }}
+          gap={{ grid_gap_extra_large }}
         %}
           {% dnd_grid_module
             path="../components/modules/ImageAndText",
@@ -628,9 +587,6 @@
           {% end_dnd_grid_module %}
           {% dnd_grid_module
             path="../components/modules/ImageAndText",
-            margin={
-              "top": section_vertical_spacing_medium
-            },
             groupImage={
               "imagePosition": "right",
               "image": {
@@ -663,9 +619,6 @@
           {% end_dnd_grid_module %}
           {% dnd_grid_module
             path="../components/modules/ImageAndText",
-            margin={
-              "top": section_vertical_spacing_medium
-            },
             groupImage={
               "imagePosition": "left",
               "image": {
@@ -703,8 +656,7 @@
 
       {% dnd_grid_section %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Card"
@@ -775,8 +727,7 @@
         content_width={{ section_width_medium }}
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",

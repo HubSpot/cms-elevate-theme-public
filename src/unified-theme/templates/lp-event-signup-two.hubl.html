@@ -22,21 +22,24 @@
 
       {% dnd_grid_section %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",
             headingAndTextHeading={{ scaffold_content.group_hero.heading or template_translations.lp_event_signup_two_hero_heading.message }},
             groupStyle={
-              "alignment": { "text_align": "CENTER" },
+              "alignment": {
+                "text_align": "CENTER"
+              },
               "headingStyleVariant": "display_2",
             }
           %}
           {% end_dnd_grid_module %}
           {% dnd_grid_module
             path="../components/modules/RichText",
-            groupStyle={ "sectionStyleVariant": "section_variant_1" }
+            groupStyle={
+              "sectionStyleVariant": "section_variant_1"
+            }
           %}
             {% module_attribute "richTextContentHTML" %}
               <p style="text-align: center;">{{ scaffold_content.group_hero.subheading or template_translations.lp_event_signup_two_hero_subheading.message }}</p>
@@ -62,8 +65,7 @@
 
       {% dnd_grid_section %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_container
             type={
@@ -71,12 +73,11 @@
               "mobile": "vertical_stack"
             },
             columns=["1fr", "1fr"],
-            gap={{ spacing_32 }},
+            rows=["auto"],
             align_items="start"
           %}
             {% dnd_grid_container
-              type="vertical_stack",
-              gap={{ spacing_0 }}
+              type="vertical_stack"
             %}
               {% dnd_grid_module
                 path="../components/modules/Heading",
@@ -125,8 +126,7 @@
         content_width={{ section_width_medium }}
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",
@@ -143,9 +143,7 @@
             path="../components/modules/RichText"
           %}
             {% module_attribute "richTextContentHTML" %}
-              <div style="text-align: center;">
-                <p>{{ scaffold_content.group_gallery.subheading or template_translations.lp_event_signup_two_gallery_subheading.message }}</p>
-              </div>
+              <p style="text-align: center;">{{ scaffold_content.group_gallery.subheading or template_translations.lp_event_signup_two_gallery_subheading.message }}</p>
             {% end_module_attribute %}
           {% end_dnd_grid_module %}
           {% dnd_grid_module
@@ -204,8 +202,7 @@
         content_width={{ section_width_medium }}
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Card"

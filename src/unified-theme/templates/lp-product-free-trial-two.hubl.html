@@ -28,121 +28,94 @@
 
       {% dnd_grid_section %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type={
+            "default": "grid",
+            "mobile": "vertical_stack"
+          },
+          columns=["5fr", "7fr"],
+          rows=["auto"],
+          align_items="center",
+          gap={{ grid_gap_large }}
         %}
           {% dnd_grid_container
-            type={
-              "default": "grid",
-              "mobile": "vertical_stack"
-            },
-            columns=["5fr", "7fr"],
-            gap={{ spacing_32 }},
-            align_items="center"
+            type="vertical_stack"
           %}
-            {% dnd_grid_container
-              type="vertical_stack",
-              gap={{ spacing_0 }},
-              padding={
-                "default": {
-                  "right": spacing_40,
-                },
-                "mobile": {
-                  "right": 0,
-                  "bottom": spacing_32
-                }
+            {% dnd_grid_module
+              path="../components/modules/RichText",
+              groupStyle={
+                "sectionStyleVariant": "section_variant_1"
               }
             %}
-              {% dnd_grid_module
-                path="../components/modules/RichText",
-                groupStyle={
-                  "sectionStyleVariant": "section_variant_1"
-                }
-              %}
-                {% module_attribute "richTextContentHTML" %}
-                  <p>{{ scaffold_content.group_hero_banner.tag_line or template_translations.lp_product_free_trial_two_hero_tag_line.message }}</p>
-                {% end_module_attribute %}
-              {% end_dnd_grid_module %}
-
-              {% dnd_grid_module
-                path="../components/modules/Heading",
-                headingAndTextHeadingLevel="h1",
-                headingAndTextHeading={{ scaffold_content.group_hero_banner.heading or template_translations.lp_product_free_trial_two_hero_heading.message }},
-                groupStyle={
-                  "headingStyleVariant": "h1",
-                  "sectionStyleVariant": "section_variant_1"
-                }
-              %}
-              {% end_dnd_grid_module %}
-
-              {% dnd_grid_module
-                path="../components/modules/RichText",
-                groupStyle={
-                  "sectionStyleVariant": "section_variant_1"
-                }
-              %}
-                {% module_attribute "richTextContentHTML" %}
-                  <p>{{ scaffold_content.group_hero_banner.paragraph or template_translations.lp_product_free_trial_two_hero_paragraph.message }}</p>
-                {% end_module_attribute %}
-              {% end_dnd_grid_module %}
-
-              {% dnd_grid_module
-                path="../components/modules/Button",
-                groupButtons=[
-                  {
-                    "buttonContentText": scaffold_content.group_hero_banner.button_text or template_translations.lp_product_free_trial_two_hero_button.message,
-                    "buttonContentLink": {
-                      "url": {
-                        "href": scaffold_content.group_hero_banner.button_link.url.href or ""
-                      }
-                    },
-                    "buttonContentShowIcon": true,
-                    "buttonContentIcon": {
-                      "name": "arrow-right"
-                    },
-                    "buttonContentIconPosition": "right"
-                  }
-                ],
-                groupStyle={
-                  "alignment": {
-                    "horizontal_align": "LEFT"
-                  },
-                  "buttonStyleSize": "medium",
-                  "buttonStyleVariant": "primary"
-                }
-              %}
-              {% end_dnd_grid_module %}
-            {% end_dnd_grid_container %}
-
-            {% dnd_grid_container
-              type="vertical_stack",
-              gap={{ spacing_0 }},
-              padding={
-                "default": {
-                  "left": spacing_40,
-                },
-                "mobile": {
-                  "left": 0,
-                }
+              {% module_attribute "richTextContentHTML" %}
+                <p>{{ scaffold_content.group_hero_banner.tag_line or template_translations.lp_product_free_trial_two_hero_tag_line.message }}</p>
+              {% end_module_attribute %}
+            {% end_dnd_grid_module %}
+            {% dnd_grid_module
+              path="../components/modules/Heading",
+              headingAndTextHeadingLevel="h1",
+              headingAndTextHeading={{ scaffold_content.group_hero_banner.heading or template_translations.lp_product_free_trial_two_hero_heading.message }},
+              groupStyle={
+                "headingStyleVariant": "h1",
+                "sectionStyleVariant": "section_variant_1"
               }
             %}
-              {% dnd_grid_module
-                path="@hubspot/video",
-                embed_field={
-                  "oembed_response": {
-                      "type": "video",
+            {% end_dnd_grid_module %}
+            {% dnd_grid_module
+              path="../components/modules/RichText",
+              groupStyle={
+                "sectionStyleVariant": "section_variant_1"
+              }
+            %}
+              {% module_attribute "richTextContentHTML" %}
+                <p>{{ scaffold_content.group_hero_banner.paragraph or template_translations.lp_product_free_trial_two_hero_paragraph.message }}</p>
+              {% end_module_attribute %}
+            {% end_dnd_grid_module %}
+            {% dnd_grid_module
+              path="../components/modules/Button",
+              groupButtons=[
+                {
+                  "buttonContentText": scaffold_content.group_hero_banner.button_text or template_translations.lp_product_free_trial_two_hero_button.message,
+                  "buttonContentLink": {
+                    "url": {
+                      "href": scaffold_content.group_hero_banner.button_link.url.href or ""
+                    }
                   },
-                  "oembed_url": "https://www.youtube.com/watch?v=q89-gvYRO_I",
-                  "size_type": "auto_full_width",
-                  "source_type": "oembed"
+                  "buttonContentShowIcon": true,
+                  "buttonContentIcon": {
+                    "name": "arrow-right"
+                  },
+                  "buttonContentIconPosition": "right"
+                }
+              ],
+              groupStyle={
+                "alignment": {
+                  "horizontal_align": "LEFT"
                 },
-                oembed_thumbnail={
-                  "src": scaffold_content.group_hero_banner.video.thumbnail.src or get_asset_url("../images/video-placeholder.png")
+                "buttonStyleSize": "medium",
+                "buttonStyleVariant": "primary"
+              }
+            %}
+            {% end_dnd_grid_module %}
+          {% end_dnd_grid_container %}
+          {% dnd_grid_container
+            type="vertical_stack"
+          %}
+            {% dnd_grid_module
+              path="@hubspot/video",
+              embed_field={
+                "oembed_response": {
+                    "type": "video",
                 },
-                video_type="embed"
-              %}
-              {% end_dnd_grid_module %}
-            {% end_dnd_grid_container %}
+                "oembed_url": "https://www.youtube.com/watch?v=q89-gvYRO_I",
+                "size_type": "auto_full_width",
+                "source_type": "oembed"
+              },
+              oembed_thumbnail={
+                "src": scaffold_content.group_hero_banner.video.thumbnail.src or get_asset_url("../images/video-placeholder.png")
+              },
+              video_type="embed"
+            %}
+            {% end_dnd_grid_module %}
           {% end_dnd_grid_container %}
         {% end_dnd_grid_container %}
       {% end_dnd_grid_section %}
@@ -151,7 +124,7 @@
 
       {% dnd_grid_section %}
         {% dnd_grid_container
-          type="vertical_stack",
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",
@@ -166,8 +139,6 @@
             }
           %}
           {% end_dnd_grid_module %}
-
-          {# Three column features #}
           {% dnd_grid_module
             path="../components/modules/FeatureList",
             columns=3,
@@ -232,11 +203,10 @@
             "type": "color",
             "value": dark_section_1_background_color
           }
-        ],
+        ]
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",
@@ -251,27 +221,31 @@
             }
           %}
           {% end_dnd_grid_module %}
-
           {% dnd_grid_module
             path="../components/modules/RichText",
+            margin={
+              "default": {
+                "bottom": spacing_32
+              },
+              "mobile": {
+                "bottom": 0
+              }
+            },
             groupStyle={
               "sectionStyleVariant": "section_variant_4"
             }
           %}
             {% module_attribute "richTextContentHTML" %}
-              <div style="text-align: center;">
-                <p>{{ scaffold_content.group_features.description or template_translations.lp_product_free_trial_two_features_description.message }}</p>
-              </div>
+              <p style="text-align: center;">{{ scaffold_content.group_features.description or template_translations.lp_product_free_trial_two_features_description.message }}</p>
             {% end_module_attribute %}
           {% end_dnd_grid_module %}
-
           {% dnd_grid_container
             type={
               "default": "grid",
               "mobile": "vertical_stack"
             },
             columns=["4fr", "8fr"],
-            gap={{ spacing_32 }}
+            rows=["auto"]
           %}
             {% dnd_grid_module
               path="@hubspot/linked_image",
@@ -285,8 +259,6 @@
               }
             %}
             {% end_dnd_grid_module %}
-
-            {# Features list #}
             {% dnd_grid_module
               path="../components/modules/FeatureList",
               groupFeatures=[
@@ -413,8 +385,7 @@
         content_width={{ section_width_medium }}
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",
@@ -429,8 +400,6 @@
             }
           %}
           {% end_dnd_grid_module %}
-
-          {# FAQ Accordion #}
           {% dnd_grid_module
             path="../components/modules/Accordion",
             groupAccordions=[

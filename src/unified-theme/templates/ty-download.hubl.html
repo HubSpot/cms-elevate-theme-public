@@ -28,8 +28,7 @@
       %}
         {% dnd_grid_container
           type="vertical_stack",
-          gap={{ spacing_0 }},
-          align_items="CENTER"
+          align_items="center"
         %}
           {% dnd_grid_module
             path="@hubspot/linked_image",
@@ -41,12 +40,7 @@
               "size_type": "auto_custom_max",
               "src": scaffold_content.group_banner.download_image.src or get_asset_url("../images/download.png")
             },
-            horizontal_alignment="CENTER",
-            margin={
-              "default": {
-                "bottom": spacing_48
-              }
-            }
+            horizontal_alignment="CENTER"
           %}
           {% end_dnd_grid_module %}
           {% dnd_grid_module
@@ -114,8 +108,7 @@
         ]
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",
@@ -137,9 +130,7 @@
             }
           %}
             {% module_attribute "richTextContentHTML"%}
-              <div style="text-align: center;">
-                <p>{{ scaffold_content.group_next_steps.subheading or template_translations.ty_download_next_steps_subheading.message }}</p>
-              </div>
+              <p style="text-align: center;">{{ scaffold_content.group_next_steps.subheading or template_translations.ty_download_next_steps_subheading.message }}</p>
             {% end_module_attribute %}
           {% end_dnd_grid_module %}
           {% dnd_grid_container
@@ -148,16 +139,12 @@
               "mobile": "vertical_stack"
             },
             columns=["1fr", "1fr", "1fr"],
-            rows=["auto"],
-            gap={
-              "default": spacing_32,
-              "mobile": spacing_0
+            rows=["auto"]
             }
           %}
             {% dnd_grid_container
               type="vertical_stack",
-              gap={{ spacing_0 }},
-              align_items="CENTER"
+              align_items="center"
             %}
               {% dnd_grid_module
                 path="@hubspot/linked_image",
@@ -169,12 +156,7 @@
                   "size_type": "auto_custom_max",
                   "src": scaffold_content.group_next_steps.group_step_one.image.src or get_asset_url("../images/step-one.png")
                 },
-                horizontal_alignment="CENTER",
-                margin={
-                  "default": {
-                    "bottom": spacing_20
-                  }
-                }
+                horizontal_alignment="CENTER"
               %}
               {% end_dnd_grid_module %}
               {% dnd_grid_module
@@ -197,16 +179,13 @@
                 }
               %}
                 {% module_attribute "richTextContentHTML"%}
-                  <div style="text-align: center;">
-                    <p>{{ scaffold_content.group_next_steps.group_step_one.description or template_translations.ty_download_step_one_description.message }}</p>
-                  </div>
+                  <p style="text-align: center;">{{ scaffold_content.group_next_steps.group_step_one.description or template_translations.ty_download_step_one_description.message }}</p>
                 {% end_module_attribute %}
               {% end_dnd_grid_module %}
             {% end_dnd_grid_container %}
             {% dnd_grid_container
               type="vertical_stack",
-              gap={{ spacing_0 }},
-              align_items="CENTER"
+              align_items="center"
             %}
               {% dnd_grid_module
                 path="@hubspot/linked_image",
@@ -218,12 +197,7 @@
                   "size_type": "auto_custom_max",
                   "src": scaffold_content.group_next_steps.group_step_two.image.src or get_asset_url("../images/step-two.png")
                 },
-                horizontal_alignment="CENTER",
-                margin={
-                  "default": {
-                    "bottom": spacing_20
-                  }
-                }
+                horizontal_alignment="CENTER"
               %}
               {% end_dnd_grid_module %}
               {% dnd_grid_module
@@ -246,16 +220,13 @@
                 }
               %}
                 {% module_attribute "richTextContentHTML"%}
-                  <div style="text-align: center;">
-                    <p>{{ scaffold_content.group_next_steps.group_step_two.description or template_translations.ty_download_step_two_description.message }}</p>
-                  </div>
+                  <p style="text-align: center;">{{ scaffold_content.group_next_steps.group_step_two.description or template_translations.ty_download_step_two_description.message }}</p>
                 {% end_module_attribute %}
               {% end_dnd_grid_module %}
             {% end_dnd_grid_container %}
             {% dnd_grid_container
               type="vertical_stack",
-              gap={{ spacing_0 }},
-              align_items="CENTER"
+              align_items="center"
             %}
               {% dnd_grid_module
                 path="@hubspot/linked_image",
@@ -267,12 +238,7 @@
                   "size_type": "auto_custom_max",
                   "src": scaffold_content.group_next_steps.group_step_three.image.src or get_asset_url("../images/step-three.png")
                 },
-                horizontal_alignment="CENTER",
-                margin={
-                  "default": {
-                    "bottom": spacing_20
-                  }
-                }
+                horizontal_alignment="CENTER"
               %}
               {% end_dnd_grid_module %}
               {% dnd_grid_module
@@ -295,9 +261,7 @@
                 }
               %}
                 {% module_attribute "richTextContentHTML"%}
-                  <div style="text-align: center;">
-                    <p>{{ scaffold_content.group_next_steps.group_step_three.description or template_translations.ty_download_step_three_description.message }}</p>
-                  </div>
+                  <p style="text-align: center;">{{ scaffold_content.group_next_steps.group_step_three.description or template_translations.ty_download_step_three_description.message }}</p>
                 {% end_module_attribute %}
               {% end_dnd_grid_module %}
             {% end_dnd_grid_container %}

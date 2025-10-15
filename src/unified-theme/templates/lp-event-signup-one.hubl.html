@@ -59,16 +59,10 @@
         }
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",
-            margin={
-              "default": {
-                "bottom": spacing_32
-              }
-            },
             headingAndTextHeadingLevel="h1",
             headingAndTextHeading={{ scaffold_content.group_countdown.heading or template_translations.lp_event_signup_one_heading.message }},
             groupStyle={
@@ -81,12 +75,7 @@
           %}
           {% end_dnd_grid_module %}
           {% dnd_grid_module
-            path="../components/modules/CountdownTimer",
-            margin={
-              "default": {
-                "bottom": spacing_64
-              }
-            }
+            path="../components/modules/CountdownTimer"
           %}
           {% end_dnd_grid_module %}
           {% dnd_grid_module
@@ -127,8 +116,7 @@
         }
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Card",
@@ -227,8 +215,7 @@
         ]
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",
@@ -245,22 +232,12 @@
           {% end_dnd_grid_module %}
           {% dnd_grid_module
             path="../components/modules/RichText",
-            margin={
-              "default": {
-                "bottom": spacing_32
-              },
-              "mobile": {
-                "bottom": 0
-              }
-            },
             groupStyle={
               "sectionStyleVariant": "section_variant_4"
             }
           %}
             {% module_attribute "richTextContentHTML" %}
-              <div style="text-align: center;">
-                <p>{{ scaffold_content.group_features.description or template_translations.lp_event_signup_one_features_subheading.message }}</p>
-              </div>
+              <p style="text-align: center;">{{ scaffold_content.group_features.description or template_translations.lp_event_signup_one_features_subheading.message }}</p>
             {% end_module_attribute %}
           {% end_dnd_grid_module %}
           {% dnd_grid_container
@@ -268,9 +245,8 @@
               "default": "grid",
               "mobile": "vertical_stack"
             },
+            columns=["1fr", "2fr"],
             rows=["auto"]
-            columns=["1fr", "2fr"]
-            gap={{ spacing_32 }}
           %}
             {% dnd_grid_module
               path="@hubspot/linked_image",
@@ -406,8 +382,7 @@
 
       {% dnd_grid_section %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",
@@ -424,34 +399,16 @@
           {% end_dnd_grid_module %}
           {% dnd_grid_module
             path="../components/modules/RichText",
-            margin={
-              "default": {
-                "bottom": spacing_32
-              },
-              "mobile": {
-                "bottom": 0
-              }
-            },
             groupStyle={
               "sectionStyleVariant": "section_variant_1"
             }
           %}
             {% module_attribute "richTextContentHTML" %}
-              <div style="text-align: center;">
-                <p>{{ scaffold_content.group_speakers.description or template_translations.lp_event_signup_one_speakers_subheading.message }}</p>
-              </div>
+              <p style="text-align: center;">{{ scaffold_content.group_speakers.description or template_translations.lp_event_signup_one_speakers_subheading.message }}</p>
             {% end_module_attribute %}
           {% end_dnd_grid_module %}
           {% dnd_grid_module
             path="../components/modules/Card",
-            margin={
-              "default": {
-                "bottom": spacing_40
-              },
-              "mobile": {
-                "bottom": spacing_24
-              }
-            },
             imageOrIcon="image",
             groupCards=[
               {
@@ -686,8 +643,7 @@
         ]
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",
@@ -704,9 +660,6 @@
           {% end_dnd_grid_module %}
           {% dnd_grid_module
             path="../components/modules/Card",
-            margin={
-              "bottom": spacing_32
-            },
             groupCards=[
               {
                 "groupIcon": {
@@ -750,9 +703,6 @@
           {% end_dnd_grid_module %}
           {% dnd_grid_module
             path="../components/modules/Card",
-            margin={
-              "bottom": spacing_32
-            },
             groupCards=[
               {
                 "groupIcon": {

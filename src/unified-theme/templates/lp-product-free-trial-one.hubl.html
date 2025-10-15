@@ -38,11 +38,10 @@
             "mobile": "vertical_stack"
           },
           columns=["1fr", "1fr"],
-          gap={{ spacing_32 }}
+          rows=["auto"]
         %}
           {% dnd_grid_container
-            type="vertical_stack",
-            gap={{ spacing_0 }}
+            type="vertical_stack"
           %}
             {% dnd_grid_module
               path="../components/modules/RichText"
@@ -139,8 +138,8 @@
             "mobile": "vertical_stack"
           },
           columns=["7fr", "5fr"],
-          gap={{ spacing_32 }},
-          align_items="CENTER"
+          rows=["auto"],
+          align_items="center"
         %}
           {% dnd_grid_module
             path="@hubspot/linked_image",
@@ -151,17 +150,11 @@
               "max_width": scaffold_content.group_solutions.image.width or 655,
               "size_type": "auto_custom_max",
               "src": scaffold_content.group_solutions.image.src or get_asset_url("../images/products-services-feature-image.png")
-            },
-            margin={
-              "mobile": {
-                "bottom": spacing_32
-              }
             }
           %}
           {% end_dnd_grid_module %}
           {% dnd_grid_container
-            type="vertical_stack",
-            gap={{ spacing_0 }}
+            type="vertical_stack"
           %}
             {% dnd_grid_module
               path="../components/modules/Heading"
@@ -226,8 +219,7 @@
         }
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}}
           {% dnd_grid_module
             path="../components/modules/TestimonialSlider",
@@ -274,22 +266,14 @@
 
       {% dnd_grid_section %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
-            path="../components/modules/RichText",
-            margin={
-              "default": {
-                "bottom": section_vertical_spacing_extra_small
-              }
-            }
+            path="../components/modules/RichText"
           %}
             {% module_attribute "richTextContentHTML" %}
-              <div style="text-align:center;">
-                <h2>{{ scaffold_content.group_gallery.heading or template_translations.lp_product_free_trial_one_gallery_heading.message }}</h2>
-                <p>{{ scaffold_content.group_gallery.description or template_translations.lp_product_free_trial_one_gallery_description.message }}</p>
-              </div>
+              <h2 style="text-align: center;">{{ scaffold_content.group_gallery.heading or template_translations.lp_product_free_trial_one_gallery_heading.message }}</h2>
+              <p style="text-align: center;">{{ scaffold_content.group_gallery.description or template_translations.lp_product_free_trial_one_gallery_description.message }}</p>
             {% end_module_attribute %}
           {% end_dnd_grid_module %}
           {% dnd_grid_module
@@ -353,8 +337,7 @@
         ]
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",
@@ -403,11 +386,10 @@
             "mobile": "vertical_stack"
           },
           columns=["8fr", "4fr"],
-          gap={{ spacing_32 }}
+          rows=["auto"]
         %}
           {% dnd_grid_container
-            type="vertical_stack",
-            gap={{ spacing_0 }}
+            type="vertical_stack"
           %}
             {% dnd_grid_module
               path="../components/modules/Accordion",
@@ -446,8 +428,7 @@
             {% end_dnd_grid_module %}
           {% end_dnd_grid_container %}
           {% dnd_grid_container
-            type="vertical_stack",
-            gap={{ spacing_0 }}
+            type="vertical_stack"
           %}
             {% dnd_grid_module
               path="@hubspot/linked_image",
@@ -477,8 +458,7 @@
         content_width={{ section_width_narrow }}
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",

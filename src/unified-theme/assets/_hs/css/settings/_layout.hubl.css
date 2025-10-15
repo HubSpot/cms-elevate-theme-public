@@ -20,11 +20,11 @@
 
 {# Spacing #}
 
-{% set element_gap_extra_small = "8px" %}
-{% set element_gap_small = "12px" %}
-{% set element_gap = "16px" %}
-{% set element_gap_large = "20px" %}
-{% set element_gap_extra_large = "24px" %}
+{% set grid_gap_extra_small = "16px" %}
+{% set grid_gap_small = "24px" %}
+{% set grid_gap_medium = "32px" %}
+{% set grid_gap_large = "64px" %}
+{% set grid_gap_extra_large = "96px" %}
 
 {% set spacing_4 = "4px" %}
 {% set spacing_8 = "8px" %}
@@ -77,11 +77,11 @@
     --hsElevate--section--horizontalPadding: {{ section_horizontal_spacing }};
 
     /* Gap - default gaps that could be easily leveraged in module styles via class names */
-    --hsElevate--gap--extraSmall: {{ element_gap_extra_small }};
-    --hsElevate--gap--small: {{ element_gap_small }};
-    --hsElevate--gap: {{ element_gap }};
-    --hsElevate--gap--large: {{ element_gap_large }};
-    --hsElevate--gap--extraLarge: {{ element_gap_extra_large }};
+    --hsElevate--gap--extraSmall: {{ grid_gap_extra_small }};
+    --hsElevate--gap--small: {{ grid_gap_small }};
+    --hsElevate--gap--medium: {{ grid_gap_medium }};
+    --hsElevate--gap--large: {{ grid_gap_large }};
+    --hsElevate--gap--extraLarge: {{ grid_gap_extra_large }};
 
     /* Spacing - default spacing values  */
     --hsElevate--spacing--4: {{ spacing_4 }};
@@ -118,9 +118,11 @@
     --default-section-max-width: var(--hsElevate--contentWrapper--wide__maxWidth);
     --default-container-padding: 0;
     --default-container-margin: 0;
-    --default-container-gap: var(--hsElevate--gap);
+    --default-container-gap: var(--hsElevate--gap--medium);
+    --default-container-row-gap: var(--hsElevate--gap--medium);
+    --default-container-column-gap: var(--hsElevate--gap--medium);
     --default-table-padding: 0;
     --default-table-margin: 0;
-    --default-table-row-gap: 0;
-    --default-table-column-gap: var(--hsElevate--gap);
+    --default-table-row-gap: var(--hsElevate--gap--medium);
+    --default-table-column-gap: var(--hsElevate--gap--medium);
 }

@@ -21,11 +21,10 @@
             "type": "color",
             "value": light_section_2_background_color
           }
-        ],
+        ]
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_container
             type={
@@ -33,22 +32,11 @@
               "mobile": "vertical_stack"
             },
             columns=["1fr", "1fr"],
-            gap={{ spacing_32 }},
+            rows=["auto"],
             align_items="center"
           %}
             {% dnd_grid_container
-              type="vertical_stack",
-              gap={{ spacing_0 }},
-              padding={
-                "default": {
-                  "right": spacing_64,
-                  "bottom": 0
-                },
-                "mobile": {
-                  "right": 0,
-                  "bottom": spacing_32
-                }
-              }
+              type="vertical_stack"
             %}
               {% dnd_grid_module
                 path="../components/modules/Heading",
@@ -142,8 +130,7 @@
         }
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/RichText",
@@ -152,17 +139,14 @@
             }
           %}
             {% module_attribute "richTextContentHTML" %}
-              <div style="text-align:center;">
-                <p>{{ scaffold_content.group_logo_wall.content or template_translations.section_logo_gallery_heading.message }}</p>
-              </div>
+              <p style="text-align:center;">{{ scaffold_content.group_logo_wall.content or template_translations.section_logo_gallery_heading.message }}</p>
             {% end_module_attribute %}
           {% end_dnd_grid_module %}
-
           {% dnd_grid_module
             path="@hubspot/logo_grid",
             styles={
               "group_logo_grid": {
-                "column_count": 6,
+                "column_count": 6
               }
             },
             group_logos=[
@@ -225,8 +209,7 @@
         ]
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/RichText",
@@ -235,12 +218,9 @@
             }
           %}
             {% module_attribute "richTextContentHTML" %}
-              <div style="text-align:center;">
-                <p>{{ scaffold_content.group_heading_and_cards.label or template_translations.section_heading_with_three_cards_label.message }}</p>
-              </div>
+              <p style="text-align:center;">{{ scaffold_content.group_heading_and_cards.label or template_translations.section_heading_with_three_cards_label.message }}</p>
             {% end_module_attribute %}
           {% end_dnd_grid_module %}
-
           {% dnd_grid_module
             path="../components/modules/Heading",
             headingAndTextHeadingLevel="h2",
@@ -343,169 +323,149 @@
       {% dnd_grid_section %}
         {% dnd_grid_container
           type="vertical_stack",
-          gap={{ spacing_64 }}
+          gap={{ grid_gap_large }}
         %}
-          {# Row 1 - Image left, content right #}
-          {% dnd_grid_container
-            type="vertical_stack",
-            gap={{ spacing_0 }}
-          %}
-            {% dnd_grid_module
-              path="../components/modules/ImageAndText",
-              groupImage={
-                "imagePosition": "left",
-                "image": {
-                  "alt": scaffold_content.group_multi_row_alternating.group_one.image.alt or "",
-                  "loading": "lazy",
-                  "max_height": 400,
-                  "max_width": 600,
-                  "size_type": "auto_custom_max",
-                  "src": scaffold_content.group_multi_row_alternating.group_one.image.src or get_asset_url("../images/products-feature-image-1.png")
-                }
-              },
-              groupContent={
-                "headingAndTextHeadingLevel": "h2",
-                "headingAndTextHeading": scaffold_content.group_multi_row_alternating.group_one.heading or template_translations.section_multi_row_alternating_row_one_heading.message,
-                "richTextContentHTML": "<p>{{ scaffold_content.group_multi_row_alternating.group_one.content or template_translations.section_multi_row_alternating_row_one_content.message }}</p>"
-              },
-              groupButton={
-                "showButton": true,
-                "buttonContentText": scaffold_content.group_multi_row_alternating.group_one.button_text or template_translations.section_multi_row_row_one_button_text.message,
-                "buttonContentLink": {
-                  "url": {
-                    "href": ""
-                  }
-                },
-                "buttonContentShowIcon": false,
-                "buttonContentIcon": {
-                  "name": "arrow-right"
-                },
-                "buttonContentIconPosition": "right"
-              },
-              groupStyle={
-                "groupContent": {
-                  "sectionStyleVariant": "section_variant_1",
-                  "headingStyleVariant": "h2",
-                  "verticalAlignment": {
-                    "vertical_align": "MIDDLE"
-                  }
-                },
-                "groupButton": {
-                  "buttonStyleVariant": "primary",
-                  "buttonStyleSize": "medium"
-                }
+          {% dnd_grid_module
+            path="../components/modules/ImageAndText",
+            groupImage={
+              "imagePosition": "left",
+              "image": {
+                "alt": scaffold_content.group_multi_row_alternating.group_one.image.alt or "",
+                "loading": "lazy",
+                "max_height": 400,
+                "max_width": 600,
+                "size_type": "auto_custom_max",
+                "src": scaffold_content.group_multi_row_alternating.group_one.image.src or get_asset_url("../images/products-feature-image-1.png")
               }
-            %}
-            {% end_dnd_grid_module %}
-          {% end_dnd_grid_container %}
-
-          {# Row 2 - Content left, image right #}
-          {% dnd_grid_container
-            type="vertical_stack",
-            gap={{ spacing_0 }}
-          %}
-            {% dnd_grid_module
-              path="../components/modules/ImageAndText",
-              groupImage={
-                "imagePosition": "right",
-                "image": {
-                  "alt": scaffold_content.group_multi_row_alternating.group_two.image.alt or "",
-                  "loading": "lazy",
-                  "max_height": 400,
-                  "max_width": 600,
-                  "size_type": "auto_custom_max",
-                  "src": scaffold_content.group_multi_row_alternating.group_two.image.src or get_asset_url("../images/products-feature-image-2.png")
+            },
+            groupContent={
+              "headingAndTextHeadingLevel": "h2",
+              "headingAndTextHeading": scaffold_content.group_multi_row_alternating.group_one.heading or template_translations.section_multi_row_alternating_row_one_heading.message,
+              "richTextContentHTML": "<p>{{ scaffold_content.group_multi_row_alternating.group_one.content or template_translations.section_multi_row_alternating_row_one_content.message }}</p>"
+            },
+            groupButton={
+              "showButton": true,
+              "buttonContentText": scaffold_content.group_multi_row_alternating.group_one.button_text or template_translations.section_multi_row_row_one_button_text.message,
+              "buttonContentLink": {
+                "url": {
+                  "href": ""
                 }
               },
-              groupContent={
-                "headingAndTextHeadingLevel": "h2",
-                "headingAndTextHeading": scaffold_content.group_multi_row_alternating.group_two.heading or template_translations.section_multi_row_row_two_heading.message,
-                "richTextContentHTML": "<p>{{ scaffold_content.group_multi_row_alternating.group_two.content or template_translations.section_multi_row_alternating_row_two_content.message }}</p>"
+              "buttonContentShowIcon": false,
+              "buttonContentIcon": {
+                "name": "arrow-right"
               },
-              groupButton={
-                "showButton": true,
-                "buttonContentText": scaffold_content.group_multi_row_alternating.group_two.button_text or template_translations.section_multi_row_row_two_button_text.message,
-                "buttonContentLink": {
-                  "url": {
-                    "href": ""
-                  }
-                },
-                "buttonContentShowIcon": false,
-                "buttonContentIcon": {
-                  "name": "arrow-right"
-                },
-                "buttonContentIconPosition": "right"
-              },
-              groupStyle={
-                "groupContent": {
-                  "sectionStyleVariant": "section_variant_1",
-                  "headingStyleVariant": "h2",
-                  "verticalAlignment": {
-                    "vertical_align": "MIDDLE"
-                  }
-                },
-                "groupButton": {
-                  "buttonStyleVariant": "primary",
-                  "buttonStyleSize": "medium"
+              "buttonContentIconPosition": "right"
+            },
+            groupStyle={
+              "groupContent": {
+                "sectionStyleVariant": "section_variant_1",
+                "headingStyleVariant": "h2",
+                "verticalAlignment": {
+                  "vertical_align": "MIDDLE"
                 }
+              },
+              "groupButton": {
+                "buttonStyleVariant": "primary",
+                "buttonStyleSize": "medium"
               }
-            %}
-            {% end_dnd_grid_module %}
-          {% end_dnd_grid_container %}
-
-          {# Row 3 - Image left, content right #}
-          {% dnd_grid_container
-            type="vertical_stack",
-            gap={{ spacing_0 }}
+            }
           %}
-            {% dnd_grid_module
-              path="../components/modules/ImageAndText",
-              groupImage={
-                "imagePosition": "left",
-                "image": {
-                  "alt": scaffold_content.group_multi_row_alternating.group_three.image.alt or "",
-                  "loading": "lazy",
-                  "max_height": 400,
-                  "max_width": 600,
-                  "size_type": "auto_custom_max",
-                  "src": scaffold_content.group_multi_row_alternating.group_three.image.src or get_asset_url("../images/products-feature-image-3.png")
-                }
-              },
-              groupContent={
-                "headingAndTextHeadingLevel": "h2",
-                "headingAndTextHeading": scaffold_content.group_multi_row_alternating.group_three.heading or template_translations.section_multi_row_alternating_row_three_heading.message,
-                "richTextContentHTML": "<p>{{ scaffold_content.group_multi_row_alternating.group_three.content or template_translations.section_multi_row_alternating_row_three_content.message }}</p>"
-              },
-              groupButton={
-                "showButton": true,
-                "buttonContentText": scaffold_content.group_multi_row_alternating.group_three.button_text or template_translations.section_multi_row_row_three_button_text.message,
-                "buttonContentLink": {
-                  "url": {
-                    "href": ""
-                  }
-                },
-                "buttonContentShowIcon": false,
-                "buttonContentIcon": {
-                  "name": "arrow-right"
-                },
-                "buttonContentIconPosition": "right"
-              },
-              groupStyle={
-                "groupContent": {
-                  "sectionStyleVariant": "section_variant_1",
-                  "headingStyleVariant": "h2",
-                  "verticalAlignment": {
-                    "vertical_align": "MIDDLE"
-                  }
-                },
-                "groupButton": {
-                  "buttonStyleVariant": "primary",
-                  "buttonStyleSize": "medium"
-                }
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
+            path="../components/modules/ImageAndText",
+            groupImage={
+              "imagePosition": "right",
+              "image": {
+                "alt": scaffold_content.group_multi_row_alternating.group_two.image.alt or "",
+                "loading": "lazy",
+                "max_height": 400,
+                "max_width": 600,
+                "size_type": "auto_custom_max",
+                "src": scaffold_content.group_multi_row_alternating.group_two.image.src or get_asset_url("../images/products-feature-image-2.png")
               }
-            %}
-            {% end_dnd_grid_module %}
-          {% end_dnd_grid_container %}
+            },
+            groupContent={
+              "headingAndTextHeadingLevel": "h2",
+              "headingAndTextHeading": scaffold_content.group_multi_row_alternating.group_two.heading or template_translations.section_multi_row_row_two_heading.message,
+              "richTextContentHTML": "<p>{{ scaffold_content.group_multi_row_alternating.group_two.content or template_translations.section_multi_row_alternating_row_two_content.message }}</p>"
+            },
+            groupButton={
+              "showButton": true,
+              "buttonContentText": scaffold_content.group_multi_row_alternating.group_two.button_text or template_translations.section_multi_row_row_two_button_text.message,
+              "buttonContentLink": {
+                "url": {
+                  "href": ""
+                }
+              },
+              "buttonContentShowIcon": false,
+              "buttonContentIcon": {
+                "name": "arrow-right"
+              },
+              "buttonContentIconPosition": "right"
+            },
+            groupStyle={
+              "groupContent": {
+                "sectionStyleVariant": "section_variant_1",
+                "headingStyleVariant": "h2",
+                "verticalAlignment": {
+                  "vertical_align": "MIDDLE"
+                }
+              },
+              "groupButton": {
+                "buttonStyleVariant": "primary",
+                "buttonStyleSize": "medium"
+              }
+            }
+          %}
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
+            path="../components/modules/ImageAndText",
+            groupImage={
+              "imagePosition": "left",
+              "image": {
+                "alt": scaffold_content.group_multi_row_alternating.group_three.image.alt or "",
+                "loading": "lazy",
+                "max_height": 400,
+                "max_width": 600,
+                "size_type": "auto_custom_max",
+                "src": scaffold_content.group_multi_row_alternating.group_three.image.src or get_asset_url("../images/products-feature-image-3.png")
+              }
+            },
+            groupContent={
+              "headingAndTextHeadingLevel": "h2",
+              "headingAndTextHeading": scaffold_content.group_multi_row_alternating.group_three.heading or template_translations.section_multi_row_alternating_row_three_heading.message,
+              "richTextContentHTML": "<p>{{ scaffold_content.group_multi_row_alternating.group_three.content or template_translations.section_multi_row_alternating_row_three_content.message }}</p>"
+            },
+            groupButton={
+              "showButton": true,
+              "buttonContentText": scaffold_content.group_multi_row_alternating.group_three.button_text or template_translations.section_multi_row_row_three_button_text.message,
+              "buttonContentLink": {
+                "url": {
+                  "href": ""
+                }
+              },
+              "buttonContentShowIcon": false,
+              "buttonContentIcon": {
+                "name": "arrow-right"
+              },
+              "buttonContentIconPosition": "right"
+            },
+            groupStyle={
+              "groupContent": {
+                "sectionStyleVariant": "section_variant_1",
+                "headingStyleVariant": "h2",
+                "verticalAlignment": {
+                  "vertical_align": "MIDDLE"
+                }
+              },
+              "groupButton": {
+                "buttonStyleVariant": "primary",
+                "buttonStyleSize": "medium"
+              }
+            }
+          %}
+          {% end_dnd_grid_module %}
         {% end_dnd_grid_container %}
       {% end_dnd_grid_section %}
 
@@ -520,8 +480,7 @@
         ]
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/TestimonialSlider",
@@ -624,8 +583,7 @@
         ]
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Metrics",
@@ -656,8 +614,7 @@
 
       {% dnd_grid_section %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",

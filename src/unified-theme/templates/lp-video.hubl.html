@@ -48,15 +48,10 @@
             "mobile": "vertical_stack"
           },
            rows=["auto"],
-           columns=["1fr", "1fr"],
-           gap={
-            "default": spacing_32,
-            "mobile": spacing_0
-           }
+           columns=["1fr", "1fr"]
         %}
           {% dnd_grid_container
-             type="vertical_stack",
-             gap={{ spacing_0 }}
+             type="vertical_stack"
           %}
             {% dnd_grid_module
               path="../components/modules/Heading",
@@ -104,8 +99,7 @@
         }
       %}
         {% dnd_grid_container
-           type="vertical_stack",
-           gap={{ spacing_0 }}
+           type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/RichText"
@@ -114,9 +108,7 @@
             }
           %}
             {% module_attribute "richTextContentHTML" %}
-              <div style="text-align: center;">
-                <p>{{ scaffold_content.group_logos.heading or template_translations.section_logo_gallery_heading.message }}</p>
-              </div>
+              <p style="text-align: center;">{{ scaffold_content.group_logos.heading or template_translations.section_logo_gallery_heading.message }}</p>
             {% end_module_attribute %}
           {% end_dnd_grid_module %}
           {% dnd_grid_module
@@ -186,8 +178,7 @@
         ]
       %}
         {% dnd_grid_container
-           type="vertical_stack",
-           gap={{ spacing_0 }}
+           type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/ImageAndText",
@@ -239,8 +230,7 @@
         ]
       %}
         {% dnd_grid_container
-           type="vertical_stack",
-           gap={{ spacing_0 }}
+           type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",
@@ -284,8 +274,7 @@
 
       {% dnd_grid_section %}
         {% dnd_grid_container
-           type="vertical_stack",
-           gap={{ spacing_0 }}
+           type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",
@@ -307,7 +296,7 @@
             }
           %}
             {% module_attribute "richTextContentHTML" %}
-              <p>{{ scaffold_content.group_video.description or template_translations.section_video_content.message }}</p>
+              <p style="text-align: center;">{{ scaffold_content.group_video.description or template_translations.section_video_content.message }}</p>
             {% end_module_attribute %}
           {% end_dnd_grid_module %}
           {% dnd_grid_module
@@ -340,8 +329,7 @@
         ]
       %}
         {% dnd_grid_container
-           type="vertical_stack",
-           gap={{ spacing_0 }}
+           type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/TestimonialSlider",
@@ -437,8 +425,7 @@
         content_width={{ section_width_medium }}
       %}
         {% dnd_grid_container
-           type="vertical_stack",
-           gap={{ spacing_0 }}
+           type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",
@@ -498,8 +485,7 @@
         content_width={{ section_width_narrow }}
       %}
         {% dnd_grid_container
-           type="vertical_stack",
-           gap={{ spacing_0 }}
+           type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",

@@ -8,7 +8,6 @@
 -->
 {% extends "./layouts/base.hubl.html" %}
 
-
 {# Default content for accordions #}
 
 {% set accordion_one_answer = "<p>{{ scaffold_content.group_faqs.group_faq_one.answer or template_translations.shared_faq_answer_1.message }}</p>" %}
@@ -30,10 +29,12 @@
       {# Meeting banner section #}
 
       {% dnd_grid_section
-        background_layers=[{
-          "type": "color",
-          "value": dark_section_1_background_color
-        }],
+        background_layers=[
+          {
+            "type": "color",
+            "value": dark_section_1_background_color
+          }
+        ],
       %}
         {% dnd_grid_container
           type={
@@ -41,15 +42,8 @@
             "mobile": "vertical_stack"
           },
           columns=["1fr", "1fr"],
-          vertical_alignment="middle",
-          padding={
-            "default": {
-              "bottom": 0
-            },
-            "mobile": {
-              "bottom": spacing_32
-            }
-          }
+          rows=["auto"],
+          align_items="center"
         %}
           {% dnd_grid_container
             type="vertical_stack"
@@ -95,10 +89,12 @@
       {# Logo gallery section #}
 
       {% dnd_grid_section
-        background_layers=[{
-          "type": "color",
-          "value": dark_section_1_background_color
-        }]
+        background_layers=[
+          {
+            "type": "color",
+            "value": dark_section_1_background_color
+          }
+        ]
       %}
         {% dnd_grid_container
           type="vertical_stack"
@@ -110,17 +106,14 @@
             }
           %}
             {% module_attribute "richTextContentHTML" %}
-              <div style="text-align: center;">
-                <p>{{ context.content or scaffold_content.heading or template_translations.section_logo_gallery_heading.message }}</p>
-              </div>
+              <p style="text-align: center;">{{ context.content or scaffold_content.heading or template_translations.section_logo_gallery_heading.message }}</p>
             {% end_module_attribute %}
           {% end_dnd_grid_module %}
-
           {% dnd_grid_module
             path="@hubspot/logo_grid",
             styles={
               "group_logo_grid": {
-                "column_count": 6,
+                "column_count": 6
               }
             },
             group_logos=[
@@ -176,155 +169,129 @@
 
       {% dnd_grid_section %}
         {% dnd_grid_container
-          type="vertical_stack"
+          type="vertical_stack",
+          gap={{ grid_gap_extra_large }}
         %}
-          {# First Row #}
-          {% dnd_grid_container
-            type="vertical_stack",
-            padding={
-              "bottom": 0
+          {% dnd_grid_module
+            path="../components/modules/ImageAndText",
+            groupImage={
+              "imagePosition": "left",
+              "image": {
+                "alt": scaffold_content.group_image_and_text_1.image.alt or "",
+                "loading": "lazy",
+                "max_height": 599,
+                "max_width": 779,
+                "size_type": "auto_custom_max",
+                "src": scaffold_content.group_image_and_text_1.image.src or get_asset_url("../images/value-prop-one.png")
+              }
+            },
+            groupContent={
+              "headingAndTextHeadingLevel": "h2",
+              "headingAndTextHeading": scaffold_content.group_image_and_text_1.heading or template_translations.lp_meeting_image_and_text_1_heading.message,
+              "richTextContentHTML": "<p>{{ scaffold_content.group_image_and_text_1.description or template_translations.lp_meeting_image_and_text_1_description.message }}</p>"
+            },
+            groupButton={
+              "showButton": false
+            },
+            groupStyle={
+              "groupContent": {
+                "sectionStyleVariant": "section_variant_1",
+                "headingStyleVariant": "h2",
+                "verticalAlignment": {
+                  "vertical_align": "MIDDLE"
+                }
+              },
+              "groupButton": {
+                "buttonStyleVariant": "primary",
+                "buttonStyleSize": "medium"
+              }
             }
           %}
-            {% dnd_grid_module
-              path="../components/modules/ImageAndText",
-              groupImage={
-                "imagePosition": "left",
-                "image": {
-                  "alt": scaffold_content.group_image_and_text_1.image.alt or "",
-                  "loading": "lazy",
-                  "max_height": 599,
-                  "max_width": 779,
-                  "size_type": "auto_custom_max",
-                  "src": scaffold_content.group_image_and_text_1.image.src or get_asset_url("../images/value-prop-one.png")
-                }
-              },
-              groupContent={
-                "headingAndTextHeadingLevel": "h2",
-                "headingAndTextHeading": scaffold_content.group_image_and_text_1.heading or template_translations.lp_meeting_image_and_text_1_heading.message,
-                "richTextContentHTML": "<p>{{ scaffold_content.group_image_and_text_1.description or template_translations.lp_meeting_image_and_text_1_description.message }}</p>"
-              },
-              groupButton={
-                "showButton": false
-              },
-              groupStyle={
-                "groupContent": {
-                  "sectionStyleVariant": "section_variant_1",
-                  "headingStyleVariant": "h2",
-                  "verticalAlignment": {
-                    "vertical_align": "MIDDLE"
-                  }
-                },
-                "groupButton": {
-                  "buttonStyleVariant": "primary",
-                  "buttonStyleSize": "medium"
-                }
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
+            path="../components/modules/ImageAndText",
+            groupImage={
+              "imagePosition": "right",
+              "image": {
+                "alt": scaffold_content.group_image_and_text_2.image.alt or "",
+                "loading": "lazy",
+                "max_height": 599,
+                "max_width": 779,
+                "size_type": "auto_custom_max",
+                "src": scaffold_content.group_image_and_text_2.image.src or get_asset_url("../images/value-prop-two.png")
               }
-            %}
-            {% end_dnd_grid_module %}
-          {% end_dnd_grid_container %}
-
-          {# Second Row #}
-          {% dnd_grid_container
-            type="vertical_stack",
-            vertical_alignment="middle",
-            padding={
-              "top": section_vertical_spacing_medium,
-              "bottom": 0
+            },
+            groupContent={
+              "headingAndTextHeadingLevel": "h2",
+              "headingAndTextHeading": scaffold_content.group_image_and_text_2.heading or template_translations.lp_meeting_image_and_text_2_heading.message,
+              "richTextContentHTML": "<p>{{ scaffold_content.group_image_and_text_2.description or template_translations.lp_meeting_image_and_text_2_description.message }}</p>"
+            },
+            groupButton={
+              "showButton": false
+            },
+            groupStyle={
+              "groupContent": {
+                "sectionStyleVariant": "section_variant_1",
+                "headingStyleVariant": "h2",
+                "verticalAlignment": {
+                  "vertical_align": "MIDDLE"
+                }
+              },
+              "groupButton": {
+                "buttonStyleVariant": "primary",
+                "buttonStyleSize": "medium"
+              }
             }
           %}
-            {% dnd_grid_module
-              path="../components/modules/ImageAndText",
-              groupImage={
-                "imagePosition": "right",
-                "image": {
-                  "alt": scaffold_content.group_image_and_text_2.image.alt or "",
-                  "loading": "lazy",
-                  "max_height": 599,
-                  "max_width": 779,
-                  "size_type": "auto_custom_max",
-                  "src": scaffold_content.group_image_and_text_2.image.src or get_asset_url("../images/value-prop-two.png")
-                }
-              },
-              groupContent={
-                "headingAndTextHeadingLevel": "h2",
-                "headingAndTextHeading": scaffold_content.group_image_and_text_2.heading or template_translations.lp_meeting_image_and_text_2_heading.message,
-                "richTextContentHTML": "<p>{{ scaffold_content.group_image_and_text_2.description or template_translations.lp_meeting_image_and_text_2_description.message }}</p>"
-              },
-              groupButton={
-                "showButton": false
-              },
-              groupStyle={
-                "groupContent": {
-                  "sectionStyleVariant": "section_variant_1",
-                  "headingStyleVariant": "h2",
-                  "verticalAlignment": {
-                    "vertical_align": "MIDDLE"
-                  }
-                },
-                "groupButton": {
-                  "buttonStyleVariant": "primary",
-                  "buttonStyleSize": "medium"
-                }
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
+            path="../components/modules/ImageAndText",
+            groupImage={
+              "imagePosition": "left",
+              "image": {
+                "alt": scaffold_content.group_image_and_text_3.image.alt or "",
+                "loading": "lazy",
+                "max_height": 599,
+                "max_width": 779,
+                "size_type": "auto_custom_max",
+                "src": scaffold_content.group_image_and_text_3.image.src or get_asset_url("../images/value-prop-three.png")
               }
-            %}
-            {% end_dnd_grid_module %}
-          {% end_dnd_grid_container %}
-
-          {# Third Row #}
-          {% dnd_grid_container
-            type="vertical_stack",
-            vertical_alignment="middle",
-            padding={
-              "top": section_vertical_spacing_medium,
+            },
+            groupContent={
+              "headingAndTextHeadingLevel": "h2",
+              "headingAndTextHeading": scaffold_content.group_image_and_text_3.heading or template_translations.lp_meeting_image_and_text_3_heading.message,
+              "richTextContentHTML": "<p>{{ scaffold_content.group_image_and_text_3.description or template_translations.lp_meeting_image_and_text_3_description.message }}</p>"
+            },
+            groupButton={
+              "showButton": false
+            },
+            groupStyle={
+              "groupContent": {
+                "sectionStyleVariant": "section_variant_1",
+                "headingStyleVariant": "h2",
+                "verticalAlignment": {
+                  "vertical_align": "MIDDLE"
+                }
+              },
+              "groupButton": {
+                "buttonStyleVariant": "primary",
+                "buttonStyleSize": "medium"
+              }
             }
           %}
-            {% dnd_grid_module
-              path="../components/modules/ImageAndText",
-              groupImage={
-                "imagePosition": "left",
-                "image": {
-                  "alt": scaffold_content.group_image_and_text_3.image.alt or "",
-                  "loading": "lazy",
-                  "max_height": 599,
-                  "max_width": 779,
-                  "size_type": "auto_custom_max",
-                  "src": scaffold_content.group_image_and_text_3.image.src or get_asset_url("../images/value-prop-three.png")
-                }
-              },
-              groupContent={
-                "headingAndTextHeadingLevel": "h2",
-                "headingAndTextHeading": scaffold_content.group_image_and_text_3.heading or template_translations.lp_meeting_image_and_text_3_heading.message,
-                "richTextContentHTML": "<p>{{ scaffold_content.group_image_and_text_3.description or template_translations.lp_meeting_image_and_text_3_description.message }}</p>"
-              },
-              groupButton={
-                "showButton": false
-              },
-              groupStyle={
-                "groupContent": {
-                  "sectionStyleVariant": "section_variant_1",
-                  "headingStyleVariant": "h2",
-                  "verticalAlignment": {
-                    "vertical_align": "MIDDLE"
-                  }
-                },
-                "groupButton": {
-                  "buttonStyleVariant": "primary",
-                  "buttonStyleSize": "medium"
-                }
-              }
-            %}
-            {% end_dnd_grid_module %}
-          {% end_dnd_grid_container %}
+          {% end_dnd_grid_module %}
         {% end_dnd_grid_container %}
       {% end_dnd_grid_section %}
 
       {# Testimonials section #}
 
       {% dnd_grid_section
-        background_layers=[{
-          "type": "color",
-          "value": dark_section_1_background_color
-        }]
+        background_layers=[
+          {
+            "type": "color",
+            "value": dark_section_1_background_color
+          }
+        ]
       %}
         {% dnd_grid_container
           type="vertical_stack"

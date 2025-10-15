@@ -14,7 +14,9 @@
 
 {% block body %}
   {% if grids %}
-    {% dnd_area "dnd_area" label="Main section" %}
+    {% dnd_area "dnd_area"
+      label="Main section"
+    %}
 
       {# Hero banner section #}
 
@@ -29,7 +31,6 @@
       %}
         {% dnd_grid_container
           type="vertical_stack"
-          gap={{ spacing_0 }}
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",
@@ -94,13 +95,12 @@
           }
         ],
         padding={
-          "top": 0,
-          "bottom": 0
+          "top": spacing_0,
+          "bottom": spacing_0
         }
       %}
         {% dnd_grid_container
           type="vertical_stack"
-          gap={{ spacing_0 }}
         %}
           {% dnd_grid_module
             path="@hubspot/linked_image",
@@ -130,13 +130,7 @@
       %}
         {% dnd_grid_container
           type="vertical_stack"
-          gap={{ spacing_0 }}
         %}
-          {% dnd_grid_module
-            path="../components/modules/Anchor",
-            anchor={{ scaffold_content.services.anchor_id or "" }}
-          %}
-          {% end_dnd_grid_module %}
           {% dnd_grid_module
             path="../components/modules/RichText",
             groupStyle={
@@ -144,9 +138,7 @@
             }
           %}
             {% module_attribute "richTextContentHTML" %}
-              <div style="text-align: center;">
-                <p>{{ scaffold_content.group_services.label or template_translations.lp_meeting_booking_two_services_label.message }}</p>
-              </div>
+              <p style="text-align: center;">{{ scaffold_content.group_services.label or template_translations.lp_meeting_booking_two_services_label.message }}</p>
             {% end_module_attribute %}
           {% end_dnd_grid_module %}
           {% dnd_grid_module
@@ -164,9 +156,6 @@
           {% end_dnd_grid_module %}
           {% dnd_grid_module
             path="../components/modules/Card",
-            padding={
-              "top": spacing_32
-            },
             groupCards=[
               {
                 "groupImage": {
@@ -263,13 +252,11 @@
         ]
       %}
         {% dnd_grid_container
-          type="grid"
-          rows=["auto"]
-          columns=["7fr", "5fr"]
-          align_items="CENTER"
-          gap={{ spacing_0 }}
+          type="grid",
+          columns=["7fr", "5fr"],
+          rows=["auto"],
+          align_items="center"
         %}
-          {# Left-hand side: image #}
           {% dnd_grid_module
             path="@hubspot/linked_image",
             img={
@@ -279,18 +266,11 @@
               "max_width": scaffold_content.group_benefits.image.width or 655,
               "size_type": "auto_custom_max",
               "src": scaffold_content.group_benefits.image.src or get_asset_url("../images/products-services-feature-image-dark.png")
-            },
-            padding={
-              "mobile": {
-                "bottom": spacing_32
-              }
             }
           %}
           {% end_dnd_grid_module %}
-
           {% dnd_grid_container
             type="vertical_stack"
-            gap={{ spacing_0 }}
           %}
             {% dnd_grid_module
               path="../components/modules/Heading",
@@ -340,7 +320,6 @@
         {% end_dnd_grid_container %}
       {% end_dnd_grid_section %}
 
-
       {# Products and services section #}
 
       {% dnd_grid_section
@@ -353,7 +332,6 @@
       %}
         {% dnd_grid_container
           type="vertical_stack"
-          gap={{ spacing_0 }}
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",
@@ -368,260 +346,250 @@
             }
           %}
           {% end_dnd_grid_module %}
-
-        {% dnd_grid_container
-          type={
-            "default": "grid",
-            "mobile": "vertical_stack"
-          }
-          columns={
-            "default": ["1fr", "1fr"]
-          }
-          padding={
-            "bottom": spacing_32
-          }
-          gap={{ spacing_24 }}
-        %}
-          {# First row: Two cards #}
-          {% dnd_grid_module
-            path="../components/modules/Card",
-            groupCards=[
-              {
-                "groupImage": {
-                  "image": {
-                    "src": get_asset_url("../images/newsletter.png"),
-                    "alt": "",
-                    "loading": "lazy",
-                    "size_type": "auto_custom_max"
+          {% dnd_grid_container
+            type={
+              "default": "grid",
+              "mobile": "vertical_stack"
+            }
+            columns=["1fr", "1fr"],
+            rows=["auto", "auto", "auto"],
+            gap={{ grid_gap_small }}
+          %}
+            {% dnd_grid_module
+              path="../components/modules/Card",
+              groupCards=[
+                {
+                  "groupImage": {
+                    "image": {
+                      "src": get_asset_url("../images/newsletter.png"),
+                      "alt": "",
+                      "loading": "lazy",
+                      "size_type": "auto_custom_max"
+                    }
+                  },
+                  "groupIcon": {
+                    "icon": {
+                      "name": "circle-check",
+                      "type": "SOLID"
+                    }
+                  },
+                  "groupContent": {
+                    "headingAndTextHeadingLevel": "h3",
+                    "headingAndTextHeading": scaffold_content.group_products.group_product_one.heading or template_translations.section_products_and_services_card_one_title.message,
+                    "richTextContentHTML": scaffold_content.group_products.group_product_one.content or template_translations.lp_meeting_booking_two_product_one_content.message
+                  },
+                  "groupButton": {
+                    "showButton": false
                   }
-                },
-                "groupIcon": {
-                  "icon": {
-                    "name": "circle-check",
-                    "type": "SOLID"
-                  }
+                }
+              ],
+              groupStyle={
+                "groupCard": {
+                  "cardStyleVariant": "card_variant_2",
+                  "cardOrientation": "column"
                 },
                 "groupContent": {
-                  "headingAndTextHeadingLevel": "h3",
-                  "headingAndTextHeading": scaffold_content.group_products.group_product_one.heading or template_translations.section_products_and_services_card_one_title.message,
-                  "richTextContentHTML": scaffold_content.group_products.group_product_one.content or template_translations.lp_meeting_booking_two_product_one_content.message
-                },
-                "groupButton": {
-                  "showButton": false
+                  "headingStyleVariant": "h4"
                 }
               }
-            ],
-            groupStyle={
-              "groupCard": {
-                "cardStyleVariant": "card_variant_2",
-                "cardOrientation": "column"
-              },
-              "groupContent": {
-                "headingStyleVariant": "h4"
-              }
-            }
-          %}
-          {% end_dnd_grid_module %}
-          {% dnd_grid_module
-            path="../components/modules/Card",
-            groupCards=[
-              {
-                "groupImage": {
-                  "image": {
-                    "src": get_asset_url("../images/newsletter.png"),
-                    "alt": "",
-                    "loading": "lazy",
-                    "size_type": "auto_custom_max"
+            %}
+            {% end_dnd_grid_module %}
+            {% dnd_grid_module
+              path="../components/modules/Card",
+              groupCards=[
+                {
+                  "groupImage": {
+                    "image": {
+                      "src": get_asset_url("../images/newsletter.png"),
+                      "alt": "",
+                      "loading": "lazy",
+                      "size_type": "auto_custom_max"
+                    }
+                  },
+                  "groupIcon": {
+                    "icon": {
+                      "name": "circle-check",
+                      "type": "SOLID"
+                    }
+                  },
+                  "groupContent": {
+                    "headingAndTextHeadingLevel": "h3",
+                    "headingAndTextHeading": scaffold_content.group_products.group_product_two.heading or template_translations.section_products_and_services_card_two_title.message,
+                    "richTextContentHTML": scaffold_content.group_products.group_product_two.content or template_translations.lp_meeting_booking_two_product_two_content.message
+                  },
+                  "groupButton": {
+                    "showButton": false
                   }
-                },
-                "groupIcon": {
-                  "icon": {
-                    "name": "circle-check",
-                    "type": "SOLID"
-                  }
+                }
+              ],
+              groupStyle={
+                "groupCard": {
+                  "cardStyleVariant": "card_variant_2",
+                  "cardOrientation": "column"
                 },
                 "groupContent": {
-                  "headingAndTextHeadingLevel": "h3",
-                  "headingAndTextHeading": scaffold_content.group_products.group_product_two.heading or template_translations.section_products_and_services_card_two_title.message,
-                  "richTextContentHTML": scaffold_content.group_products.group_product_two.content or template_translations.lp_meeting_booking_two_product_two_content.message
-                },
-                "groupButton": {
-                  "showButton": false
+                  "headingStyleVariant": "h4"
                 }
               }
-            ],
-            groupStyle={
-              "groupCard": {
-                "cardStyleVariant": "card_variant_2",
-                "cardOrientation": "column"
-              },
-              "groupContent": {
-                "headingStyleVariant": "h4"
-              }
-            }
-          %}
-          {% end_dnd_grid_module %}
-
-          {# Second row: Two cards #}
-          {% dnd_grid_module
-            path="../components/modules/Card",
-            groupCards=[
-              {
-                "groupImage": {
-                  "image": {
-                    "src": get_asset_url("../images/newsletter.png"),
-                    "alt": "",
-                    "loading": "lazy",
-                    "size_type": "auto_custom_max"
+            %}
+            {% end_dnd_grid_module %}
+            {% dnd_grid_module
+              path="../components/modules/Card",
+              groupCards=[
+                {
+                  "groupImage": {
+                    "image": {
+                      "src": get_asset_url("../images/newsletter.png"),
+                      "alt": "",
+                      "loading": "lazy",
+                      "size_type": "auto_custom_max"
+                    }
+                  },
+                  "groupIcon": {
+                    "icon": {
+                      "name": "circle-check",
+                      "type": "SOLID"
+                    }
+                  },
+                  "groupContent": {
+                    "headingAndTextHeadingLevel": "h3",
+                    "headingAndTextHeading": scaffold_content.group_products.group_product_three.heading or template_translations.section_products_and_services_card_three_title.message,
+                    "richTextContentHTML": scaffold_content.group_products.group_product_three.content or template_translations.lp_meeting_booking_two_product_three_content.message
+                  },
+                  "groupButton": {
+                    "showButton": false
                   }
-                },
-                "groupIcon": {
-                  "icon": {
-                    "name": "circle-check",
-                    "type": "SOLID"
-                  }
+                }
+              ],
+              groupStyle={
+                "groupCard": {
+                  "cardStyleVariant": "card_variant_2",
+                  "cardOrientation": "column"
                 },
                 "groupContent": {
-                  "headingAndTextHeadingLevel": "h3",
-                  "headingAndTextHeading": scaffold_content.group_products.group_product_three.heading or template_translations.section_products_and_services_card_three_title.message,
-                  "richTextContentHTML": scaffold_content.group_products.group_product_three.content or template_translations.lp_meeting_booking_two_product_three_content.message
-                },
-                "groupButton": {
-                  "showButton": false
+                  "headingStyleVariant": "h4"
                 }
               }
-            ],
-            groupStyle={
-              "groupCard": {
-                "cardStyleVariant": "card_variant_2",
-                "cardOrientation": "column"
-              },
-              "groupContent": {
-                "headingStyleVariant": "h4"
-              }
-            }
-          %}
-          {% end_dnd_grid_module %}
-          {% dnd_grid_module
-            path="../components/modules/Card",
-            groupCards=[
-              {
-                "groupImage": {
-                  "image": {
-                    "src": get_asset_url("../images/newsletter.png"),
-                    "alt": "",
-                    "loading": "lazy",
-                    "size_type": "auto_custom_max"
+            %}
+            {% end_dnd_grid_module %}
+            {% dnd_grid_module
+              path="../components/modules/Card",
+              groupCards=[
+                {
+                  "groupImage": {
+                    "image": {
+                      "src": get_asset_url("../images/newsletter.png"),
+                      "alt": "",
+                      "loading": "lazy",
+                      "size_type": "auto_custom_max"
+                    }
+                  },
+                  "groupIcon": {
+                    "icon": {
+                      "name": "circle-check",
+                      "type": "SOLID"
+                    }
+                  },
+                  "groupContent": {
+                    "headingAndTextHeadingLevel": "h3",
+                    "headingAndTextHeading": scaffold_content.group_products.group_product_four.heading or template_translations.section_products_and_services_card_four_title.message,
+                    "richTextContentHTML": scaffold_content.group_products.group_product_four.content or template_translations.lp_meeting_booking_two_product_four_content.message
+                  },
+                  "groupButton": {
+                    "showButton": false
                   }
-                },
-                "groupIcon": {
-                  "icon": {
-                    "name": "circle-check",
-                    "type": "SOLID"
-                  }
+                }
+              ],
+              groupStyle={
+                "groupCard": {
+                  "cardStyleVariant": "card_variant_2",
+                  "cardOrientation": "column"
                 },
                 "groupContent": {
-                  "headingAndTextHeadingLevel": "h3",
-                  "headingAndTextHeading": scaffold_content.group_products.group_product_four.heading or template_translations.section_products_and_services_card_four_title.message,
-                  "richTextContentHTML": scaffold_content.group_products.group_product_four.content or template_translations.lp_meeting_booking_two_product_four_content.message
-                },
-                "groupButton": {
-                  "showButton": false
+                  "headingStyleVariant": "h4"
                 }
               }
-            ],
-            groupStyle={
-              "groupCard": {
-                "cardStyleVariant": "card_variant_2",
-                "cardOrientation": "column"
-              },
-              "groupContent": {
-                "headingStyleVariant": "h4"
-              }
-            }
-          %}
-          {% end_dnd_grid_module %}
-
-          {# Third row: Two cards #}
-          {% dnd_grid_module
-            path="../components/modules/Card",
-            groupCards=[
-              {
-                "groupImage": {
-                  "image": {
-                    "src": get_asset_url("../images/newsletter.png"),
-                    "alt": "",
-                    "loading": "lazy",
-                    "size_type": "auto_custom_max"
+            %}
+            {% end_dnd_grid_module %}
+            {% dnd_grid_module
+              path="../components/modules/Card",
+              groupCards=[
+                {
+                  "groupImage": {
+                    "image": {
+                      "src": get_asset_url("../images/newsletter.png"),
+                      "alt": "",
+                      "loading": "lazy",
+                      "size_type": "auto_custom_max"
+                    }
+                  },
+                  "groupIcon": {
+                    "icon": {
+                      "name": "circle-check",
+                      "type": "SOLID"
+                    }
+                  },
+                  "groupContent": {
+                    "headingAndTextHeadingLevel": "h3",
+                    "headingAndTextHeading": scaffold_content.group_products.group_product_five.heading or template_translations.section_products_and_services_card_five_title.message,
+                    "richTextContentHTML": scaffold_content.group_products.group_product_five.content or template_translations.lp_meeting_booking_two_product_five_content.message
+                  },
+                  "groupButton": {
+                    "showButton": false
                   }
-                },
-                "groupIcon": {
-                  "icon": {
-                    "name": "circle-check",
-                    "type": "SOLID"
-                  }
+                }
+              ],
+              groupStyle={
+                "groupCard": {
+                  "cardStyleVariant": "card_variant_2",
+                  "cardOrientation": "column"
                 },
                 "groupContent": {
-                  "headingAndTextHeadingLevel": "h3",
-                  "headingAndTextHeading": scaffold_content.group_products.group_product_five.heading or template_translations.section_products_and_services_card_five_title.message,
-                  "richTextContentHTML": scaffold_content.group_products.group_product_five.content or template_translations.lp_meeting_booking_two_product_five_content.message
-                },
-                "groupButton": {
-                  "showButton": false
+                  "headingStyleVariant": "h4"
                 }
               }
-            ],
-            groupStyle={
-              "groupCard": {
-                "cardStyleVariant": "card_variant_2",
-                "cardOrientation": "column"
-              },
-              "groupContent": {
-                "headingStyleVariant": "h4"
-              }
-            }
-          %}
-          {% end_dnd_grid_module %}
-          {% dnd_grid_module
-            path="../components/modules/Card",
-            groupCards=[
-              {
-                "groupImage": {
-                  "image": {
-                    "src": get_asset_url("../images/newsletter.png"),
-                    "alt": "",
-                    "loading": "lazy",
-                    "size_type": "auto_custom_max"
+            %}
+            {% end_dnd_grid_module %}
+            {% dnd_grid_module
+              path="../components/modules/Card",
+              groupCards=[
+                {
+                  "groupImage": {
+                    "image": {
+                      "src": get_asset_url("../images/newsletter.png"),
+                      "alt": "",
+                      "loading": "lazy",
+                      "size_type": "auto_custom_max"
+                    }
+                  },
+                  "groupIcon": {
+                    "icon": {
+                      "name": "circle-check",
+                      "type": "SOLID"
+                    }
+                  },
+                  "groupContent": {
+                    "headingAndTextHeadingLevel": "h3",
+                    "headingAndTextHeading": scaffold_content.group_products.group_product_six.heading or template_translations.section_products_and_services_card_six_title.message,
+                    "richTextContentHTML": scaffold_content.group_products.group_product_six.content or template_translations.lp_meeting_booking_two_product_six_content.message
+                  },
+                  "groupButton": {
+                    "showButton": false
                   }
-                },
-                "groupIcon": {
-                  "icon": {
-                    "name": "circle-check",
-                    "type": "SOLID"
-                  }
+                }
+              ],
+              groupStyle={
+                "groupCard": {
+                  "cardStyleVariant": "card_variant_2",
+                  "cardOrientation": "column"
                 },
                 "groupContent": {
-                  "headingAndTextHeadingLevel": "h3",
-                  "headingAndTextHeading": scaffold_content.group_products.group_product_six.heading or template_translations.section_products_and_services_card_six_title.message,
-                  "richTextContentHTML": scaffold_content.group_products.group_product_six.content or template_translations.lp_meeting_booking_two_product_six_content.message
-                },
-                "groupButton": {
-                  "showButton": false
+                  "headingStyleVariant": "h4"
                 }
               }
-            ],
-            groupStyle={
-              "groupCard": {
-                "cardStyleVariant": "card_variant_2",
-                "cardOrientation": "column"
-              },
-              "groupContent": {
-                "headingStyleVariant": "h4"
-              }
-            }
-          %}
-          {% end_dnd_grid_module %}
-        {% end_dnd_grid_container %}
+            %}
+            {% end_dnd_grid_module %}
+          {% end_dnd_grid_container %}
         {% end_dnd_grid_container %}
       {% end_dnd_grid_section %}
 
@@ -637,13 +605,7 @@
       %}
         {% dnd_grid_container
           type="vertical_stack"
-          gap={{ spacing_0 }}
         %}
-          {% dnd_grid_module
-            path="../components/modules/Anchor",
-            anchor={{ scaffold_content.metrics.anchor_id or "" }}
-          %}
-          {% end_dnd_grid_module %}
           {% dnd_grid_module
             path="../components/modules/Metrics",
             groupMetrics=[

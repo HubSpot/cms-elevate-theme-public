@@ -30,8 +30,7 @@
         content_width={{ section_width_compact }}
       %}
         {% dnd_grid_container
-           type="vertical_stack",
-           gap={{ spacing_0 }}
+           type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",
@@ -53,9 +52,7 @@
             }
           %}
             {% module_attribute "richTextContentHTML" %}
-              <div style="text-align: center;">
-                <p>{{ scaffold_content.group_banner.description or template_translations.section_hero_centered_content.message }}</p>
-              </div>
+              <p style="text-align: center;">{{ scaffold_content.group_banner.description or template_translations.section_hero_centered_content.message }}</p>
             {% end_module_attribute %}
           {% end_dnd_grid_module %}
           {% dnd_grid_module
@@ -91,8 +88,7 @@
 
       {% dnd_grid_section %}
         {% dnd_grid_container
-           type="vertical_stack",
-           gap={{ spacing_0 }}
+           type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/PricingCard",
@@ -245,8 +241,7 @@
         content_width={{ section_width_wide }}
       %}
         {% dnd_grid_container
-           type="vertical_stack",
-           gap={{ spacing_0 }}
+           type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Card"
@@ -314,8 +309,7 @@
         }
       %}
         {% dnd_grid_container
-           type="vertical_stack",
-           gap={{ spacing_0 }}
+           type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/RichText"
@@ -324,16 +318,14 @@
             }
           %}
             {% module_attribute "richTextContentHTML" %}
-              <div style="text-align: center;">
-                <p>{{ scaffold_content.group_logos.heading or template_translations.section_logo_gallery_heading.message }}</p>
-              </div>
+              <p style="text-align: center;">{{ scaffold_content.group_logos.heading or template_translations.section_logo_gallery_heading.message }}</p>
             {% end_module_attribute %}
           {% end_dnd_grid_module %}
           {% dnd_grid_module
             path="@hubspot/logo_grid",
             styles={
               "group_logo_grid": {
-                "column_count": 6,
+                "column_count": 6
               }
             },
             group_logos=[
@@ -391,8 +383,7 @@
         content_width={{ section_width_medium }}
       %}
         {% dnd_grid_container
-           type="vertical_stack",
-           gap={{ spacing_0 }}
+           type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",
@@ -452,8 +443,7 @@
         content_width={{ section_width_narrow }}
       %}
         {% dnd_grid_container
-           type="vertical_stack",
-           gap={{ spacing_0 }}
+           type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",

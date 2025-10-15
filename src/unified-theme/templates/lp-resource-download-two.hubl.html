@@ -28,20 +28,10 @@
           },
           columns=["1fr", "1fr"],
           rows=["auto"],
-          gap={
-            "default": spacing_32,
-            "mobile": spacing_0
-          },
           align_items="center"
         %}
           {% dnd_grid_container
-            type="vertical_stack",
-            gap={{ spacing_0 }},
-            padding={
-              "mobile": {
-                "bottom": spacing_32
-              }
-            }
+            type="vertical_stack"
           %}
             {% dnd_grid_module
               path="../components/modules/RichText"
@@ -134,7 +124,6 @@
       {% dnd_grid_section %}
         {% dnd_grid_container
           type="vertical_stack",
-          gap={{ spacing_0 }},
           align_items="center"
         %}
           {% dnd_grid_module
@@ -157,9 +146,7 @@
             }
           %}
             {% module_attribute "richTextContentHTML" %}
-              <div style="text-align: center;">
-                <p>{{ scaffold_content.group_features.subheading or template_translations.lp_resource_download_two_features_subheading.message }}</p>
-              </div>
+              <p style="text-align: center;">{{ scaffold_content.group_features.subheading or template_translations.lp_resource_download_two_features_subheading.message }}</p>
             {% end_module_attribute %}
           {% end_dnd_grid_module %}
           {% dnd_grid_container
@@ -168,15 +155,10 @@
               "mobile": "vertical_stack"
             },
             columns=["1fr", "1fr", "1fr"],
-            rows=["auto"],
-            gap={
-              "default": spacing_32,
-              "mobile": spacing_0
-            }
+            rows=["auto"]
           %}
             {% dnd_grid_container
               type="vertical_stack",
-              gap={{ spacing_0 }}
               align_items="center"
             %}
               {% dnd_grid_module
@@ -210,15 +192,12 @@
                 }
               %}
                 {% module_attribute "richTextContentHTML" %}
-                  <div style="text-align: center;">
-                    <p>{{ scaffold_content.group_features.group_feature_1.description or template_translations.lp_resource_download_two_feature_1_desc.message }}</p>
-                  </div>
+                  <p style="text-align: center;">{{ scaffold_content.group_features.group_feature_1.description or template_translations.lp_resource_download_two_feature_1_desc.message }}</p>
                 {% end_module_attribute %}
               {% end_dnd_grid_module %}
             {% end_dnd_grid_container %}
             {% dnd_grid_container
               type="vertical_stack",
-              gap={{ spacing_0 }}
               align_items="center"
             %}
               {% dnd_grid_module
@@ -252,15 +231,12 @@
                 }
               %}
                 {% module_attribute "richTextContentHTML" %}
-                  <div style="text-align: center;">
-                    <p>{{ scaffold_content.group_features.group_feature_2.description or template_translations.lp_resource_download_two_feature_2_desc.message }}</p>
-                  </div>
+                  <p style="text-align: center;">{{ scaffold_content.group_features.group_feature_2.description or template_translations.lp_resource_download_two_feature_2_desc.message }}</p>
                 {% end_module_attribute %}
               {% end_dnd_grid_module %}
             {% end_dnd_grid_container %}
             {% dnd_grid_container
               type="vertical_stack",
-              gap={{ spacing_0 }}
               align_items="center"
             %}
               {% dnd_grid_module
@@ -294,9 +270,7 @@
                 }
               %}
                 {% module_attribute "richTextContentHTML" %}
-                  <div style="text-align: center;">
-                    <p>{{ scaffold_content.group_features.group_feature_3.description or template_translations.lp_resource_download_two_feature_3_desc.message }}</p>
-                  </div>
+                  <p style="text-align: center;">{{ scaffold_content.group_features.group_feature_3.description or template_translations.lp_resource_download_two_feature_3_desc.message }}</p>
                 {% end_module_attribute %}
               {% end_dnd_grid_module %}
             {% end_dnd_grid_container %}
@@ -320,8 +294,7 @@
         }
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/TestimonialSlider",
@@ -364,8 +337,7 @@
 
       {% dnd_grid_section %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/ImageAndText",
@@ -413,11 +385,7 @@
           },
           columns=["7fr", "5fr"],
           rows=["auto"],
-          align_items="center",
-          gap={
-            "default": spacing_32,
-            "mobile": spacing_0
-          }
+          align_items="center"
         %}
           {% dnd_grid_module
             path="@hubspot/linked_image",
@@ -431,8 +399,7 @@
           %}
           {% end_dnd_grid_module %}
           {% dnd_grid_container
-            type="vertical_stack",
-            gap={{ spacing_0 }}
+            type="vertical_stack"
           %}
             {% dnd_grid_module
               path="../components/modules/Heading",
@@ -480,8 +447,7 @@
         }
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",
@@ -498,17 +464,12 @@
           {% end_dnd_grid_module %}
           {% dnd_grid_module
             path="../components/modules/RichText",
-            margin={
-              "bottom": section_vertical_spacing_small
-            },
             groupStyle={
               "sectionStyleVariant": "section_variant_1"
             }
           %}
             {% module_attribute "richTextContentHTML" %}
-              <div style="text-align: center;">
-                <p>{{ scaffold_content.group_pricing.subheading or template_translations.lp_resource_download_two_pricing_subheading.message }}</p>
-              </div>
+              <p style="text-align: center;">{{ scaffold_content.group_pricing.subheading or template_translations.lp_resource_download_two_pricing_subheading.message }}</p>
             {% end_module_attribute %}
           {% end_dnd_grid_module %}
           {% dnd_grid_module

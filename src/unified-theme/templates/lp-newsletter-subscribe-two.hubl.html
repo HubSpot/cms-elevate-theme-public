@@ -36,20 +36,14 @@
             "mobile": "vertical_stack"
           },
           columns=["1fr", "1fr"],
-          gap={{ spacing_32 }},
+          rows=["auto"],
           align_items="center"
         %}
           {% dnd_grid_container
-            type="vertical_stack",
-            gap={{ spacing_0 }}
+            type="vertical_stack"
           %}
             {% dnd_grid_module
-              path="../components/modules/RichText",
-              padding={
-                "mobile": {
-                  "bottom": spacing_32
-                }
-              }
+              path="../components/modules/RichText"
             %}
               {% module_attribute "richTextContentHTML" %}
                 <p>{{ scaffold_content.group_hero_banner.tag_line or template_translations.section_hero_banner_two_column_tag_line.message }}</p>
@@ -116,14 +110,13 @@
       {% dnd_grid_section
         background_layers=[
           {
-            "type": "COLOR",
+            "type": "color",
             "value": light_section_2_background_color
           }
         ]
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",
@@ -142,11 +135,6 @@
             path="../components/modules/RichText",
             groupStyle={
               "sectionStyleVariant": "section_variant_2"
-            },
-            margin={
-              "default": {
-                "bottom": spacing_32
-              }
             }
           %}
             {% module_attribute "richTextContentHTML" %}
@@ -159,7 +147,7 @@
               "mobile": "vertical_stack"
             },
             columns=["1fr", "1fr"],
-            gap={{ spacing_32 }},
+            rows=["auto"],
             align_items="center"
           %}
             {% dnd_grid_module
@@ -171,11 +159,6 @@
                 "max_width": scaffold_content.group_newsletter_signup.newsletter_image.width or 593,
                 "size_type": "auto_custom_max",
                 "src": scaffold_content.group_newsletter_signup.newsletter_image.src or get_asset_url("../images/newsletter-emails.png")
-              },
-              margin={
-                "mobile": {
-                  "bottom": spacing_32
-                }
               }
             %}
             {% end_dnd_grid_module %}
@@ -198,15 +181,14 @@
       {% dnd_grid_section
         background_layers=[
           {
-            "type": "COLOR",
+            "type": "color",
             "value": dark_section_1_background_color
           }
         ],
         content_width={{ section_width_medium }}
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",

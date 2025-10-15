@@ -13,10 +13,12 @@
 {% endblock header %}
 
 {% block body %}
+
 {# Default content for testimonials #}
+
 {% set testimonials = [
     {
-      "quote": "{{ scaffold_content.group_testimonial_cards.testimonial_one or template_translations.lp_meeting_booking_one_testimonial_one.message}}}",
+      "quote": "{{ scaffold_content.group_testimonial_cards.testimonial_one or template_translations.lp_meeting_booking_one_testimonial_one.message }}",
       "author_name": "{{ template_translations.section_testimonial_cards_author_name_1.message }}",
       "author_title": "{{ template_translations.section_testimonial_cards_author_title_1.message }}"
     },
@@ -32,10 +34,10 @@
     }
   ]
 %}
-  {% set testimonials_content = [] %}
-  {% for testimonial in testimonials %}
-    {% do testimonials_content.append("<p>" ~ testimonial.quote ~ "</p><span><strong>" ~ testimonial.author_name ~ "</strong></span><br><span>" ~ testimonial.author_title ~ "</span>") %}
-  {% endfor %}
+{% set testimonials_content = [] %}
+{% for testimonial in testimonials %}
+{% do testimonials_content.append("<p>" ~ testimonial.quote ~ "</p><span><strong>" ~ testimonial.author_name ~ "</strong></span><br><span>" ~ testimonial.author_title ~ "</span>") %}
+{% endfor %}
 
 {% set testimonials_cards = [
     {
@@ -107,7 +109,8 @@
         "showButton": false
       }
     }
-  ] %}
+  ]
+%}
 
   {% if grids %}
     {% dnd_area "dnd_area"
@@ -123,17 +126,11 @@
             "mobile": "vertical_stack"
           },
           columns=["1fr", "1fr"],
-          align_items="start",
-          gap={{ spacing_32 }}
+          rows=["auto"],
+          align_items="start"
         %}
           {% dnd_grid_container
-            type="vertical_stack",
-            gap={{ spacing_0 }},
-            padding={
-              "mobile": {
-                "bottom": spacing_32
-              }
-            }
+            type="vertical_stack"
           %}
             {% dnd_grid_module
               path="../components/modules/Heading",
@@ -188,8 +185,7 @@
         }
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Card",
@@ -218,8 +214,7 @@
         ]
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",
@@ -238,14 +233,6 @@
             path="../components/modules/RichText",
             groupStyle={
               "sectionStyleVariant": "section_variant_2"
-            },
-            margin={
-              "default": {
-                "bottom": spacing_32
-              },
-              "mobile": {
-                "bottom": 0
-              }
             }
           %}
             {% module_attribute "richTextContentHTML" %}
@@ -260,7 +247,7 @@
               "mobile": "vertical_stack"
             },
             columns=["4fr", "8fr"],
-            gap={{ spacing_32 }},
+            rows=["auto"],
             align_items="start"
           %}
             {% dnd_grid_module
@@ -272,14 +259,6 @@
                 "max_width": scaffold_content.group_features.image.width or 372,
                 "size_type": "auto_custom_max",
                 "src": scaffold_content.group_features.image.src or get_asset_url("../images/features.png")
-              },
-              padding={
-                "default": {
-                  "bottom": 0
-                },
-                "mobile": {
-                  "bottom": spacing_32
-                }
               }
             %}
             {% end_dnd_grid_module %}
@@ -418,8 +397,7 @@
         }
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/TestimonialSlider",
@@ -464,8 +442,7 @@
 
       {% dnd_grid_section %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",
@@ -509,13 +486,12 @@
 
       {% dnd_grid_section
         padding={
-          "top": 0,
+          "top": spacing_0,
           "bottom": section_vertical_spacing_small
         },
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Card",

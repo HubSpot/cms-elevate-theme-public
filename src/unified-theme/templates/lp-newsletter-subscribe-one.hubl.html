@@ -26,8 +26,7 @@
 
       {% dnd_grid_section %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",
@@ -47,10 +46,8 @@
             }
           %}
             {% module_attribute "richTextContentHTML" %}
-              <div style="text-align:center;">
-                <p>{{ scaffold_content.group_newsletter_signup.description or template_translations.lp_newsletter_subscribe_one_main_description.message }}
-                </p>
-              </div>
+              <p style="text-align: center;">{{ scaffold_content.group_newsletter_signup.description or template_translations.lp_newsletter_subscribe_one_main_description.message }}
+              </p>
             {% end_module_attribute %}
           {% end_dnd_grid_module %}
           {% dnd_grid_container
@@ -58,17 +55,12 @@
               "default": "grid",
               "mobile": "vertical_stack"
             },
-            align_items="CENTER",
             columns=["1fr", "1fr"],
-            gap={{ spacing_32 }},
-            margin={
-              "default": {
-                "top": spacing_32
-              }
-            }
+            rows=["auto"],
+            align_items="center"
           %}
             {% dnd_grid_module
-              path="@hubspot/linked_image"
+              path="@hubspot/linked_image",
               img={
                 "alt": scaffold_content.group_newsletter_signup.newsletter_image.alt or "",
                 "loading": "eager",
@@ -98,7 +90,7 @@
       {% dnd_grid_section
         background_layers=[
           {
-            "type": "COLOR",
+            "type": "color",
             "value": dark_section_1_background_color
           }
         ],
@@ -112,9 +104,9 @@
             "default": "grid",
             "mobile": "vertical_stack"
           },
-          align_items="CENTER",
           columns=["1fr", "1fr"],
-          gap={{ spacing_32 }}
+          rows=["auto"],
+          align_items="center"
         %}
           {% dnd_grid_module
             path="@hubspot/linked_image",
@@ -129,8 +121,7 @@
           %}
           {% end_dnd_grid_module %}
           {% dnd_grid_container
-            type="vertical_stack",
-            gap={{ spacing_0 }}
+            type="vertical_stack"
           %}
             {% dnd_grid_module
               path="../components/modules/Heading",
@@ -164,14 +155,13 @@
       {% dnd_grid_section
         background_layers=[
           {
-            "type": "COLOR",
+            "type": "color",
             "value": light_section_2_background_color
           }
         ]
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading"
@@ -188,9 +178,6 @@
           {% end_dnd_grid_module %}
           {% dnd_grid_module
             path="../components/modules/Card",
-            margin={
-              "bottom": spacing_32
-            },
             groupCards=[
               {
                 "groupImage": {
@@ -254,9 +241,6 @@
           {% end_dnd_grid_module %}
           {% dnd_grid_module
             path="../components/modules/Card",
-            margin={
-              "bottom": spacing_32
-            },
             groupCards=[
               {
                 "groupImage": {
@@ -389,14 +373,13 @@
       {% dnd_grid_section
         background_layers=[
           {
-            "type": "COLOR",
+            "type": "color",
             "value": light_section_2_background_color
           }
         ]
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Card"
@@ -413,7 +396,7 @@
                 },
                 "groupIcon": {
                     "icon": {
-                      "name": 'play-circle',
+                      "name": "play-circle"
                     },
                   },
                 "groupContent": {

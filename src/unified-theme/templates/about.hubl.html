@@ -23,8 +23,7 @@
         }
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",
@@ -46,9 +45,7 @@
             }
           %}
             {% module_attribute "richTextContentHTML" %}
-              <div style="text-align: center;">
-                <p>{{ scaffold_content.group_banner.about or template_translations.about_banner_description.message }}</p>
-              </div>
+              <p style="text-align: center;">{{ scaffold_content.group_banner.about or template_translations.about_banner_description.message }}</p>
             {% end_module_attribute %}
           {% end_dnd_grid_module %}
         {% end_dnd_grid_container %}
@@ -62,8 +59,7 @@
         }
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="@hubspot/linked_image",
@@ -96,14 +92,8 @@
         }
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
-          {% dnd_grid_module
-            path="../components/modules/Anchor",
-            anchor={{ scaffold_content.group_metrics.anchor_id or "" }}
-          %}
-          {% end_dnd_grid_module %}
           {% dnd_grid_module
             path="../components/modules/Metrics",
             groupMetrics=[
@@ -140,8 +130,7 @@
         ]
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",
@@ -244,8 +233,7 @@
 
       {% dnd_grid_section %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Card",
@@ -309,8 +297,7 @@
         }
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",
@@ -428,14 +415,8 @@
         ]
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
-          {% dnd_grid_module
-            path="../components/modules/Anchor",
-            anchor={{ scaffold_content.group_team.anchor_id or "" }}
-          %}
-          {% end_dnd_grid_module %}
           {% dnd_grid_module
             path="../components/modules/Heading",
             headingAndTextHeadingLevel="h2",
@@ -453,38 +434,20 @@
             path="../components/modules/RichText",
             groupStyle={
               "sectionStyleVariant": "section_variant_3"
-            },
-            margin={
-              "default": {
-                "bottom": spacing_32
-              },
-              "mobile": {
-                "bottom": 0
-              }
             }
           %}
             {% module_attribute "richTextContentHTML" %}
-              <div style="text-align: center;">
-                <p>{{ scaffold_content.description or template_translations.section_team_members_description.message }}</p>
-              </div>
+              <p style="text-align: center;">{{ scaffold_content.description or template_translations.section_team_members_description.message }}</p>
             {% end_module_attribute %}
           {% end_dnd_grid_module %}
-
           {% dnd_grid_container
             type={
               "default": "grid",
               "mobile": "vertical_stack"
             },
             columns=["1fr", "1fr", "1fr", "1fr"],
-            gap={{ spacing_24 }},
-            padding={
-              "default": {
-                "bottom": spacing_40
-              },
-              "mobile": {
-                "bottom": spacing_24
-              }
-            }
+            rows=["auto"],
+            gap={{ grid_gap_small }}
           %}
             {% dnd_grid_module
               path="../components/modules/Card",
@@ -655,14 +618,14 @@
             %}
             {% end_dnd_grid_module %}
           {% end_dnd_grid_container %}
-
           {% dnd_grid_container
             type={
               "default": "grid",
               "mobile": "vertical_stack"
             },
             columns=["1fr", "1fr", "1fr", "1fr"],
-            gap={{ spacing_24 }}
+            rows=["auto"],
+            gap={{ grid_gap_small }}
           %}
             {% dnd_grid_module
               path="../components/modules/Card",
@@ -847,8 +810,7 @@
         ]
       %}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }}
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Card",

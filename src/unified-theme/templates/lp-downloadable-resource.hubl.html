@@ -42,21 +42,11 @@
           "mobile": "vertical_stack"
         },
         columns=["1fr", "1fr"],
-        gap={{ spacing_32 }},
+        rows=["auto"],
         align_items="start"
       %}
-        {# Content column (left) #}
         {% dnd_grid_container
-          type="vertical_stack",
-          gap={{ spacing_0 }},
-          padding={
-            "default": {
-              "bottom": 0
-            },
-            "mobile": {
-              "bottom": spacing_32
-            }
-          }
+          type="vertical_stack"
         %}
           {% dnd_grid_module
             path="../components/modules/Heading",
@@ -94,8 +84,6 @@
           %}
           {% end_dnd_grid_module %}
         {% end_dnd_grid_container %}
-
-        {# Form column (right) #}
         {% dnd_grid_module
           path="@hubspot/form",
           form={
@@ -214,8 +202,7 @@
 
     {% dnd_grid_section %}
       {% dnd_grid_container
-        type="vertical_stack",
-        gap={{ spacing_0 }}
+        type="vertical_stack"
       %}
         {% dnd_grid_module
           path="../components/modules/Card",
@@ -280,8 +267,7 @@
       content_width={{ section_width_medium }}
     %}
       {% dnd_grid_container
-        type="vertical_stack",
-        gap={{ spacing_0 }}
+        type="vertical_stack"
       %}
         {% dnd_grid_module
           path="../components/modules/Heading",
