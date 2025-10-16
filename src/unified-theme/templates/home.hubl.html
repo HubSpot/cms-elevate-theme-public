@@ -33,7 +33,11 @@
             },
             columns=["1fr", "1fr"],
             rows=["auto"],
-            align_items="center"
+            align_items="center",
+            gap={
+              "default": spacing_80,
+              "mobile": grid_gap_medium
+            }
           %}
             {% dnd_grid_container
               type="vertical_stack"
