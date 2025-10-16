@@ -162,7 +162,7 @@ This would be the example code for the template:
 -->
 
 {% block header %}
-  {% global_partial path="./partials/lp-header.hubl.html" %}
+  {% global_partial path="./partials/lp-header.hubl.html" type="HEADER" %}
 {% endblock %}
 
 {% block body %}
@@ -222,7 +222,7 @@ This would be the example code for the template:
 {% endblock %}
 
 {% block footer %}
-  {% global_partial path="./partials/lp-footer.hubl.html" %}
+  {% global_partial path="./partials/lp-footer.hubl.html" type="FOOTER" %}
 {% endblock %}
 ```
 
@@ -417,7 +417,7 @@ src/unified-theme/templates/schemas/lp-signup.scaffold_schema.json
 -->
 
 {% block header %}
-  {% global_partial path="./partials/lp-header.hubl.html" %}
+  {% global_partial path="./partials/lp-header.hubl.html" type="HEADER" %}
 {% endblock %}
 
 {% block body %}
@@ -485,6 +485,6 @@ src/unified-theme/templates/schemas/lp-signup.scaffold_schema.json
 {% endblock %}
 
 {% block footer %}
-  {% global_partial path="./partials/lp-footer.hubl.html" %}
+  {% global_partial path="./partials/lp-footer.hubl.html" type="FOOTER" %}
 {% endblock %}
 ```

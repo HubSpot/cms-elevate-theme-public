@@ -20,6 +20,9 @@ type MetricProps = {
     description: TextFieldType['default'];
   }[];
   groupStyle: GroupStyle;
+  hublData: {
+    renderedWithGrids: boolean;
+  };
 };
 
 // Metrics component
@@ -48,7 +51,7 @@ function generateMetricCssVars(headingStyleAs: HeadingStyleVariant): CSSProperti
 
   return {
     '--hsElevate--metrics__maxFontSize': metricCssVarsMap[headingStyleAs],
-    '--hsElevate--metrics__minFontSize': `calc(var(--hsElevate--metrics__maxFontSize) * var(--hsElevate--heading__tablet-modifier))`,
+    '--hsElevate--metrics__minFontSize': 'calc(var(--hsElevate--metrics__maxFontSize) * var(--hsElevate--heading__tablet-modifier))',
   };
 }
 
@@ -72,6 +75,7 @@ export const Component = (props: MetricProps) => {
   const {
     groupMetrics,
     groupStyle: { headingStyleVariant, sectionStyleVariant },
+    hublData: { renderedWithGrids = false },
   } = props;
 
   const cssVarsMap = {
@@ -81,8 +85,10 @@ export const Component = (props: MetricProps) => {
 
   const metricCountClass = getMetricCountClass(groupMetrics.length);
 
+  const layoutClass = (renderedWithGrids ?? false) ? 'hs-elevate-metrics--grids' : 'hs-elevate-metrics--bootstrap';
+
   return (
-    <MetricsWrapper className={swm('hs-elevate-metrics')}>
+    <MetricsWrapper className={cx(swm('hs-elevate-metrics'), styles[layoutClass])}>
       <MetricsContainer
         className={cx('hs-elevate-metrics-container', styles['hs-elevate-metrics__container'], metricCountClass && styles[metricCountClass])}
         style={cssVarsMap}
@@ -105,6 +111,13 @@ export const Component = (props: MetricProps) => {
 };
 
 export { fields } from './fields.js';
+
+export const hublDataTemplate = `
+  {% set hublData = {
+      "renderedWithGrids": rendered_with_grids,
+    }
+  %}
+`;
 
 export const meta: ModuleMeta = {
   label: 'Metrics',

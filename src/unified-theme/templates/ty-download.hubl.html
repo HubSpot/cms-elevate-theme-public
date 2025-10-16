@@ -8,30 +8,29 @@
 {% extends "./layouts/base.hubl.html" %}
 
 {% block header %}
-  {% global_partial path="./partials/lp-header.hubl.html" %}
+  {% global_partial path="./partials/lp-header.hubl.html" type="HEADER" %}
 {% endblock %}
 
 {% block body %}
-  {% dnd_area "dnd_area"
-    label="Main section"
-  %}
-
-    {# Banner #}
-
-    {% dnd_section
-      max_width=773,
-      padding={
-        "top": section_vertical_spacing_large,
-        "bottom": section_vertical_spacing_large
-      }
+  {% if grids %}
+    {% dnd_area "dnd_area"
+      label="Main section"
     %}
-      {% dnd_column %}
-        {% dnd_row
-          margin={
-            "bottom": spacing_48
-          }
+
+      {# Banner #}
+
+      {% dnd_grid_section
+        content_width={{ section_width_narrow }},
+        padding={
+          "top": section_vertical_spacing_large,
+          "bottom": section_vertical_spacing_large
+        }
+      %}
+        {% dnd_grid_container
+          type="vertical_stack",
+          align_items="center"
         %}
-          {% dnd_module
+          {% dnd_grid_module
             path="@hubspot/linked_image",
             img={
               "alt": scaffold_content.group_banner.download_image.alt or template_translations.ty_download_image_alt_text.message,
@@ -43,10 +42,8 @@
             },
             horizontal_alignment="CENTER"
           %}
-          {% end_dnd_module %}
-        {% end_dnd_row %}
-        {% dnd_row %}
-          {% dnd_module
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
             path="../components/modules/Heading",
             headingAndTextHeadingLevel="h1",
             headingAndTextHeading={{ scaffold_content.group_banner.heading or template_translations.ty_download_heading.message }},
@@ -58,10 +55,8 @@
               "sectionStyleVariant": "section_variant_1"
             }
           %}
-          {% end_dnd_module %}
-        {% end_dnd_row %}
-        {% dnd_row %}
-          {% dnd_module
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
             path="../components/modules/RichText",
             groupStyle={
               "sectionStyleVariant": "section_variant_1"
@@ -72,10 +67,8 @@
                 <p>{{ scaffold_content.group_banner.description or template_translations.ty_download_description.message }}</p>
               </div>
             {% end_module_attribute %}
-          {% end_dnd_module %}
-        {% end_dnd_row %}
-        {% dnd_row %}
-          {% dnd_module
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
             path="../components/modules/Button",
             groupButtons=[
               {
@@ -100,19 +93,24 @@
               "buttonStyleVariant": "primary"
             }
           %}
-          {% end_dnd_module %}
-        {% end_dnd_row %}
-      {% end_dnd_column %}
-    {% end_dnd_section %}
+          {% end_dnd_grid_module %}
+        {% end_dnd_grid_container %}
+      {% end_dnd_grid_section %}
 
-    {# Next steps #}
+      {# Next steps #}
 
-    {% dnd_section
-      background_color={{ light_section_2_background_color }},
-    %}
-      {% dnd_column %}
-        {% dnd_row %}
-          {% dnd_module
+      {% dnd_grid_section
+        background_layers=[
+          {
+            "type": "color",
+            "value": light_section_2_background_color
+          }
+        ]
+      %}
+        {% dnd_grid_container
+          type="vertical_stack"
+        %}
+          {% dnd_grid_module
             path="../components/modules/Heading",
             headingAndTextHeadingLevel="h2",
             headingAndTextHeading={{ scaffold_content.group_next_steps.heading or template_translations.ty_download_next_steps_heading.message }},
@@ -124,32 +122,31 @@
               "sectionStyleVariant": "section_variant_2"
             }
           %}
-          {% end_dnd_module %}
-        {% end_dnd_row %}
-        {% dnd_row %}
-          {% dnd_module
-            path="../components/modules/RichText"
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
+            path="../components/modules/RichText",
             groupStyle={
               "sectionStyleVariant": "section_variant_2"
             }
           %}
             {% module_attribute "richTextContentHTML"%}
-              <div style="text-align: center;">
-                <p>{{ scaffold_content.group_next_steps.subheading or template_translations.ty_download_next_steps_subheading.message }}</p>
-              </div>
+              <p style="text-align: center;">{{ scaffold_content.group_next_steps.subheading or template_translations.ty_download_next_steps_subheading.message }}</p>
             {% end_module_attribute %}
-          {% end_dnd_module %}
-        {% end_dnd_row %}
-        {% dnd_row %}
-          {% dnd_column
-            width=4
+          {% end_dnd_grid_module %}
+          {% dnd_grid_container
+            type={
+              "default": "grid",
+              "mobile": "vertical_stack"
+            },
+            columns=["1fr", "1fr", "1fr"],
+            rows=["auto"]
+            }
           %}
-            {% dnd_row
-              margin={
-                "bottom": spacing_20
-              }
+            {% dnd_grid_container
+              type="vertical_stack",
+              align_items="center"
             %}
-              {% dnd_module
+              {% dnd_grid_module
                 path="@hubspot/linked_image",
                 img={
                   "alt": scaffold_content.group_next_steps.group_step_one.image.alt or "",
@@ -161,10 +158,8 @@
                 },
                 horizontal_alignment="CENTER"
               %}
-              {% end_dnd_module %}
-            {% end_dnd_row %}
-            {% dnd_row %}
-              {% dnd_module
+              {% end_dnd_grid_module %}
+              {% dnd_grid_module
                 path="../components/modules/Heading",
                 headingAndTextHeadingLevel="h3",
                 headingAndTextHeading={{ scaffold_content.group_next_steps.group_step_one.heading or template_translations.ty_download_step_one_heading.message }},
@@ -176,33 +171,23 @@
                   "sectionStyleVariant": "section_variant_2"
                 }
               %}
-              {% end_dnd_module %}
-            {% end_dnd_row %}
-            {% dnd_row %}
-              {% dnd_module
-                path="../components/modules/RichText"
+              {% end_dnd_grid_module %}
+              {% dnd_grid_module
+                path="../components/modules/RichText",
                 groupStyle={
                   "sectionStyleVariant": "section_variant_2"
                 }
               %}
                 {% module_attribute "richTextContentHTML"%}
-                  <div style="text-align: center;">
-                    <p>{{ scaffold_content.group_next_steps.group_step_one.description or template_translations.ty_download_step_one_description.message }}</p>
-                  </div>
+                  <p style="text-align: center;">{{ scaffold_content.group_next_steps.group_step_one.description or template_translations.ty_download_step_one_description.message }}</p>
                 {% end_module_attribute %}
-              {% end_dnd_module %}
-            {% end_dnd_row %}
-          {% end_dnd_column %}
-          {% dnd_column
-            offset=4,
-            width=4
-          %}
-            {% dnd_row
-              margin={
-                "bottom": spacing_20
-              }
+              {% end_dnd_grid_module %}
+            {% end_dnd_grid_container %}
+            {% dnd_grid_container
+              type="vertical_stack",
+              align_items="center"
             %}
-              {% dnd_module
+              {% dnd_grid_module
                 path="@hubspot/linked_image",
                 img={
                   "alt": scaffold_content.group_next_steps.group_step_two.image.alt or "",
@@ -214,10 +199,8 @@
                 },
                 horizontal_alignment="CENTER"
               %}
-              {% end_dnd_module %}
-            {% end_dnd_row %}
-            {% dnd_row %}
-              {% dnd_module
+              {% end_dnd_grid_module %}
+              {% dnd_grid_module
                 path="../components/modules/Heading",
                 headingAndTextHeadingLevel="h3",
                 headingAndTextHeading={{ scaffold_content.group_next_steps.group_step_two.heading or template_translations.ty_download_step_two_heading.message }},
@@ -229,33 +212,23 @@
                   "sectionStyleVariant": "section_variant_2"
                 }
               %}
-              {% end_dnd_module %}
-            {% end_dnd_row %}
-            {% dnd_row %}
-              {% dnd_module
-                path="../components/modules/RichText"
+              {% end_dnd_grid_module %}
+              {% dnd_grid_module
+                path="../components/modules/RichText",
                 groupStyle={
                   "sectionStyleVariant": "section_variant_2"
                 }
               %}
                 {% module_attribute "richTextContentHTML"%}
-                  <div style="text-align: center;">
-                    <p>{{ scaffold_content.group_next_steps.group_step_two.description or template_translations.ty_download_step_two_description.message }}</p>
-                  </div>
+                  <p style="text-align: center;">{{ scaffold_content.group_next_steps.group_step_two.description or template_translations.ty_download_step_two_description.message }}</p>
                 {% end_module_attribute %}
-              {% end_dnd_module %}
-            {% end_dnd_row %}
-          {% end_dnd_column %}
-          {% dnd_column
-            offset=8,
-            width=4
-          %}
-            {% dnd_row
-              margin={
-                "bottom": spacing_20
-              }
+              {% end_dnd_grid_module %}
+            {% end_dnd_grid_container %}
+            {% dnd_grid_container
+              type="vertical_stack",
+              align_items="center"
             %}
-              {% dnd_module
+              {% dnd_grid_module
                 path="@hubspot/linked_image",
                 img={
                   "alt": scaffold_content.group_next_steps.group_step_three.image.alt or "",
@@ -267,10 +240,8 @@
                 },
                 horizontal_alignment="CENTER"
               %}
-              {% end_dnd_module %}
-            {% end_dnd_row %}
-            {% dnd_row %}
-              {% dnd_module
+              {% end_dnd_grid_module %}
+              {% dnd_grid_module
                 path="../components/modules/Heading",
                 headingAndTextHeadingLevel="h3",
                 headingAndTextHeading={{ scaffold_content.group_next_steps.group_step_three.heading or template_translations.ty_download_step_three_heading.message }},
@@ -282,30 +253,319 @@
                   "sectionStyleVariant": "section_variant_2"
                 }
               %}
-              {% end_dnd_module %}
-            {% end_dnd_row %}
-            {% dnd_row %}
-              {% dnd_module
-                path="../components/modules/RichText"
+              {% end_dnd_grid_module %}
+              {% dnd_grid_module
+                path="../components/modules/RichText",
                 groupStyle={
                   "sectionStyleVariant": "section_variant_2"
                 }
               %}
                 {% module_attribute "richTextContentHTML"%}
-                  <div style="text-align: center;">
-                    <p>{{ scaffold_content.group_next_steps.group_step_three.description or template_translations.ty_download_step_three_description.message }}</p>
-                  </div>
+                  <p style="text-align: center;">{{ scaffold_content.group_next_steps.group_step_three.description or template_translations.ty_download_step_three_description.message }}</p>
                 {% end_module_attribute %}
-              {% end_dnd_module %}
-            {% end_dnd_row %}
-          {% end_dnd_column %}
-        {% end_dnd_row %}
-      {% end_dnd_column %}
-    {% end_dnd_section %}
+              {% end_dnd_grid_module %}
+            {% end_dnd_grid_container %}
+          {% end_dnd_grid_container %}
+        {% end_dnd_grid_container %}
+      {% end_dnd_grid_section %}
 
-  {% end_dnd_area %}
+    {% end_dnd_area %}
+  {% else %}
+    {% dnd_area "dnd_area"
+      label="Main section"
+    %}
+
+      {# Banner #}
+
+      {% dnd_section
+        max_width={{ section_width_narrow }},
+        padding={
+          "top": section_vertical_spacing_large,
+          "bottom": section_vertical_spacing_large
+        }
+      %}
+        {% dnd_column %}
+          {% dnd_row
+            margin={
+              "bottom": spacing_48
+            }
+          %}
+            {% dnd_module
+              path="@hubspot/linked_image",
+              img={
+                "alt": scaffold_content.group_banner.download_image.alt or template_translations.ty_download_image_alt_text.message,
+                "loading": "eager",
+                "max_height": scaffold_content.group_banner.download_image.height or 304,
+                "max_width": scaffold_content.group_banner.download_image.width or 249,
+                "size_type": "auto_custom_max",
+                "src": scaffold_content.group_banner.download_image.src or get_asset_url("../images/download.png")
+              },
+              horizontal_alignment="CENTER"
+            %}
+            {% end_dnd_module %}
+          {% end_dnd_row %}
+          {% dnd_row %}
+            {% dnd_module
+              path="../components/modules/Heading",
+              headingAndTextHeadingLevel="h1",
+              headingAndTextHeading={{ scaffold_content.group_banner.heading or template_translations.ty_download_heading.message }},
+              groupStyle={
+                "alignment": {
+                  "text_align": "CENTER"
+                },
+                "headingStyleVariant": "h1",
+                "sectionStyleVariant": "section_variant_1"
+              }
+            %}
+            {% end_dnd_module %}
+          {% end_dnd_row %}
+          {% dnd_row %}
+            {% dnd_module
+              path="../components/modules/RichText",
+              groupStyle={
+                "sectionStyleVariant": "section_variant_1"
+              }
+            %}
+              {% module_attribute "richTextContentHTML"%}
+                <div style="text-align: center;">
+                  <p>{{ scaffold_content.group_banner.description or template_translations.ty_download_description.message }}</p>
+                </div>
+              {% end_module_attribute %}
+            {% end_dnd_module %}
+          {% end_dnd_row %}
+          {% dnd_row %}
+            {% dnd_module
+              path="../components/modules/Button",
+              groupButtons=[
+                {
+                  "buttonContentText": scaffold_content.group_banner.button_text or template_translations.ty_download_button_text.message,
+                  "buttonContentLink": {
+                    "url": {
+                      "href": scaffold_content.group_banner.button_link.url.href or ""
+                    }
+                  },
+                  "buttonContentShowIcon": true,
+                  "buttonContentIcon": {
+                    "name": "arrow-alt-circle-down",
+                    "type": "SOLID"
+                  },
+                  "buttonContentIconPosition": "right"
+                }
+              ],
+              groupStyle={
+                "alignment": {
+                  "horizontal_align": "CENTER"
+                },
+                "buttonStyleVariant": "primary"
+              }
+            %}
+            {% end_dnd_module %}
+          {% end_dnd_row %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+
+      {# Next steps #}
+
+      {% dnd_section
+        background_color={{ light_section_2_background_color }},
+      %}
+        {% dnd_column %}
+          {% dnd_row %}
+            {% dnd_module
+              path="../components/modules/Heading",
+              headingAndTextHeadingLevel="h2",
+              headingAndTextHeading={{ scaffold_content.group_next_steps.heading or template_translations.ty_download_next_steps_heading.message }},
+              groupStyle={
+                "alignment": {
+                  "text_align": "CENTER"
+                },
+                "headingStyleVariant": "h2",
+                "sectionStyleVariant": "section_variant_2"
+              }
+            %}
+            {% end_dnd_module %}
+          {% end_dnd_row %}
+          {% dnd_row %}
+            {% dnd_module
+              path="../components/modules/RichText"
+              groupStyle={
+                "sectionStyleVariant": "section_variant_2"
+              }
+            %}
+              {% module_attribute "richTextContentHTML"%}
+                <div style="text-align: center;">
+                  <p>{{ scaffold_content.group_next_steps.subheading or template_translations.ty_download_next_steps_subheading.message }}</p>
+                </div>
+              {% end_module_attribute %}
+            {% end_dnd_module %}
+          {% end_dnd_row %}
+          {% dnd_row %}
+            {% dnd_column
+              width=4
+            %}
+              {% dnd_row
+                margin={
+                  "bottom": spacing_20
+                }
+              %}
+                {% dnd_module
+                  path="@hubspot/linked_image",
+                  img={
+                    "alt": scaffold_content.group_next_steps.group_step_one.image.alt or "",
+                    "loading": "lazy",
+                    "max_height": scaffold_content.group_next_steps.group_step_one.image.height or 140,
+                    "max_width": scaffold_content.group_next_steps.group_step_one.image.width or 140,
+                    "size_type": "auto_custom_max",
+                    "src": scaffold_content.group_next_steps.group_step_one.image.src or get_asset_url("../images/step-one.png")
+                  },
+                  horizontal_alignment="CENTER"
+                %}
+                {% end_dnd_module %}
+              {% end_dnd_row %}
+              {% dnd_row %}
+                {% dnd_module
+                  path="../components/modules/Heading",
+                  headingAndTextHeadingLevel="h3",
+                  headingAndTextHeading={{ scaffold_content.group_next_steps.group_step_one.heading or template_translations.ty_download_step_one_heading.message }},
+                  groupStyle={
+                    "alignment": {
+                      "text_align": "CENTER"
+                    },
+                    "headingStyleVariant": "h5",
+                    "sectionStyleVariant": "section_variant_2"
+                  }
+                %}
+                {% end_dnd_module %}
+              {% end_dnd_row %}
+              {% dnd_row %}
+                {% dnd_module
+                  path="../components/modules/RichText"
+                  groupStyle={
+                    "sectionStyleVariant": "section_variant_2"
+                  }
+                %}
+                  {% module_attribute "richTextContentHTML"%}
+                    <div style="text-align: center;">
+                      <p>{{ scaffold_content.group_next_steps.group_step_one.description or template_translations.ty_download_step_one_description.message }}</p>
+                    </div>
+                  {% end_module_attribute %}
+                {% end_dnd_module %}
+              {% end_dnd_row %}
+            {% end_dnd_column %}
+            {% dnd_column
+              offset=4,
+              width=4
+            %}
+              {% dnd_row
+                margin={
+                  "bottom": spacing_20
+                }
+              %}
+                {% dnd_module
+                  path="@hubspot/linked_image",
+                  img={
+                    "alt": scaffold_content.group_next_steps.group_step_two.image.alt or "",
+                    "loading": "lazy",
+                    "max_height": scaffold_content.group_next_steps.group_step_two.image.height or 140,
+                    "max_width": scaffold_content.group_next_steps.group_step_two.image.width or 140,
+                    "size_type": "auto_custom_max",
+                    "src": scaffold_content.group_next_steps.group_step_two.image.src or get_asset_url("../images/step-two.png")
+                  },
+                  horizontal_alignment="CENTER"
+                %}
+                {% end_dnd_module %}
+              {% end_dnd_row %}
+              {% dnd_row %}
+                {% dnd_module
+                  path="../components/modules/Heading",
+                  headingAndTextHeadingLevel="h3",
+                  headingAndTextHeading={{ scaffold_content.group_next_steps.group_step_two.heading or template_translations.ty_download_step_two_heading.message }},
+                  groupStyle={
+                    "alignment": {
+                      "text_align": "CENTER"
+                    },
+                    "headingStyleVariant": "h5",
+                    "sectionStyleVariant": "section_variant_2"
+                  }
+                %}
+                {% end_dnd_module %}
+              {% end_dnd_row %}
+              {% dnd_row %}
+                {% dnd_module
+                  path="../components/modules/RichText"
+                  groupStyle={
+                    "sectionStyleVariant": "section_variant_2"
+                  }
+                %}
+                  {% module_attribute "richTextContentHTML"%}
+                    <div style="text-align: center;">
+                      <p>{{ scaffold_content.group_next_steps.group_step_two.description or template_translations.ty_download_step_two_description.message }}</p>
+                    </div>
+                  {% end_module_attribute %}
+                {% end_dnd_module %}
+              {% end_dnd_row %}
+            {% end_dnd_column %}
+            {% dnd_column
+              offset=8,
+              width=4
+            %}
+              {% dnd_row
+                margin={
+                  "bottom": spacing_20
+                }
+              %}
+                {% dnd_module
+                  path="@hubspot/linked_image",
+                  img={
+                    "alt": scaffold_content.group_next_steps.group_step_three.image.alt or "",
+                    "loading": "lazy",
+                    "max_height": scaffold_content.group_next_steps.group_step_three.image.height or 140,
+                    "max_width": scaffold_content.group_next_steps.group_step_three.image.width or 140,
+                    "size_type": "auto_custom_max",
+                    "src": scaffold_content.group_next_steps.group_step_three.image.src or get_asset_url("../images/step-three.png")
+                  },
+                  horizontal_alignment="CENTER"
+                %}
+                {% end_dnd_module %}
+              {% end_dnd_row %}
+              {% dnd_row %}
+                {% dnd_module
+                  path="../components/modules/Heading",
+                  headingAndTextHeadingLevel="h3",
+                  headingAndTextHeading={{ scaffold_content.group_next_steps.group_step_three.heading or template_translations.ty_download_step_three_heading.message }},
+                  groupStyle={
+                    "alignment": {
+                      "text_align": "CENTER"
+                    },
+                    "headingStyleVariant": "h5",
+                    "sectionStyleVariant": "section_variant_2"
+                  }
+                %}
+                {% end_dnd_module %}
+              {% end_dnd_row %}
+              {% dnd_row %}
+                {% dnd_module
+                  path="../components/modules/RichText"
+                  groupStyle={
+                    "sectionStyleVariant": "section_variant_2"
+                  }
+                %}
+                  {% module_attribute "richTextContentHTML"%}
+                    <div style="text-align: center;">
+                      <p>{{ scaffold_content.group_next_steps.group_step_three.description or template_translations.ty_download_step_three_description.message }}</p>
+                    </div>
+                  {% end_module_attribute %}
+                {% end_dnd_module %}
+              {% end_dnd_row %}
+            {% end_dnd_column %}
+          {% end_dnd_row %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+
+    {% end_dnd_area %}
+  {% endif %}
 {% endblock body %}
 
 {% block footer %}
-  {% global_partial path="./partials/lp-footer.hubl.html" %}
+  {% global_partial path="./partials/lp-footer.hubl.html" type="FOOTER" %}
 {% endblock %}

@@ -129,7 +129,7 @@ export const MenuItemComponent = (props: MenuItemComponentProps) => {
   function addMenuItemClasses(linkStyleVariant: LinkStyleType) {
     const linkClassName = linkStyleVariant === 'secondary_links' ? 'hs-elevate-link--secondary' : 'hs-elevate-link--primary';
 
-    return currentLevel === 1 ? `${linkClassName} ${topLevelMenuItemClasses}` : `${linkClassName} ${subMenuItemClasses}`;
+    return currentLevel === 1 ? `${linkClassName} ${topLevelMenuItemClasses || ''}` : `${linkClassName} ${subMenuItemClasses || ''}`;
   }
   function addSubMenuItemStyles() {
     return currentLevel === 1 ? topLevelMenuItemStyles : subMenuItemStyles;
@@ -154,9 +154,7 @@ export const MenuItemComponent = (props: MenuItemComponentProps) => {
   }
 
   function getMenuItemClasses() {
-    const baseClasses = cx(getMenuItemClass(), styles.menuItem, {
-      [styles['menuItem--flyout']]: flyouts && currentLevel > 1,
-    });
+    const baseClasses = cx(getMenuItemClass(), styles.menuItem, { [styles['menuItem--flyout']]: flyouts && currentLevel > 1 });
 
     return baseClasses;
   }
