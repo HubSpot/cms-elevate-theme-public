@@ -29,3 +29,7 @@
     text-decoration-color: var(--hsElevate--richText__linkHoverTextDecorationColor);
   }
 }
+
+.hs-elevate-rich-text--grids > *:last-child {
+  margin-block-end: 0;
+}

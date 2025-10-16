@@ -1,6 +1,6 @@
 import { ModuleMeta } from '../../types/modules.js';
 import styles from './recent-blog-posts.module.css';
-import { staticWithModule } from '../../utils/classnames.js';
+import cx, { staticWithModule } from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
 import { withUrlPath } from '@hubspot/cms-components';
 import cardIconSvg from './assets/card-icon-temp.svg';
@@ -28,6 +28,7 @@ type RecentBlogPostsProps = {
       absoluteUrl: string;
     }[];
     isInEditor: boolean;
+    renderedWithGrids: boolean;
   };
   fieldValues: {
     headingAndTextHeadingLevel: HeadingLevelType;
@@ -52,7 +53,7 @@ const BlogCardsContainer = createComponent('div');
 
 export const Component = (props: RecentBlogPostsProps) => {
   const {
-    hublData: { posts, isInEditor },
+    hublData: { posts, isInEditor, renderedWithGrids = false },
     fieldValues: {
       headingAndTextHeadingLevel,
       groupStyle: { cardStyleVariant, headingStyleVariant },
@@ -63,8 +64,12 @@ export const Component = (props: RecentBlogPostsProps) => {
 
   const postsToUse = posts || [];
 
+  const layoutClass = (renderedWithGrids ?? false)
+    ? 'hs-elevate-recent-blog-posts--grids'
+    : 'hs-elevate-recent-blog-posts--bootstrap';
+
   return (
-    <RecentBlogPosts className={swm('hs-elevate-recent-blog-posts')}>
+    <RecentBlogPosts className={cx(swm('hs-elevate-recent-blog-posts'), styles[layoutClass])}>
       <BlogCardsContainer className={swm('hs-elevate-recent-blog-posts__blog-card-container')}>
         {postsToUse.length === 0 && isInEditor ? (
           <PlaceholderEmptyContent title={placeholderTitle} description={placeholderDescription} icon={meta.icon} />
@@ -121,7 +126,8 @@ export const hublDataTemplate = `
   {% set hublData = {
     'posts': blog_posts,
     'blogPostIds': blog_post_ids,
-    'isInEditor': is_in_editor
+    'isInEditor': is_in_editor,
+    'renderedWithGrids': rendered_with_grids
     }
   %}
 `;
