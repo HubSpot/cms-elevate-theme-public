@@ -118,6 +118,10 @@ Building a child theme is a great way to extend the functionality of Elevate wit
 3. Modify the theme.json file to include `"extends": "@hubspot/elevate"`
 4. Copy Elevate'stheme fields.json file (`src/unified-theme/fields.json`) to the root of your new theme.
 
+### Grids functionality
+
+The grids system and related HubL tags are currently only available within the default Elevate theme and can't be used in child themes or custom implementations. Throughout the theme templates, you'll see conditional logic like `{% if grids %} ... {% else %} ...`. When using Elevate as a starting point for development, reference the code within the `{% else %}` blocks, as the grids-specific code will not function outside of the default theme.
+
 ### Notable items
 
 In order to override parent theme files from a child theme, you need to ensure that the file you are trying to override exists at the same path in both themes and has the same file name.
