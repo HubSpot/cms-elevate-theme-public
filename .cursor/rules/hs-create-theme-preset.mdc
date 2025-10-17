@@ -9,18 +9,27 @@ When creating a new theme preset, follow these guidelines to generate a complete
 
 ## Key Principles
 
-- Create a complete preset JSON file with all required properties
-- Use the existing `blue.json` preset as a reference for structure
-- Reference `src/unified-theme/fields.json` for understanding available properties
+- **Inheritance-First Approach**: Only override properties that differ from theme defaults
+- Use the existing `green.json` preset as a reference for minimal structure
+- Reference `src/unified-theme/fields.json` for understanding inheritance patterns
 - Support both complete preset creation and piece-by-piece building
-- Generate intelligent defaults when values aren't provided
+- Leverage theme inheritance system instead of hardcoding everything
 - Use the preset name (capitalized) as the label
 
 ## Core Concepts
 
+### Inheritance Strategy
+
+The theme uses an inheritance system where presets only override specific values they want to change. Fields with `inherited_value` in `fields.json` will automatically fall back to theme defaults when not specified in the preset.
+
+**Key Benefits:**
+- Smaller, more maintainable preset files
+- Automatic updates when theme defaults change
+- Cleaner separation between theme defaults and preset overrides
+
 ### Preset Structure
 
-A theme preset is a JSON file that defines default values for theme customization. The structure follows the field hierarchy defined in `fields.json`:
+A theme preset is a JSON file that defines overrides for theme customization. The structure follows the field hierarchy defined in `fields.json`, but only includes properties that differ from theme defaults:
 
 ```json
 {
@@ -65,20 +74,27 @@ A theme preset is a JSON file that defines default values for theme customizatio
 
 - If `elements` array provided: Only build specified elements
 - If no `elements` specified: Build complete preset
-- Never use default values! Either use the values that are specified in the prompt/mock or add the value as an empty string.
+- **Inheritance-First Approach**: Start with theme defaults, only override what's different
 - If `mockupImage` provided: Extract colors/fonts from image first
 
 ### 3. Value Generation
 
-- **From Image**: Use AI vision to extract dominant colors, font suggestions
+- **From Mock Images**:
+  - Use AI vision to extract dominant colors, font suggestions
+  - **Use exact hex values** specified in the mock (e.g., `#DCEFF4`, `#0D1C1F`)
+  - **Identify selected options** by looking for the darkest background - selected buttons/options will have a darker background color than unselected ones
+  - Pay attention to slider positions for numeric values (e.g., border thickness)
 - **From Manual Values**: Use provided overrides
-- **Default Fallbacks**: Use sensible defaults for missing values
+- **Inheritance-Aware Generation**:
+  - Check `fields.json` for `inherited_value` definitions
+  - Only include properties in preset that differ from theme defaults
+  - Let the theme's inheritance system handle the rest
 
 ### 4. File Creation
 
 - Create `{presetName}.json` in `src/unified-theme/presets/`
 - Use proper JSON formatting with 2-space indentation
-- Include all required properties with generated/default values
+- Include only properties that differ from theme defaults
 
 ## Component Categories
 
@@ -161,18 +177,29 @@ Create a theme preset called "corporate" with primary color #1E3A8A and font "Ro
 Create a theme preset called "sunset" using this mockup image for color inspiration
 ```
 
+### Inheritance Example
+
+```md
+Create a theme preset called "ocean" with blue color scheme
+```
+
+**Result**: Minimal preset that only overrides colors, letting inheritance handle fonts, buttons, forms, etc.
+
 ## Best Practices
 
-### Code Formatting
+### Inheritance-First Design
+- Always check `fields.json` for inheritance definitions before adding values
+- Prefer inheritance over explicit values when possible
+- Only override what's necessary for the preset's unique identity
+- Use theme defaults as the foundation, not hardcoded values
 
+### Code Formatting
 - Use 2-space indentation for JSON
 - Maintain consistent property ordering
 - Use proper JSON syntax with double quotes
-- Follow the exact structure from `blue.json`
-
+- Follow the minimal structure from `green.json`
 
 ### File Organization
-
 - Place all presets in `src/unified-theme/presets/`
 - Use kebab-case for filenames
 
@@ -180,8 +207,8 @@ Create a theme preset called "sunset" using this mockup image for color inspirat
 
 - **File exists**: Warn user, offer to overwrite or rename
 - **Invalid name**: Suggest valid alternatives (kebab-case, no spaces)
-- **Image processing fails**: Fall back to manual values or defaults
-- **Missing required fields**: Use intelligent defaults from `blue.json`
+- **Image processing fails**: Fall back to manual values or inheritance
+- **Missing required fields**: Use theme defaults via inheritance, not hardcoded values
 
 ## Output
 
@@ -194,6 +221,7 @@ The rule will:
 
 ## Reference Files
 
-- **Structure reference**: `src/unified-theme/presets/blue.json`
-- **Field definitions**: `src/unified-theme/fields.json`
+- **Minimal structure reference**: `src/unified-theme/presets/green.json`
+- **Complete structure reference**: `src/unified-theme/presets/blue.json`
+- **Field definitions and inheritance**: `src/unified-theme/fields.json`
 - **Theme configuration**: `src/unified-theme/theme.json`

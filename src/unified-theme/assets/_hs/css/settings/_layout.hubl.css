@@ -20,11 +20,11 @@
 
 {# Spacing #}
 
-{% set element_gap_extra_small = "8px" %}
-{% set element_gap_small = "12px" %}
-{% set element_gap = "16px" %}
-{% set element_gap_large = "20px" %}
-{% set element_gap_extra_large = "24px" %}
+{% set grid_gap_extra_small = "16px" %}
+{% set grid_gap_small = "24px" %}
+{% set grid_gap_medium = "32px" %}
+{% set grid_gap_large = "64px" %}
+{% set grid_gap_extra_large = "96px" %}
 
 {% set spacing_4 = "4px" %}
 {% set spacing_8 = "8px" %}
@@ -59,12 +59,10 @@
 :root {
 
     /* HubSpot DND layout grid */
-
     --hsElevate--column__gap: 2.13%;
     --hsElevate--column__widthMultiplier: 8.333;
 
     /* Sections */
-
     --hsElevate--contentWrapper--narrow__maxWidth: {{ section_width_narrow ~ "px" }};
     --hsElevate--contentWrapper--medium__maxWidth: {{ section_width_medium ~ "px" }};
     --hsElevate--contentWrapper--wide__maxWidth: {{ section_width_wide ~ "px" }};
@@ -79,16 +77,11 @@
     --hsElevate--section--horizontalPadding: {{ section_horizontal_spacing }};
 
     /* Gap - default gaps that could be easily leveraged in module styles via class names */
-
-    /*
-      These gap values are based off of spacing designs, where the base unit is 4px
-      Sakura plans on reviewing spacing designs and updating these values as needed
-    */
-    --hsElevate--gap--extraSmall: {{ element_gap_extra_small }};
-    --hsElevate--gap--small: {{ element_gap_small }};
-    --hsElevate--gap: {{ element_gap }};
-    --hsElevate--gap--large: {{ element_gap_large }};
-    --hsElevate--gap--extraLarge: {{ element_gap_extra_large }};
+    --hsElevate--gap--extraSmall: {{ grid_gap_extra_small }};
+    --hsElevate--gap--small: {{ grid_gap_small }};
+    --hsElevate--gap--medium: {{ grid_gap_medium }};
+    --hsElevate--gap--large: {{ grid_gap_large }};
+    --hsElevate--gap--extraLarge: {{ grid_gap_extra_large }};
 
     /* Spacing - default spacing values  */
     --hsElevate--spacing--4: {{ spacing_4 }};
@@ -118,4 +111,18 @@
     --hsElevate--spacing--176: {{ spacing_176 }};
     --hsElevate--spacing--184: {{ spacing_184 }};
     --hsElevate--spacing--192: {{ spacing_192 }};
+
+    /* Grids */
+    --default-section-padding: var(--hsElevate--section--medium__verticalPadding) var(--hsElevate--section--horizontalPadding);
+    --default-section-margin: 0;
+    --default-section-max-width: var(--hsElevate--contentWrapper--wide__maxWidth);
+    --default-container-padding: 0;
+    --default-container-margin: 0;
+    --default-container-gap: var(--hsElevate--gap--medium);
+    --default-container-row-gap: var(--hsElevate--gap--medium);
+    --default-container-column-gap: var(--hsElevate--gap--medium);
+    --default-table-padding: 0;
+    --default-table-margin: 0;
+    --default-table-row-gap: var(--hsElevate--gap--medium);
+    --default-table-column-gap: var(--hsElevate--gap--medium);
 }

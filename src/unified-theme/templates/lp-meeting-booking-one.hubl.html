@@ -9,13 +9,552 @@
 {% extends "./layouts/base.hubl.html" %}
 
 {% block header %}
-  {% global_partial path="./partials/lp-header.hubl.html" %}
+  {% global_partial path="./partials/lp-header.hubl.html" type="HEADER" %}
 {% endblock header %}
 
 {% block body %}
-  {% dnd_area "dnd_area"
-    label="Main section"
-  %}
+
+{# Default content for testimonials #}
+
+{% set testimonials = [
+    {
+      "quote": "{{ scaffold_content.group_testimonial_cards.testimonial_one or template_translations.lp_meeting_booking_one_testimonial_one.message }}",
+      "author_name": "{{ template_translations.section_testimonial_cards_author_name_1.message }}",
+      "author_title": "{{ template_translations.section_testimonial_cards_author_title_1.message }}"
+    },
+    {
+      "quote": "{{ scaffold_content.group_testimonial_cards.testimonial_two or template_translations.lp_meeting_booking_one_testimonial_two.message }}",
+      "author_name": "{{ template_translations.section_testimonial_cards_author_name_2.message }}",
+      "author_title": "{{ template_translations.section_testimonial_cards_author_title_2.message }}"
+    },
+    {
+      "quote": "{{ scaffold_content.group_testimonial_cards.testimonial_three or template_translations.lp_meeting_booking_one_testimonial_three.message }}",
+      "author_name": "{{ template_translations.section_testimonial_cards_author_name_3.message }}",
+      "author_title": "{{ template_translations.section_testimonial_cards_author_title_3.message }}"
+    }
+  ]
+%}
+{% set testimonials_content = [] %}
+{% for testimonial in testimonials %}
+{% do testimonials_content.append("<p>" ~ testimonial.quote ~ "</p><span><strong>" ~ testimonial.author_name ~ "</strong></span><br><span>" ~ testimonial.author_title ~ "</span>") %}
+{% endfor %}
+
+{% set testimonials_cards = [
+    {
+      "groupIcon": {
+        "icon": {
+          "name": ""
+        }
+      },
+      "groupImage": {
+        "image": {
+          "alt": "",
+          "loading": "lazy",
+          "max_height": 31,
+          "max_width": 160,
+          "size_type": "auto_custom_max",
+          "src": get_asset_url("../images/reviluxify-dark.png")
+        }
+      },
+      "groupContent": {
+        "richTextContentHTML": testimonials_content[0]|render
+      },
+      "groupButton": {
+        "showButton": false
+      }
+    },
+    {
+      "groupIcon": {
+        "icon": {
+          "name": ""
+        }
+      },
+      "groupImage": {
+        "image": {
+          "alt": "",
+          "loading": "lazy",
+          "max_height": 30,
+          "max_width": 160,
+          "size_type": "auto_custom_max",
+          "src": get_asset_url("../images/zyntellix-dark.png")
+        }
+      },
+      "groupContent": {
+        "richTextContentHTML": testimonials_content[1]|render
+      },
+      "groupButton": {
+        "showButton": false
+      }
+    },
+    {
+      "groupIcon": {
+        "icon": {
+          "name": ""
+        }
+      },
+      "groupImage": {
+        "image": {
+          "alt": "",
+          "loading": "lazy",
+          "max_height": 30,
+          "max_width": 160,
+          "size_type": "auto_custom_max",
+          "src": get_asset_url("../images/crypturon-dark.png")
+        }
+      },
+      "groupContent": {
+        "richTextContentHTML": testimonials_content[2]|render
+      },
+      "groupButton": {
+        "showButton": false
+      }
+    }
+  ]
+%}
+
+  {% if grids %}
+    {% dnd_area "dnd_area"
+      label="Main section"
+    %}
+
+      {# Hero banner section #}
+
+      {% dnd_grid_section %}
+        {% dnd_grid_container
+          type={
+            "default": "grid",
+            "mobile": "vertical_stack"
+          },
+          columns=["1fr", "1fr"],
+          rows=["auto"],
+          align_items="start"
+        %}
+          {% dnd_grid_container
+            type="vertical_stack"
+          %}
+            {% dnd_grid_module
+              path="../components/modules/Heading",
+              headingAndTextHeading={{ scaffold_content.group_hero.heading or template_translations.lp_meeting_booking_one_hero_heading.message }},
+              groupStyle={
+                "headingStyleVariant": "display_2"
+              }
+            %}
+            {% end_dnd_grid_module %}
+            {% dnd_grid_module
+              path="../components/modules/RichText",
+              margin={
+                "bottom": spacing_32
+              }
+            %}
+              {% module_attribute "richTextContentHTML" %}
+                <p>{{ scaffold_content.group_hero.description or template_translations.lp_meeting_booking_one_hero_description.message }}</p>
+              {% end_module_attribute %}
+            {% end_dnd_grid_module %}
+            {% dnd_grid_module
+              path="@hubspot/linked_image",
+              img={
+                "alt": scaffold_content.group_hero.image.alt or "",
+                "loading": "eager",
+                "max_height": scaffold_content.group_hero.image.height or 194,
+                "max_width": scaffold_content.group_hero.image.width or 200,
+                "size_type": "auto_custom_max",
+                "src": scaffold_content.group_hero.image.src or get_asset_url("../images/calendar.png")
+              }
+            %}
+            {% end_dnd_grid_module %}
+          {% end_dnd_grid_container %}
+          {% dnd_grid_module
+            path="@hubspot/form",
+            form={
+              "form_id": scaffold_content.group_hero.form.form_id or "",
+              "response_type": scaffold_content.group_hero.form.response_type or "redirect",
+              "redirect_id": scaffold_content.group_hero.form.redirect_id or null,
+              "message": scaffold_content.group_hero.form.message or ""
+            }
+          %}
+          {% end_dnd_grid_module %}
+        {% end_dnd_grid_container %}
+      {% end_dnd_grid_section %}
+
+      {# Testimonial cards section #}
+
+      {% dnd_grid_section
+        padding={
+          "top": section_vertical_spacing_medium,
+          "bottom": section_vertical_spacing_medium
+        }
+      %}
+        {% dnd_grid_container
+          type="vertical_stack"
+        %}
+          {% dnd_grid_module
+            path="../components/modules/Card",
+            imageOrIcon="image",
+            groupCards={{ testimonials_cards }},
+            groupStyle={
+              "groupContent": {
+                "alignment": {
+                  "horizontal_align": "CENTER"
+                }
+              }
+            }
+          %}
+          {% end_dnd_grid_module %}
+        {% end_dnd_grid_container %}
+      {% end_dnd_grid_section %}
+
+      {# Features section #}
+
+      {% dnd_grid_section
+        background_layers=[
+          {
+            "type": "color",
+            "value": light_section_2_background_color
+          }
+        ]
+      %}
+        {% dnd_grid_container
+          type="vertical_stack"
+        %}
+          {% dnd_grid_module
+            path="../components/modules/Heading",
+            headingAndTextHeadingLevel="h2",
+            headingAndTextHeading={{ scaffold_content.group_features.heading or template_translations.lp_meeting_booking_one_features_heading.message }},
+            groupStyle={
+              "alignment": {
+                "text_align": "CENTER"
+              },
+              "headingStyleVariant": "h2",
+              "sectionStyleVariant": "section_variant_2"
+            }
+          %}
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
+            path="../components/modules/RichText",
+            groupStyle={
+              "sectionStyleVariant": "section_variant_2"
+            }
+          %}
+            {% module_attribute "richTextContentHTML" %}
+              <div style="text-align: center;">
+                <p>{{ scaffold_content.group_features.description or template_translations.lp_meeting_booking_one_features_description.message }}</p>
+              </div>
+            {% end_module_attribute %}
+          {% end_dnd_grid_module %}
+          {% dnd_grid_container
+            type={
+              "default": "grid",
+              "mobile": "vertical_stack"
+            },
+            columns=["4fr", "8fr"],
+            rows=["auto"],
+            align_items="start"
+          %}
+            {% dnd_grid_module
+              path="@hubspot/linked_image",
+              img={
+                "alt": scaffold_content.group_features.image.alt or "",
+                "loading": "lazy",
+                "max_height": scaffold_content.group_features.image.height or 524,
+                "max_width": scaffold_content.group_features.image.width or 372,
+                "size_type": "auto_custom_max",
+                "src": scaffold_content.group_features.image.src or get_asset_url("../images/features.png")
+              }
+            %}
+            {% end_dnd_grid_module %}
+            {% dnd_grid_module
+              path="../components/modules/FeatureList",
+              groupFeatures=[
+                {
+                  "groupIcon": {
+                    "showIcon": true,
+                    "icon": {
+                      "name": "file-pen"
+                    }
+                  },
+                  "groupFeatureContent": {
+                    "headingAndTextHeadingLevel": "h3",
+                    "headingAndTextHeading": scaffold_content.group_features.group_feature_one.heading or template_translations.section_features_feature_one_heading.message,
+                    "featureDescription": scaffold_content.group_features.group_feature_one.content or template_translations.lp_meeting_booking_one_feature_one_content.message
+                  }
+                },
+                {
+                  "groupIcon": {
+                    "showIcon": true,
+                    "icon": {
+                      "name": "chart-simple"
+                    }
+                  },
+                  "groupFeatureContent": {
+                    "headingAndTextHeadingLevel": "h3",
+                    "headingAndTextHeading": scaffold_content.group_features.group_feature_two.heading or template_translations.section_features_feature_two_heading.message,
+                    "featureDescription": scaffold_content.group_features.group_feature_two.content or template_translations.lp_meeting_booking_one_feature_two_content.message
+                  }
+                },
+                {
+                  "groupIcon": {
+                    "showIcon": true,
+                    "icon": {
+                      "name": "message",
+                      "type": "SOLID"
+                    }
+                  },
+                  "groupFeatureContent": {
+                    "headingAndTextHeadingLevel": "h3",
+                    "headingAndTextHeading": scaffold_content.group_features.group_feature_three.heading or template_translations.section_features_feature_three_heading.message,
+                    "featureDescription": scaffold_content.group_features.group_feature_three.content or template_translations.lp_meeting_booking_one_feature_three_content.message
+                  }
+                },
+                {
+                  "groupIcon": {
+                    "showIcon": true,
+                    "icon": {
+                      "name": "puzzle-piece"
+                    }
+                  },
+                  "groupFeatureContent": {
+                    "headingAndTextHeadingLevel": "h3",
+                    "headingAndTextHeading": scaffold_content.group_features.group_feature_four.heading or template_translations.section_features_feature_four_heading.message,
+                    "featureDescription": scaffold_content.group_features.group_feature_four.content or template_translations.lp_meeting_booking_one_feature_four_content.message
+                  }
+                },
+                {
+                  "groupIcon": {
+                    "showIcon": true,
+                    "icon": {
+                      "name": "wand-magic-sparkles"
+                    }
+                  },
+                  "groupFeatureContent": {
+                    "headingAndTextHeadingLevel": "h3",
+                    "headingAndTextHeading": scaffold_content.group_features.group_feature_five.heading or template_translations.section_features_feature_five_heading.message,
+                    "featureDescription": scaffold_content.group_features.group_feature_five.content or template_translations.lp_meeting_booking_one_feature_five_content.message
+                  }
+                },
+                {
+                  "groupIcon": {
+                    "showIcon": true,
+                    "icon": {
+                      "name": "calendar-days",
+                      "type": "SOLID"
+                    }
+                  },
+                  "groupFeatureContent": {
+                    "headingAndTextHeadingLevel": "h3",
+                    "headingAndTextHeading": scaffold_content.group_features.group_feature_six.heading or template_translations.section_features_feature_six_heading.message,
+                    "featureDescription": scaffold_content.group_features.group_feature_six.content or template_translations.lp_meeting_booking_one_feature_six_content.message
+                  }
+                },
+                {
+                  "groupIcon": {
+                    "showIcon": true,
+                    "icon": {
+                      "name": "robot"
+                    }
+                  },
+                  "groupFeatureContent": {
+                    "headingAndTextHeadingLevel": "h3",
+                    "headingAndTextHeading": scaffold_content.group_features.group_feature_seven.heading or template_translations.section_features_feature_seven_heading.message,
+                    "featureDescription": scaffold_content.group_features.group_feature_seven.content or template_translations.lp_meeting_booking_one_feature_seven_content.message
+                  }
+                },
+                {
+                  "groupIcon": {
+                    "showIcon": true,
+                    "icon": {
+                      "name": "share-nodes"
+                    }
+                  },
+                  "groupFeatureContent": {
+                    "headingAndTextHeadingLevel": "h3",
+                    "headingAndTextHeading": scaffold_content.group_features.group_feature_eight.heading or template_translations.section_features_feature_eight_heading.message,
+                    "featureDescription": scaffold_content.group_features.group_feature_eight.content or template_translations.lp_meeting_booking_one_feature_eight_content.message
+                  }
+                }
+              ],
+              groupStyle={
+                "sectionStyleVariant": "section_variant_2",
+                "headingStyleVariant": "h5"
+              }
+            %}
+            {% end_dnd_grid_module %}
+          {% end_dnd_grid_container %}
+        {% end_dnd_grid_container %}
+      {% end_dnd_grid_section %}
+
+      {# Testimonials section #}
+
+      {% dnd_grid_section
+        background_layers=[
+          {
+            "type": "color",
+            "value": dark_section_1_background_color
+          }
+        ],
+        padding={
+          "top": section_vertical_spacing_medium,
+          "bottom": section_vertical_spacing_medium
+        }
+      %}
+        {% dnd_grid_container
+          type="vertical_stack"
+        %}
+          {% dnd_grid_module
+            path="../components/modules/TestimonialSlider",
+            groupTestimonial=[
+              {
+                "groupQuote": {
+                  "quote": scaffold_content.group_testimonial.quote or template_translations.lp_meeting_booking_one_testimonial_quote.message
+                },
+                "groupAuthor": {
+                  "authorName": scaffold_content.group_testimonial.author_name or template_translations.shared_testimonials_author_name_1.message,
+                  "authorTitle": scaffold_content.group_testimonial.author_title or template_translations.shared_testimonials_author_title_1.message,
+                  "authorImage": scaffold_content.group_testimonial.author_image.src or {}
+                },
+                "groupImage": {
+                  "showImage": true,
+                  "image": {
+                    "alt": "",
+                    "loading": "lazy",
+                    "max_height": 300,
+                    "max_width": 300,
+                    "size_type": "auto_custom_max",
+                    "src": get_asset_url("../images/testimonial-user-image-1.png")
+                  }
+                },
+                "groupLink": {
+                  "linkText": scaffold_content.group_testimonial.link_text or template_translations.shared_testimonials_link_text.message,
+                  "link": {
+                    "url": scaffold_content.group_testimonial.link.url.href or {}
+                  }
+                }
+              }
+            ],
+            groupStyle={
+              "cardStyleVariant": "card_variant_3"
+            }
+          %}
+          {% end_dnd_grid_module %}
+        {% end_dnd_grid_container %}
+      {% end_dnd_grid_section %}
+
+      {# Video #}
+
+      {% dnd_grid_section %}
+        {% dnd_grid_container
+          type="vertical_stack"
+        %}
+          {% dnd_grid_module
+            path="../components/modules/Heading",
+            headingAndTextHeadingLevel="h2",
+            headingAndTextHeading={{ scaffold_content.group_video.heading or template_translations.lp_meeting_booking_one_video_heading.message }},
+            groupStyle={
+              "alignment": {
+                "text_align": "CENTER"
+              },
+              "headingStyleVariant": "h2"
+            }
+          %}
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
+            path="../components/modules/RichText"
+          %}
+            {% module_attribute "richTextContentHTML" %}
+              <p style="text-align: center;">{{ scaffold_content.group_video.description or template_translations.lp_meeting_booking_one_video_description.message }}</p>
+            {% end_module_attribute %}
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
+            path="@hubspot/video",
+            embed_field={
+              "oembed_response": {
+                "type": "video"
+              },
+              "oembed_url": "https://www.youtube.com/watch?v=q89-gvYRO_I",
+              "size_type": "auto_full_width",
+              "source_type": "oembed"
+            },
+            oembed_thumbnail={
+              "src": scaffold_content.group_video.thumbnail_image.src or get_asset_url("../images/video-placeholder-full-width.png")
+            },
+            video_type="embed"
+          %}
+          {% end_dnd_grid_module %}
+        {% end_dnd_grid_container %}
+      {% end_dnd_grid_section %}
+
+      {# Call to action #}
+
+      {% dnd_grid_section
+        padding={
+          "top": spacing_0,
+          "bottom": section_vertical_spacing_small
+        },
+      %}
+        {% dnd_grid_container
+          type="vertical_stack"
+        %}
+          {% dnd_grid_module
+            path="../components/modules/Card",
+            imageOrIcon="image",
+            groupCards=[
+              {
+                "groupImage": {
+                  "image": {
+                    "src": scaffold_content.group_cta.image.src or get_asset_url("../images/event-signup-two-cta.png"),
+                    "alt": scaffold_content.group_cta.image.alt or "",
+                    "loading": "lazy",
+                    "size_type": "auto_custom_max"
+                  }
+                },
+                "groupIcon": {
+                  "icon": {
+                    "name": "play-circle"
+                  }
+                },
+                "groupContent": {
+                  "headingAndTextHeadingLevel": "h2",
+                  "headingAndTextHeading": scaffold_content.group_cta.heading or template_translations.lp_meeting_booking_one_cta_heading.message
+                },
+                "groupButton": {
+                  "showButton": true,
+                  "buttonContentText": scaffold_content.group_cta.button_text or template_translations.lp_meeting_booking_one_cta_button_text.message,
+                  "buttonContentLink": {
+                    "url": {
+                      "href": scaffold_content.group_cta.button_link.url.href or ""
+                    }
+                  },
+                  "buttonContentShowIcon": true,
+                  "buttonContentIcon": {
+                    "name": "arrow-right"
+                  },
+                  "buttonContentIconPosition": "right"
+                }
+              }
+            ],
+            groupStyle={
+              "groupCard": {
+                "cardOrientation": "row",
+                "cardStyleVariant": "card_variant_2"
+              },
+              "groupContent": {
+                "alignment": {
+                  "horizontal_align": "LEFT"
+                }
+              },
+              "groupButton": {
+                "buttonStyleVariant": "primary"
+              }
+            }
+          %}
+          {% end_dnd_grid_module %}
+        {% end_dnd_grid_container %}
+      {% end_dnd_grid_section %}
+
+    {% end_dnd_area %}
+  {% else %}
+    {% dnd_area "dnd_area"
+      label="Main section"
+    %}
 
     {# Hero banner section #}
 
@@ -265,9 +804,10 @@
       }
     %}
 
-  {% end_dnd_area %}
+    {% end_dnd_area %}
+  {% endif %}
 {% endblock body %}
 
 {% block footer %}
-  {% global_partial path="./partials/lp-footer.hubl.html" %}
+  {% global_partial path="./partials/lp-footer.hubl.html" type="FOOTER" %}
 {% endblock footer %}

@@ -1,33 +1,56 @@
-.hs-elevate-metrics {
-  container-type: inline-size;
-}
-
 .hs-elevate-metrics__container {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--hsElevate--spacing--32, 32px);
 }
 
-/* Combined container queries for better organization */
-@container (min-width: 700px) {
-  .hs-elevate-metrics__container--count-2,
-  .hs-elevate-metrics__container--count-4 {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--hsElevate--spacing--24, 24px);
+.hs-elevate-metrics--bootstrap {
+  container-type: inline-size;
+
+  @container (min-width: 700px) {
+    .hs-elevate-metrics__container--count-2,
+    .hs-elevate-metrics__container--count-4 {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--hsElevate--spacing--24, 24px);
+    }
+  }
+
+  @container (min-width: 900px) {
+    .hs-elevate-metrics__container--count-3 {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--hsElevate--spacing--24, 24px);
+    }
+  }
+
+  @container (min-width: 950px) {
+    .hs-elevate-metrics__container--count-4 {
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--hsElevate--spacing--16, 16px);
+    }
   }
 }
 
-@container (min-width: 900px) {
-  .hs-elevate-metrics__container--count-3 {
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--hsElevate--spacing--24, 24px);
+.hs-elevate-metrics--grids {
+  @media (width >= 700px) {
+    .hs-elevate-metrics__container--count-2,
+    .hs-elevate-metrics__container--count-4 {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--hsElevate--spacing--24, 24px);
+    }
   }
-}
 
-@container (min-width: 950px) {
-  .hs-elevate-metrics__container--count-4 {
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--hsElevate--spacing--16, 16px);
+  @media (width >= 900px) {
+    .hs-elevate-metrics__container--count-3 {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--hsElevate--spacing--24, 24px);
+    }
+  }
+
+  @media (width >= 950px) {
+    .hs-elevate-metrics__container--count-4 {
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--hsElevate--spacing--16, 16px);
+    }
   }
 }
 
