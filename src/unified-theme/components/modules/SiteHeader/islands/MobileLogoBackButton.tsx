@@ -18,8 +18,6 @@ type MobileLogoBackButtonProps = {
   isInEditor: boolean;
   logoPlaceholderTitle: string;
   logoPlaceholderDescription: string;
-  companyPlaceholderTitle: string;
-  companyPlaceholderDescription: string;
 };
 
 // Components
@@ -40,8 +38,6 @@ export default function MobileLogoBackButton(props: MobileLogoBackButtonProps) {
     isInEditor,
     logoPlaceholderTitle,
     logoPlaceholderDescription,
-    companyPlaceholderTitle,
-    companyPlaceholderDescription,
   } = props;
   const [triggeredMenuItems, setTriggeredMenuItems] = useSharedIslandState();
   const showBackButton = triggeredMenuItems.length > 0;
@@ -56,14 +52,12 @@ export default function MobileLogoBackButton(props: MobileLogoBackButtonProps) {
 
   const logoImageClasses = cx(swm('hs-elevate-site-header__logo'), { [styles['hs-elevate-site-header__logo--is-svg']]: isFileTypeSvg });
 
-  const renderLogoAreaPlaceholder = () => {
-    const showCompanyName = !suppress_company_name;
+  const showCompanyName = !suppress_company_name;
 
-    if (!showCompanyName) {
+  // when logo is not set and user is in editor:
+  const renderLogoAreaPlaceholder = () => {
+    if (!showCompanyName || (showCompanyName && !companyName)) {
       return <PlaceholderEmptyContent title={logoPlaceholderTitle} description={logoPlaceholderDescription} />;
-    }
-    if (showCompanyName && !companyName) {
-      return <PlaceholderEmptyContent title={companyPlaceholderTitle} description={companyPlaceholderDescription} />;
     }
     return null;
   };
@@ -82,7 +76,9 @@ export default function MobileLogoBackButton(props: MobileLogoBackButtonProps) {
           <LogoLinkScreenReader className={cx(styles['hs-elevate-site-header__logo-link-screen-reader'])}>{logoLinkAriaText}</LogoLinkScreenReader>
         </LogoLink>
       )}
-      {!logoSrc && !suppress_company_name && <CompanyNameFallback className={swm('hs-elevate-site-header__company-name')}>{companyName}</CompanyNameFallback>}
+      {!logoSrc && showCompanyName && companyName && (
+        <CompanyNameFallback className={swm('hs-elevate-site-header__company-name')}>{companyName}</CompanyNameFallback>
+      )}
       {!logoSrc && isInEditor && renderLogoAreaPlaceholder()}
     </BackButtonContainer>
   );

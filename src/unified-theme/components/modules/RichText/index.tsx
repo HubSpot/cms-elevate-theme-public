@@ -6,12 +6,15 @@ import richTextIconSvg from './assets/rich-text.svg';
 import { SectionStyleFieldLibraryType } from '../../fieldLibrary/SectionStyle/types.js';
 import { sectionColorsMap } from '../../utils/section-color-map.js';
 import { CSSPropertiesMap } from '../../types/components.js';
-import { staticWithModule } from '../../utils/classnames.js';
+import cx, { staticWithModule } from '../../utils/classnames.js';
 
 const swm = staticWithModule(styles);
 
 type RichTextProps = {
   groupStyle: SectionStyleFieldLibraryType;
+  hublData: {
+    renderedWithGrids: boolean;
+  };
 };
 
 // Function to generate CSS variables for colors
@@ -35,14 +38,24 @@ function generateColorCssVars(sectionVariantField: SectionVariantType): CSSPrope
 export const Component = (props: RichTextProps) => {
   const {
     groupStyle: { sectionStyleVariant },
+    hublData: { renderedWithGrids = false },
   } = props;
 
   const cssVarsMap = { ...generateColorCssVars(sectionStyleVariant) };
 
-  return <RichText className={swm('hs-elevate-rich-text')} fieldPath="richTextContentHTML" style={cssVarsMap} />;
+  const layoutClass = (renderedWithGrids ?? false) ? 'hs-elevate-rich-text--grids' : 'hs-elevate-rich-text--bootstrap';
+
+  return <RichText className={cx(swm('hs-elevate-rich-text'), styles[layoutClass])} fieldPath="richTextContentHTML" style={cssVarsMap} />;
 };
 
 export { fields } from './fields.js';
+
+export const hublDataTemplate = `
+  {% set hublData = {
+      "renderedWithGrids": rendered_with_grids,
+    }
+  %}
+`;
 
 export const meta: ModuleMeta = {
   label: 'Rich text',

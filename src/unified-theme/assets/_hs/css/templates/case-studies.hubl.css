@@ -53,20 +53,20 @@
 }
 
 .cs-feature .cs-feature__link {
-  color: var(--hsElevate--card--variant2__iconColor);
+  color: var(--hsElevate--card--variant2--link__fontColor);
 }
 
 .cs-feature .cs-feature__link:hover {
-  color: var(--hsElevate--card--variant2__iconColor);
+  color: var(--hsElevate--card--variant2--link__hover--fontColor);
   opacity: 0.8;
 }
 
 .cs-feature .cs-feature__link .cs-feature__chevron-path {
-  fill: var(--hsElevate--card--variant2__iconColor);
+  fill: var(--hsElevate--card--variant2--link__fontColor);
 }
 
 .cs-feature .cs-feature__link:hover .cs-feature__chevron-path {
-  fill: var(--hsElevate--card--variant2__iconColor);
+  fill: var(--hsElevate--card--variant2--link__hover--fontColor);
   opacity: 0.8;
 }
 

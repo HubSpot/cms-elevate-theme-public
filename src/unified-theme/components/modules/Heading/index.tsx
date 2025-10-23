@@ -8,7 +8,7 @@ import { SectionStyleFieldLibraryType } from '../../fieldLibrary/SectionStyle/ty
 import { HeadingStyleFieldLibraryType } from '../../fieldLibrary/HeadingStyle/types.js';
 import { HeadingAndTextFieldLibraryType } from '../../fieldLibrary/HeadingAndText/types.js';
 import { sectionColorsMap } from '../../utils/section-color-map.js';
-import { staticWithModule } from '../../utils/classnames.js';
+import cx, { staticWithModule } from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
 import { CSSPropertiesMap } from '../../types/components.js';
 
@@ -22,6 +22,9 @@ type GroupStyle = SectionStyleFieldLibraryType &
   };
 type HeadingProps = HeadingAndTextFieldLibraryType & {
   groupStyle: GroupStyle;
+  hublData: {
+    renderedWithGrids: boolean;
+  };
 };
 
 // Heading
@@ -43,12 +46,15 @@ export const Component = (props: HeadingProps) => {
     headingAndTextHeadingLevel,
     headingAndTextHeading,
     groupStyle: { alignment, headingStyleVariant, sectionStyleVariant },
+    hublData: { renderedWithGrids = false },
   } = props;
 
   const cssVarsMap = { ...generateColorCssVars(sectionStyleVariant) };
 
+  const layoutClass = (renderedWithGrids ?? false) ? 'hs-elevate-heading-container--grids' : 'hs-elevate-heading-container--bootstrap';
+
   return (
-    <HeadingContainer style={cssVarsMap} className={swm('hs-elevate-heading-container')}>
+    <HeadingContainer className={cx(swm('hs-elevate-heading-container'), styles[layoutClass])} style={cssVarsMap}>
       <HeadingComponent
         additionalClassArray={['hs-elevate-heading-container__heading']}
         headingLevel={headingAndTextHeadingLevel}
@@ -61,6 +67,13 @@ export const Component = (props: HeadingProps) => {
 };
 
 export { fields } from './fields.js';
+
+export const hublDataTemplate = `
+  {% set hublData = {
+      "renderedWithGrids": rendered_with_grids,
+    }
+  %}
+`;
 
 export const meta: ModuleMeta = {
   label: 'Heading',

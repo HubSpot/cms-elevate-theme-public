@@ -8,7 +8,7 @@ import { Button } from '../../ButtonComponent/index.js';
 import buttonIconSvg from './assets/button.svg';
 import { ButtonContentType } from '../../fieldLibrary/ButtonContent/types.js';
 import { ButtonStyleFieldLibraryType } from '../../fieldLibrary/ButtonStyle/types.js';
-import { staticWithModule } from '../../utils/classnames.js';
+import cx, { staticWithModule } from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
 import { CSSPropertiesMap } from '../../types/components.js';
 
@@ -45,6 +45,9 @@ type ButtonProps = {
   groupButtons: ButtonContentType[];
   groupStyle: GroupStyle;
   groupAriaLabels: GroupAriaLabels;
+  hublData: {
+    renderedWithGrids: boolean;
+  };
 };
 
 // Function to set the aria label based on the link type
@@ -95,6 +98,7 @@ export const Component = (props: ButtonProps) => {
     groupButtons,
     groupStyle: { alignment, buttonStyleVariant, buttonStyleSize, gap },
     groupAriaLabels,
+    hublData: { renderedWithGrids = false },
   } = props;
 
   const cssVarsMap = {
@@ -102,8 +106,10 @@ export const Component = (props: ButtonProps) => {
     ...generateAlignmentCssVars(alignment),
   };
 
+  const layoutClass = (renderedWithGrids ?? false) ? 'hs-elevate-button-wrapper--grids' : 'hs-elevate-button-wrapper--bootstrap';
+
   return (
-    <ButtonWrapper className={swm('hs-elevate-button-wrapper')} style={cssVarsMap}>
+    <ButtonWrapper className={cx(swm('hs-elevate-button-wrapper'), styles[layoutClass])} style={cssVarsMap}>
       <ButtonContainer className={swm('hs-elevate-button-container')}>
         {groupButtons.map((button, index) => (
           <Button
@@ -128,6 +134,13 @@ export const Component = (props: ButtonProps) => {
 };
 
 export { fields } from './fields.js';
+
+export const hublDataTemplate = `
+  {% set hublData = {
+      "renderedWithGrids": rendered_with_grids,
+    }
+  %}
+`;
 
 export const meta: ModuleMeta = {
   label: 'Button',

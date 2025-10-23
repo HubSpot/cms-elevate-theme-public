@@ -1,0 +1,10 @@
+/* Onyx preset specific styles */
+{% set themePresetDetails = theme_preset %}
+{% if themePresetDetails and themePresetDetails.name == 'onyx' %}
+
+/* Grayscale effect for default images */
+img[src*="cms-elevate-theme_hubspot"] {
+  filter: grayscale(100%);
+}
+
+{% endif %}
