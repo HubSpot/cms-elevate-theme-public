@@ -71,6 +71,9 @@ type CardProps = {
   imageOrIcon: 'icon' | 'image';
   groupCards: GroupCards[];
   groupStyle: GroupStyle;
+  hublData: {
+    renderedWithGrids: boolean;
+  };
 };
 
 // Functions to generate CSS variables
@@ -141,6 +144,7 @@ export const Component = (props: CardProps) => {
       groupContent: { alignment, headingStyleVariant },
       groupButton: { buttonStyleVariant, buttonStyleSize },
     },
+    hublData: { renderedWithGrids = false },
   } = props;
 
   const isIcon = imageOrIcon === 'icon';
@@ -154,8 +158,10 @@ export const Component = (props: CardProps) => {
     ...generateAlignmentCssVars(alignment),
   };
 
+  const layoutClass = (renderedWithGrids ?? false) ? 'hs-elevate-card-container--grids' : 'hs-elevate-card-container--bootstrap';
+
   return (
-    <CardContainer className={swm('hs-elevate-card-container')} style={cssVarsMap}>
+    <CardContainer className={cx(swm('hs-elevate-card-container'), styles[layoutClass])} style={cssVarsMap}>
       {groupCards.map((card, index) => {
         const {
           groupButton: {
@@ -237,6 +243,13 @@ export const Component = (props: CardProps) => {
 };
 
 export { fields } from './fields.js';
+
+export const hublDataTemplate = `
+  {% set hublData = {
+      "renderedWithGrids": rendered_with_grids,
+    }
+  %}
+`;
 
 export const meta: ModuleMeta = {
   label: 'Card',

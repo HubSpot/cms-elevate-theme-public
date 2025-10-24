@@ -24,3 +24,6 @@
 @import './components/_footer.hubl.css';
 @import './components/_menu.hubl.css';
 @import './components/_default-modules.css';
+
+/* Preset-specific styles */
+@import './presets/_onyx.hubl.css';

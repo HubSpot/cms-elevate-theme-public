@@ -6,7 +6,7 @@ import styles from './list.module.css';
 import { SectionVariantType } from '../../types/fields.js';
 import { SectionStyleFieldLibraryType } from '../../fieldLibrary/SectionStyle/types.js';
 import { sectionColorsMap } from '../../utils/section-color-map.js';
-import { staticWithModule } from '../../utils/classnames.js';
+import cx, { staticWithModule } from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
 import { CSSPropertiesMap } from '../../types/components.js';
 
@@ -14,17 +14,20 @@ const swm = staticWithModule(styles);
 
 // Types
 
-type ListProps = {
-  listIcon: IconFieldType['default'];
-  groupListItems: GroupListItems[];
-  groupStyle: GroupStyle;
+export type GroupListItems = {
+  groupListContent: {
+    listItemContent: TextFieldType['default'];
+  };
 };
 
 export type GroupStyle = SectionStyleFieldLibraryType;
 
-export type GroupListItems = {
-  groupListContent: {
-    listItemContent: TextFieldType['default'];
+type ListProps = {
+  listIcon: IconFieldType['default'];
+  groupListItems: GroupListItems[];
+  groupStyle: GroupStyle;
+  hublData: {
+    renderedWithGrids: boolean;
   };
 };
 
@@ -49,29 +52,41 @@ export const Component = (props: ListProps) => {
     listIcon,
     groupListItems,
     groupStyle: { sectionStyleVariant },
+    hublData: { renderedWithGrids = false },
   } = props;
 
   const cssColorVars = { ...generateColorCssVars(sectionStyleVariant) };
 
+  const layoutClass = (renderedWithGrids ?? false) ? 'hs-elevate-list-container--grids' : 'hs-elevate-list-container--bootstrap';
+
   return (
-    <ListContainer className={swm('hs-elevate-list-container')} style={cssColorVars}>
-      {groupListItems.map((item, index) => {
-        return (
-          <ListItem className={swm('hs-elevate-list-container__item')} key={`${index} ${item.groupListContent.listItemContent}`}>
-            {listIcon.name && (
-              <IconContainer className={swm('hs-elevate-list-container__icon-container')}>
-                <Icon className={swm('hs-elevate-list-container__icon')} fieldPath="listIcon" purpose="DECORATIVE" />
-              </IconContainer>
-            )}
-            {item.groupListContent.listItemContent}
-          </ListItem>
-        );
-      })}
+    <ListContainer className={cx(swm('hs-elevate-list-container'), styles[layoutClass])} style={cssColorVars}>
+      {
+        groupListItems.map((item, index) => {
+          return (
+            <ListItem className={swm('hs-elevate-list-container__item')} key={`${index} ${item.groupListContent.listItemContent}`}>
+              {listIcon.name && (
+                <IconContainer className={swm('hs-elevate-list-container__icon-container')}>
+                  <Icon className={swm('hs-elevate-list-container__icon')} fieldPath="listIcon" purpose="DECORATIVE" />
+                </IconContainer>
+              )}
+              {item.groupListContent.listItemContent}
+            </ListItem>
+          );
+        })
+      }
     </ListContainer>
   );
 };
 
 export { fields } from './fields.js';
+
+export const hublDataTemplate = `
+  {% set hublData = {
+      "renderedWithGrids": rendered_with_grids,
+    }
+  %}
+`;
 
 export const meta: ModuleMeta = {
   label: 'List',

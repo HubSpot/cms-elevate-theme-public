@@ -9,7 +9,7 @@
 {% extends "./layouts/base.hubl.html" %}
 
 {% block header %}
-  {% global_partial path="./partials/lp-header.hubl.html" %}
+  {% global_partial path="./partials/lp-header.hubl.html" type="HEADER" %}
 {% endblock header %}
 
 {% set accordion_one_answer = "<p>{{ scaffold_content.group_faq.answer_one or template_translations.lp_information_request_one_faq_answer_one.message }}</p>" %}
@@ -20,9 +20,448 @@
 {% set accordion_six_answer = "<p>{{ scaffold_content.group_faq.answer_six or template_translations.lp_information_request_one_faq_answer_six.message }}</p>" %}
 
 {% block body %}
-  {% dnd_area "dnd_area"
-    label="Main section"
-  %}
+  {% if grids %}
+    {% dnd_area "dnd_area"
+      label="Main section"
+    %}
+
+      {# Hero banner section #}
+
+      {% dnd_grid_section
+        padding={
+          "top": section_vertical_spacing_extra_small,
+          "bottom": section_vertical_spacing_extra_small
+        }
+      %}
+        {% dnd_grid_container
+          type={
+            "default": "grid",
+            "mobile": "vertical_stack"
+          },
+          columns=["1fr", "1fr"],
+          rows=["auto"],
+          align_items="center"
+        %}
+          {% dnd_grid_container
+            type="vertical_stack"
+          %}
+            {% dnd_grid_module
+              path="../components/modules/RichText",
+              groupStyle={
+                "sectionStyleVariant": "section_variant_1"
+              }
+            %}
+              {% module_attribute "richTextContentHTML" %}
+                <p>{{ scaffold_content.group_hero_banner.tag_line or template_translations.lp_resource_download_one_hero_tag_line.message }}</p>
+              {% end_module_attribute %}
+            {% end_dnd_grid_module %}
+            {% dnd_grid_module
+              path="../components/modules/Heading",
+              headingAndTextHeadingLevel="h1",
+              headingAndTextHeading={{ scaffold_content.group_hero_banner.heading or template_translations.lp_resource_download_one_hero_heading.message }},
+              groupStyle={
+                "alignment": {
+                  "text_align": "LEFT"
+                },
+                "headingStyleVariant": "display_2",
+                "sectionStyleVariant": "section_variant_1"
+              }
+            %}
+            {% end_dnd_grid_module %}
+            {% dnd_grid_module
+              path="../components/modules/RichText",
+              groupStyle={
+                "sectionStyleVariant": "section_variant_1"
+              }
+            %}
+              {% module_attribute "richTextContentHTML" %}
+                <p>{{ scaffold_content.group_hero_banner.paragraph or template_translations.lp_resource_download_one_hero_paragraph.message }}</p>
+              {% end_module_attribute %}
+            {% end_dnd_grid_module %}
+            {% dnd_grid_module
+              path="../components/modules/Button",
+              groupButtons=[
+                {
+                  "buttonContentText": scaffold_content.group_hero_banner.button_text or template_translations.lp_resource_download_one_hero_button_text.message,
+                  "buttonContentLink": {
+                    "url": {
+                      "href": scaffold_content.group_hero_banner.button_link.url.href or ""
+                    }
+                  },
+                  "buttonContentShowIcon": true,
+                  "buttonContentIcon": {
+                    "name": "download"
+                  },
+                  "buttonContentIconPosition": "right"
+                }
+              ],
+              groupStyle={
+                "alignment": {
+                  "horizontal_align": "LEFT"
+                },
+                "buttonStyleSize": "medium",
+                "buttonStyleVariant": "primary"
+              }
+            %}
+            {% end_dnd_grid_module %}
+          {% end_dnd_grid_container %}
+          {% dnd_grid_module
+            path="@hubspot/linked_image",
+            img={
+              "alt": scaffold_content.group_hero_banner.image.alt or "",
+              "loading": "eager",
+              "max_height": scaffold_content.group_hero_banner.image.height or 650,
+              "max_width": scaffold_content.group_hero_banner.image.width or 650,
+              "size_type": "auto_custom_max",
+              "src": scaffold_content.group_hero_banner.image.src or get_asset_url("../images/document-grid.png")
+            }
+          %}
+          {% end_dnd_grid_module %}
+        {% end_dnd_grid_container %}
+      {% end_dnd_grid_section %}
+
+      {# Features section #}
+
+      {% dnd_grid_section
+        background_layers=[
+          {
+            "type": "color",
+            "value": dark_section_1_background_color
+          }
+        ],
+      %}
+        {% dnd_grid_container
+          type="vertical_stack"
+        %}
+          {% dnd_grid_module
+            path="../components/modules/Heading",
+            headingAndTextHeadingLevel="h2",
+            headingAndTextHeading={{ scaffold_content.group_features.heading or template_translations.lp_resource_download_one_features_heading.message }},
+            groupStyle={
+              "alignment": {
+                "text_align": "CENTER"
+              },
+              "headingStyleVariant": "h2",
+              "sectionStyleVariant": "section_variant_4"
+            }
+          %}
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
+            path="../components/modules/RichText",
+            groupStyle={
+              "sectionStyleVariant": "section_variant_4"
+            }
+          %}
+            {% module_attribute "richTextContentHTML" %}
+              <p style="text-align: center;">{{ scaffold_content.group_features.description or template_translations.lp_resource_download_one_features_description.message }}</p>
+            {% end_module_attribute %}
+          {% end_dnd_grid_module %}
+          {% dnd_grid_container
+            type={
+              "default": "grid",
+              "mobile": "vertical_stack"
+            },
+            columns=["4fr", "8fr"],
+            rows=["auto"],
+            gap={
+              "default": grid_gap_extra_small,
+              "mobile": grid_gap_medium
+            }
+          %}
+            {% dnd_grid_module
+              path="@hubspot/linked_image",
+              img={
+                "alt": scaffold_content.group_features.image.alt or "",
+                "loading": "lazy",
+                "max_height": 524,
+                "max_width": 372,
+                "size_type": "auto_custom_max",
+                "src": scaffold_content.group_features.image.src or get_asset_url("../images/features.png")
+              }
+            %}
+            {% end_dnd_grid_module %}
+            {% dnd_grid_module
+              path="../components/modules/FeatureList",
+              groupFeatures=[
+                {
+                  "groupIcon": {
+                    "showIcon": true,
+                    "icon": {
+                      "name": "rocket"
+                    }
+                  },
+                  "groupFeatureContent": {
+                    "headingAndTextHeadingLevel": "h3",
+                    "headingAndTextHeading": scaffold_content.group_features.group_feature_one.heading or template_translations.lp_resource_download_one_feature_one_heading.message,
+                    "featureDescription": scaffold_content.group_features.group_feature_one.content or template_translations.lp_resource_download_one_feature_one_content.message
+                  }
+                },
+                {
+                  "groupIcon": {
+                    "showIcon": true,
+                    "icon": {
+                      "name": "chart-simple"
+                    }
+                  },
+                  "groupFeatureContent": {
+                    "headingAndTextHeadingLevel": "h3",
+                    "headingAndTextHeading": scaffold_content.group_features.group_feature_two.heading or template_translations.lp_resource_download_one_feature_two_heading.message,
+                    "featureDescription": scaffold_content.group_features.group_feature_two.content or template_translations.lp_resource_download_one_feature_two_content.message
+                  }
+                },
+                {
+                  "groupIcon": {
+                    "showIcon": true,
+                    "icon": {
+                      "name": "toolbox"
+                    }
+                  },
+                  "groupFeatureContent": {
+                    "headingAndTextHeadingLevel": "h3",
+                    "headingAndTextHeading": scaffold_content.group_features.group_feature_three.heading or template_translations.lp_resource_download_one_feature_three_heading.message,
+                    "featureDescription": scaffold_content.group_features.group_feature_three.content or template_translations.lp_resource_download_one_feature_three_content.message
+                  }
+                },
+                {
+                  "groupIcon": {
+                    "showIcon": true,
+                    "icon": {
+                      "name": "book"
+                    }
+                  },
+                  "groupFeatureContent": {
+                    "headingAndTextHeadingLevel": "h3",
+                    "headingAndTextHeading": scaffold_content.group_features.group_feature_four.heading or template_translations.lp_resource_download_one_feature_four_heading.message,
+                    "featureDescription": scaffold_content.group_features.group_feature_four.content or template_translations.lp_resource_download_one_feature_four_content.message
+                  }
+                },
+                {
+                  "groupIcon": {
+                    "showIcon": true,
+                    "icon": {
+                      "name": "circle-exclamation"
+                    }
+                  },
+                  "groupFeatureContent": {
+                    "headingAndTextHeadingLevel": "h3",
+                    "headingAndTextHeading": scaffold_content.group_features.group_feature_five.heading or template_translations.lp_resource_download_one_feature_five_heading.message,
+                    "featureDescription": scaffold_content.group_features.group_feature_five.content or template_translations.lp_resource_download_one_feature_five_content.message
+                  }
+                },
+                {
+                  "groupIcon": {
+                    "showIcon": true,
+                    "icon": {
+                      "name": "rectangle-list"
+                    }
+                  },
+                  "groupFeatureContent": {
+                    "headingAndTextHeadingLevel": "h3",
+                    "headingAndTextHeading": scaffold_content.group_features.group_feature_six.heading or template_translations.lp_resource_download_one_feature_six_heading.message,
+                    "featureDescription": scaffold_content.group_features.group_feature_six.content or template_translations.lp_resource_download_one_feature_six_content.message
+                  }
+                },
+                {
+                  "groupIcon": {
+                    "showIcon": true,
+                    "icon": {
+                      "name": "lightbulb"
+                    }
+                  },
+                  "groupFeatureContent": {
+                    "headingAndTextHeadingLevel": "h3",
+                    "headingAndTextHeading": scaffold_content.group_features.group_feature_seven.heading or template_translations.lp_resource_download_one_feature_seven_heading.message,
+                    "featureDescription": scaffold_content.group_features.group_feature_seven.content or template_translations.lp_resource_download_one_feature_seven_content.message
+                  }
+                },
+                {
+                  "groupIcon": {
+                    "showIcon": true,
+                    "icon": {
+                      "name": "mobile-retro"
+                    }
+                  },
+                  "groupFeatureContent": {
+                    "headingAndTextHeadingLevel": "h3",
+                    "headingAndTextHeading": scaffold_content.group_features.group_feature_eight.heading or template_translations.lp_resource_download_one_feature_eight_heading.message,
+                    "featureDescription": scaffold_content.group_features.group_feature_eight.content or template_translations.lp_resource_download_one_feature_eight_content.message
+                  }
+                }
+              ],
+              groupStyle={
+                "sectionStyleVariant": "section_variant_4",
+                "headingStyleVariant": "h5"
+              }
+            %}
+            {% end_dnd_grid_module %}
+          {% end_dnd_grid_container %}
+        {% end_dnd_grid_container %}
+      {% end_dnd_grid_section %}
+
+      {# FAQ section #}
+
+      {% dnd_grid_section
+        background_layers=[
+          {
+            "type": "color",
+            "value": light_section_2_background_color
+          }
+        ]
+      %}
+        {% dnd_grid_container
+          type="vertical_stack"
+        %}
+          {% dnd_grid_module
+            path="../components/modules/Heading",
+            headingAndTextHeadingLevel="h2",
+            headingAndTextHeading={{ scaffold_content.group_faq.heading or template_translations.lp_resource_download_one_faq_heading.message }},
+            groupStyle={
+              "alignment": {
+                "text_align": "CENTER"
+              },
+              "headingStyleVariant": "h1",
+              "sectionStyleVariant": "section_variant_2"
+            }
+          %}
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
+            path="../components/modules/RichText",
+            groupStyle={
+              "sectionStyleVariant": "section_variant_2"
+            }
+          %}
+            {% module_attribute "richTextContentHTML" %}
+              <p style="text-align:center;">{{ scaffold_content.group_faq.description or template_translations.lp_resource_download_one_faq_description.message }}</p>
+            {% end_module_attribute %}
+          {% end_dnd_grid_module %}
+          {% dnd_grid_container
+            type={
+              "default": "grid",
+              "mobile": "vertical_stack"
+            },
+            columns=["2fr", "1fr"],
+            rows=["auto"],
+            gap={
+              "default": grid_gap_small,
+              "mobile": grid_gap_medium
+            }
+          %}
+            {% dnd_grid_module
+              path="../components/modules/Accordion",
+              icon="plus",
+              groupAccordions=[
+                {
+                  "title": scaffold_content.group_faq.question_one or template_translations.lp_resource_download_one_faq_question_one.message,
+                  "richTextContentHTML": accordion_one_answer|render
+                },
+                {
+                  "title": scaffold_content.group_faq.question_two or template_translations.lp_resource_download_one_faq_question_two.message,
+                  "richTextContentHTML": accordion_two_answer|render
+                },
+                {
+                  "title": scaffold_content.group_faq.question_three or template_translations.lp_resource_download_one_faq_question_three.message,
+                  "richTextContentHTML": accordion_three_answer|render
+                },
+                {
+                  "title": scaffold_content.group_faq.question_four or template_translations.lp_resource_download_one_faq_question_four.message,
+                  "richTextContentHTML": accordion_four_answer|render
+                },
+                {
+                  "title": scaffold_content.group_faq.question_five or template_translations.lp_resource_download_one_faq_question_five.message,
+                  "richTextContentHTML": accordion_five_answer|render
+                },
+                {
+                  "title": scaffold_content.group_faq.question_six or template_translations.lp_resource_download_one_faq_question_six.message,
+                  "richTextContentHTML": accordion_six_answer|render
+                }
+              ],
+              groupStyle={
+                "cardStyleVariant": "card_variant_1",
+                "gap": "medium"
+              }
+            %}
+            {% end_dnd_grid_module %}
+            {% dnd_grid_module
+              path="@hubspot/linked_image",
+              img={
+                "alt": scaffold_content.group_faq.image.alt or "",
+                "loading": "lazy",
+                "max_height": scaffold_content.group_faq.image.height or 552,
+                "max_width": scaffold_content.group_faq.image.width or 372,
+                "size_type": "auto_custom_max",
+                "src": scaffold_content.group_faq.image.src or get_asset_url("../images/features.png")
+              }
+            %}
+            {% end_dnd_grid_module %}
+          {% end_dnd_grid_container %}
+        {% end_dnd_grid_container %}
+      {% end_dnd_grid_section %}
+
+      {# CTA section #}
+
+      {% dnd_grid_section
+        content_width={{ section_width_narrow }}
+      %}
+        {% dnd_grid_container
+          type="vertical_stack"
+        %}
+          {% dnd_grid_module
+            path="../components/modules/Heading",
+            headingAndTextHeadingLevel="h2",
+            headingAndTextHeading={{ scaffold_content.group_cta.heading or template_translations.lp_resource_download_one_cta_heading.message }},
+            groupStyle={
+              "alignment": {
+                "text_align": "CENTER"
+              },
+              "headingStyleVariant": "h1",
+              "sectionStyleVariant": "section_variant_1"
+            }
+          %}
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
+            path="../components/modules/RichText",
+            groupStyle={
+              "sectionStyleVariant": "section_variant_1"
+            }
+          %}
+            {% module_attribute "richTextContentHTML" %}
+              <p style="text-align: center;">{{ scaffold_content.group_cta.description or template_translations.lp_resource_download_one_cta_description.message }}</p>
+            {% end_module_attribute %}
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
+            path="../components/modules/Button",
+            groupButtons=[
+              {
+                "buttonContentText": scaffold_content.group_cta.button_text or template_translations.lp_resource_download_one_cta_button_text.message,
+                "buttonContentLink": {
+                  "url": {
+                    "href": scaffold_content.group_cta.button_link.url.href or ""
+                  }
+                },
+                "buttonContentShowIcon": true,
+                "buttonContentIcon": {
+                  "name": "download"
+                },
+                "buttonContentIconPosition": "right"
+              }
+            ],
+            groupStyle={
+              "alignment": {
+                "horizontal_align": "CENTER"
+              },
+              "buttonStyleSize": "medium",
+              "buttonStyleVariant": "primary"
+            }
+          %}
+          {% end_dnd_grid_module %}
+        {% end_dnd_grid_container %}
+      {% end_dnd_grid_section %}
+
+    {% end_dnd_area %}
+  {% else %}
+    {% dnd_area "dnd_area"
+      label="Main section"
+    %}
 
     {# Hero banner section #}
 
@@ -258,8 +697,9 @@
       }
     %}
   {% end_dnd_area %}
+  {% endif %}
 {% endblock body %}
 
 {% block footer %}
-  {% global_partial path="./partials/lp-footer.hubl.html" %}
+  {% global_partial path="./partials/lp-footer.hubl.html" type="FOOTER" %}
 {% endblock footer %}

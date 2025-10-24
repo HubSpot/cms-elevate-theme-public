@@ -13,7 +13,7 @@
     "@splidejs/react-splide": "^0.7.12",
     "@types/react": "^18",
     "html-react-parser": "^5.1.16",
-    "isomorphic-dompurify": "^2.15.0",
+    "isomorphic-dompurify": "2.26.0",
     "prop-types": "^15.8",
     "react": "^18",
     "react-dom": "^18"
