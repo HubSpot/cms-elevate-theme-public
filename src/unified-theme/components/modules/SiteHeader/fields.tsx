@@ -55,8 +55,6 @@ export const fields = (
       />
       <TextField label="Logo placeholder title" name="logoPlaceholderTitle" default="No logo" />
       <TextField label="Logo placeholder description" name="logoPlaceholderDescription" default="Click to add a logo" />
-      <TextField label="Company placeholder title" name="companyPlaceholderTitle" default="No company name" />
-      <TextField label="Company placeholder description" name="companyPlaceholderDescription" default="Click to set your company name" />
     </FieldGroup>
     <IconField
       label="Language switcher icon"

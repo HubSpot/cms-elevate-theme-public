@@ -69,8 +69,6 @@ export const Component = (props: MenuModulePropTypes) => {
       placeholderDescription,
       logoPlaceholderTitle,
       logoPlaceholderDescription,
-      companyPlaceholderTitle,
-      companyPlaceholderDescription,
     },
     groupButton,
     styles: groupStyles,
@@ -124,8 +122,6 @@ export const Component = (props: MenuModulePropTypes) => {
               isInEditor={isEditorMode}
               logoPlaceholderTitle={logoPlaceholderTitle}
               logoPlaceholderDescription={logoPlaceholderDescription}
-              companyPlaceholderTitle={companyPlaceholderTitle}
-              companyPlaceholderDescription={companyPlaceholderDescription}
             />
           </LogoButtonContainer>
           {navDataArray.length === 0 && isEditorMode ? (
