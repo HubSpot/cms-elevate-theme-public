@@ -1,0 +1,595 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Product 2
+  goals: [SHOWCASE_PRODUCTS]
+  screenshotPath: ../images/template-previews/product-two.png
+  scaffoldSchemaPath: ./schemas/lp-product-free-trial-two.scaffold_schema.json
+-->
+{% extends "./layouts/base.hubl.html" %}
+
+{# Template variables #}
+
+{# Default content for accordions #}
+
+{% set accordion_one_answer = "<p>{{ scaffold_content.group_faq.group_faq_one.content or template_translations.lp_product_free_trial_two_faq_one_content.message }}</p>" %}
+{% set accordion_two_answer = "<p>{{ scaffold_content.group_faq.group_faq_two.content or template_translations.lp_product_free_trial_two_faq_two_content.message }}</p>" %}
+{% set accordion_three_answer = "<p>{{ scaffold_content.group_faq.group_faq_three.content or template_translations.lp_product_free_trial_two_faq_three_content.message }}</p>" %}
+{% set accordion_four_answer = "<p>{{ scaffold_content.group_faq.group_faq_four.content or template_translations.lp_product_free_trial_two_faq_four_content.message }}</p>" %}
+{% set accordion_five_answer = "<p>{{ scaffold_content.group_faq.group_faq_five.content or template_translations.lp_product_free_trial_two_faq_five_content.message }}</p>" %}
+
+{% block body %}
+  {% if grids %}
+    {% dnd_area "dnd_area"
+      label="Main section"
+    %}
+
+      {# Hero banner section #}
+
+      {% dnd_grid_section %}
+        {% dnd_grid_container
+          type={
+            "default": "grid",
+            "mobile": "vertical_stack"
+          },
+          columns=["5fr", "7fr"],
+          rows=["auto"],
+          align_items="center",
+          gap={{ grid_gap_large }}
+        %}
+          {% dnd_grid_container
+            type="vertical_stack"
+          %}
+            {% dnd_grid_module
+              path="../components/modules/RichText",
+              groupStyle={
+                "sectionStyleVariant": "section_variant_1"
+              }
+            %}
+              {% module_attribute "richTextContentHTML" %}
+                <p>{{ scaffold_content.group_hero_banner.tag_line or template_translations.lp_product_free_trial_two_hero_tag_line.message }}</p>
+              {% end_module_attribute %}
+            {% end_dnd_grid_module %}
+            {% dnd_grid_module
+              path="../components/modules/Heading",
+              headingAndTextHeadingLevel="h1",
+              headingAndTextHeading={{ scaffold_content.group_hero_banner.heading or template_translations.lp_product_free_trial_two_hero_heading.message }},
+              groupStyle={
+                "headingStyleVariant": "h1",
+                "sectionStyleVariant": "section_variant_1"
+              }
+            %}
+            {% end_dnd_grid_module %}
+            {% dnd_grid_module
+              path="../components/modules/RichText",
+              groupStyle={
+                "sectionStyleVariant": "section_variant_1"
+              }
+            %}
+              {% module_attribute "richTextContentHTML" %}
+                <p>{{ scaffold_content.group_hero_banner.paragraph or template_translations.lp_product_free_trial_two_hero_paragraph.message }}</p>
+              {% end_module_attribute %}
+            {% end_dnd_grid_module %}
+            {% dnd_grid_module
+              path="../components/modules/Button",
+              groupButtons=[
+                {
+                  "buttonContentText": scaffold_content.group_hero_banner.button_text or template_translations.lp_product_free_trial_two_hero_button.message,
+                  "buttonContentLink": {
+                    "url": {
+                      "href": scaffold_content.group_hero_banner.button_link.url.href or ""
+                    }
+                  },
+                  "buttonContentShowIcon": true,
+                  "buttonContentIcon": {
+                    "name": "arrow-right"
+                  },
+                  "buttonContentIconPosition": "right"
+                }
+              ],
+              groupStyle={
+                "alignment": {
+                  "horizontal_align": "LEFT"
+                },
+                "buttonStyleSize": "medium",
+                "buttonStyleVariant": "primary"
+              }
+            %}
+            {% end_dnd_grid_module %}
+          {% end_dnd_grid_container %}
+          {% dnd_grid_container
+            type="vertical_stack"
+          %}
+            {% dnd_grid_module
+              path="@hubspot/video",
+              embed_field={
+                "oembed_response": {
+                    "type": "video",
+                },
+                "oembed_url": "https://www.youtube.com/watch?v=q89-gvYRO_I",
+                "size_type": "auto_full_width",
+                "source_type": "oembed"
+              },
+              oembed_thumbnail={
+                "src": scaffold_content.group_hero_banner.video.thumbnail.src or get_asset_url("../images/video-placeholder.png")
+              },
+              video_type="embed"
+            %}
+            {% end_dnd_grid_module %}
+          {% end_dnd_grid_container %}
+        {% end_dnd_grid_container %}
+      {% end_dnd_grid_section %}
+
+      {# Features overview section #}
+
+      {% dnd_grid_section %}
+        {% dnd_grid_container
+          type="vertical_stack"
+        %}
+          {% dnd_grid_module
+            path="../components/modules/Heading",
+            headingAndTextHeadingLevel="h2",
+            headingAndTextHeading={{ scaffold_content.group_highlights.heading or template_translations.lp_product_free_trial_two_highlights_overview_heading.message }},
+            groupStyle={
+              "alignment": {
+                "text_align": "CENTER"
+              },
+              "headingStyleVariant": "h2",
+              "sectionStyleVariant": "section_variant_1"
+            }
+          %}
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
+            path="../components/modules/FeatureList",
+            columns=3,
+            groupFeatures=[
+              {
+                "groupIcon": {
+                  "showIcon": true,
+                  "icon": {
+                    "name": "circle-check",
+                    "type": "SOLID"
+                  }
+                },
+                "groupFeatureContent": {
+                  "headingAndTextHeadingLevel": "h3",
+                  "headingAndTextHeading": scaffold_content.group_highlights.group_highlight_one.heading or template_translations.section_products_and_services_three_col_feature_one_heading.message,
+                  "featureDescription": scaffold_content.group_highlights.group_highlight_one.content or template_translations.lp_product_free_trial_two_highlight_one_content.message
+                }
+              },
+              {
+                "groupIcon": {
+                  "showIcon": true,
+                  "icon": {
+                    "name": "circle-check",
+                    "type": "SOLID"
+                  }
+                },
+                "groupFeatureContent": {
+                  "headingAndTextHeadingLevel": "h3",
+                  "headingAndTextHeading": scaffold_content.group_highlights.group_highlight_two.heading or template_translations.section_products_and_services_three_col_feature_two_heading.message,
+                  "featureDescription": scaffold_content.group_highlights.group_highlight_two.content or template_translations.section_products_and_services_three_col_feature_two_description.message
+                }
+              },
+              {
+                "groupIcon": {
+                  "showIcon": true,
+                  "icon": {
+                    "name": "circle-check",
+                    "type": "SOLID"
+                  }
+                },
+                "groupFeatureContent": {
+                  "headingAndTextHeadingLevel": "h3",
+                  "headingAndTextHeading": scaffold_content.group_highlights.group_highlight_three.heading or template_translations.section_products_and_services_three_col_feature_three_heading.message,
+                  "featureDescription": scaffold_content.group_highlights.group_highlight_three.content or template_translations.lp_product_free_trial_two_highlight_three_content.message
+                }
+              }
+            ],
+            groupStyle={
+              "sectionStyleVariant": "section_variant_1",
+              "headingStyleVariant": "h5"
+            }
+          %}
+          {% end_dnd_grid_module %}
+        {% end_dnd_grid_container %}
+      {% end_dnd_grid_section %}
+
+      {# Features section #}
+
+      {% dnd_grid_section
+        background_layers=[
+          {
+            "type": "color",
+            "value": dark_section_1_background_color
+          }
+        ]
+      %}
+        {% dnd_grid_container
+          type="vertical_stack"
+        %}
+          {% dnd_grid_module
+            path="../components/modules/Heading",
+            headingAndTextHeadingLevel="h2",
+            headingAndTextHeading={{ scaffold_content.group_features.heading or template_translations.section_features_heading.message }},
+            groupStyle={
+              "alignment": {
+                "text_align": "CENTER"
+              },
+              "headingStyleVariant": "h2",
+              "sectionStyleVariant": "section_variant_4"
+            }
+          %}
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
+            path="../components/modules/RichText",
+            margin={
+              "default": {
+                "bottom": spacing_32
+              },
+              "mobile": {
+                "bottom": 0
+              }
+            },
+            groupStyle={
+              "sectionStyleVariant": "section_variant_4"
+            }
+          %}
+            {% module_attribute "richTextContentHTML" %}
+              <p style="text-align: center;">{{ scaffold_content.group_features.description or template_translations.lp_product_free_trial_two_features_description.message }}</p>
+            {% end_module_attribute %}
+          {% end_dnd_grid_module %}
+          {% dnd_grid_container
+            type={
+              "default": "grid",
+              "mobile": "vertical_stack"
+            },
+            columns=["4fr", "8fr"],
+            rows=["auto"]
+          %}
+            {% dnd_grid_module
+              path="@hubspot/linked_image",
+              img={
+                "alt": scaffold_content.group_features.image.alt or "",
+                "loading": "lazy",
+                "max_height": 524,
+                "max_width": 372,
+                "size_type": "auto_custom_max",
+                "src": scaffold_content.group_features.image.src or get_asset_url("../images/features.png")
+              }
+            %}
+            {% end_dnd_grid_module %}
+            {% dnd_grid_module
+              path="../components/modules/FeatureList",
+              groupFeatures=[
+                {
+                  "groupIcon": {
+                    "showIcon": true,
+                    "icon": {
+                      "name": "file-pen"
+                    }
+                  },
+                  "groupFeatureContent": {
+                    "headingAndTextHeadingLevel": "h3",
+                    "headingAndTextHeading": scaffold_content.group_features.group_feature_one.heading or template_translations.section_features_feature_one_heading.message,
+                    "featureDescription": scaffold_content.group_features.group_feature_one.content or template_translations.lp_product_free_trial_two_feature_one_content.message
+                  }
+                },
+                {
+                  "groupIcon": {
+                    "showIcon": true,
+                    "icon": {
+                      "name": "chart-simple"
+                    }
+                  },
+                  "groupFeatureContent": {
+                    "headingAndTextHeadingLevel": "h3",
+                    "headingAndTextHeading": scaffold_content.group_features.group_feature_two.heading or template_translations.section_features_feature_two_heading.message,
+                    "featureDescription": scaffold_content.group_features.group_feature_two.content or template_translations.lp_product_free_trial_two_feature_two_content.message
+                  }
+                },
+                {
+                  "groupIcon": {
+                    "showIcon": true,
+                    "icon": {
+                      "name": "message",
+                      "type": "SOLID"
+                    }
+                  },
+                  "groupFeatureContent": {
+                    "headingAndTextHeadingLevel": "h3",
+                    "headingAndTextHeading": scaffold_content.group_features.group_feature_three.heading or template_translations.section_features_feature_three_heading.message,
+                    "featureDescription": scaffold_content.group_features.group_feature_three.content or template_translations.lp_product_free_trial_two_feature_three_content.message
+                  }
+                },
+                {
+                  "groupIcon": {
+                    "showIcon": true,
+                    "icon": {
+                      "name": "puzzle-piece"
+                    }
+                  },
+                  "groupFeatureContent": {
+                    "headingAndTextHeadingLevel": "h3",
+                    "headingAndTextHeading": scaffold_content.group_features.group_feature_four.heading or template_translations.section_features_feature_four_heading.message,
+                    "featureDescription": scaffold_content.group_features.group_feature_four.content or template_translations.lp_product_free_trial_two_feature_four_content.message
+                  }
+                },
+                {
+                  "groupIcon": {
+                    "showIcon": true,
+                    "icon": {
+                      "name": "wand-magic-sparkles"
+                    }
+                  },
+                  "groupFeatureContent": {
+                    "headingAndTextHeadingLevel": "h3",
+                    "headingAndTextHeading": scaffold_content.group_features.group_feature_five.heading or template_translations.section_features_feature_five_heading.message,
+                    "featureDescription": scaffold_content.group_features.group_feature_five.content or template_translations.lp_product_free_trial_two_feature_five_content.message
+                  }
+                },
+                {
+                  "groupIcon": {
+                    "showIcon": true,
+                    "icon": {
+                      "name": "calendar-days",
+                      "type": "SOLID"
+                    }
+                  },
+                  "groupFeatureContent": {
+                    "headingAndTextHeadingLevel": "h3",
+                    "headingAndTextHeading": scaffold_content.group_features.group_feature_six.heading or template_translations.section_features_feature_six_heading.message,
+                    "featureDescription": scaffold_content.group_features.group_feature_six.content or template_translations.lp_product_free_trial_two_feature_six_content.message
+                  }
+                },
+                {
+                  "groupIcon": {
+                    "showIcon": true,
+                    "icon": {
+                      "name": "robot"
+                    }
+                  },
+                  "groupFeatureContent": {
+                    "headingAndTextHeadingLevel": "h3",
+                    "headingAndTextHeading": scaffold_content.group_features.group_feature_seven.heading or template_translations.section_features_feature_seven_heading.message,
+                    "featureDescription": scaffold_content.group_features.group_feature_seven.content or template_translations.lp_product_free_trial_two_feature_seven_content.message
+                  }
+                },
+                {
+                  "groupIcon": {
+                    "showIcon": true,
+                    "icon": {
+                      "name": "share-nodes"
+                    }
+                  },
+                  "groupFeatureContent": {
+                    "headingAndTextHeadingLevel": "h3",
+                    "headingAndTextHeading": scaffold_content.group_features.group_feature_eight.heading or template_translations.section_features_feature_eight_heading.message,
+                    "featureDescription": scaffold_content.group_features.group_feature_eight.content or template_translations.lp_product_free_trial_two_feature_eight_content.message
+                  }
+                }
+              ],
+              groupStyle={
+                "sectionStyleVariant": "section_variant_4",
+                "headingStyleVariant": "h5"
+              }
+            %}
+            {% end_dnd_grid_module %}
+          {% end_dnd_grid_container %}
+        {% end_dnd_grid_container %}
+      {% end_dnd_grid_section %}
+
+      {# FAQ section #}
+
+      {% dnd_grid_section
+        content_width={{ section_width_medium }}
+      %}
+        {% dnd_grid_container
+          type="vertical_stack"
+        %}
+          {% dnd_grid_module
+            path="../components/modules/Heading",
+            headingAndTextHeadingLevel="h2",
+            headingAndTextHeading={{ scaffold_content.group_faq.heading or template_translations.section_faq_heading_updated.message }},
+            groupStyle={
+              "alignment": {
+                "text_align": "CENTER"
+              },
+              "headingStyleVariant": "h2",
+              "sectionStyleVariant": "section_variant_1"
+            }
+          %}
+          {% end_dnd_grid_module %}
+          {% dnd_grid_module
+            path="../components/modules/Accordion",
+            groupAccordions=[
+              {
+                "title": scaffold_content.group_faq.group_faq_one.title or template_translations.section_faq_question_one.message,
+                "richTextContentHTML": accordion_one_answer|render
+              },
+              {
+                "title": scaffold_content.group_faq.group_faq_two.title or template_translations.section_faq_question_two.message,
+                "richTextContentHTML": accordion_two_answer|render
+              },
+              {
+                "title": scaffold_content.group_faq.group_faq_three.title or template_translations.section_faq_question_three.message,
+                "richTextContentHTML": accordion_three_answer|render
+              },
+              {
+                "title": scaffold_content.group_faq.group_faq_four.title or template_translations.section_faq_question_four.message,
+                "richTextContentHTML": accordion_four_answer|render
+              },
+              {
+                "title": scaffold_content.group_faq.group_faq_five.title or template_translations.section_faq_question_five.message,
+                "richTextContentHTML": accordion_five_answer|render
+              }
+            ],
+            groupStyle={
+              "cardStyleVariant": "card_variant_2",
+              "gap": "medium"
+            }
+          %}
+          {% end_dnd_grid_module %}
+        {% end_dnd_grid_container %}
+      {% end_dnd_grid_section %}
+
+    {% end_dnd_area %}
+  {% else %}
+    {% dnd_area "dnd_area"
+      label="Main section"
+    %}
+      {% include_dnd_partial
+        path="../sections/hero-video-two-column.hubl.html",
+        context={
+          "tag_line": {
+            "text": scaffold_content.group_hero_banner.tag_line or template_translations.lp_product_free_trial_two_hero_tag_line.message
+          },
+          "heading": {
+            "text": scaffold_content.group_hero_banner.heading or template_translations.lp_product_free_trial_two_hero_heading.message,
+          },
+          "paragraph": {
+            "text": scaffold_content.group_hero_banner.paragraph or template_translations.lp_product_free_trial_two_hero_paragraph.message
+          },
+          "button": {
+            "text": scaffold_content.group_hero_banner.button_text or template_translations.lp_product_free_trial_two_hero_button.message,
+            "href": scaffold_content.group_hero_banner.button_link.url.href or "",
+          },
+          "video": {
+            "embed_url": "https://www.youtube.com/watch?v=q89-gvYRO_I",
+            "thumbnail": scaffold_content.group_hero_banner.video.thumbnail.src or get_asset_url("../images/video-placeholder.png")
+          }
+        }
+      %}
+
+      {# Features overview section #}
+
+      {% include_dnd_partial
+        path="../sections/products-and-services-three-column.hubl.html",
+        context={
+          "heading": {
+            "text": scaffold_content.group_highlights.heading or template_translations.lp_product_free_trial_two_highlights_overview_heading.message
+          },
+          "features": [
+            {
+              "heading": {
+                "text": scaffold_content.group_highlights.group_highlight_one.heading
+              },
+              "content": scaffold_content.group_highlights.group_highlight_one.content or template_translations.lp_product_free_trial_two_highlight_one_content.message
+            },
+            {
+              "heading": {
+                "text": scaffold_content.group_highlights.group_highlight_two.heading
+              },
+              "content": scaffold_content.group_highlights.group_highlight_two.content or template_translations.lp_product_free_trial_two_highlight_two_content.message
+            },
+            {
+              "heading": {
+                "text": scaffold_content.group_highlights.group_highlight_three.heading
+              },
+              "content": scaffold_content.group_highlights.group_highlight_three.content or template_translations.lp_product_free_trial_two_highlight_three_content.message
+            }
+          ]
+        }
+      %}
+
+      {# Features section #}
+
+      {% include_dnd_partial
+        path="../sections/features.hubl.html",
+        context={
+          "background_color": dark_section_1_background_color,
+          "section_variant": "section_variant_4",
+          "heading": {
+            "text": scaffold_content.group_features.heading
+          },
+          "description": scaffold_content.group_features.description or template_translations.lp_product_free_trial_two_features_description.message,
+          "image": scaffold_content.group_features.image,
+          "features": [
+            {
+              "heading": {
+                "text": scaffold_content.group_features.group_feature_one.heading
+              },
+              "content": scaffold_content.group_features.group_feature_one.content or template_translations.lp_product_free_trial_two_feature_one_content.message
+            },
+            {
+              "heading": {
+                "text": scaffold_content.group_features.group_feature_two.heading
+              },
+              "content": scaffold_content.group_features.group_feature_two.content or template_translations.lp_product_free_trial_two_feature_two_content.message
+            },
+            {
+              "heading": {
+                "text": scaffold_content.group_features.group_feature_three.heading
+              },
+              "content": scaffold_content.group_features.group_feature_three.content or template_translations.lp_product_free_trial_two_feature_three_content.message
+            },
+            {
+              "heading": {
+                "text": scaffold_content.group_features.group_feature_four.heading
+              },
+              "content": scaffold_content.group_features.group_feature_four.content or template_translations.lp_product_free_trial_two_feature_four_content.message
+            },
+            {
+              "heading": {
+                "text": scaffold_content.group_features.group_feature_five.heading
+              },
+              "content": scaffold_content.group_features.group_feature_five.content or template_translations.lp_product_free_trial_two_feature_five_content.message
+            },
+            {
+              "heading": {
+                "text": scaffold_content.group_features.group_feature_six.heading
+              },
+              "content": scaffold_content.group_features.group_feature_six.content or template_translations.lp_product_free_trial_two_feature_six_content.message
+            },
+            {
+              "heading": {
+                "text": scaffold_content.group_features.group_feature_seven.heading
+              },
+              "content": scaffold_content.group_features.group_feature_seven.content or template_translations.lp_product_free_trial_two_feature_seven_content.message
+            },
+            {
+              "heading": {
+                "text": scaffold_content.group_features.group_feature_eight.heading
+              },
+              "content": scaffold_content.group_features.group_feature_eight.content or template_translations.lp_product_free_trial_two_feature_eight_content.message
+            }
+          ]
+        }
+      %}
+
+      {# FAQ section #}
+
+      {% include_dnd_partial
+        path="../sections/faq.hubl.html",
+        context={
+          "heading": {
+            "text": scaffold_content.group_faq.heading,
+          },
+          "faqs": [
+            {
+              "title": scaffold_content.group_faq.group_faq_one.title,
+              "content": accordion_one_answer|render
+            },
+            {
+              "title": scaffold_content.group_faq.group_faq_two.title,
+              "content": accordion_two_answer|render
+            },
+            {
+              "title": scaffold_content.group_faq.group_faq_three.title,
+              "content": accordion_three_answer|render
+            },
+            {
+              "title": scaffold_content.group_faq.group_faq_four.title,
+              "content": accordion_four_answer|render
+            },
+            {
+              "title": scaffold_content.group_faq.group_faq_five.title,
+              "content": accordion_five_answer|render
+            }
+          ]
+        }
+      %}
+
+    {% end_dnd_area %}
+  {% endif %}
+{% endblock body %}
