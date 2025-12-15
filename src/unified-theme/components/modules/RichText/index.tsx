@@ -7,10 +7,12 @@ import { SectionStyleFieldLibraryType } from '../../fieldLibrary/SectionStyle/ty
 import { sectionColorsMap } from '../../utils/section-color-map.js';
 import { CSSPropertiesMap } from '../../types/components.js';
 import cx, { staticWithModule } from '../../utils/classnames.js';
+import { getDataHSToken } from '../../utils/inline-editing.js';
 
 const swm = staticWithModule(styles);
 
 type RichTextProps = {
+  moduleName?: string;
   groupStyle: SectionStyleFieldLibraryType;
   hublData: {
     renderedWithGrids: boolean;
@@ -37,6 +39,7 @@ function generateColorCssVars(sectionVariantField: SectionVariantType): CSSPrope
 
 export const Component = (props: RichTextProps) => {
   const {
+    moduleName,
     groupStyle: { sectionStyleVariant },
     hublData: { renderedWithGrids = false },
   } = props;
@@ -45,7 +48,14 @@ export const Component = (props: RichTextProps) => {
 
   const layoutClass = (renderedWithGrids ?? false) ? 'hs-elevate-rich-text--grids' : 'hs-elevate-rich-text--bootstrap';
 
-  return <RichText className={cx(swm('hs-elevate-rich-text'), styles[layoutClass])} fieldPath="richTextContentHTML" style={cssVarsMap} />;
+  return (
+    <RichText
+      fieldPath="richTextContentHTML"
+      className={cx(swm('hs-elevate-rich-text'), styles[layoutClass])}
+      style={cssVarsMap}
+      data-hs-token={getDataHSToken(moduleName, 'richTextContentHTML')}
+    />
+  );
 };
 
 export { fields } from './fields.js';

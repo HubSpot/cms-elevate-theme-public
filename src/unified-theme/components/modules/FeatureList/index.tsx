@@ -1,6 +1,6 @@
 import { ModuleMeta } from '../../types/modules.js';
 import { Icon } from '@hubspot/cms-components';
-import { BooleanFieldType, IconFieldType, NumberFieldType, RichTextFieldType } from '@hubspot/cms-components/fields';
+import { BooleanFieldType, IconFieldType, NumberFieldType, TextFieldType } from '@hubspot/cms-components/fields';
 import { SectionVariantType } from '../../types/fields.js';
 import HeadingComponent from '../../HeadingComponent/index.js';
 import featureListIconSvg from './assets/list.svg';
@@ -12,6 +12,7 @@ import { sectionColorsMap } from '../../utils/section-color-map.js';
 import cx, { staticWithModule } from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
 import { CSSPropertiesMap } from '../../types/components.js';
+import { getDataHSToken } from '../../utils/inline-editing.js';
 
 const swm = staticWithModule(styles);
 
@@ -20,7 +21,7 @@ const swm = staticWithModule(styles);
 type GroupStyle = SectionStyleFieldLibraryType & HeadingStyleFieldLibraryType;
 
 type GroupFeatureContent = HeadingAndTextFieldLibraryType & {
-  featureDescription?: RichTextFieldType['default'];
+  featureDescription?: TextFieldType['default'];
 };
 
 type GroupFeatures = {
@@ -34,6 +35,7 @@ type GroupFeatures = {
 type Columns = NumberFieldType['default'];
 
 type FeatureListProps = {
+  moduleName?: string;
   columns: Columns;
   groupFeatures: GroupFeatures[];
   groupStyle: GroupStyle;
@@ -57,6 +59,7 @@ const FeatureParagraph = createComponent('p');
 
 export const Component = (props: FeatureListProps) => {
   const {
+    moduleName,
     columns,
     groupFeatures,
     groupStyle: { sectionStyleVariant, headingStyleVariant },
@@ -74,7 +77,7 @@ export const Component = (props: FeatureListProps) => {
     <FeatureList className={featureListClasses} style={cssVarsMap}>
       {groupFeatures.map((feature, index) => (
         <Feature className={swm('hs-elevate-feature-list__feature')} key={index}>
-          {feature.groupIcon.showIcon && feature.groupIcon.icon && feature.groupIcon.icon.name && (
+          {feature?.groupIcon?.showIcon && feature?.groupIcon?.icon?.name && (
             <Icon className={swm('hs-elevate-feature-list__icon')} fieldPath={`groupFeatures[${index}].groupIcon.icon`} purpose="DECORATIVE" />
           )}
           <ContentContainer className={swm('hs-elevate-feature-list__content-container')}>
@@ -84,10 +87,17 @@ export const Component = (props: FeatureListProps) => {
                 headingLevel={feature.groupFeatureContent.headingAndTextHeadingLevel}
                 headingStyleVariant={headingStyleVariant}
                 heading={feature.groupFeatureContent.headingAndTextHeading}
+                moduleName={moduleName}
+                fieldPath={`groupFeatures[${index}].groupFeatureContent.headingAndTextHeading`}
               />
             )}
             {feature.groupFeatureContent.featureDescription && (
-              <FeatureParagraph className={swm('hs-elevate-feature-list__body')}>{feature.groupFeatureContent.featureDescription}</FeatureParagraph>
+              <FeatureParagraph
+                className={swm('hs-elevate-feature-list__body')}
+                data-hs-token={getDataHSToken(moduleName, `groupFeatures[${index}].groupFeatureContent.featureDescription`)}
+              >
+                {feature.groupFeatureContent.featureDescription}
+              </FeatureParagraph>
             )}
           </ContentContainer>
         </Feature>

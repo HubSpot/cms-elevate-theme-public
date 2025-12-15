@@ -55,7 +55,7 @@ function MenuComponent(props: MenuComponentProps) {
         ),
     };
 
-    // call keybaordEvent with the correct ID parsed from above.
+    // call keyboardEvent with the correct ID parsed from above.
     if (currentKeyboardEvent.key in arrowKeyMap) {
       arrowKeyMap[currentKeyboardEvent.key]();
     }
@@ -264,9 +264,8 @@ function MenuComponent(props: MenuComponentProps) {
 
   const additionalClasses = additionalClassArray ? additionalClassArray?.join(' ') : '';
 
-  const hsElevateMenuClasses = `hs-elevate-menu ${flowClasses[flow]} ${
-    isMobileMenu ? 'hs-elevate-menu--mobile' : 'hs-elevate-menu--desktop'
-  } ${additionalClasses}`;
+  const hsElevateMenuClasses = `hs-elevate-menu ${flowClasses[flow]} ${isMobileMenu ? 'hs-elevate-menu--mobile' : 'hs-elevate-menu--desktop'
+    } ${additionalClasses}`;
 
   const listStyles = { padding: 0 };
 

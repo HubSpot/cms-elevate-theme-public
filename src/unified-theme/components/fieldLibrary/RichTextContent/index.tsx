@@ -63,6 +63,7 @@ export default function RichTextContent(props: RichTextProps) {
       advancedVisibility={richTextVisibility}
       enabledFeatures={featureSet === 'text' ? textFeatureSet : extendedFeatureSet}
       default={richTextDefault}
+      inlineEditable={true}
     />
   );
 }

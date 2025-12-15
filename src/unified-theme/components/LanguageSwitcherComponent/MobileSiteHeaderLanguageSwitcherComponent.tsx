@@ -1,4 +1,4 @@
-// For testing purposes / local developement swap out translations with dummyTranslations
+// For testing purposes / local development swap out translations with dummyTranslations
 import styles from './mobile-site-header-language-switcher.module.css';
 import cx, { staticWithModule } from '../utils/classnames.js';
 import { createComponent } from '../utils/create-component.js';

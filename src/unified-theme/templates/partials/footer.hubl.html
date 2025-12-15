@@ -31,11 +31,27 @@
           }
         %}
           {% dnd_module
+            path="@hubspot/horizontal_spacer",
+            offset=0,
+            width=4
+          %}
+          {% end_dnd_module %}
+
+          {% dnd_module
             path="@hubspot/logo",
+            offset=4,
+            width=4,
             horizontal_alignment="CENTER",
             img={
               "loading": "lazy"
             }
+          %}
+          {% end_dnd_module %}
+
+          {% dnd_module
+            path="@hubspot/horizontal_spacer",
+            offset=8,
+            width=4
           %}
           {% end_dnd_module %}
         {% end_dnd_row %}

@@ -41,6 +41,7 @@ type MenuModuleStyles = {
 };
 
 export interface MenuModulePropTypes extends MenuModuleContentFields {
+  moduleName?: string;
   hublData: {
     navigation: {
       children: MenuDataType[];
@@ -66,6 +67,7 @@ export interface MenuModulePropTypes extends MenuModuleContentFields {
 }
 
 export interface MobileMenuIslandProps extends MenuComponentProps, MenuModuleContentFields, ButtonStyleFieldLibraryType {
+  moduleName?: string;
   menuBackgroundColor: string;
   menuAccentColor: string;
   menuTextColor: string;

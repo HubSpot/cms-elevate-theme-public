@@ -1,21 +1,23 @@
-import { ModuleFields, RepeatedFieldGroup, TextField, FieldGroup, BooleanField, AdvancedVisibility, } from '@hubspot/cms-components/fields';
+import { ModuleFields, RepeatedFieldGroup, TextField, FieldGroup, BooleanField, AdvancedVisibility } from '@hubspot/cms-components/fields';
 import { ButtonContent, HeadingAndText } from '../../fieldLibrary/index.js';
 import StyleFields from './styleFields.js';
 
 const buttonFieldVisibility: AdvancedVisibility = {
   boolean_operator: 'OR',
-  criteria: [{
-    controlling_field_path: 'groupPricingCards.groupButton.showButton',
-    controlling_value_regex: 'true',
-    operator: 'EQUAL',
-  }]
-}
+  criteria: [
+    {
+      controlling_field_path: 'groupPricingCards.groupButton.showButton',
+      controlling_value_regex: 'true',
+      operator: 'EQUAL',
+    },
+  ],
+} as const;
 
 export const fields = (
   <ModuleFields>
     <RepeatedFieldGroup
-      label='Pricing cards'
-      name='groupPricingCards'
+      label="Pricing cards"
+      name="groupPricingCards"
       occurrence={{
         min: 1,
         max: 4,
@@ -34,30 +36,18 @@ export const fields = (
             headingAndTextHeadingLevel: 'h3',
             headingAndTextHeading: 'Starter plan includes',
             groupFeatures: [
-              {
-                feature: 'Social media management',
-              },
-              {
-                feature: 'Email marketing campaigns',
-              },
-              {
-                feature: 'Basic SEO optimization',
-              },
-              {
-                feature: 'Monthly performance reports',
-              },
+              { feature: 'Social media management' },
+              { feature: 'Email marketing campaigns' },
+              { feature: 'Basic SEO optimization' },
+              { feature: 'Monthly performance reports' },
             ],
           },
           groupButton: {
             showButton: true,
             buttonContentText: 'Get started',
-            buttonContentLink: {
-              open_in_new_tab: true,
-            },
+            buttonContentLink: { open_in_new_tab: true },
             buttonContentShowIcon: false,
-            buttonContentIcon: {
-              name: 'dollar-sign',
-            },
+            buttonContentIcon: { name: 'dollar-sign' },
             buttonContentIconPosition: 'right',
           },
         },
@@ -73,33 +63,19 @@ export const fields = (
             headingAndTextHeadingLevel: 'h3',
             headingAndTextHeading: 'Pro plan includes',
             groupFeatures: [
-              {
-                feature: 'Everything in Starter plan',
-              },
-              {
-                feature: 'Advanced social media management',
-              },
-              {
-                feature: 'Email marketing automation',
-              },
-              {
-                feature: 'Basic SEO optimization',
-              },
-              {
-                feature: 'Comprehensive SEO analysis and recommendations',
-              },
+              { feature: 'Everything in Starter plan' },
+              { feature: 'Advanced social media management' },
+              { feature: 'Email marketing automation' },
+              { feature: 'Basic SEO optimization' },
+              { feature: 'Comprehensive SEO analysis and recommendations' },
             ],
           },
           groupButton: {
             showButton: true,
             buttonContentText: 'Get started',
-            buttonContentLink: {
-              open_in_new_tab: true,
-            },
+            buttonContentLink: { open_in_new_tab: true },
             buttonContentShowIcon: false,
-            buttonContentIcon: {
-              name: 'dollar-sign',
-            },
+            buttonContentIcon: { name: 'dollar-sign' },
             buttonContentIconPosition: 'right',
           },
         },
@@ -115,124 +91,63 @@ export const fields = (
             headingAndTextHeadingLevel: 'h3',
             headingAndTextHeading: 'Enterprise plan includes',
             groupFeatures: [
-              {
-                feature: 'Everything in Pro plan',
-              },
-              {
-                feature: 'Customized social media strategies',
-              },
-              {
-                feature: 'Personalized email marketing campaigns',
-              },
-              {
-                feature: 'Advanced SEO implementation and monitoring',
-              },
-              {
-                feature: 'Bi-weekly performance reports and strategy consultations',
-              },
+              { feature: 'Everything in Pro plan' },
+              { feature: 'Customized social media strategies' },
+              { feature: 'Personalized email marketing campaigns' },
+              { feature: 'Advanced SEO implementation and monitoring' },
+              { feature: 'Bi-weekly performance reports and strategy consultations' },
             ],
           },
           groupButton: {
             showButton: true,
             buttonContentText: 'Contact sales',
-            buttonContentLink: {
-              open_in_new_tab: true,
-            },
+            buttonContentLink: { open_in_new_tab: true },
             buttonContentShowIcon: false,
-            buttonContentIcon: {
-              name: 'dollar-sign',
-            },
+            buttonContentIcon: { name: 'dollar-sign' },
             buttonContentIconPosition: 'right',
           },
         },
       ]}
     >
-      <FieldGroup
-        label='Pricing summary'
-        name='groupSummary'
-        display='inline'
-      >
-        <HeadingAndText
-          headingTextLabel='Pricing plan title'
-          headingLevelDefault='h2'
-          textDefault='Starter'
-        />
+      <FieldGroup label="Pricing summary" name="groupSummary" display="inline">
+        <HeadingAndText headingTextLabel="Pricing plan title" headingLevelDefault="h2" textDefault="Starter" />
         <TextField
-          label='Description'
-          name='description'
-          default='Perfect for small businesses or startups looking to kickstart their digital marketing efforts'
+          label="Description"
+          name="description"
+          default="Perfect for small businesses or startups looking to kickstart their digital marketing efforts"
+          inlineEditable={true}
         />
-        <TextField
-          label='Price'
-          name='price'
-          required={true}
-          default='$79'
-        />
-        <TextField
-          label='Time period'
-          name='timePeriod'
-          required={true}
-          default='/month'
-        />
+        <TextField label="Price" name="price" required={true} default="$79" inlineEditable={true} />
+        <TextField label="Time period" name="timePeriod" required={true} default="/month" inlineEditable={true} />
       </FieldGroup>
-      <FieldGroup
-        label='Pricing plan features'
-        name='groupPlanFeatures'
-        display='inline'
-      >
-        <HeadingAndText
-          headingTextLabel='Features title'
-          headingLevelDefault='h3'
-          textDefault='Starter plan includes'
-        />
+      <FieldGroup label="Pricing plan features" name="groupPlanFeatures" display="inline">
+        <HeadingAndText headingTextLabel="Features title" headingLevelDefault="h3" textDefault="Starter plan includes" />
         <RepeatedFieldGroup
-          label='Features'
-          name='groupFeatures'
+          label="Features"
+          name="groupFeatures"
           occurrence={{
             min: 1,
             max: 20,
             default: 5,
           }}
           default={[
-            {
-              feature: 'Social media management',
-            },
-            {
-              feature: 'Email marketing campaigns',
-            },
-            {
-              feature: 'Basic SEO optimization',
-            },
-            {
-              feature: 'Monthly performance reports',
-            },
+            { feature: 'Social media management' },
+            { feature: 'Email marketing campaigns' },
+            { feature: 'Basic SEO optimization' },
+            { feature: 'Monthly performance reports' },
           ]}
         >
-          <TextField
-            label='Feature'
-            name='feature'
-            default='Social media management'
-          />
+          <TextField label="Feature" name="feature" default="Social media management" inlineEditable={true} />
         </RepeatedFieldGroup>
       </FieldGroup>
-      <FieldGroup
-        label='Button'
-        name='groupButton'
-        display='inline'
-      >
-        <BooleanField
-          label='Show button'
-          name='showButton'
-          display='toggle'
-          default={true}
-        />
+      <FieldGroup label="Button" name="groupButton" display="inline">
+        <BooleanField label="Show button" name="showButton" display="toggle" default={true} />
         <ButtonContent
-          textDefault='Get started'
-          linkDefault={{
-            open_in_new_tab: true,
-          }}
+          textDefault="Get started"
+          linkDefault={{ open_in_new_tab: true }}
           textVisibility={buttonFieldVisibility}
           linkVisibility={buttonFieldVisibility}
+          showIconVisibility={buttonFieldVisibility}
         />
       </FieldGroup>
     </RepeatedFieldGroup>

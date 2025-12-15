@@ -42,6 +42,7 @@ type GroupStyle = ButtonStyleFieldLibraryType & {
 
 // Button component
 type ButtonProps = {
+  moduleName?: string;
   groupButtons: ButtonContentType[];
   groupStyle: GroupStyle;
   groupAriaLabels: GroupAriaLabels;
@@ -95,6 +96,7 @@ const ButtonContainer = createComponent('div');
 
 export const Component = (props: ButtonProps) => {
   const {
+    moduleName,
     groupButtons,
     groupStyle: { alignment, buttonStyleVariant, buttonStyleSize, gap },
     groupAriaLabels,
@@ -124,6 +126,8 @@ export const Component = (props: ButtonProps) => {
             iconFieldPath={`groupButtons[${index}].buttonContentIcon`}
             iconPosition={button.buttonContentIconPosition}
             additionalClassArray={['hs-elevate-button-container__button']}
+            moduleName={moduleName}
+            textFieldPath={`groupButtons[${index}].buttonContentText`}
           >
             {button.buttonContentText}
           </Button>

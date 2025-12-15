@@ -31,7 +31,7 @@ export const fields = (
       default={[groupListContentDefault, groupListContentDefault, groupListContentDefault, groupListContentDefault]}
     >
       <FieldGroup label="List items" name="groupListContent" display="inline">
-        <TextField label="Item" name="listItemContent" default={contentDefault} />
+        <TextField label="Item" name="listItemContent" default={contentDefault} inlineEditable={true} />
       </FieldGroup>
     </RepeatedFieldGroup>
 

@@ -9,12 +9,14 @@ import { SectionStyleFieldLibraryType } from '../../fieldLibrary/SectionStyle/ty
 import { HeadingStyleFieldLibraryType, HeadingStyleVariant } from '../../fieldLibrary/HeadingStyle/types.js';
 import { sectionColorsMap } from '../../utils/section-color-map.js';
 import { CSSPropertiesMap } from '../../types/components.js';
+import { getDataHSToken } from '../../utils/inline-editing.js';
 
 const swm = staticWithModule(styles);
 
 type GroupStyle = SectionStyleFieldLibraryType & HeadingStyleFieldLibraryType;
 
 type MetricProps = {
+  moduleName?: string;
   groupMetrics: {
     metric: TextFieldType['default'];
     description: TextFieldType['default'];
@@ -73,6 +75,7 @@ const MetricDescription = createComponent('div');
 
 export const Component = (props: MetricProps) => {
   const {
+    moduleName,
     groupMetrics,
     groupStyle: { headingStyleVariant, sectionStyleVariant },
     hublData: { renderedWithGrids = false },
@@ -96,10 +99,16 @@ export const Component = (props: MetricProps) => {
         {groupMetrics.map((metric, index) => {
           return (
             <Metric className={cx('hs-elevate-metrics-container__metric', styles['hs-elevate-metrics__metric'])} key={index}>
-              <MetricNumber className={cx('hs-elevate-metrics-container__metric-number', styles['hs-elevate-metrics__metric-number'])}>
+              <MetricNumber
+                className={cx('hs-elevate-metrics-container__metric-number', styles['hs-elevate-metrics__metric-number'])}
+                data-hs-token={getDataHSToken(moduleName, `groupMetrics[${index}].metric`)}
+              >
                 {metric.metric}
               </MetricNumber>
-              <MetricDescription className={cx('hs-elevate-metrics-container__metric-description', styles['hs-elevate-metrics__metric-description'])}>
+              <MetricDescription
+                className={cx('hs-elevate-metrics-container__metric-description', styles['hs-elevate-metrics__metric-description'])}
+                data-hs-token={getDataHSToken(moduleName, `groupMetrics[${index}].description`)}
+              >
                 {metric.description}
               </MetricDescription>
             </Metric>

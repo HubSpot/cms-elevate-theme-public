@@ -44,6 +44,7 @@ export const fields = (
         label='Title'
         name='title'
         default='Here is where the accordion title goes'
+        inlineEditable={true}
       />
       <RichTextContent
         label='Description'

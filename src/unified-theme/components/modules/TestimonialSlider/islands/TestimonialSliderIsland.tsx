@@ -9,13 +9,16 @@ import { getLinkFieldHref, getLinkFieldRel, getLinkFieldTarget } from '../../../
 import { useEffect, useId, useState } from 'react';
 import { getCardVariantClassName } from '../../../utils/card-variants.js';
 import { CSSPropertiesMap } from '../../../types/components.js';
+import { getDataHSToken } from '../../../utils/inline-editing.js';
 
 const swm = staticWithModule(styles);
 
 // Checks if an image path corresponds to one of the default images used on the testimonial slider module in one of our sections/templates
 
 function isDefaultTestimonialImage(imagePath: string): boolean {
-  if (!imagePath) return false;
+  if (!imagePath) {
+    return false;
+  }
   return /testimonial-user-image-[1-5]/.test(imagePath);
 }
 
@@ -96,7 +99,7 @@ const LinkArrow = () => {
 const Link = createComponent('a');
 
 const TestimonialLink = (props: TestimonialLinkProps) => {
-  const { linkText, link } = props;
+  const { moduleName, testimonialIndex, linkText, link } = props;
 
   const linkHref = getLinkFieldHref(link);
   const linkRel = getLinkFieldRel(link);
@@ -104,7 +107,13 @@ const TestimonialLink = (props: TestimonialLinkProps) => {
   return (
     <>
       {linkText && (
-        <Link className={swm('hs-elevate-testimonial-slider__link')} href={linkHref} rel={linkRel} target={linkTarget}>
+        <Link
+          className={swm('hs-elevate-testimonial-slider__link')}
+          href={linkHref}
+          rel={linkRel}
+          target={linkTarget}
+          data-hs-token={getDataHSToken(moduleName, `groupTestimonial[${testimonialIndex}].groupLink.linkText`)}
+        >
           {linkText} <LinkArrow />
         </Link>
       )}
@@ -122,7 +131,7 @@ const AuthorName = createComponent('span');
 const AuthorTitle = createComponent('span');
 
 const TestimonialMeta = (props: TestimonialMetaProps) => {
-  const { authorName, authorTitle, authorImage, linkText, link } = props;
+  const { moduleName, testimonialIndex, authorName, authorTitle, authorImage, linkText, link } = props;
 
   const hasAuthorElement = authorName || authorTitle || authorImage.src;
 
@@ -151,13 +160,27 @@ const TestimonialMeta = (props: TestimonialMetaProps) => {
               )}
               {(authorName || authorTitle) && (
                 <div>
-                  {authorName && <AuthorName className={swm('hs-elevate-testimonial-slider__author-name')}>{authorName}</AuthorName>}
-                  {authorTitle && <AuthorTitle className={swm('hs-elevate-testimonial-slider__author-title')}>{authorTitle}</AuthorTitle>}
+                  {authorName && (
+                    <AuthorName
+                      className={swm('hs-elevate-testimonial-slider__author-name')}
+                      data-hs-token={getDataHSToken(moduleName, `groupTestimonial[${testimonialIndex}].groupAuthor.authorName`)}
+                    >
+                      {authorName}
+                    </AuthorName>
+                  )}
+                  {authorTitle && (
+                    <AuthorTitle
+                      className={swm('hs-elevate-testimonial-slider__author-title')}
+                      data-hs-token={getDataHSToken(moduleName, `groupTestimonial[${testimonialIndex}].groupAuthor.authorTitle`)}
+                    >
+                      {authorTitle}
+                    </AuthorTitle>
+                  )}
                 </div>
               )}
             </AuthorContainer>
           )}
-          <TestimonialLink linkText={linkText} link={link} />
+          <TestimonialLink moduleName={moduleName} testimonialIndex={testimonialIndex} linkText={linkText} link={link} />
         </Footer>
       )}
     </>
@@ -180,14 +203,12 @@ function generateAlignmentCSSVars(contentCentered: boolean): CSSPropertiesMap {
 }
 
 const Testimonial = (props: TestimonialProps) => {
-  const { quote, authorName, authorTitle, authorImage, showImage, image, linkText, link } = props;
+  const { moduleName, testimonialIndex, quote, authorName, authorTitle, authorImage, showImage, image, linkText, link } = props;
 
   // If there is an image the content in the slider is left aligned, otherwise it is center aligned
-  const contentCentered = showImage && image.src ? false : true;
+  const contentCentered = !(showImage && image.src);
 
-  const cssVarsMap = {
-    ...generateAlignmentCSSVars(contentCentered),
-  };
+  const cssVarsMap = { ...generateAlignmentCSSVars(contentCentered) };
 
   const isDefaultImage = image.src && isDefaultTestimonialImage(image.src);
 
@@ -203,8 +224,21 @@ const Testimonial = (props: TestimonialProps) => {
         </ImageContainer>
       )}
       <ContentContainer className={swm('hs-elevate-testimonial-slider__content-container')}>
-        <QuoteText className={swm('hs-elevate-testimonial-slider__quote-text')}>{quote}</QuoteText>
-        <TestimonialMeta authorName={authorName} authorTitle={authorTitle} authorImage={authorImage} linkText={linkText} link={link} />
+        <QuoteText
+          className={swm('hs-elevate-testimonial-slider__quote-text')}
+          data-hs-token={getDataHSToken(moduleName, `groupTestimonial[${testimonialIndex}].groupQuote.quote`)}
+        >
+          {quote}
+        </QuoteText>
+        <TestimonialMeta
+          moduleName={moduleName}
+          testimonialIndex={testimonialIndex}
+          authorName={authorName}
+          authorTitle={authorTitle}
+          authorImage={authorImage}
+          linkText={linkText}
+          link={link}
+        />
       </ContentContainer>
     </SlideContainer>
   );
@@ -222,9 +256,7 @@ function generateIconColorCssVar(cardVariantField: CardVariantType): CSSProperti
     card_variant_4: 'var(--hsElevate--card--variant4__iconColor)',
   };
 
-  return {
-    '--hsElevate--cardIcon__fillColor': iconColorsMap[cardVariantField],
-  };
+  return { '--hsElevate--cardIcon__fillColor': iconColorsMap[cardVariantField] };
 }
 
 function generateLinkCssVar(cardVariantField: CardVariantType): CSSPropertiesMap {
@@ -235,9 +267,7 @@ function generateLinkCssVar(cardVariantField: CardVariantType): CSSPropertiesMap
     card_variant_4: 'var(--hsElevate--card--variant4--link__fontColor)',
   };
 
-  return {
-    '--hsElevate--links__fontColor': linkColorsMap[cardVariantField],
-  };
+  return { '--hsElevate--links__fontColor': linkColorsMap[cardVariantField] };
 }
 
 function generateBlockquoteCssVar(cardVariantField: CardVariantType): CSSPropertiesMap {
@@ -259,6 +289,7 @@ const TestimonialSliderContainer = createComponent('div');
 
 const TestimonialSlider = (props: TestimonialSliderProps) => {
   const {
+    moduleName,
     groupTestimonial,
     groupStyle: { cardStyleVariant },
     groupDefaultText,
@@ -307,9 +338,11 @@ const TestimonialSlider = (props: TestimonialSliderProps) => {
       >
         <div className="splide__track hs-elevate-testimonial-slider__track">
           <div className="splide__list hs-elevate-testimonial-slider__list">
-            {groupTestimonial.map(testimonial => (
+            {groupTestimonial.map((testimonial, index) => (
               <div className="splide__slide hs-elevate-testimonial-slider__slide" key={testimonial.groupQuote.quote}>
                 <Testimonial
+                  moduleName={moduleName}
+                  testimonialIndex={index}
                   quote={testimonial.groupQuote.quote}
                   authorName={testimonial.groupAuthor.authorName}
                   authorTitle={testimonial.groupAuthor.authorTitle}

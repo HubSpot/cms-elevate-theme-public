@@ -10,6 +10,7 @@ export const Component = (props: TestimonialSliderProps) => {
     <Island
       hydrateOn="load"
       module={TestimonialSlider}
+      moduleName={props.moduleName}
       groupTestimonial={props.groupTestimonial}
       groupStyle={props.groupStyle}
       groupDefaultText={props.groupDefaultText}

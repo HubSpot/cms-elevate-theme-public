@@ -67,6 +67,7 @@ export default function MobileMenuIsland(props: MobileMenuIslandProps) {
   const [pendingCallback, setPendingCallback] = useState<(() => void) | null>(null);
 
   const {
+    moduleName,
     flow,
     flyouts,
     menuBackgroundColor,
@@ -116,7 +117,7 @@ export default function MobileMenuIsland(props: MobileMenuIslandProps) {
     if (showMenu && !isClosing) {
       setTimeout(() => {
         setIsMenuSliding(true);
-      }, 100); // This delay just gives display change time to take effeect so animation works
+      }, 100); // This delay just gives display change time to take effect so animation works
     } else if (isClosing) {
       setTimeout(() => {
         setShowMenu(false);
@@ -263,6 +264,8 @@ export default function MobileMenuIsland(props: MobileMenuIslandProps) {
               iconFieldPath="groupButton.buttonContentIcon"
               iconPosition={iconPosition}
               additionalClassArray={[swm('hs-elevate-site-header__mobile-button')]}
+              moduleName={moduleName}
+              textFieldPath="groupButton.buttonContentText"
             >
               {buttonText}
             </Button>

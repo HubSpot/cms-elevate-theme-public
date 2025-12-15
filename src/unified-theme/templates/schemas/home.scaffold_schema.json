@@ -6,7 +6,7 @@
       {
         "name": "heading",
         "type": "text",
-        "description": "A breif heading that shows at the top of the hero banner and describes the page. Should be 3 words or less."
+        "description": "A brief heading that shows at the top of the hero banner and describes the page. Should be 3 words or less."
       },
       {
         "name": "description",
