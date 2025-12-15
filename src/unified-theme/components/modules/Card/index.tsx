@@ -17,6 +17,7 @@ import { CardStyleFieldLibraryType } from '../../fieldLibrary/CardStyle/types.js
 import cx, { staticWithModule } from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
 import { CSSPropertiesMap } from '../../types/components.js';
+import { getDataHSToken } from '../../utils/inline-editing.js';
 
 const swm = staticWithModule(styles);
 
@@ -68,6 +69,7 @@ type GroupButtonStyles = {
 type GroupStyle = GroupCardStyles & GroupContentStyles & GroupButtonStyles;
 
 type CardProps = {
+  moduleName?: string;
   imageOrIcon: 'icon' | 'image';
   groupCards: GroupCards[];
   groupStyle: GroupStyle;
@@ -137,6 +139,7 @@ const ButtonWrapper = createComponent('div');
 
 export const Component = (props: CardProps) => {
   const {
+    moduleName,
     imageOrIcon,
     groupCards,
     groupStyle: {
@@ -214,9 +217,15 @@ export const Component = (props: CardProps) => {
                   headingStyleVariant={headingStyleVariant}
                   inlineStyles={headingInlineStyles}
                   additionalClassArray={['hs-elevate-card-container__title']}
+                  moduleName={moduleName}
+                  fieldPath={`groupCards[${index}].groupContent.headingAndTextHeading`}
                 />
               )}
-              <RichText fieldPath={`groupCards[${index}].groupContent.richTextContentHTML`} className={swm('hs-elevate-card-container__body')} />
+              <RichText
+                fieldPath={`groupCards[${index}].groupContent.richTextContentHTML`}
+                className={swm('hs-elevate-card-container__body')}
+                data-hs-token={getDataHSToken(moduleName, `groupCards[${index}].groupContent.richTextContentHTML`)}
+              />
               {showButton && (
                 <ButtonWrapper className={swm('hs-elevate-card-container__button-wrapper')}>
                   <Button
@@ -229,6 +238,8 @@ export const Component = (props: CardProps) => {
                     showIcon={showIcon}
                     iconPosition={iconPosition}
                     additionalClassArray={['hs-elevate-card-container__button']}
+                    moduleName={moduleName}
+                    textFieldPath={`groupCards[${index}].groupButton.buttonContentText`}
                   >
                     {text}
                   </Button>

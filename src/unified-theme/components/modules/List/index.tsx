@@ -9,6 +9,7 @@ import { sectionColorsMap } from '../../utils/section-color-map.js';
 import cx, { staticWithModule } from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
 import { CSSPropertiesMap } from '../../types/components.js';
+import { getDataHSToken } from '../../utils/inline-editing.js';
 
 const swm = staticWithModule(styles);
 
@@ -23,6 +24,7 @@ export type GroupListItems = {
 export type GroupStyle = SectionStyleFieldLibraryType;
 
 type ListProps = {
+  moduleName?: string;
   listIcon: IconFieldType['default'];
   groupListItems: GroupListItems[];
   groupStyle: GroupStyle;
@@ -46,9 +48,11 @@ function generateColorCssVars(sectionVariantField: SectionVariantType): CSSPrope
 const ListContainer = createComponent('ul');
 const ListItem = createComponent('li');
 const IconContainer = createComponent('span');
+const ListItemText = createComponent('span');
 
 export const Component = (props: ListProps) => {
   const {
+    moduleName,
     listIcon,
     groupListItems,
     groupStyle: { sectionStyleVariant },
@@ -70,7 +74,9 @@ export const Component = (props: ListProps) => {
                   <Icon className={swm('hs-elevate-list-container__icon')} fieldPath="listIcon" purpose="DECORATIVE" />
                 </IconContainer>
               )}
-              {item.groupListContent.listItemContent}
+              <ListItemText data-hs-token={getDataHSToken(moduleName, `groupListItems[${index}].groupListContent.listItemContent`)}>
+                {item.groupListContent.listItemContent}
+              </ListItemText>
             </ListItem>
           );
         })

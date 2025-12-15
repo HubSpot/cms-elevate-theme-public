@@ -3,6 +3,7 @@ import { TextFieldType, TextAlignmentFieldType } from '@hubspot/cms-components/f
 import { HeadingLevelType } from '../types/fields.js';
 import { HeadingStyleFieldLibraryType } from '../fieldLibrary/HeadingStyle/types.js';
 import SanitizedContent from '../SanitizeHTML/index.js';
+import { getDataHSToken } from '../utils/inline-editing.js';
 
 // Types
 
@@ -16,6 +17,8 @@ type HeadingProps = HeadingInlineStyleProps &
     additionalClassArray?: string[];
     heading: TextFieldType['default'];
     headingLevel: HeadingLevelType;
+    moduleName?: string;
+    fieldPath?: string;
   };
 
 // Maps the heading class based on the headingStyle option
@@ -48,13 +51,17 @@ function makeHeadingStyles(styleParams: HeadingInlineStyleProps) {
 // Component
 
 function HeadingComponent(props: HeadingProps) {
-  const { additionalClassArray, inlineStyles, headingLevel: HeadingLevel, heading, alignment, headingStyleVariant } = props;
+  const { additionalClassArray, inlineStyles, headingLevel: HeadingLevel, heading, alignment, headingStyleVariant, moduleName, fieldPath } = props;
 
   const headingClass = headingStyleVariant ? headingClasses[headingStyleVariant] : '';
   const additionalClasses = additionalClassArray ? additionalClassArray.join(' ') : '';
 
   return (
-    <HeadingLevel className={`${headingClass} ${additionalClasses}`} style={makeHeadingStyles({ inlineStyles, alignment })}>
+    <HeadingLevel
+      className={`${headingClass} ${additionalClasses}`}
+      style={makeHeadingStyles({ inlineStyles, alignment })}
+      data-hs-token={getDataHSToken(moduleName, fieldPath)}
+    >
       <SanitizedContent content={heading} />
     </HeadingLevel>
   );

@@ -9,19 +9,17 @@
         "label": "Fonts",
         "name": "group_fonts",
         "type": "group",
-        "use_large_label": true,
         "icon": {
           "name": "font",
           "set": "fontawesome-6.4.2",
           "type": "SOLID"
         },
+        "use_large_label": true,
         "children": [
           {
             "label": "Base font",
             "name": "base_font",
             "type": "font",
-            "load_external_fonts": "true",
-            "alternate_names": ["body_font"],
             "visibility": {
               "hidden_subfields": {
                 "color": true,
@@ -32,16 +30,13 @@
                 "variant": true
               }
             },
+            "alternate_names": ["body_font"],
+            "load_external_fonts": "true",
             "default": {
               "fallback": "sans-serif",
               "font": "Inter",
               "font_set": "GOOGLE",
-              "google_font_variants": [
-                "400",
-                "400i",
-                "600",
-                "600i"
-              ]
+              "google_font_variants": ["400", "400i", "600", "600i"]
             }
           },
           {
@@ -53,14 +48,14 @@
               {
                 "label": "Headings",
                 "name": "group_headings",
-                "use_large_label": true,
-                "inline_help_text": "Titles or headlines that helps organize content. Changes here affect all headings on your site.",
                 "type": "group",
                 "icon": {
                   "name": "heading",
                   "set": "fontawesome-6.4.2",
                   "type": "SOLID"
                 },
+                "inline_help_text": "Titles or headlines that helps organize content. Changes here affect all headings on your site.",
+                "use_large_label": true,
                 "children": [
                   {
                     "label": "Heading 1 (H1)",
@@ -155,8 +150,8 @@
                   {
                     "label": "Heading 4 (H4)",
                     "name": "group_heading_4",
-                    "display": "inline",
                     "type": "group",
+                    "display": "inline",
                     "children": [
                       {
                         "label": "Font",
@@ -186,8 +181,8 @@
                   {
                     "label": "Heading 5 (H5)",
                     "name": "group_heading_5",
-                    "display": "inline",
                     "type": "group",
+                    "display": "inline",
                     "children": [
                       {
                         "label": "Font",
@@ -217,8 +212,8 @@
                   {
                     "label": "Heading 6 (H6)",
                     "name": "group_heading_6",
-                    "display": "inline",
                     "type": "group",
+                    "display": "inline",
                     "children": [
                       {
                         "label": "Font",
@@ -250,14 +245,14 @@
               {
                 "label": "Body",
                 "name": "group_body_font",
-                "use_large_label": true,
-                "inline_help_text": "Main content following headings. Changes here affect all paragraphs on your site.",
                 "type": "group",
                 "icon": {
                   "name": "paragraph",
                   "set": "fontawesome-6.4.2",
                   "type": "SOLID"
                 },
+                "inline_help_text": "Main content following headings. Changes here affect all paragraphs on your site.",
+                "use_large_label": true,
                 "children": [
                   {
                     "label": "Paragraph",
@@ -296,14 +291,14 @@
               {
                 "label": "Other elements",
                 "name": "group_other_elements",
-                "use_large_label": true,
-                "inline_help_text": "Font styles for other elements used in your site such as tags, small captions, and more.",
                 "type": "group",
                 "icon": {
                   "name": "file lines",
                   "set": "fontawesome-6.4.2",
                   "type": "SOLID"
                 },
+                "inline_help_text": "Font styles for other elements used in your site such as tags, small captions, and more.",
+                "use_large_label": true,
                 "children": [
                   {
                     "label": "Block quote",
@@ -370,13 +365,13 @@
                         "label": "Case",
                         "name": "case",
                         "type": "choice",
-                        "display": "buttons",
-                        "preset": "case",
                         "choices": [
                           ["none", "None"],
                           ["uppercase", "Upper"],
                           ["lowercase", "Lower"]
                         ],
+                        "display": "buttons",
+                        "preset": "case",
                         "default": "uppercase"
                       }
                     ]
@@ -390,20 +385,20 @@
       {
         "label": "Colors",
         "name": "group_colors",
-        "inline_help_text": "Changes to the palette affect all instances of the color on the site. More shades of these colors are created for you for a cohesive look across the theme.",
-        "use_large_label": true,
+        "type": "group",
         "icon": {
           "name": "paintbrush",
           "set": "fontawesome-6.4.2",
           "type": "SOLID"
         },
-        "type": "group",
+        "inline_help_text": "Changes to the palette affect all instances of the color on the site. More shades of these colors are created for you for a cohesive look across the theme.",
+        "use_large_label": true,
         "children": [
           {
             "label": "Base colors",
             "name": "group_base_colors",
-            "help_text": "These colors are generally used for backgrounds and text",
             "type": "group",
+            "help_text": "These colors are generally used for backgrounds and text",
             "display": "inline",
             "children": [
               {
@@ -451,8 +446,8 @@
           {
             "label": "Accent colors",
             "name": "group_accent_colors",
-            "help_text": "These colors are generally used for buttons, icons, links, and more",
             "type": "group",
+            "help_text": "These colors are generally used for buttons, icons, links, and more",
             "display": "inline",
             "children": [
               {
@@ -508,36 +503,24 @@
               {
                 "label": "Sections",
                 "name": "group_sections",
-                "use_large_label": true,
-                "inline_help_text": "Changes to colors here affect all instances of the background color on the site’s sections",
                 "type": "group",
                 "icon": {
                   "name": "object-ungroup",
                   "set": "fontawesome-6.4.2",
                   "type": "SOLID"
                 },
+                "inline_help_text": "Changes to colors here affect all instances of the background color on the site’s sections",
+                "use_large_label": true,
                 "children": [
                   {
                     "label": "Choose section to edit",
                     "name": "section_to_edit",
                     "type": "choice",
                     "choices": [
-                      [
-                        "light_section_1",
-                        "Light section 1 (default)"
-                      ],
-                      [
-                        "light_section_2",
-                        "Light section 2"
-                      ],
-                      [
-                        "light_section_3",
-                        "Light section 3"
-                      ],
-                      [
-                        "dark_section_1",
-                        "Dark section 1"
-                      ]
+                      ["light_section_1", "Light section 1 (default)"],
+                      ["light_section_2", "Light section 2"],
+                      ["light_section_3", "Light section 3"],
+                      ["dark_section_1", "Dark section 1"]
                     ],
                     "default": "light_section_1"
                   },
@@ -545,12 +528,12 @@
                     "label": "Light section 1",
                     "name": "group_light_section_1",
                     "type": "group",
-                    "display": "inline",
                     "visibility": {
                       "controlling_field_path": "group_foundation.group_colors.group_more_settings.group_sections.section_to_edit",
                       "controlling_value_regex": "light_section_1",
                       "operator": "EQUAL"
                     },
+                    "display": "inline",
                     "children": [
                       {
                         "label": "Section",
@@ -691,14 +674,8 @@
                             "name": "link_colors",
                             "type": "choice",
                             "choices": [
-                              [
-                                "primary_links",
-                                "Primary"
-                              ],
-                              [
-                                "secondary_links",
-                                "Secondary"
-                              ]
+                              ["primary_links", "Primary"],
+                              ["secondary_links", "Secondary"]
                             ],
                             "default": "primary_links"
                           }
@@ -710,12 +687,12 @@
                     "label": "Light section 2",
                     "name": "group_light_section_2",
                     "type": "group",
-                    "display": "inline",
                     "visibility": {
                       "controlling_field_path": "group_foundation.group_colors.group_more_settings.group_sections.section_to_edit",
                       "controlling_value_regex": "light_section_2",
                       "operator": "EQUAL"
                     },
+                    "display": "inline",
                     "children": [
                       {
                         "label": "Section",
@@ -856,14 +833,8 @@
                             "name": "link_colors",
                             "type": "choice",
                             "choices": [
-                              [
-                                "primary_links",
-                                "Primary"
-                              ],
-                              [
-                                "secondary_links",
-                                "Secondary"
-                              ]
+                              ["primary_links", "Primary"],
+                              ["secondary_links", "Secondary"]
                             ],
                             "default": "primary_links"
                           }
@@ -875,12 +846,12 @@
                     "label": "Light section 3",
                     "name": "group_light_section_3",
                     "type": "group",
-                    "display": "inline",
                     "visibility": {
                       "controlling_field_path": "group_foundation.group_colors.group_more_settings.group_sections.section_to_edit",
                       "controlling_value_regex": "light_section_3",
                       "operator": "EQUAL"
                     },
+                    "display": "inline",
                     "children": [
                       {
                         "label": "Section",
@@ -950,7 +921,7 @@
                                 "opacity": true
                               }
                             },
-                           "default": {
+                            "default": {
                               "color": "#4D6080",
                               "opacity": 100
                             }
@@ -1021,14 +992,8 @@
                             "name": "link_colors",
                             "type": "choice",
                             "choices": [
-                              [
-                                "primary_links",
-                                "Primary"
-                              ],
-                              [
-                                "secondary_links",
-                                "Secondary"
-                              ]
+                              ["primary_links", "Primary"],
+                              ["secondary_links", "Secondary"]
                             ],
                             "default": "primary_links"
                           }
@@ -1040,12 +1005,12 @@
                     "label": "Dark section 1",
                     "name": "group_dark_section_1",
                     "type": "group",
-                    "display": "inline",
                     "visibility": {
                       "controlling_field_path": "group_foundation.group_colors.group_more_settings.group_sections.section_to_edit",
                       "controlling_value_regex": "dark_section_1",
                       "operator": "EQUAL"
                     },
+                    "display": "inline",
                     "children": [
                       {
                         "label": "Section",
@@ -1185,14 +1150,8 @@
                             "name": "link_colors",
                             "type": "choice",
                             "choices": [
-                              [
-                                "primary_links",
-                                "Primary"
-                              ],
-                              [
-                                "secondary_links",
-                                "Secondary"
-                              ]
+                              ["primary_links", "Primary"],
+                              ["secondary_links", "Secondary"]
                             ],
                             "default": "secondary_links"
                           }
@@ -1228,19 +1187,19 @@
           {
             "label": "Primary button",
             "name": "group_primary_button",
-            "use_large_label": true,
-            "inline_help_text": "Used for the most important actions a visitor takes on the page. The color stands out and draws attention",
             "type": "group",
+            "inline_help_text": "Used for the most important actions a visitor takes on the page. The color stands out and draws attention",
+            "use_large_label": true,
             "children": [
               {
                 "label": "Background",
                 "name": "button_fill",
                 "type": "choice",
-                "display": "radio",
                 "choices": [
                   ["filled", "Filled"],
                   ["no_fill", "No fill"]
                 ],
+                "display": "radio",
                 "default": "filled"
               },
               {
@@ -1255,7 +1214,7 @@
                 "choices": [
                   ["pill", "pill"],
                   ["rounded", "rounded"],
-                  [ "rectangle", "rectangle"]
+                  ["rectangle", "rectangle"]
                 ],
                 "display": "buttons",
                 "preset": "filled",
@@ -1273,7 +1232,7 @@
                 "choices": [
                   ["pill", "pill"],
                   ["rounded", "rounded"],
-                  [ "rectangle", "rectangle"]
+                  ["rectangle", "rectangle"]
                 ],
                 "display": "buttons",
                 "preset": "unfilled",
@@ -1284,8 +1243,8 @@
                 "name": "border_thickness",
                 "type": "number",
                 "display": "slider",
-                "min": 0,
                 "max": 10,
+                "min": 0,
                 "step": 1,
                 "suffix": "px",
                 "default": 0
@@ -1441,19 +1400,19 @@
           {
             "label": "Secondary button",
             "name": "group_secondary_button",
-            "use_large_label": true,
-            "inline_help_text": "Used for relatively less important actions when there's already one primary button on the page.",
             "type": "group",
+            "inline_help_text": "Used for relatively less important actions when there's already one primary button on the page.",
+            "use_large_label": true,
             "children": [
               {
                 "label": "Background",
                 "name": "button_fill",
                 "type": "choice",
-                "display": "radio",
                 "choices": [
                   ["filled", "Filled"],
                   ["no_fill", "No fill"]
                 ],
+                "display": "radio",
                 "default": "no_fill"
               },
               {
@@ -1468,7 +1427,7 @@
                 "choices": [
                   ["pill", "pill"],
                   ["rounded", "rounded"],
-                  [ "rectangle", "rectangle"]
+                  ["rectangle", "rectangle"]
                 ],
                 "display": "buttons",
                 "preset": "filled",
@@ -1486,7 +1445,7 @@
                 "choices": [
                   ["pill", "pill"],
                   ["rounded", "rounded"],
-                  [ "rectangle", "rectangle"]
+                  ["rectangle", "rectangle"]
                 ],
                 "display": "buttons",
                 "preset": "unfilled",
@@ -1497,8 +1456,8 @@
                 "name": "border_thickness",
                 "type": "number",
                 "display": "slider",
-                "min": 0,
                 "max": 10,
+                "min": 0,
                 "step": 1,
                 "suffix": "px",
                 "default": 2
@@ -1653,19 +1612,19 @@
           {
             "label": "Tertiary button",
             "name": "group_tertiary_button",
-            "use_large_label": true,
-            "inline_help_text": "Another button style that may be used for actions a visitor takes on the page.",
             "type": "group",
+            "inline_help_text": "Another button style that may be used for actions a visitor takes on the page.",
+            "use_large_label": true,
             "children": [
               {
                 "label": "Background",
                 "name": "button_fill",
                 "type": "choice",
-                "display": "radio",
                 "choices": [
                   ["filled", "Filled"],
                   ["no_fill", "No fill"]
                 ],
+                "display": "radio",
                 "default": "filled"
               },
               {
@@ -1680,7 +1639,7 @@
                 "choices": [
                   ["pill", "pill"],
                   ["rounded", "rounded"],
-                  [ "rectangle", "rectangle"]
+                  ["rectangle", "rectangle"]
                 ],
                 "display": "buttons",
                 "preset": "filled",
@@ -1698,7 +1657,7 @@
                 "choices": [
                   ["pill", "pill"],
                   ["rounded", "rounded"],
-                  [ "rectangle", "rectangle"]
+                  ["rectangle", "rectangle"]
                 ],
                 "display": "buttons",
                 "preset": "unfilled",
@@ -1709,8 +1668,8 @@
                 "name": "border_thickness",
                 "type": "number",
                 "display": "slider",
-                "min": 0,
                 "max": 10,
+                "min": 0,
                 "step": 1,
                 "suffix": "px",
                 "default": 0
@@ -1866,19 +1825,19 @@
           {
             "label": "Accent button",
             "name": "group_accent_button",
-            "use_large_label": true,
-            "inline_help_text": "Another button style that may be used for actions a visitor takes on the page.",
             "type": "group",
+            "inline_help_text": "Another button style that may be used for actions a visitor takes on the page.",
+            "use_large_label": true,
             "children": [
               {
                 "label": "Background",
                 "name": "button_fill",
                 "type": "choice",
-                "display": "radio",
                 "choices": [
                   ["filled", "Filled"],
                   ["no_fill", "No fill"]
                 ],
+                "display": "radio",
                 "default": "no_fill"
               },
               {
@@ -1893,7 +1852,7 @@
                 "choices": [
                   ["pill", "pill"],
                   ["rounded", "rounded"],
-                  [ "rectangle", "rectangle"]
+                  ["rectangle", "rectangle"]
                 ],
                 "display": "buttons",
                 "preset": "filled",
@@ -1911,7 +1870,7 @@
                 "choices": [
                   ["pill", "pill"],
                   ["rounded", "rounded"],
-                  [ "rectangle", "rectangle"]
+                  ["rectangle", "rectangle"]
                 ],
                 "display": "buttons",
                 "preset": "unfilled",
@@ -1922,8 +1881,8 @@
                 "name": "border_thickness",
                 "type": "number",
                 "display": "slider",
-                "min": 0,
                 "max": 10,
+                "min": 0,
                 "step": 1,
                 "suffix": "px",
                 "default": 2
@@ -2080,13 +2039,13 @@
       {
         "label": "Links",
         "name": "group_links",
-        "use_large_label": true,
         "type": "group",
         "icon": {
           "name": "link",
           "set": "fontawesome-6.4.2",
           "type": "SOLID"
         },
+        "use_large_label": true,
         "children": [
           {
             "label": "Primary links",
@@ -2300,12 +2259,12 @@
         "label": "Forms",
         "name": "group_forms",
         "type": "group",
-        "use_large_label": true,
         "icon": {
           "name": "clipboard-list",
           "set": "fontawesome-6.4.2",
           "type": "SOLID"
         },
+        "use_large_label": true,
         "children": [
           {
             "label": "Field background",
@@ -2328,8 +2287,8 @@
           {
             "label": "Field shape",
             "name": "group_field_shape",
-            "display": "inline",
             "type": "group",
+            "display": "inline",
             "children": [
               {
                 "label": "",
@@ -2343,7 +2302,7 @@
                 "choices": [
                   ["pill", "pill"],
                   ["rounded", "rounded"],
-                  [ "rectangle", "rectangle"]
+                  ["rectangle", "rectangle"]
                 ],
                 "display": "buttons",
                 "preset": "filled",
@@ -2361,7 +2320,7 @@
                 "choices": [
                   ["pill", "pill"],
                   ["rounded", "rounded"],
-                  [ "rectangle", "rectangle"]
+                  ["rectangle", "rectangle"]
                 ],
                 "display": "buttons",
                 "preset": "unfilled",
@@ -2372,8 +2331,8 @@
           {
             "label": "Field border",
             "name": "group_field_border",
-            "display": "inline",
             "type": "group",
+            "display": "inline",
             "children": [
               {
                 "label": "",
@@ -2493,9 +2452,95 @@
                 "label": "",
                 "name": "border_thickness",
                 "type": "number",
+                "visibility_rules": "ADVANCED",
+                "advanced_visibility": {
+                  "boolean_operator": "OR",
+                  "children": [
+                    {
+                      "boolean_operator": "AND",
+                      "criteria": [
+                        {
+                          "controlling_field_path": "group_elements.group_forms.group_field_shape.field_shape_filled",
+                          "controlling_value_regex": "rectangle",
+                          "operator": "NOT_EQUAL"
+                        },
+                        {
+                          "controlling_field_path": "group_elements.group_forms.group_field_background.background",
+                          "controlling_value_regex": "filled",
+                          "operator": "EQUAL"
+                        },
+                        {
+                          "controlling_field_path": "group_elements.group_forms.group_field_border.field_border_shape",
+                          "controlling_value_regex": "none",
+                          "operator": "NOT_EQUAL"
+                        }
+                      ]
+                    },
+                    {
+                      "boolean_operator": "AND",
+                      "criteria": [
+                        {
+                          "controlling_field_path": "group_elements.group_forms.group_field_shape.field_shape_filled",
+                          "controlling_value_regex": "rectangle",
+                          "operator": "EQUAL"
+                        },
+                        {
+                          "controlling_field_path": "group_elements.group_forms.group_field_background.background",
+                          "controlling_value_regex": "filled",
+                          "operator": "EQUAL"
+                        },
+                        {
+                          "controlling_field_path": "group_elements.group_forms.group_field_border.field_border_shape_rectangle",
+                          "controlling_value_regex": "none",
+                          "operator": "NOT_EQUAL"
+                        }
+                      ]
+                    },
+                    {
+                      "boolean_operator": "AND",
+                      "criteria": [
+                        {
+                          "controlling_field_path": "group_elements.group_forms.group_field_shape.field_shape_unfilled",
+                          "controlling_value_regex": "rectangle",
+                          "operator": "NOT_EQUAL"
+                        },
+                        {
+                          "controlling_field_path": "group_elements.group_forms.group_field_background.background",
+                          "controlling_value_regex": "no_fill",
+                          "operator": "EQUAL"
+                        },
+                        {
+                          "controlling_field_path": "group_elements.group_forms.group_field_border.field_border_shape_unfilled",
+                          "controlling_value_regex": "none",
+                          "operator": "NOT_EQUAL"
+                        }
+                      ]
+                    },
+                    {
+                      "boolean_operator": "AND",
+                      "criteria": [
+                        {
+                          "controlling_field_path": "group_elements.group_forms.group_field_shape.field_shape_unfilled",
+                          "controlling_value_regex": "rectangle",
+                          "operator": "EQUAL"
+                        },
+                        {
+                          "controlling_field_path": "group_elements.group_forms.group_field_background.background",
+                          "controlling_value_regex": "no_fill",
+                          "operator": "EQUAL"
+                        },
+                        {
+                          "controlling_field_path": "group_elements.group_forms.group_field_border.field_border_shape_rectangle_unfilled",
+                          "controlling_value_regex": "none",
+                          "operator": "NOT_EQUAL"
+                        }
+                      ]
+                    }
+                  ]
+                },
                 "display": "slider",
-                "min": 0,
                 "max": 10,
+                "min": 0,
                 "step": 1,
                 "suffix": "px",
                 "default": 1
@@ -2547,8 +2592,8 @@
           {
             "label": "Label text",
             "name": "group_label_text",
-            "display": "inline",
             "type": "group",
+            "display": "inline",
             "children": [
               {
                 "label": "Font",
@@ -2592,8 +2637,8 @@
           {
             "label": "Input text",
             "name": "group_input_text",
-            "display": "inline",
             "type": "group",
+            "display": "inline",
             "children": [
               {
                 "label": "Text color",
@@ -2615,8 +2660,8 @@
           {
             "label": "Placeholder text",
             "name": "group_placeholder_text",
-            "display": "inline",
             "type": "group",
+            "display": "inline",
             "children": [
               {
                 "label": "Text color",
@@ -2636,8 +2681,8 @@
           {
             "label": "Form background",
             "name": "group_form_background",
-            "display": "inline",
             "type": "group",
+            "display": "inline",
             "children": [
               {
                 "label": "",
@@ -2672,8 +2717,8 @@
           {
             "label": "Form shape",
             "name": "group_form_shape",
-            "display": "inline",
             "type": "group",
+            "display": "inline",
             "children": [
               {
                 "label": "",
@@ -2739,8 +2784,8 @@
                   "operator": "EQUAL"
                 },
                 "display": "slider",
-                "min": 0,
                 "max": 10,
+                "min": 0,
                 "step": 1,
                 "suffix": "px",
                 "default": 1
@@ -2781,13 +2826,13 @@
       {
         "label": "Cards",
         "name": "group_cards",
-        "use_large_label": true,
         "type": "group",
         "icon": {
           "name": "mattress pillow",
           "set": "fontawesome-6.4.2",
           "type": "SOLID"
         },
+        "use_large_label": true,
         "children": [
           {
             "label": "Card variant 1",
@@ -2797,18 +2842,12 @@
               {
                 "label": "Card background",
                 "name": "card_background",
-                "display": "radio",
                 "type": "choice",
                 "choices": [
-                  [
-                    "filled",
-                    "Filled"
-                  ],
-                  [
-                    "no_fill",
-                    "No fill"
-                  ]
+                  ["filled", "Filled"],
+                  ["no_fill", "No fill"]
                 ],
+                "display": "radio",
                 "default": "filled"
               },
               {
@@ -2820,18 +2859,12 @@
                   "controlling_value_regex": "filled",
                   "operator": "EQUAL"
                 },
+                "choices": [
+                  ["rounded", "Rounded"],
+                  ["rectangle", "Rectangle"]
+                ],
                 "display": "buttons",
                 "preset": "filled",
-                "choices": [
-                  [
-                    "rounded",
-                    "Rounded"
-                  ],
-                  [
-                    "rectangle",
-                    "Rectangle"
-                  ]
-                ],
                 "default": "rounded"
               },
               {
@@ -2843,18 +2876,12 @@
                   "controlling_value_regex": "no_fill",
                   "operator": "EQUAL"
                 },
+                "choices": [
+                  ["rounded", "Rounded"],
+                  ["rectangle", "Rectangle"]
+                ],
                 "display": "buttons",
                 "preset": "unfilled",
-                "choices": [
-                  [
-                    "rounded",
-                    "Rounded"
-                  ],
-                  [
-                    "rectangle",
-                    "Rectangle"
-                  ]
-                ],
                 "default": "rounded"
               },
               {
@@ -2862,8 +2889,8 @@
                 "name": "border_thickness",
                 "type": "number",
                 "display": "slider",
-                "min": 0,
                 "max": 10,
+                "min": 0,
                 "step": 1,
                 "suffix": "px",
                 "default": 1
@@ -2928,8 +2955,8 @@
               {
                 "label": "Icon colors",
                 "name": "group_icon_colors",
-                "display": "inline",
                 "type": "group",
+                "display": "inline",
                 "children": [
                   {
                     "label": "Fill color",
@@ -2974,14 +3001,8 @@
                     "name": "link_colors",
                     "type": "choice",
                     "choices": [
-                      [
-                        "primary_links",
-                        "Primary"
-                      ],
-                      [
-                        "secondary_links",
-                        "Secondary"
-                      ]
+                      ["primary_links", "Primary"],
+                      ["secondary_links", "Secondary"]
                     ],
                     "default": "primary_links"
                   }
@@ -2997,18 +3018,12 @@
               {
                 "label": "Card background",
                 "name": "card_background",
-                "display": "radio",
                 "type": "choice",
                 "choices": [
-                  [
-                    "filled",
-                    "Filled"
-                  ],
-                  [
-                    "no_fill",
-                    "No fill"
-                  ]
+                  ["filled", "Filled"],
+                  ["no_fill", "No fill"]
                 ],
+                "display": "radio",
                 "default": "filled"
               },
               {
@@ -3020,18 +3035,12 @@
                   "controlling_value_regex": "filled",
                   "operator": "EQUAL"
                 },
+                "choices": [
+                  ["rounded", "Rounded"],
+                  ["rectangle", "Rectangle"]
+                ],
                 "display": "buttons",
                 "preset": "filled",
-                "choices": [
-                  [
-                    "rounded",
-                    "Rounded"
-                  ],
-                  [
-                    "rectangle",
-                    "Rectangle"
-                  ]
-                ],
                 "default": "rounded"
               },
               {
@@ -3043,18 +3052,12 @@
                   "controlling_value_regex": "no_fill",
                   "operator": "EQUAL"
                 },
+                "choices": [
+                  ["rounded", "Rounded"],
+                  ["rectangle", "Rectangle"]
+                ],
                 "display": "buttons",
                 "preset": "unfilled",
-                "choices": [
-                  [
-                    "rounded",
-                    "Rounded"
-                  ],
-                  [
-                    "rectangle",
-                    "Rectangle"
-                  ]
-                ],
                 "default": "rounded"
               },
               {
@@ -3062,8 +3065,8 @@
                 "name": "border_thickness",
                 "type": "number",
                 "display": "slider",
-                "min": 0,
                 "max": 10,
+                "min": 0,
                 "step": 1,
                 "suffix": "px",
                 "default": 1
@@ -3128,8 +3131,8 @@
               {
                 "label": "Icon colors",
                 "name": "group_icon_colors",
-                "display": "inline",
                 "type": "group",
+                "display": "inline",
                 "children": [
                   {
                     "label": "Fill color",
@@ -3173,14 +3176,8 @@
                     "name": "link_colors",
                     "type": "choice",
                     "choices": [
-                      [
-                        "primary_links",
-                        "Primary"
-                      ],
-                      [
-                        "secondary_links",
-                        "Secondary"
-                      ]
+                      ["primary_links", "Primary"],
+                      ["secondary_links", "Secondary"]
                     ],
                     "default": "primary_links"
                   }
@@ -3196,18 +3193,12 @@
               {
                 "label": "Card background",
                 "name": "card_background",
-                "display": "radio",
                 "type": "choice",
                 "choices": [
-                  [
-                    "filled",
-                    "Filled"
-                  ],
-                  [
-                    "no_fill",
-                    "No fill"
-                  ]
+                  ["filled", "Filled"],
+                  ["no_fill", "No fill"]
                 ],
+                "display": "radio",
                 "default": "filled"
               },
               {
@@ -3219,18 +3210,12 @@
                   "controlling_value_regex": "filled",
                   "operator": "EQUAL"
                 },
+                "choices": [
+                  ["rounded", "Rounded"],
+                  ["rectangle", "Rectangle"]
+                ],
                 "display": "buttons",
                 "preset": "filled",
-                "choices": [
-                  [
-                    "rounded",
-                    "Rounded"
-                  ],
-                  [
-                    "rectangle",
-                    "Rectangle"
-                  ]
-                ],
                 "default": "rounded"
               },
               {
@@ -3242,18 +3227,12 @@
                   "controlling_value_regex": "no_fill",
                   "operator": "EQUAL"
                 },
+                "choices": [
+                  ["rounded", "Rounded"],
+                  ["rectangle", "Rectangle"]
+                ],
                 "display": "buttons",
                 "preset": "unfilled",
-                "choices": [
-                  [
-                    "rounded",
-                    "Rounded"
-                  ],
-                  [
-                    "rectangle",
-                    "Rectangle"
-                  ]
-                ],
                 "default": "rounded"
               },
               {
@@ -3261,8 +3240,8 @@
                 "name": "border_thickness",
                 "type": "number",
                 "display": "slider",
-                "min": 0,
                 "max": 10,
+                "min": 0,
                 "step": 1,
                 "suffix": "px",
                 "default": 1
@@ -3327,8 +3306,8 @@
               {
                 "label": "Icon colors",
                 "name": "group_icon_colors",
-                "display": "inline",
                 "type": "group",
+                "display": "inline",
                 "children": [
                   {
                     "label": "Fill color",
@@ -3370,14 +3349,8 @@
                         "name": "link_colors",
                         "type": "choice",
                         "choices": [
-                          [
-                            "primary_links",
-                            "Primary"
-                          ],
-                          [
-                            "secondary_links",
-                            "Secondary"
-                          ]
+                          ["primary_links", "Primary"],
+                          ["secondary_links", "Secondary"]
                         ],
                         "default": "secondary_links"
                       }
@@ -3395,18 +3368,12 @@
               {
                 "label": "Card background",
                 "name": "card_background",
-                "display": "radio",
                 "type": "choice",
                 "choices": [
-                  [
-                    "filled",
-                    "Filled"
-                  ],
-                  [
-                    "no_fill",
-                    "No fill"
-                  ]
+                  ["filled", "Filled"],
+                  ["no_fill", "No fill"]
                 ],
+                "display": "radio",
                 "default": "filled"
               },
               {
@@ -3418,18 +3385,12 @@
                   "controlling_value_regex": "filled",
                   "operator": "EQUAL"
                 },
+                "choices": [
+                  ["rounded", "Rounded"],
+                  ["rectangle", "Rectangle"]
+                ],
                 "display": "buttons",
                 "preset": "filled",
-                "choices": [
-                  [
-                    "rounded",
-                    "Rounded"
-                  ],
-                  [
-                    "rectangle",
-                    "Rectangle"
-                  ]
-                ],
                 "default": "rounded"
               },
               {
@@ -3441,18 +3402,12 @@
                   "controlling_value_regex": "no_fill",
                   "operator": "EQUAL"
                 },
+                "choices": [
+                  ["rounded", "Rounded"],
+                  ["rectangle", "Rectangle"]
+                ],
                 "display": "buttons",
                 "preset": "unfilled",
-                "choices": [
-                  [
-                    "rounded",
-                    "Rounded"
-                  ],
-                  [
-                    "rectangle",
-                    "Rectangle"
-                  ]
-                ],
                 "default": "rounded"
               },
               {
@@ -3460,8 +3415,8 @@
                 "name": "border_thickness",
                 "type": "number",
                 "display": "slider",
-                "min": 0,
                 "max": 10,
+                "min": 0,
                 "step": 1,
                 "suffix": "px",
                 "default": 1
@@ -3488,7 +3443,6 @@
                       "color": "#18233B",
                       "opacity": 100
                     }
-
                   },
                   {
                     "label": "Text color",
@@ -3526,8 +3480,8 @@
               {
                 "label": "Icon colors",
                 "name": "group_icon_colors",
-                "display": "inline",
                 "type": "group",
+                "display": "inline",
                 "children": [
                   {
                     "label": "Fill color",
@@ -3571,14 +3525,8 @@
                     "name": "link_colors",
                     "type": "choice",
                     "choices": [
-                      [
-                        "primary_links",
-                        "Primary"
-                      ],
-                      [
-                        "secondary_links",
-                        "Secondary"
-                      ]
+                      ["primary_links", "Primary"],
+                      ["secondary_links", "Secondary"]
                     ],
                     "default": "secondary_links"
                   }
@@ -3591,19 +3539,19 @@
       {
         "label": "Tags",
         "name": "group_tags",
-        "use_large_label": true,
         "type": "group",
         "icon": {
           "name": "tags",
           "set": "fontawesome-6.4.2",
           "type": "SOLID"
         },
+        "use_large_label": true,
         "children": [
           {
             "label": "Background",
             "name": "group_background",
-            "display": "inline",
             "type": "group",
+            "display": "inline",
             "children": [
               {
                 "label": "",
@@ -3620,8 +3568,8 @@
           {
             "label": "Shape",
             "name": "group_shape",
-            "display": "inline",
             "type": "group",
+            "display": "inline",
             "children": [
               {
                 "label": "",
@@ -3632,13 +3580,13 @@
                   "controlling_value_regex": "filled",
                   "operator": "EQUAL"
                 },
-                "display": "buttons",
-                "preset": "filled",
                 "choices": [
                   ["pill", "pill"],
                   ["rounded", "Rounded"],
-                  [ "rectangle", "Rectangle"]
+                  ["rectangle", "Rectangle"]
                 ],
+                "display": "buttons",
+                "preset": "filled",
                 "default": "pill"
               },
               {
@@ -3650,13 +3598,13 @@
                   "controlling_value_regex": "no_fill",
                   "operator": "EQUAL"
                 },
-                "display": "buttons",
-                "preset": "unfilled",
                 "choices": [
                   ["pill", "pill"],
                   ["rounded", "Rounded"],
-                  [ "rectangle", "Rectangle"]
+                  ["rectangle", "Rectangle"]
                 ],
+                "display": "buttons",
+                "preset": "unfilled",
                 "default": "rounded"
               }
             ]
@@ -3664,16 +3612,16 @@
           {
             "label": "Border",
             "name": "group_border",
-            "display": "inline",
             "type": "group",
+            "display": "inline",
             "children": [
               {
                 "label": "",
                 "name": "border_thickness",
                 "type": "number",
                 "display": "slider",
-                "min": 0,
                 "max": 10,
+                "min": 0,
                 "step": 1,
                 "suffix": "px",
                 "default": 1
@@ -3739,8 +3687,8 @@
           {
             "label": "Text",
             "name": "group_text",
-            "display": "inline",
             "type": "group",
+            "display": "inline",
             "children": [
               {
                 "label": "Font",
@@ -3770,13 +3718,13 @@
             "label": "Case",
             "name": "case",
             "type": "choice",
-            "display": "buttons",
-            "preset": "case",
             "choices": [
               ["none", "None"],
               ["uppercase", "Upper"],
               ["lowercase", "Lower"]
             ],
+            "display": "buttons",
+            "preset": "case",
             "default": "none"
           }
         ]

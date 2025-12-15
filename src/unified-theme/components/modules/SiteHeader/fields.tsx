@@ -13,15 +13,15 @@ import {
 import { ButtonContent, ButtonStyle } from '../../fieldLibrary/index.js';
 import { limitedColorDefaults } from '../../utils/theme-color-sets.js';
 
-const showButton = {
-  controlling_field_path: 'groupButton.showButton',
-  controlling_value_regex: 'true',
-  operator: 'EQUAL',
-} as const;
-
-const advancedShowButton: AdvancedVisibility = {
+const buttonFieldVisibility: AdvancedVisibility = {
   boolean_operator: 'OR',
-  criteria: [showButton],
+  criteria: [
+    {
+      controlling_field_path: 'groupButton.showButton',
+      controlling_value_regex: 'true',
+      operator: 'EQUAL',
+    },
+  ],
 } as const;
 
 const limitedOptionsColorsSet = [...limitedColorDefaults.themeSectionTextColors, ...limitedColorDefaults.themeColors];
@@ -40,8 +40,9 @@ export const fields = (
         textDefault="Get started"
         linkDefault={{ open_in_new_tab: false }}
         iconPositionDefault="right"
-        textVisibility={advancedShowButton}
-        linkVisibility={advancedShowButton}
+        textVisibility={buttonFieldVisibility}
+        linkVisibility={buttonFieldVisibility}
+        showIconVisibility={buttonFieldVisibility}
       />
     </FieldGroup>
     <FieldGroup label="Default content" name="defaultContent" locked={true}>
@@ -108,8 +109,8 @@ export const fields = (
         <ButtonStyle
           buttonStyleDefault="primary"
           buttonSizeDefault="medium"
-          buttonSizeVisibility={advancedShowButton}
-          buttonStyleVisibility={advancedShowButton}
+          buttonSizeVisibility={buttonFieldVisibility}
+          buttonStyleVisibility={buttonFieldVisibility}
         />
       </FieldGroup>
     </FieldGroup>

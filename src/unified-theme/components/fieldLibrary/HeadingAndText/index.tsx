@@ -30,7 +30,7 @@ export default function HeadingAndText(props: HeadingAndTextProps) {
 
   return (
     <>
-      <TextField label={headingTextLabel} name="headingAndTextHeading" visibilityRules="ADVANCED" advancedVisibility={textVisibility} default={textDefault} />
+      <TextField label={headingTextLabel} name="headingAndTextHeading" visibilityRules="ADVANCED" advancedVisibility={textVisibility} default={textDefault} inlineEditable={true} />
       <ChoiceField
         label={headingLevelLabel}
         name="headingAndTextHeadingLevel"

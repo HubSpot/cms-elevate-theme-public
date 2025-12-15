@@ -26,8 +26,8 @@ export const fields = (
         },
       ]}
     >
-      <TextField label="Metric value" name="metric" default="15k+" />
-      <TextField label="Description" name="description" default="Customers of Elevate" />
+      <TextField label="Metric value" name="metric" default="15k+" inlineEditable={true} />
+      <TextField label="Description" name="description" default="Customers of Elevate" inlineEditable={true} />
     </RepeatedFieldGroup>
     <FieldGroup label="Styles" name="groupStyle" tab="STYLE">
       <SectionStyle sectionStyleDefault="section_variant_1" />

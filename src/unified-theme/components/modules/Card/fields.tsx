@@ -23,7 +23,7 @@ const buttonFieldVisibility: AdvancedVisibility = {
     controlling_value_regex: 'true',
     operator: 'EQUAL',
   }]
-}
+} as const;
 
 export const fields = (
   <ModuleFields>
@@ -132,6 +132,7 @@ export const fields = (
           }}
           textVisibility={buttonFieldVisibility}
           linkVisibility={buttonFieldVisibility}
+          showIconVisibility={buttonFieldVisibility}
         />
       </FieldGroup>
     </RepeatedFieldGroup>

@@ -24,7 +24,7 @@ const buttonFieldVisibility: AdvancedVisibility = {
     controlling_value_regex: 'true',
     operator: 'EQUAL',
   }]
-}
+} as const;
 
 export const fields = (
   <ModuleFields>
@@ -48,6 +48,11 @@ export const fields = (
       <ChoiceField
         label='Image position'
         name='imagePosition'
+        visibility={{
+          controlling_field_path: 'groupImage.image',
+          property: 'src',
+          operator: 'NOT_EMPTY',
+        }}
         display='radio'
         choices={[
           ['left', 'Left'],
@@ -88,6 +93,7 @@ export const fields = (
         textDefault='Explore more'
         textVisibility={buttonFieldVisibility}
         linkVisibility={buttonFieldVisibility}
+        showIconVisibility={buttonFieldVisibility}
       />
     </FieldGroup>
     <FieldGroup

@@ -12,28 +12,42 @@ import {
   TextFieldType,
 } from '@hubspot/cms-components/fields';
 
-type ButtonContent = {
+type ButtonContentProps = {
   textDefault: TextFieldType['default'];
   linkDefault?: LinkFieldType['default'];
   iconDefault?: IconFieldType['default'];
   iconPositionDefault?: 'left' | 'right';
   textVisibility?: AdvancedVisibility;
   linkVisibility?: AdvancedVisibility;
+  showIconVisibility?: AdvancedVisibility;
 };
 
-export default function ButtonContent(props: ButtonContent) {
+export default function ButtonContent(props: ButtonContentProps) {
   const {
     textDefault = 'Learn more',
     linkDefault = {
-      open_in_new_tab: true,
+      open_in_new_tab: true
     },
     iconDefault = {
-      name: 'arrow-right',
+      name: 'arrow-right'
     },
     iconPositionDefault = 'right',
     textVisibility = null,
     linkVisibility = null,
+    showIconVisibility = null,
   } = props;
+
+  const iconVisibility: AdvancedVisibility = {
+    boolean_operator: 'AND',
+    criteria: [
+      {
+        controlling_field: 'buttonContentShowIcon',
+        controlling_value_regex: 'true',
+        operator: 'EQUAL',
+      },
+    ],
+    children: showIconVisibility ? [showIconVisibility] : [],
+  } as const;
 
   return (
     <>
@@ -44,6 +58,7 @@ export default function ButtonContent(props: ButtonContent) {
         advancedVisibility={textVisibility}
         required
         default={textDefault}
+        inlineEditable={true}
       />
       <LinkField
         label='Link'
@@ -65,6 +80,8 @@ export default function ButtonContent(props: ButtonContent) {
         label='Show icon'
         name='buttonContentShowIcon'
         id='buttonContentShowIcon'
+        visibilityRules='ADVANCED'
+        advancedVisibility={showIconVisibility}
         display='toggle'
         default={false}
       />
@@ -72,22 +89,16 @@ export default function ButtonContent(props: ButtonContent) {
         label='Icon'
         name='buttonContentIcon'
         id='buttonContentIcon'
-        visibility={{
-          controlling_field: 'buttonContentShowIcon',
-          controlling_value_regex: 'true',
-          operator: 'EQUAL',
-        }}
+        visibilityRules='ADVANCED'
+        advancedVisibility={iconVisibility}
         iconSet='fontawesome-6.4.2'
         default={iconDefault}
       />
       <ChoiceField
         label='Icon position'
         name='buttonContentIconPosition'
-        visibility={{
-          controlling_field: 'buttonContentShowIcon',
-          controlling_value_regex: 'true',
-          operator: 'EQUAL',
-        }}
+        visibilityRules='ADVANCED'
+        advancedVisibility={iconVisibility}
         choices={[
           ['left', 'Left'],
           ['right', 'Right'],

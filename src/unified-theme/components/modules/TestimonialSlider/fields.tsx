@@ -173,11 +173,12 @@ export const fields = (
           name="quote"
           required={true}
           default="The measurable results have transformed our business. Highly recommend for anyone looking to elevate their marketing game."
+          inlineEditable={true}
         />
       </FieldGroup>
       <FieldGroup label="Author" name="groupAuthor" display="inline">
-        <TextField label="Name" name="authorName" default="Sarah Johnson" />
-        <TextField label="Title" name="authorTitle" default="Chief Marketing Officer @ StellarForge" />
+        <TextField label="Name" name="authorName" default="Sarah Johnson" inlineEditable={true} />
+        <TextField label="Title" name="authorTitle" default="Chief Marketing Officer @ StellarForge" inlineEditable={true} />
         <ImageField
           label="Image"
           name="authorImage"
@@ -210,7 +211,7 @@ export const fields = (
         />
       </FieldGroup>
       <FieldGroup label="Link" name="groupLink" display="inline">
-        <TextField label="Link text" name="linkText" default="Read case study" />
+        <TextField label="Link text" name="linkText" default="Read case study" inlineEditable={true} />
         <LinkField
           label="Link"
           name="link"

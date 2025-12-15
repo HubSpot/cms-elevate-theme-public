@@ -21,6 +21,7 @@ type GroupStyle = SectionStyleFieldLibraryType &
     alignment?: TextAlignmentFieldType['default'];
   };
 type HeadingProps = HeadingAndTextFieldLibraryType & {
+  moduleName?: string;
   groupStyle: GroupStyle;
   hublData: {
     renderedWithGrids: boolean;
@@ -43,6 +44,7 @@ const HeadingContainer = createComponent('div');
 
 export const Component = (props: HeadingProps) => {
   const {
+    moduleName,
     headingAndTextHeadingLevel,
     headingAndTextHeading,
     groupStyle: { alignment, headingStyleVariant, sectionStyleVariant },
@@ -61,6 +63,8 @@ export const Component = (props: HeadingProps) => {
         heading={headingAndTextHeading}
         alignment={alignment}
         headingStyleVariant={headingStyleVariant}
+        moduleName={moduleName}
+        fieldPath="headingAndTextHeading"
       />
     </HeadingContainer>
   );

@@ -1,14 +1,6 @@
 import { ImageFieldType, TextFieldType, LinkFieldType, BooleanFieldType } from '@hubspot/cms-components/fields';
 import { CardStyleFieldLibraryType } from '../../fieldLibrary/CardStyle/types.js';
 
-// Types for the testimonial slider
-
-export type TestimonialSliderProps = {
-  groupTestimonial: TestimonialContentProps[];
-  groupStyle: TestimonialStyleProps;
-  groupDefaultText: TestimonialDefaultTextProps;
-};
-
 // Types for testimonial default text
 
 export type TestimonialDefaultTextProps = {
@@ -31,6 +23,8 @@ export type TestimonialLinkProps = {
   contentCentered?: boolean;
   linkText?: TextFieldType['default'];
   link?: LinkFieldType['default'];
+  moduleName?: string;
+  testimonialIndex: number;
 };
 
 // Types for testimonial author
@@ -39,6 +33,8 @@ export type TestimonialAuthorProps = {
   authorName?: TextFieldType['default'];
   authorTitle?: TextFieldType['default'];
   authorImage?: ImageFieldType['default'];
+  moduleName?: string;
+  testimonialIndex: number;
 };
 
 // Types for the testimonial meta
@@ -74,3 +70,12 @@ export type TestimonialContentProps = {
 // Types for testimonial slide styles
 
 export type TestimonialStyleProps = CardStyleFieldLibraryType;
+
+// Types for the testimonial slider
+
+export type TestimonialSliderProps = {
+  moduleName?: string;
+  groupTestimonial: TestimonialContentProps[];
+  groupStyle: TestimonialStyleProps;
+  groupDefaultText: TestimonialDefaultTextProps;
+};

@@ -6,12 +6,13 @@ import {
   yellow,
   red,
   green,
-  displayPresetNotifications,
   traverseFields,
   traversePreset,
   comparePresetToSchema,
   parseFile,
   detectPresetChanges,
+  displayGroupedValidationResults,
+  createTable,
 } from './validate-presets.js';
 
 describe('Color utility functions', () => {
@@ -206,65 +207,6 @@ describe('comparePresetToSchema', () => {
   });
 });
 
-describe('displayPresetNotifications', () => {
-  let consoleLogSpy: ReturnType<typeof vi.spyOn>;
-
-  beforeEach(() => {
-    consoleLogSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
-  });
-
-  afterEach(() => {
-    consoleLogSpy.mockRestore();
-  });
-
-  it('should return false for up-to-date presets', () => {
-    const changes = {
-      orphanedFields: [],
-      missingInheritedFields: ['inheritedField'],
-      missingRequiredFields: [],
-      validFields: ['field1'],
-    };
-
-    const fieldMap = new Map([['field1', { type: 'string', inheritedValue: null, defaultValue: null }]]);
-
-    const result = displayPresetNotifications('test-preset', changes, fieldMap);
-    expect(result).toBe(false);
-    expect(consoleLogSpy).toHaveBeenCalledWith(expect.stringContaining('✓ Preset is up-to-date'));
-  });
-
-  it('should return true and display missing required fields with defaults', () => {
-    const changes = {
-      orphanedFields: [],
-      missingInheritedFields: [],
-      missingRequiredFields: ['fontSize'],
-      validFields: [],
-    };
-
-    const fieldMap = new Map([['fontSize', { type: 'number', inheritedValue: null, defaultValue: 16 }]]);
-
-    const result = displayPresetNotifications('test-preset', changes, fieldMap);
-    expect(result).toBe(true);
-    expect(consoleLogSpy).toHaveBeenCalledWith(expect.stringContaining('Fields requiring manual values'));
-    expect(consoleLogSpy).toHaveBeenCalledWith(expect.stringContaining('Default: 16'));
-  });
-
-  it('should display orphaned fields as warnings', () => {
-    const changes = {
-      orphanedFields: ['oldField1'],
-      missingInheritedFields: [],
-      missingRequiredFields: [],
-      validFields: ['primaryColor'],
-    };
-
-    const fieldMap = new Map([['primaryColor', { type: 'color', inheritedValue: null, defaultValue: null }]]);
-
-    const result = displayPresetNotifications('test-preset', changes, fieldMap);
-    expect(result).toBe(false);
-    expect(consoleLogSpy).toHaveBeenCalledWith(expect.stringContaining('Orphaned fields in preset'));
-    expect(consoleLogSpy).toHaveBeenCalledWith(expect.stringContaining('oldField1'));
-  });
-});
-
 describe('Error handling', () => {
   describe('parseFile', () => {
     it('should throw error for invalid JSON', () => {
@@ -334,5 +276,181 @@ describe('Error handling', () => {
         }
       }
     });
+  });
+});
+
+describe('createTable', () => {
+  it('should create a table with all data present', () => {
+    const headers = ['Name', 'Age'];
+    const rows = [
+      ['Alice', '25'],
+      ['Bob', '30'],
+    ];
+
+    const result = createTable(headers, rows);
+
+    // Verify all headers are present
+    expect(result).toContain('Name');
+    expect(result).toContain('Age');
+
+    // Verify all row data is present
+    expect(result).toContain('Alice');
+    expect(result).toContain('Bob');
+    expect(result).toContain('25');
+    expect(result).toContain('30');
+
+    // Verify table structure elements
+    expect(result).toContain('│');
+    expect(result).toContain('─');
+  });
+
+  it('should include all data when headers and values have different lengths', () => {
+    const headers = ['Short', 'Very Long Header'];
+    const rows = [
+      ['A', 'B'],
+      ['VeryLongValue', 'C'],
+    ];
+
+    const result = createTable(headers, rows);
+
+    expect(result).toContain('Short');
+    expect(result).toContain('Very Long Header');
+    expect(result).toContain('VeryLongValue');
+    expect(result).toContain('│');
+  });
+
+  it('should handle empty rows', () => {
+    const headers = ['Field', 'Value'];
+    const rows: string[][] = [];
+
+    const result = createTable(headers, rows);
+
+    expect(result).toContain('Field');
+    expect(result).toContain('Value');
+    expect(result).toContain('─');
+  });
+});
+
+describe('displayGroupedValidationResults', () => {
+  let consoleLogSpy: ReturnType<typeof vi.spyOn>;
+
+  beforeEach(() => {
+    consoleLogSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    consoleLogSpy.mockRestore();
+  });
+
+  it('should return false when all presets are up-to-date', () => {
+    const allPresetChanges = {
+      preset1: {
+        orphanedFields: [],
+        missingInheritedFields: ['inheritedField'],
+        missingRequiredFields: [],
+        validFields: ['field1'],
+      },
+      preset2: {
+        orphanedFields: [],
+        missingInheritedFields: [],
+        missingRequiredFields: [],
+        validFields: ['field2'],
+      },
+    };
+
+    const result = displayGroupedValidationResults(allPresetChanges);
+    expect(result).toBe(false);
+    expect(consoleLogSpy).toHaveBeenCalledWith(expect.stringContaining('✓ All presets are up-to-date'));
+  });
+
+  it('should return true and display grouped errors across multiple presets', () => {
+    const allPresetChanges = {
+      preset1: {
+        orphanedFields: [],
+        missingInheritedFields: [],
+        missingRequiredFields: ['fontSize', 'color'],
+        validFields: [],
+      },
+      preset2: {
+        orphanedFields: [],
+        missingInheritedFields: [],
+        missingRequiredFields: ['padding'],
+        validFields: [],
+      },
+    };
+
+    const result = displayGroupedValidationResults(allPresetChanges);
+    expect(result).toBe(true);
+    expect(consoleLogSpy).toHaveBeenCalledWith(expect.stringContaining('Fields requiring manual values'));
+
+    // Check that the table contains the expected data
+    const tableCalls = consoleLogSpy.mock.calls.map(call => call[0]);
+    const tableOutput = tableCalls.find(call => typeof call === 'string' && call.includes('fontSize'));
+    expect(tableOutput).toContain('fontSize');
+    expect(tableOutput).toContain('color');
+    expect(tableOutput).toContain('padding');
+    expect(tableOutput).toContain('preset1');
+    expect(tableOutput).toContain('preset2');
+  });
+
+  it('should return false and display grouped warnings across multiple presets', () => {
+    const allPresetChanges = {
+      preset1: {
+        orphanedFields: ['oldField1', 'oldField2'],
+        missingInheritedFields: [],
+        missingRequiredFields: [],
+        validFields: ['validField'],
+      },
+      preset2: {
+        orphanedFields: ['oldField3'],
+        missingInheritedFields: [],
+        missingRequiredFields: [],
+        validFields: ['validField2'],
+      },
+    };
+
+    const result = displayGroupedValidationResults(allPresetChanges);
+    expect(result).toBe(false);
+    expect(consoleLogSpy).toHaveBeenCalledWith(expect.stringContaining('Orphaned fields in preset'));
+
+    // Check that the table contains the expected data
+    const tableCalls = consoleLogSpy.mock.calls.map(call => call[0]);
+    const tableOutput = tableCalls.find(call => typeof call === 'string' && call.includes('oldField1'));
+    expect(tableOutput).toContain('oldField1');
+    expect(tableOutput).toContain('oldField2');
+    expect(tableOutput).toContain('oldField3');
+    expect(tableOutput).toContain('preset1');
+    expect(tableOutput).toContain('preset2');
+  });
+
+  it('should display both errors and warnings grouped separately', () => {
+    const allPresetChanges = {
+      preset1: {
+        orphanedFields: ['orphanedField'],
+        missingInheritedFields: [],
+        missingRequiredFields: ['requiredField'],
+        validFields: [],
+      },
+      preset2: {
+        orphanedFields: [],
+        missingInheritedFields: [],
+        missingRequiredFields: [],
+        validFields: ['validField'],
+      },
+    };
+
+    const result = displayGroupedValidationResults(allPresetChanges);
+    expect(result).toBe(true);
+    expect(consoleLogSpy).toHaveBeenCalledWith(expect.stringContaining('✓ Up-to-date presets:'));
+    expect(consoleLogSpy).toHaveBeenCalledWith(expect.stringContaining('preset2'));
+    expect(consoleLogSpy).toHaveBeenCalledWith(expect.stringContaining('Fields requiring manual values'));
+    expect(consoleLogSpy).toHaveBeenCalledWith(expect.stringContaining('Orphaned fields in preset'));
+
+    // Check that the tables contain the expected data
+    const tableCalls = consoleLogSpy.mock.calls.map(call => call[0]);
+    const errorTable = tableCalls.find(call => typeof call === 'string' && call.includes('requiredField'));
+    const warningTable = tableCalls.find(call => typeof call === 'string' && call.includes('orphanedField'));
+    expect(errorTable).toContain('requiredField');
+    expect(warningTable).toContain('orphanedField');
   });
 });

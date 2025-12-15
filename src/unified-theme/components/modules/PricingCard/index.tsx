@@ -4,6 +4,7 @@ import { Button } from '../../ButtonComponent/index.js';
 import { Card } from '../../CardComponent/index.js';
 import { getLinkFieldHref, getLinkFieldRel, getLinkFieldTarget } from '../../utils/content-fields.js';
 import { CardVariantType } from '../../types/fields.js';
+import { getDataHSToken } from '../../utils/inline-editing.js';
 import pricingCardIconSvg from './assets/quotes.svg';
 import { HeadingStyleFieldLibraryType } from '../../fieldLibrary/HeadingStyle/types.js';
 import styles from './pricing-card.module.css';
@@ -55,10 +56,12 @@ const PricingCardPriceContainer = createComponent('div');
 const PricingCardPrice = createComponent('span');
 const PricingCardTimePeriod = createComponent('span');
 
-const PricingCardSummary = (props: PricingCardSummaryProps & HeadingStyleFieldLibraryType) => {
+const PricingCardSummary = (props: PricingCardSummaryProps & HeadingStyleFieldLibraryType & { moduleName?: string; cardIndex: number }) => {
   const {
     groupSummary: { headingAndTextHeadingLevel, headingAndTextHeading, description, price, timePeriod },
     headingStyleVariant,
+    moduleName,
+    cardIndex,
   } = props;
 
   return (
@@ -69,12 +72,31 @@ const PricingCardSummary = (props: PricingCardSummaryProps & HeadingStyleFieldLi
           headingLevel={headingAndTextHeadingLevel}
           heading={headingAndTextHeading}
           headingStyleVariant={headingStyleVariant}
+          moduleName={moduleName}
+          fieldPath={`groupPricingCards[${cardIndex}].groupSummary.headingAndTextHeading`}
         />
       )}
-      {description && <PricingCardDescription className={swm('hs-elevate-pricing-card-container__description')}>{description}</PricingCardDescription>}
+      {description && (
+        <PricingCardDescription
+          className={swm('hs-elevate-pricing-card-container__description')}
+          data-hs-token={getDataHSToken(moduleName, `groupPricingCards[${cardIndex}].groupSummary.description`)}
+        >
+          {description}
+        </PricingCardDescription>
+      )}
       <PricingCardPriceContainer className={swm('hs-elevate-pricing-card-container__price-container')}>
-        <PricingCardPrice className={swm('hs-elevate-pricing-card-container__price')}>{price}</PricingCardPrice>
-        <PricingCardTimePeriod className={swm('hs-elevate-pricing-card-container__time-period')}>{timePeriod}</PricingCardTimePeriod>
+        <PricingCardPrice
+          className={swm('hs-elevate-pricing-card-container__price')}
+          data-hs-token={getDataHSToken(moduleName, `groupPricingCards[${cardIndex}].groupSummary.price`)}
+        >
+          {price}
+        </PricingCardPrice>
+        <PricingCardTimePeriod
+          className={swm('hs-elevate-pricing-card-container__time-period')}
+          data-hs-token={getDataHSToken(moduleName, `groupPricingCards[${cardIndex}].groupSummary.timePeriod`)}
+        >
+          {timePeriod}
+        </PricingCardTimePeriod>
       </PricingCardPriceContainer>
     </PricingCardSummaryContainer>
   );
@@ -92,10 +114,12 @@ const ListArrow = () => {
   );
 };
 
-const PricingCardFeatures = (props: PricingCardFeaturesProps & HeadingStyleFieldLibraryType) => {
+const PricingCardFeatures = (props: PricingCardFeaturesProps & HeadingStyleFieldLibraryType & { moduleName?: string; cardIndex: number }) => {
   const {
     groupPlanFeatures: { headingAndTextHeadingLevel, headingAndTextHeading, groupFeatures },
     headingStyleVariant,
+    moduleName,
+    cardIndex,
   } = props;
 
   return (
@@ -106,11 +130,17 @@ const PricingCardFeatures = (props: PricingCardFeaturesProps & HeadingStyleField
           headingLevel={headingAndTextHeadingLevel}
           heading={headingAndTextHeading}
           headingStyleVariant={headingStyleVariant}
+          moduleName={moduleName}
+          fieldPath={`groupPricingCards[${cardIndex}].groupPlanFeatures.headingAndTextHeading`}
         />
       )}
       <PricingCardFeaturesList className={swm('hs-elevate-pricing-card-container__features-list')}>
         {groupFeatures.map((features, index) => (
-          <PricingCardFeaturesListItem key={index} className={swm('hs-elevate-pricing-card-container__features-list-item')}>
+          <PricingCardFeaturesListItem
+            key={index}
+            className={swm('hs-elevate-pricing-card-container__features-list-item')}
+            data-hs-token={getDataHSToken(moduleName, `groupPricingCards[${cardIndex}].groupPlanFeatures.groupFeatures[${index}].feature`)}
+          >
             <ListArrow />
             {features.feature}
           </PricingCardFeaturesListItem>
@@ -124,6 +154,7 @@ const ButtonWrapper = createComponent('div');
 
 export const Component = (props: PricingCardProps) => {
   const {
+    moduleName,
     groupPricingCards,
     groupStyle: {
       groupCard: { cardStyleVariant },
@@ -142,8 +173,18 @@ export const Component = (props: PricingCardProps) => {
     <PricingCardsWrapper style={cssVarsMap} className={swm('hs-elevate-pricing-card-container')}>
       {groupPricingCards.map((pricingCard, index) => (
         <Card key={index} additionalClassArray={[swm('hs-elevate-pricing-card-container__card')]} cardStyleVariant={cardStyleVariant} cardOrientation="column">
-          <PricingCardSummary groupSummary={pricingCard.groupSummary} headingStyleVariant={summaryHeadingStyleVariant} />
-          <PricingCardFeatures groupPlanFeatures={pricingCard.groupPlanFeatures} headingStyleVariant={planFeaturesHeadingStyleVariant} />
+          <PricingCardSummary
+            groupSummary={pricingCard.groupSummary}
+            headingStyleVariant={summaryHeadingStyleVariant}
+            moduleName={moduleName}
+            cardIndex={index}
+          />
+          <PricingCardFeatures
+            groupPlanFeatures={pricingCard.groupPlanFeatures}
+            headingStyleVariant={planFeaturesHeadingStyleVariant}
+            moduleName={moduleName}
+            cardIndex={index}
+          />
           {pricingCard.groupButton.showButton && (
             <ButtonWrapper className={swm('hs-elevate-pricing-card-container__button-container')}>
               <Button
@@ -156,6 +197,8 @@ export const Component = (props: PricingCardProps) => {
                 iconFieldPath={`groupPricingCards[${index}].groupButton.buttonContentIcon`}
                 showIcon={pricingCard.groupButton.buttonContentShowIcon}
                 iconPosition={pricingCard.groupButton.buttonContentIconPosition}
+                moduleName={moduleName}
+                textFieldPath={`groupPricingCards[${index}].groupButton.buttonContentText`}
               >
                 {pricingCard.groupButton.buttonContentText}
               </Button>

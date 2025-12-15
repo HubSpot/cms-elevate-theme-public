@@ -19,7 +19,7 @@ export default function StyleFields() {
       />
       <ButtonStyle buttonStyleDefault="primary" buttonSizeDefault="medium" />
       <ChoiceField
-        label="Gap between"
+        label="Gap"
         name="spaceBetweenIcons"
         choices={[
           ['small', 'Small'],
@@ -29,14 +29,7 @@ export default function StyleFields() {
         required={true}
         default="medium"
       />
-      <AlignmentField
-        label="Horizontal alignment"
-        name="alignment"
-        alignmentDirection="HORIZONTAL"
-        default={{
-          horizontal_align: 'CENTER',
-        }}
-      />
+      <AlignmentField label="Alignment" name="alignment" alignmentDirection="HORIZONTAL" default={{ horizontal_align: 'CENTER' }} />
     </FieldGroup>
   );
 }

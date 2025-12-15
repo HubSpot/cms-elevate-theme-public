@@ -38,6 +38,7 @@ export type GroupStyle = {
 };
 
 export type PricingCardProps = {
+  moduleName?: string;
   groupPricingCards: PricingCardContentProps[];
   groupStyle: GroupStyle;
 };

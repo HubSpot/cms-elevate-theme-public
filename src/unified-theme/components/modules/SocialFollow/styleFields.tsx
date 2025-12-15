@@ -1,50 +1,35 @@
-import {
-  FieldGroup,
-  ChoiceField,
-  AlignmentField,
-} from '@hubspot/cms-components/fields';
+import { FieldGroup, ChoiceField, AlignmentField } from '@hubspot/cms-components/fields';
 import { ButtonStyle } from '../../fieldLibrary/index.js';
 
 export default function StyleFields() {
   return (
-    <FieldGroup
-      label='Styles'
-      name='groupStyle'
-      tab='STYLE'
-    >
+    <FieldGroup label="Styles" name="groupStyle" tab="STYLE">
       <ChoiceField
-        label='Shape'
-        name='shape'
+        label="Shape"
+        name="shape"
         choices={[
           ['square', 'Square'],
           ['rounded', 'Rounded'],
-          ['circle', 'Circle']
+          ['circle', 'Circle'],
         ]}
-        display='buttons'
-        preset='social_icon_background_shape'
+        display="buttons"
+        preset="social_icon_background_shape"
         required={true}
-        default='circle'
+        default="circle"
       />
       <ButtonStyle buttonStyleDefault="primary" buttonSizeDefault="medium" />
       <ChoiceField
-        label='Gap between'
-        name='spaceBetweenIcons'
+        label="Gap"
+        name="spaceBetweenIcons"
         choices={[
           ['small', 'Small'],
           ['medium', 'Medium'],
           ['large', 'Large'],
         ]}
         required={true}
-        default='medium'
+        default="medium"
       />
-      <AlignmentField
-        label='Horizontal alignment'
-        name='alignment'
-        alignmentDirection='HORIZONTAL'
-        default={{
-          horizontal_align: 'CENTER',
-        }}
-      />
+      <AlignmentField label="Alignment" name="alignment" alignmentDirection="HORIZONTAL" default={{ horizontal_align: 'CENTER' }} />
     </FieldGroup>
   );
 }

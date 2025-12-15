@@ -10,6 +10,7 @@ import { getCardVariantClassName } from '../../utils/card-variants.js';
 import cx, { staticWithModule } from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
 import { CSSPropertiesMap } from '../../types/components.js';
+import { getDataHSToken } from '../../utils/inline-editing.js';
 
 const swm = staticWithModule(styles);
 
@@ -28,6 +29,7 @@ type GroupStyle = CardStyleFieldLibraryType & {
 type AccordionIcon = 'chevron' | 'plus';
 
 type AccordionProps = {
+  moduleName?: string;
   icon: AccordionIcon;
   groupAccordions: GroupAccordions[];
   groupStyle: GroupStyle;
@@ -113,6 +115,7 @@ const AccordionMinus = () => {
 
 export const Component = (props: AccordionProps) => {
   const {
+    moduleName,
     icon,
     groupAccordions,
     groupStyle: { cardStyleVariant, gap },
@@ -129,7 +132,12 @@ export const Component = (props: AccordionProps) => {
       {groupAccordions.map((accordion, index) => (
         <Accordion className={cx(swm('hs-elevate-accordion'), cardClassName)} key={index}>
           <AccordionTitle className={swm('hs-elevate-accordion__title')} role="button" tabIndex={0}>
-            <AccordionTitleText className={swm('hs-elevate-accordion__title-text')}>{accordion.title}</AccordionTitleText>
+            <AccordionTitleText
+              className={swm('hs-elevate-accordion__title-text')}
+              data-hs-token={getDataHSToken(moduleName, `groupAccordions[${index}].title`)}
+            >
+              {accordion.title}
+            </AccordionTitleText>
             {icon === 'chevron' ? (
               <AccordionArrow />
             ) : (
@@ -139,7 +147,12 @@ export const Component = (props: AccordionProps) => {
               </>
             )}
           </AccordionTitle>
-          <RichText className={swm('hs-elevate-accordion__body')} fieldPath={`groupAccordions[${index}].richTextContentHTML`} tag="div" />
+          <RichText
+            className={swm('hs-elevate-accordion__body')}
+            fieldPath={`groupAccordions[${index}].richTextContentHTML`}
+            tag="div"
+            data-hs-token={getDataHSToken(moduleName, `groupAccordions[${index}].richTextContentHTML`)}
+          />
         </Accordion>
       ))}
     </AccordionContainer>

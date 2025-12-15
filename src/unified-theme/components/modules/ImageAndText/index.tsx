@@ -13,6 +13,7 @@ import { staticWithModule } from '../../utils/classnames.js';
 import { createComponent } from '../../utils/create-component.js';
 import { CSSPropertiesMap } from '../../types/components.js';
 import { ImageAndTextProps } from './types.js';
+import { getDataHSToken } from '../../utils/inline-editing.js';
 
 const swm = staticWithModule(styles);
 
@@ -54,6 +55,7 @@ const ContentContainer = createComponent('div');
 
 export const Component = (props: ImageAndTextProps) => {
   const {
+    moduleName,
     groupImage: { imagePosition, image },
     groupContent: { headingAndTextHeadingLevel, headingAndTextHeading, richTextContentHTML },
     groupButton: { showButton, buttonContentText: text, buttonContentLink: link, buttonContentShowIcon: showIcon, buttonContentIconPosition: iconPosition },
@@ -96,9 +98,17 @@ export const Component = (props: ImageAndTextProps) => {
               headingLevel={headingAndTextHeadingLevel}
               headingStyleVariant={headingStyleVariant}
               heading={headingAndTextHeading}
+              moduleName={moduleName}
+              fieldPath="groupContent.headingAndTextHeading"
             />
           )}
-          {richTextContentHTML && <RichText className="hs-elevate-image-and-text__body" fieldPath="groupContent.richTextContentHTML" />}
+          {richTextContentHTML && (
+            <RichText
+              fieldPath="groupContent.richTextContentHTML"
+              className="hs-elevate-image-and-text__body"
+              data-hs-token={getDataHSToken(moduleName, 'groupContent.richTextContentHTML')}
+            />
+          )}
           {showButton && (
             <Button
               additionalClassArray={['hs-elevate-image-and-text__button']}
@@ -110,6 +120,8 @@ export const Component = (props: ImageAndTextProps) => {
               showIcon={showIcon}
               iconFieldPath="groupButton.buttonContentIcon"
               iconPosition={iconPosition}
+              moduleName={moduleName}
+              textFieldPath="groupButton.buttonContentText"
             >
               {text}
             </Button>

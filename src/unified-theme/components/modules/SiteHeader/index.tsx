@@ -54,6 +54,7 @@ const MobileMenuContainer = createComponent('div');
 
 export const Component = (props: MenuModulePropTypes) => {
   const {
+    moduleName,
     hublData: {
       navigation: { children: navDataArray = [] },
       companyName,
@@ -167,6 +168,8 @@ export const Component = (props: MenuModulePropTypes) => {
                 iconFieldPath="groupButton.buttonContentIcon"
                 iconPosition={iconPosition}
                 additionalClassArray={['hs-elevate-site-header__button']}
+                moduleName={moduleName}
+                textFieldPath="groupButton.buttonContentText"
               >
                 {buttonText}
               </Button>
@@ -176,6 +179,7 @@ export const Component = (props: MenuModulePropTypes) => {
           <MobileMenuContainer className={swm('hs-elevate-site-header__mobile-menu-container')}>
             <Island
               module={MobileMenuIsland}
+              moduleName={moduleName}
               menuDataArray={navDataArray}
               flow="horizontal"
               maxDepth={3}

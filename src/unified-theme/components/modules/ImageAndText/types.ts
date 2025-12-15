@@ -36,6 +36,7 @@ export interface GroupStyle {
 
 // Main component props
 export interface ImageAndTextProps {
+  moduleName?: string;
   groupImage: GroupImage;
   groupContent: GroupContent;
   groupButton: GroupButton;

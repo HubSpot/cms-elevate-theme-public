@@ -1,5 +1,5 @@
 /*
- * For testing purposes / local developement swap out translations with dummyTranslations
+ * For testing purposes / local development swap out translations with dummyTranslations
  * import { dummyTranslations, dummyTranslationsAsObject } from './dummyData.js';
  */
 

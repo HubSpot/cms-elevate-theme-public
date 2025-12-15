@@ -4,6 +4,7 @@ import styles from './button.module.css';
 import cx, { staticWithModule } from '../utils/classnames.js';
 import { Icon } from '@hubspot/cms-components';
 import { CSSPropertiesMap } from '../types/components.js';
+import { getDataHSToken } from '../utils/inline-editing.js';
 
 export const BUTTON_SIZE_PADDING_MAP: Record<StandardSizeType, string> = {
   small: 'var(--hsElevate--spacing--12, 12px) var(--hsElevate--spacing--20, 20px)',
@@ -27,6 +28,8 @@ type ButtonProps = {
   showIcon: boolean;
   iconFieldPath?: string;
   iconPosition?: ElementPositionType;
+  moduleName?: string;
+  textFieldPath?: string;
 };
 
 // Function to set the button class name
@@ -55,7 +58,21 @@ const DefaultContent = () => (
 );
 
 export const Button = (props: ButtonProps) => {
-  const { ariaLabel, additionalClassArray, rel, href, target, buttonStyle, buttonSize, children, showIcon, iconFieldPath, iconPosition } = props;
+  const {
+    ariaLabel,
+    additionalClassArray,
+    rel,
+    href,
+    target,
+    buttonStyle,
+    buttonSize,
+    children,
+    showIcon,
+    iconFieldPath,
+    iconPosition,
+    moduleName,
+    textFieldPath,
+  } = props;
 
   const cssVarsMap = { ...generatePaddingCSSVars(buttonSize) };
 
@@ -74,6 +91,7 @@ export const Button = (props: ButtonProps) => {
       href={href}
       rel={rel}
       aria-label={ariaLabel}
+      data-hs-token={getDataHSToken(moduleName, textFieldPath)}
     >
       {iconFieldPath && showIcon && <Icon className={cx(iconClasses)} purpose="DECORATIVE" fieldPath={iconFieldPath} />}
       {children || <DefaultContent />}

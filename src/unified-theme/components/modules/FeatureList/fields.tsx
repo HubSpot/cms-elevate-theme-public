@@ -14,7 +14,7 @@ import {
 } from '../../fieldLibrary/index.js';
 
 const headingLevelDefault = 'h3';
-const contentDefault = 'Write a brief description of the product\'s capabilities'
+const contentDefault = 'Write a brief description of the product\'s capabilities';
 
 export const fields = (
   <ModuleFields>
@@ -185,6 +185,7 @@ export const fields = (
           label='Feature description'
           name='featureDescription'
           default={contentDefault}
+          inlineEditable={true}
         />
       </FieldGroup>
     </RepeatedFieldGroup>
