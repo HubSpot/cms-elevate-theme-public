@@ -1,4 +1,4 @@
-import { TextFieldType, AlignmentFieldType, ColorFieldType, LogoFieldType, BooleanFieldType } from '@hubspot/cms-components/fields';
+import { TextFieldType, AlignmentFieldType, ColorFieldType, LogoFieldType, BooleanFieldType, LinkFieldType } from '@hubspot/cms-components/fields';
 import { SizeOption, maxMenuDepth } from '../../MenuComponent/types.js';
 import { MenuComponentProps } from '../../MenuComponent/types.js';
 import { ButtonContentType } from '../../fieldLibrary/ButtonContent/types.js';
@@ -17,6 +17,8 @@ interface GroupButton extends ButtonContentType {
 
 type GroupLogo = {
   logo?: LogoFieldType['default'];
+  overrideLogoLink: BooleanFieldType['default'];
+  logoLinkOverride: LinkFieldType['default'];
 };
 
 export type MenuModuleContentFields = {

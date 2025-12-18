@@ -59,10 +59,10 @@ export const Component = (props: MenuModulePropTypes) => {
       navigation: { children: navDataArray = [] },
       companyName,
       defaultLogo,
-      logoLink,
+      logoLink: brandLogoLinkHref,
       isInEditor,
     },
-    groupLogo: { logo: logoField },
+    groupLogo: { logo: logoField, overrideLogoLink, logoLinkOverride },
     defaultContent: {
       logoLinkAriaText,
       languageSwitcherSelectText,
@@ -88,6 +88,8 @@ export const Component = (props: MenuModulePropTypes) => {
   // Temporary until logoField is fixed
   defaultLogo.suppress_company_name = logoField.suppress_company_name;
   const logoToUse = logoField.override_inherited_src ? logoField : defaultLogo;
+
+  const logoLinkToUse = overrideLogoLink && logoLinkOverride?.url?.href ? logoLinkOverride.url.href : brandLogoLinkHref;
 
   const {
     groupMenu: {
@@ -119,7 +121,7 @@ export const Component = (props: MenuModulePropTypes) => {
               logoField={logoToUse}
               companyName={companyName}
               logoLinkAriaText={logoLinkAriaText}
-              logoLink={logoLink}
+              logoLink={logoLinkToUse}
               isInEditor={isEditorMode}
               logoPlaceholderTitle={logoPlaceholderTitle}
               logoPlaceholderDescription={logoPlaceholderDescription}
