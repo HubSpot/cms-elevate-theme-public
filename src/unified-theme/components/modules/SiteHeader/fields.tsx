@@ -9,6 +9,8 @@ import {
   BooleanField,
   AdvancedVisibility,
   IconField,
+  LinkField,
+  Visibility,
 } from '@hubspot/cms-components/fields';
 import { ButtonContent, ButtonStyle } from '../../fieldLibrary/index.js';
 import { limitedColorDefaults } from '../../utils/theme-color-sets.js';
@@ -26,10 +28,36 @@ const buttonFieldVisibility: AdvancedVisibility = {
 
 const limitedOptionsColorsSet = [...limitedColorDefaults.themeSectionTextColors, ...limitedColorDefaults.themeColors];
 
+const logoLinkVisibility: Visibility = {
+  controlling_field: 'overrideLogoLink',
+  controlling_value_regex: 'true',
+  operator: 'EQUAL',
+  hidden_subfields: {
+    open_in_new_tab: true,
+    no_follow: true,
+  },
+};
+
 export const fields = (
   <ModuleFields>
     <FieldGroup label="Logo" name="groupLogo" display="inline">
       <LogoField label="Logo" name="logo" showLoading={false} />
+      <BooleanField
+        id="overrideLogoLink"
+        label="Override logo link"
+        name="overrideLogoLink"
+        display="toggle"
+        default={false}
+        helpText="Override the default logo link set in brand settings."
+      />
+      <LinkField
+        label="Logo link"
+        name="logoLinkOverride"
+        visibility={logoLinkVisibility}
+        supportedTypes={['EXTERNAL', 'CONTENT']}
+        showAdvancedRelOptions={false}
+        default={{ url: { href: '', type: 'EXTERNAL', content_id: null } }}
+      />
     </FieldGroup>
     <FieldGroup label="Navigation" name="groupNavigation" display="inline">
       <MenuField label="Menu" name="menu" default="default" />
