@@ -14,7 +14,7 @@ export default function HeadingAndText(props: HeadingAndTextProps) {
   const {
     headingLevelDefault = 'h3',
     headingTextLabel = 'Heading text',
-    headingLevelLabel = 'Heading level',
+    headingLevelLabel = 'Semantic heading level',
     textDefault = 'Lorem Heading',
     headingLevelVisibility = null,
     textVisibility = null,
@@ -30,11 +30,18 @@ export default function HeadingAndText(props: HeadingAndTextProps) {
 
   return (
     <>
-      <TextField label={headingTextLabel} name="headingAndTextHeading" visibilityRules="ADVANCED" advancedVisibility={textVisibility} default={textDefault} inlineEditable={true} />
+      <TextField
+        label={headingTextLabel}
+        name="headingAndTextHeading"
+        visibilityRules="ADVANCED"
+        advancedVisibility={textVisibility}
+        default={textDefault}
+        inlineEditable={true}
+      />
       <ChoiceField
         label={headingLevelLabel}
         name="headingAndTextHeadingLevel"
-        helpText="Choose a heading level. Headings should be nested in a hierarchical way based on your content. <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements'>More information</a>"
+        helpText="This affects screen readers and how search engines understand your content, not how it looks. To change the visual style, use <b>Heading style</b> in the Styles tab."
         visibilityRules="ADVANCED"
         advancedVisibility={headingLevelVisibility}
         display="select"

@@ -7,7 +7,7 @@ import cardIconSvg from './assets/card-icon-temp.svg';
 import BlogCardComponent from '../../BlogCardComponent/index.js';
 import fetchGatedPosts from '../../utils/ServerSideProps/fetchGatedBlogPosts.js';
 import { HeadingLevelType } from '../../types/fields.js';
-import { CardVariantType } from '../../types/fields.js';
+import { CardStyleFieldLibraryType } from '../../fieldLibrary/CardStyle/types.js';
 import { HeadingStyleFieldLibraryType } from '../../fieldLibrary/HeadingStyle/types.js';
 import { PlaceholderEmptyContent } from '../../PlaceholderComponent/PlaceholderEmptyContent.js';
 
@@ -32,10 +32,7 @@ type RecentBlogPostsProps = {
   };
   fieldValues: {
     headingAndTextHeadingLevel: HeadingLevelType;
-    groupStyle: {
-      cardStyleVariant: CardVariantType;
-      headingStyleVariant: HeadingStyleFieldLibraryType;
-    };
+    groupStyle: CardStyleFieldLibraryType & HeadingStyleFieldLibraryType;
     groupPlaceholderText: {
       placeholderTitle: string;
       placeholderDescription: string;
@@ -64,15 +61,13 @@ export const Component = (props: RecentBlogPostsProps) => {
 
   const postsToUse = posts || [];
 
-  const layoutClass = (renderedWithGrids ?? false)
-    ? 'hs-elevate-recent-blog-posts--grids'
-    : 'hs-elevate-recent-blog-posts--bootstrap';
+  const layoutClass = renderedWithGrids ? 'hs-elevate-recent-blog-posts--grids' : 'hs-elevate-recent-blog-posts--bootstrap';
 
   return (
     <RecentBlogPosts className={cx(swm('hs-elevate-recent-blog-posts'), styles[layoutClass])}>
       <BlogCardsContainer className={swm('hs-elevate-recent-blog-posts__blog-card-container')}>
         {postsToUse.length === 0 && isInEditor ? (
-          <PlaceholderEmptyContent title={placeholderTitle} description={placeholderDescription} icon={meta.icon} />
+          <PlaceholderEmptyContent title={placeholderTitle} description={placeholderDescription} icon={cardIconSvg} />
         ) : (
           postsToUse.map(post => (
             <BlogCardComponent

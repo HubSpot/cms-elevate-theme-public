@@ -53,7 +53,7 @@ export const Component = (props: HeadingProps) => {
 
   const cssVarsMap = { ...generateColorCssVars(sectionStyleVariant) };
 
-  const layoutClass = (renderedWithGrids ?? false) ? 'hs-elevate-heading-container--grids' : 'hs-elevate-heading-container--bootstrap';
+  const layoutClass = renderedWithGrids ? 'hs-elevate-heading-container--grids' : 'hs-elevate-heading-container--bootstrap';
 
   return (
     <HeadingContainer className={cx(swm('hs-elevate-heading-container'), styles[layoutClass])} style={cssVarsMap}>

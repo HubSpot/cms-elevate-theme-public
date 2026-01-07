@@ -61,26 +61,24 @@ export const Component = (props: ListProps) => {
 
   const cssColorVars = { ...generateColorCssVars(sectionStyleVariant) };
 
-  const layoutClass = (renderedWithGrids ?? false) ? 'hs-elevate-list-container--grids' : 'hs-elevate-list-container--bootstrap';
+  const layoutClass = renderedWithGrids ? 'hs-elevate-list-container--grids' : 'hs-elevate-list-container--bootstrap';
 
   return (
     <ListContainer className={cx(swm('hs-elevate-list-container'), styles[layoutClass])} style={cssColorVars}>
-      {
-        groupListItems.map((item, index) => {
-          return (
-            <ListItem className={swm('hs-elevate-list-container__item')} key={`${index} ${item.groupListContent.listItemContent}`}>
-              {listIcon.name && (
-                <IconContainer className={swm('hs-elevate-list-container__icon-container')}>
-                  <Icon className={swm('hs-elevate-list-container__icon')} fieldPath="listIcon" purpose="DECORATIVE" />
-                </IconContainer>
-              )}
-              <ListItemText data-hs-token={getDataHSToken(moduleName, `groupListItems[${index}].groupListContent.listItemContent`)}>
-                {item.groupListContent.listItemContent}
-              </ListItemText>
-            </ListItem>
-          );
-        })
-      }
+      {groupListItems.map((item, index) => {
+        return (
+          <ListItem className={swm('hs-elevate-list-container__item')} key={`${index} ${item.groupListContent.listItemContent}`}>
+            {listIcon.name && (
+              <IconContainer className={swm('hs-elevate-list-container__icon-container')}>
+                <Icon className={swm('hs-elevate-list-container__icon')} fieldPath="listIcon" purpose="DECORATIVE" />
+              </IconContainer>
+            )}
+            <ListItemText data-hs-token={getDataHSToken(moduleName, `groupListItems[${index}].groupListContent.listItemContent`)}>
+              {item.groupListContent.listItemContent}
+            </ListItemText>
+          </ListItem>
+        );
+      })}
     </ListContainer>
   );
 };
