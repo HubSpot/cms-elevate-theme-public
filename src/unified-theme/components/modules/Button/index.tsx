@@ -108,7 +108,7 @@ export const Component = (props: ButtonProps) => {
     ...generateAlignmentCssVars(alignment),
   };
 
-  const layoutClass = (renderedWithGrids ?? false) ? 'hs-elevate-button-wrapper--grids' : 'hs-elevate-button-wrapper--bootstrap';
+  const layoutClass = renderedWithGrids ? 'hs-elevate-button-wrapper--grids' : 'hs-elevate-button-wrapper--bootstrap';
 
   return (
     <ButtonWrapper className={cx(swm('hs-elevate-button-wrapper'), styles[layoutClass])} style={cssVarsMap}>

@@ -1,22 +1,12 @@
-import { ModuleFields, ChoiceField, FieldGroup, BooleanField, TextField } from '@hubspot/cms-components/fields';
+import { ModuleFields, FieldGroup, BooleanField, TextField } from '@hubspot/cms-components/fields';
 import HeadingStyle from '../../fieldLibrary/HeadingStyle/index.js';
 import HeadingAndText from '../../fieldLibrary/HeadingAndText/index.js';
 import { CardStyle } from '../../fieldLibrary/index.js';
 
 export const fields = (
   <ModuleFields>
-    <ChoiceField
-      label="Card elements to display"
-      name="displayForEachListItem"
-      display="checkbox"
-      multiple={true}
-      reorderingEnabled={false}
-      choices={[['tags', 'Tags']]}
-      default={['tags']}
-    />
     <HeadingAndText
       headingLevelDefault="h2"
-      headingLevelLabel="Post title heading level"
       textVisibility={{
         boolean_operator: 'AND',
         criteria: [
@@ -39,7 +29,7 @@ export const fields = (
 
     <FieldGroup name="groupStyle" label="Style" tab="STYLE">
       <CardStyle cardStyleDefault="card_variant_2" />
-      <HeadingStyle headingStyleAsDefault="h4" headingStyleAsLabel="Post title heading style" />
+      <HeadingStyle headingStyleAsDefault="h4" />
     </FieldGroup>
   </ModuleFields>
 );

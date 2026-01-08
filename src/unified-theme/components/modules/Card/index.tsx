@@ -161,7 +161,7 @@ export const Component = (props: CardProps) => {
     ...generateAlignmentCssVars(alignment),
   };
 
-  const layoutClass = (renderedWithGrids ?? false) ? 'hs-elevate-card-container--grids' : 'hs-elevate-card-container--bootstrap';
+  const layoutClass = renderedWithGrids ? 'hs-elevate-card-container--grids' : 'hs-elevate-card-container--bootstrap';
 
   return (
     <CardContainer className={cx(swm('hs-elevate-card-container'), styles[layoutClass])} style={cssVarsMap}>
@@ -206,6 +206,7 @@ export const Component = (props: CardProps) => {
                   width={card.groupImage.image.width}
                   height={card.groupImage.image.height}
                   loading={card.groupImage.image.loading !== 'disabled' ? card.groupImage.image.loading : 'eager'}
+                  data-hs-token={getDataHSToken(moduleName, `groupCards[${index}].groupImage.image`)}
                 />
               </ImageWrapper>
             )}

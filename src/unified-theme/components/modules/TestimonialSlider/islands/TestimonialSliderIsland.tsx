@@ -9,7 +9,6 @@ import { getLinkFieldHref, getLinkFieldRel, getLinkFieldTarget } from '../../../
 import { useEffect, useId, useState } from 'react';
 import { getCardVariantClassName } from '../../../utils/card-variants.js';
 import { CSSPropertiesMap } from '../../../types/components.js';
-import { getDataHSToken } from '../../../utils/inline-editing.js';
 
 const swm = staticWithModule(styles);
 
@@ -99,7 +98,7 @@ const LinkArrow = () => {
 const Link = createComponent('a');
 
 const TestimonialLink = (props: TestimonialLinkProps) => {
-  const { moduleName, testimonialIndex, linkText, link } = props;
+  const { linkText, link } = props;
 
   const linkHref = getLinkFieldHref(link);
   const linkRel = getLinkFieldRel(link);
@@ -107,13 +106,7 @@ const TestimonialLink = (props: TestimonialLinkProps) => {
   return (
     <>
       {linkText && (
-        <Link
-          className={swm('hs-elevate-testimonial-slider__link')}
-          href={linkHref}
-          rel={linkRel}
-          target={linkTarget}
-          data-hs-token={getDataHSToken(moduleName, `groupTestimonial[${testimonialIndex}].groupLink.linkText`)}
-        >
+        <Link className={swm('hs-elevate-testimonial-slider__link')} href={linkHref} rel={linkRel} target={linkTarget}>
           {linkText} <LinkArrow />
         </Link>
       )}
@@ -160,22 +153,8 @@ const TestimonialMeta = (props: TestimonialMetaProps) => {
               )}
               {(authorName || authorTitle) && (
                 <div>
-                  {authorName && (
-                    <AuthorName
-                      className={swm('hs-elevate-testimonial-slider__author-name')}
-                      data-hs-token={getDataHSToken(moduleName, `groupTestimonial[${testimonialIndex}].groupAuthor.authorName`)}
-                    >
-                      {authorName}
-                    </AuthorName>
-                  )}
-                  {authorTitle && (
-                    <AuthorTitle
-                      className={swm('hs-elevate-testimonial-slider__author-title')}
-                      data-hs-token={getDataHSToken(moduleName, `groupTestimonial[${testimonialIndex}].groupAuthor.authorTitle`)}
-                    >
-                      {authorTitle}
-                    </AuthorTitle>
-                  )}
+                  {authorName && <AuthorName className={swm('hs-elevate-testimonial-slider__author-name')}>{authorName}</AuthorName>}
+                  {authorTitle && <AuthorTitle className={swm('hs-elevate-testimonial-slider__author-title')}>{authorTitle}</AuthorTitle>}
                 </div>
               )}
             </AuthorContainer>
@@ -224,12 +203,7 @@ const Testimonial = (props: TestimonialProps) => {
         </ImageContainer>
       )}
       <ContentContainer className={swm('hs-elevate-testimonial-slider__content-container')}>
-        <QuoteText
-          className={swm('hs-elevate-testimonial-slider__quote-text')}
-          data-hs-token={getDataHSToken(moduleName, `groupTestimonial[${testimonialIndex}].groupQuote.quote`)}
-        >
-          {quote}
-        </QuoteText>
+        <QuoteText className={swm('hs-elevate-testimonial-slider__quote-text')}>{quote}</QuoteText>
         <TestimonialMeta
           moduleName={moduleName}
           testimonialIndex={testimonialIndex}
