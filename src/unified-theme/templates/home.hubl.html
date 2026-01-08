@@ -7,6 +7,14 @@
 -->
 {% extends "./layouts/base.hubl.html" %}
 
+{# Template variables #}
+
+{# Default content for image and text paragraphs #}
+
+{% set image_and_text_one_description = "<p>{{ scaffold_content.group_multi_row_alternating.group_one.content or template_translations.section_multi_row_alternating_row_one_content.message }}</p>" %}
+{% set image_and_text_two_description = "<p>{{ scaffold_content.group_multi_row_alternating.group_two.content or template_translations.section_multi_row_alternating_row_two_content.message }}</p>" %}
+{% set image_and_text_three_description = "<p>{{ scaffold_content.group_multi_row_alternating.group_three.content or template_translations.section_multi_row_alternating_row_three_content.message }}</p>" %}
+
 {% block body %}
   {% if grids %}
     {% dnd_area "dnd_area"
@@ -345,7 +353,7 @@
             groupContent={
               "headingAndTextHeadingLevel": "h2",
               "headingAndTextHeading": scaffold_content.group_multi_row_alternating.group_one.heading or template_translations.section_multi_row_alternating_row_one_heading.message,
-              "richTextContentHTML": "<p>{{ scaffold_content.group_multi_row_alternating.group_one.content or template_translations.section_multi_row_alternating_row_one_content.message }}</p>"
+              "richTextContentHTML": image_and_text_one_description|render
             },
             groupButton={
               "showButton": true,
@@ -392,7 +400,7 @@
             groupContent={
               "headingAndTextHeadingLevel": "h2",
               "headingAndTextHeading": scaffold_content.group_multi_row_alternating.group_two.heading or template_translations.section_multi_row_row_two_heading.message,
-              "richTextContentHTML": "<p>{{ scaffold_content.group_multi_row_alternating.group_two.content or template_translations.section_multi_row_alternating_row_two_content.message }}</p>"
+              "richTextContentHTML": image_and_text_two_description|render
             },
             groupButton={
               "showButton": true,
@@ -439,7 +447,7 @@
             groupContent={
               "headingAndTextHeadingLevel": "h2",
               "headingAndTextHeading": scaffold_content.group_multi_row_alternating.group_three.heading or template_translations.section_multi_row_alternating_row_three_heading.message,
-              "richTextContentHTML": "<p>{{ scaffold_content.group_multi_row_alternating.group_three.content or template_translations.section_multi_row_alternating_row_three_content.message }}</p>"
+              "richTextContentHTML": image_and_text_three_description|render
             },
             groupButton={
               "showButton": true,

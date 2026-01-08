@@ -10,7 +10,14 @@
 
 {# Template variables #}
 
+{# Default content for image and text paragraphs #}
+
+{% set image_and_text_one_description = "<p>{{ scaffold_content.group_image_and_text_1.description or template_translations.lp_products_image_and_text_1_description.message }}</p>" %}
+{% set image_and_text_two_description = "<p>{{ scaffold_content.group_image_and_text_2.description or template_translations.lp_products_image_and_text_2_description.message }}</p>" %}
+{% set image_and_text_three_description = "<p>{{ scaffold_content.group_image_and_text_3.description or template_translations.lp_products_image_and_text_3_description.message }}</p>" %}
+
 {# Default content for accordions #}
+
 {% set accordion_one_answer = "<p>{{ scaffold_content.group_faqs.group_faq_one.answer or template_translations.shared_faq_answer_1.message }}</p>" %}
 {% set accordion_two_answer = "<p>{{ scaffold_content.group_faqs.group_faq_two.answer or template_translations.shared_faq_answer_2.message }}</p>" %}
 {% set accordion_three_answer = "<p>{{ scaffold_content.group_faqs.group_faq_three.answer or template_translations.shared_faq_answer_3.message }}</p>" %}
@@ -569,7 +576,7 @@
             groupContent={
               "headingAndTextHeadingLevel": "h2",
               "headingAndTextHeading": scaffold_content.group_image_and_text_1.heading or template_translations.lp_products_image_and_text_1_heading.message,
-              "richTextContentHTML": "<p>{{ scaffold_content.group_image_and_text_1.description or template_translations.lp_products_image_and_text_1_description.message }}</p>"
+              "richTextContentHTML": image_and_text_one_description|render
             },
             groupButton={
               "showButton": false
@@ -601,7 +608,7 @@
             groupContent={
               "headingAndTextHeadingLevel": "h2",
               "headingAndTextHeading": scaffold_content.group_image_and_text_2.heading or template_translations.lp_products_image_and_text_2_heading.message,
-              "richTextContentHTML": "<p>{{ scaffold_content.group_image_and_text_2.description or template_translations.lp_products_image_and_text_2_description.message }}</p>"
+              "richTextContentHTML": image_and_text_two_description|render
             },
             groupButton={
               "showButton": false
@@ -633,7 +640,7 @@
             groupContent={
               "headingAndTextHeadingLevel": "h2",
               "headingAndTextHeading": scaffold_content.group_image_and_text_3.heading or template_translations.lp_products_image_and_text_3_heading.message,
-              "richTextContentHTML": "<p>{{ scaffold_content.group_image_and_text_3.description or template_translations.lp_products_image_and_text_3_description.message }}</p>"
+              "richTextContentHTML": image_and_text_three_description|render
             },
             groupButton={
               "showButton": false
