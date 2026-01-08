@@ -113,6 +113,7 @@ export const fields = (
             loading: 'lazy',
             src: newsletterImage,
           }}
+          inlineEditable={true}
         />
       </FieldGroup>
       <FieldGroup label='Content' name='groupContent' display='inline' id='groupContent'>

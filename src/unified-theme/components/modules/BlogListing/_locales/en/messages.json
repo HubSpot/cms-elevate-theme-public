@@ -4,16 +4,6 @@
     "description": "",
     "placeholders": null
   },
-  "displayForEachListItem.label": {
-    "message": "Card elements to display",
-    "description": "",
-    "placeholders": null
-  },
-  "displayForEachListItem.choices.tags": {
-    "message": "Tags",
-    "description": "",
-    "placeholders": null
-  },
   "headingAndTextHeading.label": {
     "message": "Heading text",
     "description": "",
@@ -25,12 +15,12 @@
     "placeholders": null
   },
   "headingAndTextHeadingLevel.label": {
-    "message": "Post title heading level",
+    "message": "Semantic heading level",
     "description": "",
     "placeholders": null
   },
   "headingAndTextHeadingLevel.help_text": {
-    "message": "Choose a heading level. Headings should be nested in a hierarchical way based on your content. <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements'>More information</a>",
+    "message": "This affects screen readers and how search engines understand your content, not how it looks. To change the visual style, use <b>Heading style</b> in the Styles tab.",
     "description": "",
     "placeholders": null
   },
@@ -105,7 +95,7 @@
     "placeholders": null
   },
   "groupStyle.headingStyleVariant.label": {
-    "message": "Post title heading style",
+    "message": "Heading style",
     "description": "",
     "placeholders": null
   },

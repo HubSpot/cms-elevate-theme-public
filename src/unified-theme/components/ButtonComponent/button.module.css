@@ -3,7 +3,7 @@
   min-width: 150px;
   padding: var(--hsElevate--button__padding);
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   text-align: center;
   white-space: normal;
 

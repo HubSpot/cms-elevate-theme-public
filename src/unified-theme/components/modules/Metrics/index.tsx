@@ -88,7 +88,7 @@ export const Component = (props: MetricProps) => {
 
   const metricCountClass = getMetricCountClass(groupMetrics.length);
 
-  const layoutClass = (renderedWithGrids ?? false) ? 'hs-elevate-metrics--grids' : 'hs-elevate-metrics--bootstrap';
+  const layoutClass = renderedWithGrids ? 'hs-elevate-metrics--grids' : 'hs-elevate-metrics--bootstrap';
 
   return (
     <MetricsWrapper className={cx(swm('hs-elevate-metrics'), styles[layoutClass])}>

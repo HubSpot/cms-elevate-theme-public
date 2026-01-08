@@ -60,12 +60,12 @@
     "placeholders": null
   },
   "groupCards.groupContent.headingAndTextHeadingLevel.label": {
-    "message": "Heading level",
+    "message": "Semantic heading level",
     "description": "",
     "placeholders": null
   },
   "groupCards.groupContent.headingAndTextHeadingLevel.help_text": {
-    "message": "Choose a heading level. Headings should be nested in a hierarchical way based on your content. <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements'>More information</a>",
+    "message": "This affects screen readers and how search engines understand your content, not how it looks. To change the visual style, use <b>Heading style</b> in the Styles tab.",
     "description": "",
     "placeholders": null
   },
