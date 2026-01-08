@@ -13,9 +13,7 @@ import testimonialUserImageFour from './assets/testimonial-user-image-4.png';
 import testimonialUserImageFive from './assets/testimonial-user-image-5.png';
 
 const defaultTestimonial = {
-  groupQuote: {
-    quote: '',
-  },
+  groupQuote: { quote: '' },
   groupAuthor: {
     authorName: '',
     authorTitle: '',
@@ -39,17 +37,13 @@ const defaultTestimonial = {
   },
   groupLink: {
     linkText: 'Read case study',
-    link: {
-      open_in_new_tab: true,
-    },
+    link: { open_in_new_tab: true },
   },
 };
 
 const testimonial1 = {
   ...defaultTestimonial,
-  groupQuote: {
-    quote: 'Add a testimonial quote #1 here. Keep it concise and impactful to enhance credibility with your business',
-  },
+  groupQuote: { quote: 'Add a testimonial quote #1 here. Keep it concise and impactful to enhance credibility with your business' },
   groupAuthor: {
     authorName: 'Customer name one',
     authorTitle: 'Customer role one',
@@ -69,9 +63,7 @@ const testimonial1 = {
 
 const testimonial2 = {
   ...defaultTestimonial,
-  groupQuote: {
-    quote: 'Add a testimonial quote #2 here. Keep it concise and impactful to enhance credibility with your business',
-  },
+  groupQuote: { quote: 'Add a testimonial quote #2 here. Keep it concise and impactful to enhance credibility with your business' },
   groupAuthor: {
     authorName: 'Customer name two',
     authorTitle: 'Customer role two',
@@ -91,9 +83,7 @@ const testimonial2 = {
 
 const testimonial3 = {
   ...defaultTestimonial,
-  groupQuote: {
-    quote: 'Add a testimonial quote #3 here. Keep it concise and impactful to enhance credibility with your business',
-  },
+  groupQuote: { quote: 'Add a testimonial quote #3 here. Keep it concise and impactful to enhance credibility with your business' },
   groupAuthor: {
     authorName: 'Customer name three',
     authorTitle: 'Customer role three',
@@ -113,9 +103,7 @@ const testimonial3 = {
 
 const testimonial4 = {
   ...defaultTestimonial,
-  groupQuote: {
-    quote: 'Add a testimonial quote #4 here. Keep it concise and impactful to enhance credibility with your business',
-  },
+  groupQuote: { quote: 'Add a testimonial quote #4 here. Keep it concise and impactful to enhance credibility with your business' },
   groupAuthor: {
     authorName: 'Customer name four',
     authorTitle: 'Customer role four',
@@ -135,9 +123,7 @@ const testimonial4 = {
 
 const testimonial5 = {
   ...defaultTestimonial,
-  groupQuote: {
-    quote: 'Add a testimonial quote #5 here. Keep it concise and impactful to enhance credibility with your business',
-  },
+  groupQuote: { quote: 'Add a testimonial quote #5 here. Keep it concise and impactful to enhance credibility with your business' },
   groupAuthor: {
     authorName: 'Customer name five',
     authorTitle: 'Customer role five',
@@ -173,12 +159,11 @@ export const fields = (
           name="quote"
           required={true}
           default="The measurable results have transformed our business. Highly recommend for anyone looking to elevate their marketing game."
-          inlineEditable={true}
         />
       </FieldGroup>
       <FieldGroup label="Author" name="groupAuthor" display="inline">
-        <TextField label="Name" name="authorName" default="Sarah Johnson" inlineEditable={true} />
-        <TextField label="Title" name="authorTitle" default="Chief Marketing Officer @ StellarForge" inlineEditable={true} />
+        <TextField label="Name" name="authorName" default="Sarah Johnson" />
+        <TextField label="Title" name="authorTitle" default="Chief Marketing Officer @ StellarForge" />
         <ImageField
           label="Image"
           name="authorImage"
@@ -211,7 +196,7 @@ export const fields = (
         />
       </FieldGroup>
       <FieldGroup label="Link" name="groupLink" display="inline">
-        <TextField label="Link text" name="linkText" default="Read case study" inlineEditable={true} />
+        <TextField label="Link text" name="linkText" default="Read case study" />
         <LinkField
           label="Link"
           name="link"
