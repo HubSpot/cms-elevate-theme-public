@@ -46,7 +46,7 @@ export const Component = (props: RichTextProps) => {
 
   const cssVarsMap = { ...generateColorCssVars(sectionStyleVariant) };
 
-  const layoutClass = (renderedWithGrids ?? false) ? 'hs-elevate-rich-text--grids' : 'hs-elevate-rich-text--bootstrap';
+  const layoutClass = renderedWithGrids ? 'hs-elevate-rich-text--grids' : 'hs-elevate-rich-text--bootstrap';
 
   return (
     <RichText

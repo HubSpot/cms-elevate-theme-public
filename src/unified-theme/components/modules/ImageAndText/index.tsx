@@ -87,6 +87,7 @@ export const Component = (props: ImageAndTextProps) => {
             width={image.width}
             height={image.height}
             loading={image.loading !== 'disabled' ? image.loading : 'eager'}
+            data-hs-token={getDataHSToken(moduleName, 'groupImage.image')}
           />
         </ImageContainer>
       )}

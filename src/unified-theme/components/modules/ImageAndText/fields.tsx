@@ -44,6 +44,7 @@ export const fields = (
           loading: 'lazy',
           src: engagementImage,
         }}
+        inlineEditable={true}
       />
       <ChoiceField
         label='Image position'
