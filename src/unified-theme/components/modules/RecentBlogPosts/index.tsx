@@ -101,7 +101,14 @@ export const hublDataTemplate = `
   {% set blog_post_ids = [] %}
   {% set blog_posts = [] %}
 
-  {% for post in blog_recent_posts(blog, 3) %}
+  {# Check if tag filter is enabled and a tag is selected #}
+  {% if module.filterByTag and module.tag %}
+    {% set posts = blog_recent_tag_posts(blog, module.tag, 3) %}
+  {% else %}
+    {% set posts = blog_recent_posts(blog, 3) %}
+  {% endif %}
+
+  {% for post in posts %}
     {% do blog_post_ids.append(post.id) %}
 
     {% set temp_post = {

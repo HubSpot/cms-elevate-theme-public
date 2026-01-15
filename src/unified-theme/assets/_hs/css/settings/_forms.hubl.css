@@ -254,3 +254,13 @@
   --hsf-button--focus__background-color: var(--hsElevate--button--primary__hover--backgroundColor);
   --hsf-button--focus__border-color: var(--hsElevate--button--primary__hover--borderColor);
 }
+
+@media (width <= 600px) {
+  :root {
+    --hsElevate--form__padding: var(--hsElevate--spacing--24);
+  }
+
+  .hsfc-PhoneInput__FlagAndCaret {
+    --hsf-field-input__padding: var(--hsElevate--spacing--20) var(--hsElevate--spacing--16);
+  }
+}

@@ -80,8 +80,13 @@
     min-width: 100%;
     flex: 1 1 100%;
   }
+
+  .hs-input.hs-fieldtype-intl-phone > select {
+    padding-inline: var(--hsElevate--spacing--16);
+  }
 }
 
+.hs-form-field.hs-fieldtype-file .hs-input,
 .hs-form fieldset {
   max-width: 100% !important;
 }
