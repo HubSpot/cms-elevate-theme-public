@@ -3,7 +3,7 @@ import { Icon } from '@hubspot/cms-components';
 import socialIconSvg from './assets/social-follow.svg';
 import { IconFieldType, LinkFieldType, TextFieldType, AlignmentFieldType, BooleanFieldType } from '@hubspot/cms-components/fields';
 import { StandardSizeType, ButtonStyleType } from '../../types/fields.js';
-import { getLinkFieldRel, getLinkFieldTarget } from '../../utils/content-fields.js';
+import { getLinkFieldHref, getLinkFieldRel, getLinkFieldTarget } from '../../utils/content-fields.js';
 import { ButtonStyleFieldLibraryType } from '../../fieldLibrary/ButtonStyle/types.js';
 import { getAlignmentFieldCss } from '../../utils/style-fields.js';
 import styles from './social-follow.module.css';
@@ -87,9 +87,7 @@ function generateIconShapeCssVars(iconShapeField: ShapeOption): CSSPropertiesMap
     circle: 'var(--hsElevate-circle)',
   };
 
-  return {
-    '--hsElevate--socialFollowIcon__shape': iconShapeMap[iconShapeField],
-  };
+  return { '--hsElevate--socialFollowIcon__shape': iconShapeMap[iconShapeField] };
 }
 
 function generateIconGapCssVars(iconGapField: SizeOption): CSSPropertiesMap {
@@ -99,17 +97,13 @@ function generateIconGapCssVars(iconGapField: SizeOption): CSSPropertiesMap {
     large: 'var(--hsElevate--spacing--48, 48px)',
   };
 
-  return {
-    '--hsElevate--socialFollowIcon__gap': iconGapMap[iconGapField],
-  };
+  return { '--hsElevate--socialFollowIcon__gap': iconGapMap[iconGapField] };
 }
 
 function generateAlignmentCssVars(alignmentField: AlignmentFieldType['default']): CSSPropertiesMap {
   const alignmentCss = getAlignmentFieldCss(alignmentField);
 
-  return {
-    '--hsElevate--socialFollow__justifyContent': alignmentCss.justifyContent || 'flex-start',
-  };
+  return { '--hsElevate--socialFollow__justifyContent': alignmentCss.justifyContent || 'flex-start' };
 }
 
 function generateButtonStyles(buttonStyleVariant: ButtonStyleType): CSSPropertiesMap {
@@ -318,7 +312,7 @@ export const Component = (props: SocialFollowProps) => {
             key={index}
             rel={getLinkFieldRel(link)}
             target={getLinkFieldTarget(link)}
-            href={link.url.href}
+            href={getLinkFieldHref(link)}
             aria-label={socialIcon.aria_label}
           >
             <Icon className={swm('hs-elevate-social-follow__icon')} purpose="DECORATIVE" fieldPath={iconFieldPath} />
