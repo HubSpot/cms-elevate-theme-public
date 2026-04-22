@@ -1,18 +1,19 @@
 import { LinkFieldType } from '@hubspot/cms-components/fields';
 
-
 // Links
 
 export function getLinkFieldHref(fieldValue: LinkFieldType['default']) {
-  if(!fieldValue || !fieldValue.url) return;
+  if (!fieldValue || !fieldValue.url) {
+    return;
+  }
 
   const linkHref = fieldValue.url.href;
   const linkType = fieldValue.url.type;
 
   const hrefMap = {
-    "EMAIL_ADDRESS": `mailto:${linkHref}`,
-    "PAYMENT": `${linkHref}?referrer=CMS_MODULE_NEWTAB`,
-  }
+    EMAIL_ADDRESS: `mailto:${linkHref}`,
+    PAYMENT: `${linkHref}?referrer=CMS_MODULE_NEWTAB`,
+  };
 
   return hrefMap[linkType] || linkHref;
 }
@@ -29,7 +30,9 @@ export function getLinkFieldRel(fieldValue: LinkFieldType['default']) {
   return relValues.join(' ');
 }
 export function getLinkFieldTarget(fieldValue: LinkFieldType['default']): string {
-  if (!fieldValue) return '';
-  
+  if (!fieldValue) {
+    return '';
+  }
+
   return fieldValue.open_in_new_tab ? '_blank' : '';
 }
