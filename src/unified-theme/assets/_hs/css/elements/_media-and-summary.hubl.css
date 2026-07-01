@@ -1,0 +1,39 @@
+.cs-feature {
+  overflow: hidden;
+}
+
+.cs-feature-wrapper .cs-feature {
+  border-color: var(--hsElevate--card--variant2__borderColor, #d3dae4);
+  border-radius: var(--hsElevate-rounded--extra-large);
+  border-style: solid;
+  border-width: var(--hsElevate--card--variant2__borderThickness, 1px);
+  background-color: var(--hsElevate--card--variant2__backgroundColor);
+}
+
+.cs-feature .cs-feature__content-container {
+  background-color: var(--hsElevate--section--lightSection--2__backgroundColor, #f7f9fc);
+  color: var(--hsElevate--card--variant2__textColor, #1a1a1a);
+}
+
+.cs-feature .hs-elevate-details__label {
+  color: var(--hsElevate--card--variant2__textColor, #1a1a1a);
+  font-weight: 600;
+}
+
+.cs-feature .cs-feature__link {
+  color: var(--hsElevate--card--variant2--link__fontColor);
+}
+
+.cs-feature .cs-feature__link:hover {
+  color: var(--hsElevate--card--variant2--link__hover--fontColor);
+  opacity: 0.8;
+}
+
+.cs-feature .cs-feature__link .cs-feature__chevron-path {
+  fill: var(--hsElevate--card--variant2--link__fontColor);
+}
+
+.cs-feature .cs-feature__link:hover .cs-feature__chevron-path {
+  fill: var(--hsElevate--card--variant2--link__hover--fontColor);
+  opacity: 0.8;
+}

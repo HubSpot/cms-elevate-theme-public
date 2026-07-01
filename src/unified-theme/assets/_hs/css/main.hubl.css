@@ -16,6 +16,7 @@
 @import './elements/_typography.hubl.css';
 @import './elements/_buttons.hubl.css';
 @import './elements/_cards.hubl.css';
+@import './elements/_media-and-summary.hubl.css';
 @import './elements/_forms.hubl.css';
 
 /* Components */

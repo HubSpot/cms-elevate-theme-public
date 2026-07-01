@@ -1,0 +1,274 @@
+@import url('./case-studies.hubl.css');
+
+.case-studies-detail .cs-logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.case-studies-detail .cs-logo-container img {
+  height: auto;
+}
+
+.case-studies-detail .cs-logo-container :is(.hs_cos_wrapper_type_linked_image, .hs-image-widget) {
+  width: 100%;
+  text-align: center;
+}
+
+.case-studies-detail .cs-title-container {
+  text-align: center;
+}
+
+.case-studies-detail .cs-title-container h1 {
+  margin-bottom: 0;
+}
+
+.case-studies-detail .cs-feature__content-container {
+  background-color: var(--hsElevate--section--lightSection--2__backgroundColor);
+  color: var(--hsElevate--card--variant2__textColor);
+}
+
+.case-studies-detail .hs-elevate-details__label {
+  color: var(--hsElevate--card--variant2__textColor);
+}
+
+.case-studies-detail .cs-feature__link {
+  color: var(--hsElevate--card--variant2--link__fontColor);
+}
+
+.case-studies-detail .cs-feature__link:is(:hover, :focus-visible) {
+  color: var(--hsElevate--card--variant2--link__hover--fontColor);
+  opacity: 0.8;
+}
+
+.case-studies-detail .cs-feature__link .cs-feature__chevron-path {
+  fill: var(--hsElevate--card--variant2--link__fontColor);
+}
+
+.case-studies-detail .cs-feature__link:is(:hover, :focus-visible) .cs-feature__chevron-path {
+  fill: var(--hsElevate--card--variant2--link__hover--fontColor);
+  opacity: 0.8;
+}
+
+.cs-metrics-wrapper .hs-elevate-metrics__metric-number {
+  color: var(--hsElevate--section--lightSection--1__accentColor);
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.cs-testimonials-wrapper .hs-elevate-testimonial-slider {
+  border-width: 0;
+  background-color: transparent;
+  padding-block: 0;
+}
+
+/* Case study testimonials show author image only (no slide header image). */
+.cs-testimonials-wrapper .hs-elevate-testimonial-slider__image-container {
+  display: none;
+}
+
+.cs-testimonials-wrapper blockquote.hs-elevate-testimonial-slider__slide {
+  --hsElevate--testimonial__alignment: center;
+  --hsElevate--testimonial__textAlign: center;
+
+  width: 100%;
+  padding: 60px 70px;
+  border-color: var(--hsElevate--card--variant2__borderColor);
+  border-radius: var(--hsElevate-rounded--large);
+  border-style: solid;
+  border-width: var(--hsElevate--card--variant2__borderThickness);
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--hsElevate--card--variant2__backgroundColor);
+  color: var(--hsElevate--card--variant2__textColor);
+  gap: var(--hsElevate--spacing--24, 24px);
+  margin-inline: 0;
+}
+
+.cs-testimonials-wrapper .splide__slide.hs-elevate-testimonial-slider__slide {
+  display: block;
+  padding: 0;
+  border: none;
+  margin: 0;
+  background: transparent;
+}
+
+.cs-testimonials-wrapper .hs-elevate-testimonial-slider__content-container {
+  width: 100%;
+  max-width: 952px;
+  align-items: center;
+  margin-inline: auto;
+}
+
+.cs-testimonials-wrapper .hs-elevate-testimonial-slider__quote-text {
+  color: var(--hsElevate--card--variant2__textColor);
+  font-size: 2rem;
+  font-weight: var(--hsElevate--h3__fontWeight);
+  line-height: 1.5;
+  text-align: center;
+}
+
+.cs-testimonials-wrapper .hs-elevate-testimonial-slider__author-container,
+.cs-testimonials-wrapper .hs-elevate-testimonial-slider__link {
+  justify-content: center;
+}
+
+.cs-testimonials-wrapper .splide__pagination .splide__pagination__page.is-active {
+  background-color: var(--hsElevate--card--variant2__iconColor);
+  opacity: 1;
+}
+
+.cs-testimonials-wrapper .hs-elevate-testimonial-slider__navigation-icon path {
+  fill: var(--hsElevate--card--variant2__iconColor);
+}
+
+@media (width < 768px) {
+  .cs-testimonials-wrapper .hs-elevate-testimonial-slider__quote-text {
+    font-size: 1.125rem;
+  }
+
+  .cs-testimonials-wrapper blockquote.hs-elevate-testimonial-slider__slide {
+    padding-right: var(--hsElevate--spacing--48);
+    padding-left: var(--hsElevate--spacing--48);
+  }
+
+  .cs-testimonials-wrapper .splide__arrow--prev {
+    left: 0.5em;
+  }
+
+  .cs-testimonials-wrapper .splide__arrow--next {
+    right: 0.5em;
+  }
+}
+
+@media (width < 393px) {
+  .cs-testimonials-wrapper .hs-elevate-testimonial-slider__quote-text {
+    font-size: 1rem;
+  }
+}
+
+.cs-about-company-wrapper .hs-elevate-image-and-text {
+  justify-content: center;
+  gap: var(--hsElevate--spacing--64);
+}
+
+.cs-about-company-wrapper .hs-elevate-image-and-text__content-container {
+  padding: var(--hsElevate--spacing--56) 0;
+}
+
+.cs-about-company-wrapper .hs-elevate-image-and-text__content-container h2 {
+  font-size: var(--hsElevate--h3__fontSize);
+  font-weight: var(--hsElevate--h3__fontWeight);
+  line-height: var(--hsElevate--heading__lineHeight);
+}
+
+.cs-about-company-wrapper .hs-elevate-image-and-text__image-container {
+  max-width: 50%;
+  aspect-ratio: 1.4;
+}
+
+.cs-about-company-wrapper .hs-elevate-image-and-text__image {
+  border-radius: var(--hsElevate--card--variant1__borderRadius);
+}
+
+@media (width >= 768px) {
+  .cs-about-company-wrapper .hs-elevate-image-and-text:has(.hs-elevate-image-and-text__image-container) {
+    justify-content: space-between;
+  }
+
+  .cs-about-company-wrapper .hs-elevate-image-and-text:not(:has(.hs-elevate-image-and-text__image-container)) .hs-elevate-image-and-text__content-container {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (width < 768px) {
+  .cs-about-company-wrapper .hs-elevate-image-and-text {
+    gap: 30px;
+  }
+
+  .cs-about-company-wrapper .hs-elevate-image-and-text__image-container {
+    max-width: 100%;
+    aspect-ratio: 1.4;
+  }
+
+  .cs-about-company-wrapper .hs-elevate-image-and-text__content-container {
+    padding: 0;
+  }
+}
+
+.cs-cta-banner-wrapper .cs-cta-banner {
+  padding-top: 160px;
+  padding-bottom: 160px;
+  background: none;
+}
+
+.cs-cta-banner-wrapper .hs-elevate-card-container {
+  --hsElevate--card__alignment: center;
+  --hsElevate--card__textAlignment: center;
+
+  width: 100%;
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+.cs-cta-banner-wrapper .hs-elevate-card-container__title {
+  text-align: center;
+}
+
+.cs-cta-banner-wrapper .hs-elevate-card-container__button .hs-button {
+  padding: var(--hsElevate--spacing--16) var(--hsElevate--spacing--24);
+  border-color: var(--hsElevate--button--primary__borderColor);
+  border-radius: var(--hsElevate--button--primary__borderRadius);
+  border-style: solid;
+  border-width: var(--hsElevate--button--primary__borderThickness);
+  background-color: var(--hsElevate--button--primary__backgroundColor);
+  color: var(--hsElevate--button--primary__textColor);
+  font-family: var(--hsElevate--button--primary__font);
+  font-size: var(--hsElevate--button--primary__fontSize);
+  font-weight: var(--hsElevate--button--primary__fontWeight);
+  text-decoration: none;
+}
+
+.cs-cta-banner-wrapper .hs-elevate-card-container__button .hs-button:hover,
+.cs-cta-banner-wrapper .hs-elevate-card-container__button .hs-button:focus {
+  border-color: var(--hsElevate--button--primary__hover--borderColor);
+  border-width: var(--hsElevate--button--primary__hover--borderThickness);
+  background-color: var(--hsElevate--button--primary__hover--backgroundColor);
+  color: var(--hsElevate--button--primary__hover--textColor);
+  text-decoration: none;
+}
+
+#main-content .cs-background--off-white {
+  background-color: var(--hsElevate--section--lightSection--2__backgroundColor);
+  color: var(--hsElevate--section--lightSection--2__textColor);
+}
+
+.cs-related-articles-wrapper {
+  padding-top: 90px;
+  padding-bottom: 60px;
+}
+
+.cs-related-articles-wrapper .cs-related__heading {
+  max-width: 700px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+.cs-related-articles-wrapper .hs-elevate-recent-blog-posts__blog-card-container {
+  gap: 30px;
+}
+
+.cs-related-articles-wrapper .hs-elevate-recent-blog-posts__blog-card {
+  overflow: hidden;
+  border-color: var(--hsElevate--card--variant1__borderColor);
+  border-radius: var(--hsElevate--card--variant1__borderRadius);
+  border-style: solid;
+  border-width: var(--hsElevate--card--variant1__borderThickness);
+  background-color: var(--hsElevate--card--variant1__backgroundColor);
+  color: var(--hsElevate--card--variant1__textColor);
+  text-decoration: none;
+}
