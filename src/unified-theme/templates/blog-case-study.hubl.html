@@ -1,0 +1,119 @@
+<!--
+  templateType: blog_post
+  isAvailableForNewContent: true
+  label: Blog case study
+  screenshotPath: ../images/template-previews/case-studies-detail.png
+-->
+{% set template_css = "../../assets/dist/css/blog-case-study.hubl.css" %}
+{% extends "./layouts/base.hubl.html" %}
+
+{% block body %}
+
+<div class="case-studies-detail">
+  <div class="hs-elevate-content-wrapper">
+    <div class="cs-logo-wrapper">
+      <div class="cs-logo-container">
+        {% module "cs-logo" path="@hubspot/linked_image"
+          label="Company logo"
+          img={
+            "alt": "Company logo",
+            "loading": "eager",
+            "max_height": 30,
+            "max_width": 228,
+            "size_type": "auto_custom_max",
+            "src": get_asset_url("../images/case-study-images/company-logo.svg")
+          }
+          horizontal_alignment="CENTER"
+        %}
+      </div>
+    </div>
+
+    <div class="cs-title-wrapper">
+      <div class="cs-title-container">
+        <h1>{{ content.name|sanitize_html }}</h1>
+      </div>
+    </div>
+
+    <div class="cs-feature-wrapper">
+      {% module "cs-feature" path="../components/modules/MediaAndSummary"
+        label="Media and summary"
+        group_style={
+          "cardStyleVariant": "card_variant_2"
+        }
+      %}
+    </div>
+
+    <div class="cs-metrics-wrapper">
+      {% module "cs-metrics" path="../components/modules/Metrics"
+        label="Success metrics"
+        groupStyle={
+          "sectionStyleVariant": "section_variant_1",
+          "headingStyleVariant": "display_1"
+        }
+      %}
+    </div>
+
+    <div class="cs-testimonials-wrapper">
+      {% module "cs-testimonials" path="../components/modules/TestimonialSlider"
+        label="Testimonials"
+        groupStyle={
+          "cardStyleVariant": "card_variant_2"
+        }
+      %}
+    </div>
+
+    <div class="hs-elevate-content-wrapper hs-elevate-content-wrapper--md">
+      <div class="cs-about-company-wrapper">
+        {% module "cs-about-company" path="../components/modules/ImageAndText"
+          label="About company"
+        %}
+      </div>
+    </div>
+
+    <div class="hs-elevate-content-wrapper hs-elevate-content-wrapper--sm">
+      <div class="cs-body-wrapper">
+        <div class="cs-body-container">
+          {{ content.post_body }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-cta-banner-wrapper">
+    <div class="cs-cta-banner">
+      {% module "cs-cta-banner" path="../components/modules/Card"
+        label="Call to action"
+        groupStyle={
+          "groupCard": {
+            "cardStyleVariant": "card_variant_2",
+            "cardOrientation": "column"
+          },
+          "groupContent": {
+            "headingStyleVariant": "h2",
+            "alignment": {
+              "horizontal_align": "CENTER"
+            }
+          },
+          "groupButton": {
+            "buttonStyleVariant": "primary",
+            "buttonStyleSize": "medium"
+          }
+        }
+      %}
+    </div>
+  </div>
+
+  <div class="cs-background--off-white">
+    <div class="hs-elevate-content-wrapper">
+      <div class="cs-related-articles-wrapper">
+        <h2 class="cs-related__heading">Related case studies</h2>
+        {% module "cs-related-case-studies" path="../components/modules/RecentBlogPosts"
+          label="Related case studies"
+          blog={{ group.id }}
+        %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock body %}

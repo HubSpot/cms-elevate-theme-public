@@ -21,6 +21,7 @@ export default defineConfig({
         caseStudies: './src/unified-theme/assets/_hs/css/templates/case-studies.hubl.css',
         system: './src/unified-theme/assets/_hs/css/templates/system.hubl.css',
         blog: './src/unified-theme/assets/_hs/css/templates/blog.hubl.css',
+        blogCaseStudy: './src/unified-theme/assets/_hs/css/templates/blog-case-study.hubl.css',
       },
       output: {
         assetFileNames: 'css/[name].[ext]',
