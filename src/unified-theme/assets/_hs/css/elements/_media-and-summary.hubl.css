@@ -1,0 +1,19 @@
+.cs-feature {
+  overflow: hidden;
+}
+
+.cs-feature .hs-elevate-details__label {
+  font-weight: 600;
+}
+
+.cs-feature .cs-feature__link:hover {
+  opacity: 0.8;
+}
+
+.cs-feature .cs-feature__link .cs-feature__chevron-path {
+  fill: currentcolor;
+}
+
+.cs-feature .cs-feature__link:hover .cs-feature__chevron-path {
+  opacity: 0.8;
+}
