@@ -34,38 +34,165 @@
       </div>
     </div>
 
+    {% set feature_placeholder_image = get_asset_url("../images/case-study-images/featured-image.jpg") %}
+    {% set feature_widget_body = content.widgets['cs-feature'].body if content.widgets and content.widgets['cs-feature'] and content.widgets['cs-feature'].body else {} %}
+    {% set feature_widget_logo = feature_widget_body.group_logo if feature_widget_body.group_logo else {} %}
+    {% set feature_widget_image = feature_widget_logo.customerLogo if feature_widget_logo.customerLogo else (feature_widget_body.group_image.img if feature_widget_body.group_image and feature_widget_body.group_image.img else {}) %}
+    {% set feature_widget_summary = feature_widget_body.group_summary if feature_widget_body.group_summary else {} %}
+    {% set feature_widget_link = feature_widget_body.group_link if feature_widget_body.group_link else {} %}
+    {% set feature_widget_style = feature_widget_body.group_style if feature_widget_body.group_style else {} %}
+
     <div class="cs-feature-wrapper">
       {% module "cs-feature" path="../components/modules/MediaAndSummary"
         label="Media and summary"
+        group_logo={
+          "customerLogo": {
+            "alt": feature_widget_image.alt or feature_widget_image.altText or "placeholder for a featured image",
+            "loading": feature_widget_image.loading or "lazy",
+            "src": feature_widget_image.src or feature_widget_image.url or feature_placeholder_image,
+            "width": feature_widget_image.width,
+            "height": feature_widget_image.height
+          }
+        },
+        group_summary={
+          "industryLabel": feature_widget_summary.industryLabel or template_translations.blog_case_study_feature_industry_label.message,
+          "industry": feature_widget_summary.industry or template_translations.blog_case_study_feature_industry.message,
+          "challengeLabel": feature_widget_summary.challengeLabel or template_translations.blog_case_study_feature_challenge_label.message,
+          "challengeRichText": feature_widget_summary.challengeRichText or template_translations.blog_case_study_feature_challenge_content.message,
+          "resultsLabel": feature_widget_summary.resultsLabel or template_translations.blog_case_study_feature_results_label.message,
+          "resultsRichText": feature_widget_summary.resultsRichText or template_translations.blog_case_study_feature_results_content.message,
+          "keyProductLabel": feature_widget_summary.keyProductLabel or template_translations.blog_case_study_feature_key_product_label.message,
+          "keyProduct": feature_widget_summary.keyProduct or template_translations.blog_case_study_feature_key_product.message
+        },
+        group_link={
+          "showWebsiteLink": feature_widget_link.showWebsiteLink if feature_widget_link.showWebsiteLink is defined else true,
+          "linkText": feature_widget_link.linkText or "www.customer.com",
+          "websiteUrl": feature_widget_link.websiteUrl or {
+            "open_in_new_tab": true,
+            "url": {
+              "type": "EXTERNAL",
+              "href": "https://www.customer.com/",
+              "content_id": null
+            }
+          }
+        },
         group_style={
-          "cardStyleVariant": "card_variant_2"
+          "cardStyleVariant": feature_widget_style.cardStyleVariant or "card_variant_2"
         }
       %}
     </div>
+
+    {% set metrics_widget_body = content.widgets['cs-metrics'].body if content.widgets and content.widgets['cs-metrics'] and content.widgets['cs-metrics'].body else {} %}
+    {% set metrics_widget_style = metrics_widget_body.groupStyle if metrics_widget_body.groupStyle else {} %}
+    {% set metrics_default = [
+      {
+        "metric": "$5.4M+",
+        "description": template_translations.blog_case_study_metrics_one_description.message
+      },
+      {
+        "metric": "100+",
+        "description": template_translations.blog_case_study_metrics_two_description.message
+      },
+      {
+        "metric": "7.6x",
+        "description": template_translations.blog_case_study_metrics_three_description.message
+      },
+      {
+        "metric": "$2M",
+        "description": template_translations.blog_case_study_metrics_four_description.message
+      }
+    ] %}
 
     <div class="cs-metrics-wrapper">
       {% module "cs-metrics" path="../components/modules/Metrics"
         label="Success metrics"
+        groupMetrics={{ metrics_widget_body.groupMetrics if metrics_widget_body.groupMetrics and metrics_widget_body.groupMetrics|length > 0 else metrics_default }}
         groupStyle={
-          "sectionStyleVariant": "section_variant_1",
-          "headingStyleVariant": "display_1"
+          "sectionStyleVariant": metrics_widget_style.sectionStyleVariant or "section_variant_1",
+          "headingStyleVariant": metrics_widget_style.headingStyleVariant or "h1"
         }
       %}
     </div>
 
+    {% set testimonials_widget_body = content.widgets['cs-testimonials'].body if content.widgets and content.widgets['cs-testimonials'] and content.widgets['cs-testimonials'].body else {} %}
+    {% set testimonials_widget_style = testimonials_widget_body.groupStyle if testimonials_widget_body.groupStyle else {} %}
+    {% set testimonials_default = [
+      {
+        "groupQuote": {
+          "quote": template_translations.blog_case_study_testimonial_quote.message
+        },
+        "groupAuthor": {
+          "authorName": "Sarah Johnson",
+          "authorTitle": "Chief Marketing Officer @ StellarForge",
+          "authorImage": {
+            "alt": "picture of testimonial author",
+            "max_height": 100,
+            "max_width": 100,
+            "size_type": "auto_custom_max",
+            "src": get_asset_url("../images/testimonial-author-small.png")
+          }
+        },
+        "groupImage": {
+          "showImage": false,
+          "image": {}
+        },
+        "groupLink": {
+          "linkText": "",
+          "link": {}
+        }
+      }
+    ] %}
+
     <div class="cs-testimonials-wrapper">
       {% module "cs-testimonials" path="../components/modules/TestimonialSlider"
         label="Testimonials"
+        groupTestimonial={{ testimonials_widget_body.groupTestimonial if testimonials_widget_body.groupTestimonial and testimonials_widget_body.groupTestimonial|length > 0 else testimonials_default }}
         groupStyle={
-          "cardStyleVariant": "card_variant_2"
+          "cardStyleVariant": testimonials_widget_style.cardStyleVariant or "card_variant_2"
         }
       %}
     </div>
+
+    {% set about_company_placeholder_image = get_asset_url("../images/case-study-images/about-company.jpg") %}
+    {% set about_company_widget_body = content.widgets['cs-about-company'].body if content.widgets and content.widgets['cs-about-company'] and content.widgets['cs-about-company'].body else {} %}
+    {% set about_company_widget_image = about_company_widget_body.groupImage.image if about_company_widget_body.groupImage and about_company_widget_body.groupImage.image else (about_company_widget_body.groupImage.img if about_company_widget_body.groupImage and about_company_widget_body.groupImage.img else {}) %}
+    {% set about_company_widget_content = about_company_widget_body.groupContent if about_company_widget_body.groupContent else {} %}
 
     <div class="hs-elevate-content-wrapper hs-elevate-content-wrapper--md">
       <div class="cs-about-company-wrapper">
         {% module "cs-about-company" path="../components/modules/ImageAndText"
           label="About company"
+          groupImage={
+            "imagePosition": "left",
+            "image": {
+              "alt": about_company_widget_image.alt or about_company_widget_image.altText or "About your customer",
+              "loading": "lazy",
+              "src": about_company_widget_image.src or about_company_placeholder_image,
+              "width": about_company_widget_image.width,
+              "height": about_company_widget_image.height
+            }
+          },
+          groupContent={
+            "headingAndTextHeadingLevel": about_company_widget_content.headingAndTextHeadingLevel or "h2",
+            "headingAndTextHeading": about_company_widget_content.headingAndTextHeading or template_translations.blog_case_study_about_heading.message,
+            "richTextContentHTML": about_company_widget_content.richTextContentHTML or template_translations.blog_case_study_about_content.message
+          },
+          groupButton={
+            "showButton": false
+          },
+          groupStyle={
+            "groupContent": {
+              "sectionStyleVariant": "section_variant_1",
+              "headingStyleVariant": "h2",
+              "verticalAlignment": {
+                "vertical_align": "MIDDLE"
+              }
+            },
+            "groupButton": {
+              "buttonStyleVariant": "primary",
+              "buttonStyleSize": "medium"
+            }
+          }
         %}
       </div>
     </div>
@@ -79,34 +206,36 @@
     </div>
   </div>
 
+  {% set cta_banner_heading_widget_body = content.widgets['cs-cta-banner-heading'].body if content.widgets and content.widgets['cs-cta-banner-heading'] and content.widgets['cs-cta-banner-heading'].body else {} %}
+
   <div class="cs-cta-banner-wrapper">
     <div class="cs-cta-banner">
-      {% module "cs-cta-banner" path="../components/modules/Card"
-        label="Call to action"
-        groupStyle={
-          "groupCard": {
-            "cardStyleVariant": "card_variant_2",
-            "cardOrientation": "column"
-          },
-          "groupContent": {
-            "headingStyleVariant": "h2",
+      <div class="cs-cta-banner__content">
+        {% module "cs-cta-banner-heading" path="../components/modules/Heading"
+          label="Call to action heading"
+          headingAndTextHeadingLevel="h2"
+          headingAndTextHeading={{ cta_banner_heading_widget_body.headingAndTextHeading or template_translations.blog_case_study_cta_heading.message }}
+          groupStyle={
             "alignment": {
-              "horizontal_align": "CENTER"
-            }
-          },
-          "groupButton": {
-            "buttonStyleVariant": "primary",
-            "buttonStyleSize": "medium"
+              "text_align": "CENTER"
+            },
+            "headingStyleVariant": "h2",
+            "sectionStyleVariant": "section_variant_1"
           }
-        }
-      %}
+        %}
+        <div class="cs-cta-banner__cta">
+          {% module "cs-cta-banner" path="@hubspot/cta"
+            label="Call to action"
+          %}
+        </div>
+      </div>
     </div>
   </div>
 
   <div class="cs-background--off-white">
     <div class="hs-elevate-content-wrapper">
       <div class="cs-related-articles-wrapper">
-        <h2 class="cs-related__heading">Related case studies</h2>
+        <h2 class="cs-related__heading">{{ template_translations.blog_case_study_related_heading.message }}</h2>
         {% module "cs-related-case-studies" path="../components/modules/RecentBlogPosts"
           label="Related case studies"
           blog={{ group.id }}

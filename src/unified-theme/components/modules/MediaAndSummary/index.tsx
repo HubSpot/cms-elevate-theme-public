@@ -4,6 +4,7 @@ import { RichText } from '@hubspot/cms-components';
 import { ImageFieldType, LinkFieldType, TextFieldType, BooleanFieldType, RichTextFieldType } from '@hubspot/cms-components/fields';
 import { CardVariantType } from '../../types/fields.js';
 import { CardStyleFieldLibraryType } from '../../fieldLibrary/CardStyle/types.js';
+import { CSSPropertiesMap } from '../../types/components.js';
 import { getLinkFieldHref, getLinkFieldRel, getLinkFieldTarget } from '../../utils/content-fields.js';
 import { getCardVariantClassName } from '../../utils/card-variants.js';
 import cx, { staticWithModule } from '../../utils/classnames.js';
@@ -51,6 +52,60 @@ const ValueParagraph = createComponent('p');
 const LinkContainer = createComponent('div');
 const LinkAnchor = createComponent('a');
 
+function generateColorCssVars(cardVariantField: string): CSSPropertiesMap {
+  const cardColorsMap = {
+    card_variant_1: {
+      textColor: 'var(--hsElevate--card--variant1__textColor)',
+      backgroundColor: 'var(--hsElevate--card--variant1__backgroundColor)',
+      borderColor: 'var(--hsElevate--card--variant1__borderColor)',
+      borderRadius: 'var(--hsElevate--card--variant1__borderRadius)',
+      borderThickness: 'var(--hsElevate--card--variant1__borderThickness)',
+      linkFontColor: 'var(--hsElevate--card--variant1--link__fontColor)',
+      linkHoverFontColor: 'var(--hsElevate--card--variant1--link__hover--fontColor)',
+    },
+    card_variant_2: {
+      textColor: 'var(--hsElevate--card--variant2__textColor)',
+      backgroundColor: 'var(--hsElevate--card--variant2__backgroundColor)',
+      borderColor: 'var(--hsElevate--card--variant2__borderColor)',
+      borderRadius: 'var(--hsElevate--card--variant2__borderRadius)',
+      borderThickness: 'var(--hsElevate--card--variant2__borderThickness)',
+      linkFontColor: 'var(--hsElevate--card--variant2--link__fontColor)',
+      linkHoverFontColor: 'var(--hsElevate--card--variant2--link__hover--fontColor)',
+    },
+    card_variant_3: {
+      textColor: 'var(--hsElevate--card--variant3__textColor)',
+      backgroundColor: 'var(--hsElevate--card--variant3__backgroundColor)',
+      borderColor: 'var(--hsElevate--card--variant3__borderColor)',
+      borderRadius: 'var(--hsElevate--card--variant3__borderRadius)',
+      borderThickness: 'var(--hsElevate--card--variant3__borderThickness)',
+      linkFontColor: 'var(--hsElevate--card--variant3--link__fontColor)',
+      linkHoverFontColor: 'var(--hsElevate--card--variant3--link__hover--fontColor)',
+    },
+    card_variant_4: {
+      textColor: 'var(--hsElevate--card--variant4__textColor)',
+      backgroundColor: 'var(--hsElevate--card--variant4__backgroundColor)',
+      borderColor: 'var(--hsElevate--card--variant4__borderColor)',
+      borderRadius: 'var(--hsElevate--card--variant4__borderRadius)',
+      borderThickness: 'var(--hsElevate--card--variant4__borderThickness)',
+      linkFontColor: 'var(--hsElevate--card--variant4--link__fontColor)',
+      linkHoverFontColor: 'var(--hsElevate--card--variant4--link__hover--fontColor)',
+    },
+  };
+
+  const cardColors = cardColorsMap[cardVariantField];
+
+  return {
+    '--hsElevate--mediaAndSummary__textColor': cardColors.textColor,
+    '--hsElevate--mediaAndSummary__backgroundColor': cardColors.backgroundColor,
+    '--hsElevate--mediaAndSummary__borderColor': cardColors.borderColor,
+    '--hsElevate--mediaAndSummary__borderRadius': cardColors.borderRadius,
+    '--hsElevate--mediaAndSummary__borderThickness': cardColors.borderThickness,
+    '--hsElevate--mediaAndSummary__linkFontColor': cardColors.linkFontColor,
+    '--hsElevate--mediaAndSummary__linkHoverFontColor': cardColors.linkHoverFontColor,
+    '--hsElevate--mediaAndSummary__accentColor': cardColors.linkFontColor,
+  };
+}
+
 function DetailGroup({ label, children }: { label: string; children: ReactNode }) {
   const labelId = useId();
   return (
@@ -86,12 +141,13 @@ export const Component = (props: MediaAndSummaryProps) => {
   } = props;
 
   const cardVariantClass = getCardVariantClassName({ cardVariant: cardStyleVariant as CardVariantType, fallbackCardVariant: 'card_variant_2' });
+  const cssVarsMap = generateColorCssVars(cardStyleVariant);
   const linkHref = getLinkFieldHref(websiteUrl);
   const showLink = showWebsiteLink && linkHref;
 
   return (
     <FeatureWrapper className={cx('cs-feature-wrapper', swm('moduleRoot'))}>
-      <Feature className={cx('cs-feature', cardVariantClass)}>
+      <Feature className={cx('cs-feature', cardVariantClass)} style={cssVarsMap}>
         <ImageContainer className="cs-feature__image-container">
           {Boolean(customerLogo.src) && (
             <FeatureImage

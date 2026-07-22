@@ -137,7 +137,7 @@ export { fields } from './fields.js';
 
 export const meta: ModuleMeta = {
   label: 'Image and text',
-  content_types: ['SITE_PAGE', 'LANDING_PAGE'],
+  content_types: ['BLOG_POST', 'SITE_PAGE', 'LANDING_PAGE'],
   icon: imageAndTextIconSvg,
   categories: ['design'],
 };

@@ -2,8 +2,13 @@
 
 .moduleRoot :global(.cs-feature) {
   display: grid;
+  overflow: hidden;
   height: auto;
   width: 100%;
+  border-color: var(--hsElevate--mediaAndSummary__borderColor, #d3dae4);
+  border-radius: var(--hsElevate--mediaAndSummary__borderRadius, 16px);
+  border-style: solid;
+  border-width: var(--hsElevate--mediaAndSummary__borderThickness, 1px);
   margin: 0;
   grid-template-columns: 1fr;
   gap: 0;
@@ -16,38 +21,6 @@
   }
 }
 
-.moduleRoot :global(.cs-feature.hs-elevate-card--variant-1) {
-  overflow: hidden;
-  border-color: var(--hsElevate--card--variant1__borderColor, #d3dae4);
-  border-radius: var(--hsElevate-rounded--extra-large, 16px);
-  border-style: solid;
-  border-width: var(--hsElevate--card--variant1__borderThickness, 1px);
-}
-
-.moduleRoot :global(.cs-feature.hs-elevate-card--variant-2) {
-  overflow: hidden;
-  border-color: var(--hsElevate--card--variant2__borderColor, #d3dae4);
-  border-radius: var(--hsElevate-rounded--extra-large, 16px);
-  border-style: solid;
-  border-width: var(--hsElevate--card--variant2__borderThickness, 1px);
-}
-
-.moduleRoot :global(.cs-feature.hs-elevate-card--variant-3) {
-  overflow: hidden;
-  border-color: var(--hsElevate--card--variant3__borderColor, #d3dae4);
-  border-radius: var(--hsElevate-rounded--extra-large, 16px);
-  border-style: solid;
-  border-width: var(--hsElevate--card--variant3__borderThickness, 1px);
-}
-
-.moduleRoot :global(.cs-feature.hs-elevate-card--variant-4) {
-  overflow: hidden;
-  border-color: var(--hsElevate--card--variant4__borderColor, #d3dae4);
-  border-radius: var(--hsElevate-rounded--extra-large, 16px);
-  border-style: solid;
-  border-width: var(--hsElevate--card--variant4__borderThickness, 1px);
-}
-
 .moduleRoot :global(.cs-feature__image-container) {
   position: relative;
   display: flex;
@@ -58,18 +31,16 @@
   justify-content: center;
   background-color: color-mix(
     in srgb,
-    var(--hsElevate--section--lightSection--1__accentColor, var(--hsElevate--card--variant2--link__fontColor, #5b5ce8)) 18%,
+    var(--hsElevate--mediaAndSummary__accentColor, var(--hsElevate--section--lightSection--1__accentColor, #5b5ce8)) 18%,
     #fff
   );
   background-image: linear-gradient(
-      color-mix(in srgb, var(--hsElevate--section--lightSection--1__accentColor, var(--hsElevate--card--variant2--link__fontColor, #5b5ce8)) 24%, transparent)
-        1px,
+      color-mix(in srgb, var(--hsElevate--mediaAndSummary__accentColor, var(--hsElevate--section--lightSection--1__accentColor, #5b5ce8)) 24%, transparent) 1px,
       transparent 1px
     ),
     linear-gradient(
       90deg,
-      color-mix(in srgb, var(--hsElevate--section--lightSection--1__accentColor, var(--hsElevate--card--variant2--link__fontColor, #5b5ce8)) 24%, transparent)
-        1px,
+      color-mix(in srgb, var(--hsElevate--mediaAndSummary__accentColor, var(--hsElevate--section--lightSection--1__accentColor, #5b5ce8)) 24%, transparent) 1px,
       transparent 1px
     );
   background-size: 20px 20px;
@@ -102,8 +73,8 @@
   min-width: 0;
   padding: 42px 32px 26px;
   flex-direction: column;
-  background-color: var(--hsElevate--section--lightSection--2__backgroundColor, #f7f9fc);
-  color: var(--hsElevate--card--variant2__textColor, #1a1a1a);
+  background-color: var(--hsElevate--mediaAndSummary__backgroundColor, #f7f9fc);
+  color: var(--hsElevate--mediaAndSummary__textColor, #1a1a1a);
   overflow-wrap: anywhere;
 }
 
@@ -112,7 +83,6 @@
   max-width: 100%;
   min-width: 0;
   flex-direction: column;
-  font-size: var(--hsElevate--body__fontSize, 18px);
   gap: 0;
 }
 
@@ -127,7 +97,8 @@
 
 .moduleRoot :global(.hs-elevate-details__label) {
   margin: 0;
-  font-size: 0.75rem;
+  color: var(--hsElevate--mediaAndSummary__labelColor, #647390);
+  font-size: 12px;
   font-style: normal;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -139,7 +110,8 @@
   max-width: 100%;
   min-width: 0;
   margin: 0;
-  font-size: var(--hsElevate--body__fontSize, 15px);
+  color: var(--hsElevate--mediaAndSummary__textColor, #1a1a1a);
+  font-size: 15px;
   font-style: normal;
   font-weight: var(--hsElevate--body__fontWeight, 400);
   line-height: var(--hsElevate--body__lineHeight, 1.5);
@@ -153,6 +125,7 @@
   :global(.hs-elevate-details__value).detailRichText
   :is(p, li, ul, ol, span, strong, em, div, h1, h2, h3, h4, h5, h6) {
   color: inherit;
+  font-size: 15px;
 }
 
 .moduleRoot
@@ -162,7 +135,7 @@
   :global(.hs-elevate-details__value-container)
   :global(.hs-elevate-details__value).detailRichText
   a {
-  color: var(--hsElevate--section--lightSection--2--link__fontColor, var(--hsElevate--card--variant2--link__fontColor));
+  color: var(--hsElevate--mediaAndSummary__linkFontColor);
 }
 
 .moduleRoot
@@ -179,7 +152,7 @@
   :global(.hs-elevate-details__value-container)
   :global(.hs-elevate-details__value).detailRichText
   a:focus-visible {
-  color: var(--hsElevate--section--lightSection--2--link__hover--fontColor, var(--hsElevate--card--variant2--link__hover--fontColor));
+  color: var(--hsElevate--mediaAndSummary__linkHoverFontColor);
 }
 
 .moduleRoot
@@ -214,11 +187,17 @@
   max-width: 100%;
   flex-wrap: wrap;
   align-items: center;
+  color: var(--hsElevate--mediaAndSummary__linkFontColor);
   font-size: var(--hsElevate--body--small__fontSize);
   font-weight: 600;
   gap: var(--hsElevate--spacing--8);
   overflow-wrap: anywhere;
   text-decoration: none;
+}
+
+.moduleRoot :global(.cs-feature__link:hover),
+.moduleRoot :global(.cs-feature__link:focus-visible) {
+  color: var(--hsElevate--mediaAndSummary__linkHoverFontColor);
 }
 
 .moduleRoot :global(.cs-feature__chevron) {
