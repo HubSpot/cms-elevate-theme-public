@@ -1,0 +1,26 @@
+<!--
+  templateType: email_backup_unsubscribe_page
+  isAvailableForNewContent: true
+  label: Elevate - email backup unsubscribe
+  screenshotPath: ../../images/template-previews/email-backup-unsubscribe.png
+-->
+{% set template_css = "../../assets/dist/css/system.hubl.css" %}
+{% extends "../layouts/base.hubl.html" %}
+
+{% block body %}
+  <section class="hs-elevate-content-wrapper hs-elevate-content-wrapper--sm hs-elevate-content-padding">
+    {% module_block module "email_simple_subscription"
+      path="@hubspot/email_simple_subscription"
+      extra_classes="hs-elevate-backup-unsubscribe",
+      header={{ template_translations.backup_unsubscribe_header.message }}
+    %}
+      {% module_attribute "subheader" %}
+        {% if business_unit().name %}
+          {{ template_translations.backup_unsubscribe_subheader_business_unit.message }}
+        {% else %}
+          {{ template_translations.backup_unsubscribe_subheader.message }}
+        {% endif %}
+      {% end_module_attribute %}
+    {% end_module_block %}
+  </section>
+{% endblock body %}

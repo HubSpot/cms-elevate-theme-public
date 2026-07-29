@@ -1,0 +1,72 @@
+<!--
+  templateType: global_partial
+  subtype: footer
+  screenshotPath: ../../images/template-previews/partials/lp-footer.png
+  label: Landing page footer
+-->
+
+{# Partial variables #}
+
+{% set template_translations = load_translations('../_locales', html_lang, 'en') %}
+{% import "../../helpers/variables.hubl.html" %}
+
+{# Partial #}
+
+<footer class="hs-elevate-footer">
+  {% dnd_area "footer" label="Footer" %}
+    {% dnd_section
+      background_color={{ dark_section_1_background_color }},
+      padding={
+        "top": section_vertical_spacing_small,
+        "bottom": section_vertical_spacing_small
+      }
+    %}
+      {% dnd_column %}
+        {% dnd_row
+          margin={
+            "bottom": spacing_16
+          }
+        %}
+          {% dnd_module
+            path="@hubspot/horizontal_spacer",
+            offset=0,
+            width=4
+          %}
+          {% end_dnd_module %}
+
+          {% dnd_module
+            path="@hubspot/logo",
+            offset=4,
+            width=4,
+            horizontal_alignment="CENTER",
+            img={
+              "loading": "lazy"
+            }
+          %}
+          {% end_dnd_module %}
+
+          {% dnd_module
+            path="@hubspot/horizontal_spacer",
+            offset=8,
+            width=4
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+        {% dnd_row %}
+          {% dnd_module
+            path="../../components/modules/RichText",
+            groupStyle={
+              "sectionStyleVariant": "section_variant_4"
+            }
+          %}
+            {% module_attribute "richTextContentHTML"%}
+              <div style="text-align: center;">
+                <span>{{ template_translations.partial_footer_copyright.message }}</span>
+              </div>
+            {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+  {% end_dnd_area %}
+</footer>

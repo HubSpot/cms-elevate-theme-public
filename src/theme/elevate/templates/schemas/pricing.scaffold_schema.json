@@ -1,0 +1,391 @@
+[
+  {
+    "name": "group_banner",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that shows at the top of the hero banner and describes the page."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A couple of sentences that provide more information about the heading."
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "The button text that describes the call to action the user should take."
+      },
+      {
+        "name": "button_link",
+        "type": "link",
+        "description": "The URL that a user should be taken to when they click the button."
+      }
+    ]
+  },
+  {
+    "name": "group_pricing_cards",
+    "type": "group",
+    "children": [
+      {
+        "name": "group_pricing_card_one",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "A couple of words that describes the name of this pricing plan."
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "description": "A 2-3 sentence describing who this pricing plan is best suited for."
+          },
+          {
+            "name": "price",
+            "type": "text",
+            "description": "The price of the plan. An example of this would be '$10'."
+          },
+          {
+            "name": "time_period",
+            "type": "text",
+            "description": "The time period that the price covers. An example of this would be '/month'."
+          },
+          {
+            "name": "features_title",
+            "type": "text",
+            "description": "The title that shows above a list of features that is included in this pricing plan."
+          },
+          {
+            "name": "group_features",
+            "type": "group",
+            "children": [
+              {
+                "name": "feature_one",
+                "type": "text",
+                "description": "The first feature of the pricing plan."
+              },
+              {
+                "name": "feature_two",
+                "type": "text",
+                "description": "The second feature of the pricing plan."
+              },
+              {
+                "name": "feature_three",
+                "type": "text",
+                "description": "The third feature of the pricing plan."
+              },
+              {
+                "name": "feature_four",
+                "type": "text",
+                "description": "The fourth feature of the pricing plan."
+              }
+            ]
+          },
+          {
+            "name": "button_text",
+            "type": "text",
+            "description": "The button text that describes the call to action the user should take."
+          },
+          {
+            "name": "button_link",
+            "type": "link",
+            "description": "The URL that a user should be taken to when they click the button."
+          }
+        ]
+      },
+      {
+        "name": "group_pricing_card_two",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "A couple of words that describes the name of this pricing plan."
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "description": "A 2-3 sentence describing who this pricing plan is best suited for."
+          },
+          {
+            "name": "price",
+            "type": "text",
+            "description": "The price of the plan. An example of this would be '$10'."
+          },
+          {
+            "name": "time_period",
+            "type": "text",
+            "description": "The time period that the price covers. An example of this would be '/month'."
+          },
+          {
+            "name": "features_title",
+            "type": "text",
+            "description": "The title that shows above a list of features that is included in this pricing plan."
+          },
+          {
+            "name": "group_features",
+            "type": "group",
+            "children": [
+              {
+                "name": "feature_one",
+                "type": "text",
+                "description": "The first feature of the pricing plan."
+              },
+              {
+                "name": "feature_two",
+                "type": "text",
+                "description": "The second feature of the pricing plan."
+              },
+              {
+                "name": "feature_three",
+                "type": "text",
+                "description": "The third feature of the pricing plan."
+              },
+              {
+                "name": "feature_four",
+                "type": "text",
+                "description": "The fourth feature of the pricing plan."
+              }
+            ]
+          },
+          {
+            "name": "button_text",
+            "type": "text",
+            "description": "The button text that describes the call to action the user should take."
+          },
+          {
+            "name": "button_link",
+            "type": "link",
+            "description": "The URL that a user should be taken to when they click the button."
+          }
+        ]
+      },
+      {
+        "name": "group_pricing_card_three",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "A couple of words that describes the name of this pricing plan."
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "description": "A 2-3 sentence describing who this pricing plan is best suited for."
+          },
+          {
+            "name": "price",
+            "type": "text",
+            "description": "The price of the plan. An example of this would be '$10'."
+          },
+          {
+            "name": "time_period",
+            "type": "text",
+            "description": "The time period that the price covers. An example of this would be '/month'."
+          },
+          {
+            "name": "features_title",
+            "type": "text",
+            "description": "The title that shows above a list of features that is included in this pricing plan."
+          },
+          {
+            "name": "group_features",
+            "type": "group",
+            "children": [
+              {
+                "name": "feature_one",
+                "type": "text",
+                "description": "The first feature of the pricing plan."
+              },
+              {
+                "name": "feature_two",
+                "type": "text",
+                "description": "The second feature of the pricing plan."
+              },
+              {
+                "name": "feature_three",
+                "type": "text",
+                "description": "The third feature of the pricing plan."
+              },
+              {
+                "name": "feature_four",
+                "type": "text",
+                "description": "The fourth feature of the pricing plan."
+              },
+              {
+                "name": "feature_five",
+                "type": "text",
+                "description": "The fifth feature of the pricing plan."
+              }
+            ]
+          },
+          {
+            "name": "button_text",
+            "type": "text",
+            "description": "The button text that describes the call to action the user should take."
+          },
+          {
+            "name": "button_link",
+            "type": "link",
+            "description": "The URL that a user should be taken to when they click the button."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "group_two_col_call_to_action",
+    "type": "group",
+    "children": [
+      {
+        "name": "image",
+        "type": "image",
+        "description": "An image that is related to the action that someone should take.",
+        "width": 140,
+        "height": 140
+      },
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes an action that someone should take."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A couple of sentences that provide more information about the action that someone should take."
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "The button text that describes the call to action the user should take."
+      }
+    ]
+  },
+  {
+    "name": "group_logos",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that goes over a group of customer logos who use the product."
+      }
+    ]
+  },
+  {
+    "name": "group_faqs",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "The heading that shows above a group of frequently asked questions."
+      },
+      {
+        "name": "group_faq_one",
+        "type": "group",
+        "children": [
+          {
+            "name": "question",
+            "type": "text",
+            "description": "The first frequently asked question that the customer might have."
+          },
+          {
+            "name": "answer",
+            "type": "text",
+            "description": "The answer to the first frequently asked question that the customer might have."
+          }
+        ]
+      },
+      {
+        "name": "group_faq_two",
+        "type": "group",
+        "children": [
+          {
+            "name": "question",
+            "type": "text",
+            "description": "The second frequently asked question that the customer might have."
+          },
+          {
+            "name": "answer",
+            "type": "text",
+            "description": "The answer to the second frequently asked question that the customer might have."
+          }
+        ]
+      },
+      {
+        "name": "group_faq_three",
+        "type": "group",
+        "children": [
+          {
+            "name": "question",
+            "type": "text",
+            "description": "The third frequently asked question that the customer might have."
+          },
+          {
+            "name": "answer",
+            "type": "text",
+            "description": "The answer to the third frequently asked question that the customer might have."
+          }
+        ]
+      },
+      {
+        "name": "group_faq_four",
+        "type": "group",
+        "children": [
+          {
+            "name": "question",
+            "type": "text",
+            "description": "The fourth frequently asked question that the customer might have."
+          },
+          {
+            "name": "answer",
+            "type": "text",
+            "description": "The answer to the fourth frequently asked question that the customer might have."
+          }
+        ]
+      },
+      {
+        "name": "group_faq_five",
+        "type": "group",
+        "children": [
+          {
+            "name": "question",
+            "type": "text",
+            "description": "The fifth frequently asked question that the customer might have."
+          },
+          {
+            "name": "answer",
+            "type": "text",
+            "description": "The answer to the fifth frequently asked question that the customer might have."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "group_call_to_action",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes an action that someone should take."
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "The button text that describes the call to action the user should take."
+      },
+      {
+        "name": "button_link",
+        "type": "link",
+        "description": "The URL that a user should be taken to when they click the button."
+      }
+    ]
+  }
+]

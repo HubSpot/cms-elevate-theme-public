@@ -1,0 +1,73 @@
+.hs-elevate-feature-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  row-gap: var(--hsElevate--spacing--56, 56px);
+}
+
+.hs-elevate-feature-list--2-columns,
+.hs-elevate-feature-list--3-columns {
+  @media (width >= 479px) {
+    flex-direction: row;
+    -moz-column-gap: var(--hsElevate--spacing--64, 64px);
+    column-gap: var(--hsElevate--spacing--64, 64px);
+  }
+}
+
+.hs-elevate-feature-list__feature {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+}
+
+/*
+  On tablet the layout should be 2 columns if the user has selected 2 or more columns.
+
+  Width = (container width - total gaps) / number of columns
+*/
+@media (width >= 479px) {
+  .hs-elevate-feature-list--2-columns .hs-elevate-feature-list__feature,
+  .hs-elevate-feature-list--3-columns .hs-elevate-feature-list__feature {
+    width: calc((100% - var(--hsElevate--spacing--64, 64px)) / 2);
+  }
+}
+
+/*
+  If the user has selected 3 columns, then on desktop the layout should be what the user selected.
+
+  Width = (container width - total gaps) / number of columns
+*/
+@media (width >= 768px) {
+  .hs-elevate-feature-list--3-columns .hs-elevate-feature-list__feature {
+    width: calc((100% - (var(--hsElevate--spacing--64, 64px) * 2)) / 3);
+  }
+}
+
+.hs-elevate-feature-list__icon {
+  height: var(--hsElevate--icon--medium__size, 24px);
+  width: var(--hsElevate--icon--medium__size, 24px);
+  flex-shrink: 0;
+  fill: var(--hsElevate--featureList__accentColor);
+  margin-inline-end: var(--hsElevate--spacing--12, 12px);
+}
+
+.hs-elevate-feature-list__content-container {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--hsElevate--featureList__textColor);
+    margin-block: var(--hsElevate--text--extraSmall__margin, 0 12px);
+  }
+
+  p {
+    color: var(--hsElevate--featureList__textColor);
+  }
+}
+
+.hs-elevate-feature-list__body {
+  font-size: var(--hsElevate--body--small__fontSize);
+  margin-block-end: 0;
+}

@@ -1,0 +1,132 @@
+[
+  {
+    "name": "group_banner",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes the purpose of the page."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A couple of sentences that describe the purpose of the page."
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "The button text that describes the call to action the user should take."
+      },
+      {
+        "name": "button_link",
+        "type": "link",
+        "description": "The URL that a user should be taken to when they click the button."
+      },
+      {
+        "name": "feature_image",
+        "type": "image",
+        "description": "An image that displays a feature of the product.",
+        "width": 1239,
+        "height": 708
+      }
+    ]
+  },
+  {
+    "name": "group_logos",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that goes over a group of customer logos who use the product."
+      }
+    ]
+  },
+  {
+    "name": "group_image_and_text_1",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes the first benefit of the product."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A paragraph of 4-5 sentences that provide more detail about the first benefit of the product."
+      },
+      {
+        "name": "image",
+        "type": "image",
+        "description": "An image that displays the first benefit of the product.",
+        "width": 590,
+        "height": 590
+      }
+    ]
+  },
+  {
+    "name": "feature_image",
+    "type": "image",
+    "description": "An that displays a feature of the product.",
+    "width": 1239,
+    "height": 708
+  },
+  {
+    "name": "group_image_and_text_2",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes the second benefit of the product."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A paragraph of 4-5 sentences that provide more detail about the second benefit of the product."
+      },
+      {
+        "name": "image",
+        "type": "image",
+        "description": "An image that displays the second benefit of the product.",
+        "width": 590,
+        "height": 590
+      }
+    ]
+  },
+  {
+    "name": "group_call_to_action",
+    "type": "group",
+    "children": [
+      {
+        "name": "image",
+        "type": "image",
+        "description": "An image that is related to the action that someone should take.",
+        "width": 60,
+        "height": 60
+      },
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes an action that someone should take."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A couple of sentences that provide more information about the action that someone should take."
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "The button text that describes the call to action the user should take."
+      },
+      {
+        "name": "button_link",
+        "type": "link",
+        "description": "The URL that a user should be taken to when they click the button."
+      }
+    ]
+  }
+]

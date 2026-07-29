@@ -1,0 +1,105 @@
+[
+  {
+    "name": "group_faq_one",
+    "type": "group",
+    "children": [
+      {
+        "name": "question",
+        "type": "text",
+        "description": "The first frequently asked question about the product or service."
+      },
+      {
+        "name": "answer",
+        "type": "text",
+        "description": "The detailed answer to the first frequently asked question."
+      }
+    ]
+  },
+  {
+    "name": "group_faq_two",
+    "type": "group",
+    "children": [
+      {
+        "name": "question",
+        "type": "text",
+        "description": "The second frequently asked question about the product or service."
+      },
+      {
+        "name": "answer",
+        "type": "text",
+        "description": "The detailed answer to the second frequently asked question."
+      }
+    ]
+  },
+  {
+    "name": "group_faq_three",
+    "type": "group",
+    "children": [
+      {
+        "name": "question",
+        "type": "text",
+        "description": "The third frequently asked question about the product or service."
+      },
+      {
+        "name": "answer",
+        "type": "text",
+        "description": "The detailed answer to the third frequently asked question."
+      }
+    ]
+  },
+  {
+    "name": "group_faq_four",
+    "type": "group",
+    "children": [
+      {
+        "name": "question",
+        "type": "text",
+        "description": "The fourth frequently asked question about the product or service."
+      },
+      {
+        "name": "answer",
+        "type": "text",
+        "description": "The detailed answer to the fourth frequently asked question."
+      }
+    ]
+  },
+  {
+    "name": "group_faq_five",
+    "type": "group",
+    "children": [
+      {
+        "name": "question",
+        "type": "text",
+        "description": "The fifth frequently asked question about the product or service."
+      },
+      {
+        "name": "answer",
+        "type": "text",
+        "description": "The detailed answer to the fifth frequently asked question."
+      }
+    ]
+  },
+  {
+    "name": "group_faq_six",
+    "type": "group",
+    "children": [
+      {
+        "name": "question",
+        "type": "text",
+        "description": "The sixth frequently asked question about the product or service."
+      },
+      {
+        "name": "answer",
+        "type": "text",
+        "description": "The detailed answer to the sixth frequently asked question."
+      }
+    ]
+  },
+  {
+    "name": "image",
+    "type": "image",
+    "description": "An image that visually complements the FAQ content, possibly showing the product or service being discussed.",
+    "width": 400,
+    "height": 700
+  }
+]

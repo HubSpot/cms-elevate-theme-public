@@ -1,0 +1,130 @@
+<!--
+  templateType: section
+  label: Newsletter
+  isAvailableForNewContent: true
+  landingPageSectionCategories: [FORMS]
+  scaffoldSchemaPath: ./schemas/newsletter.scaffold_schema.json
+  screenshotPath: ../images/section-previews/newsletter.png
+  description: "Section with a newsletter image on the left and a form with heading and description on the right"
+-->
+
+{#
+  Context variables
+    - section_variant: The variant of the section style.
+    - background_color: The background color of the section.
+    - heading: The main heading for the newsletter section.
+    - description: A brief description of what subscribers will receive.
+    - form_id: ID of the HubSpot form to display.
+    - form.response_type: Form response type (e.g., redirect).
+    - form.message: Response message for the form.
+    - image.src: The source URL for the newsletter illustration.
+    - image.alt: The alt text for the newsletter illustration.
+    - image.width: The width of the newsletter illustration.
+    - image.height: The height of the newsletter illustration.
+#}
+
+{# Section variables #}
+{% set template_translations = load_translations("../templates/_locales", html_lang, "en") %}
+{% import "../helpers/variables.hubl.html" %}
+{% set section_variant = context.section_variant or "section_variant_2" %}
+
+{# Section #}
+{% dnd_section
+  background_color={{ context.background_color or light_section_2_background_color }},
+  max_width={{ section_width_wide }},
+  padding={
+    "top": section_vertical_spacing_medium,
+    "bottom": section_vertical_spacing_medium
+  }
+%}
+  {% dnd_column %}
+    {% dnd_row %}
+      {% dnd_module
+        path="../components/modules/Anchor",
+        anchor={{ context.anchor_id or scaffold_content.anchor.anchor_id }}
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+    {% dnd_row
+      vertical_alignment="MIDDLE"
+    %}
+      {# Left column with image #}
+      {% dnd_column
+        width=6,
+        offset=0,
+        padding={
+          "default": {
+            "right": spacing_32,
+            "bottom": 0
+          },
+          "mobile": {
+            "right": 0,
+            "bottom": spacing_32
+          }
+        }
+      %}
+        {% dnd_row %}
+          {% dnd_module
+            path="@hubspot/linked_image",
+            img={
+              "alt": context.image.alt or scaffold_content.image.alt or template_translations.section_newsletter_image_alt.message,
+              "loading": "lazy",
+              "max_height": context.image.height or scaffold_content.image.height or 400,
+              "max_width": context.image.width or scaffold_content.image.width or 400,
+              "size_type": "auto_custom_max",
+              "src": context.image.src or scaffold_content.image.src or get_asset_url("../images/newsletter.png")
+            }
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+
+      {# Right column with content and form #}
+      {% dnd_column
+        width=6,
+        offset=6
+      %}
+        {% dnd_row %}
+          {% dnd_module
+            path="../components/modules/Heading",
+            headingAndTextHeadingLevel="h2",
+            headingAndTextHeading={{ context.heading or scaffold_content.heading or template_translations.section_newsletter_heading.message }},
+            groupStyle={
+              "alignment": {
+                "text_align": "LEFT"
+              },
+              "headingStyleVariant": "h2",
+              "sectionStyleVariant": section_variant
+            }
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="../components/modules/RichText",
+            groupStyle={
+              "sectionStyleVariant": section_variant
+            }
+          %}
+            {% module_attribute "richTextContentHTML" %}
+              <p>{{ context.description or scaffold_content.description or template_translations.section_newsletter_description.message }}</p>
+            {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="@hubspot/form"
+            form={
+              "form_id": context.form_id or scaffold_content.form.form_id or "",
+              "response_type": context.form.response_type or scaffold_content.form.response_type or "redirect",
+              "message": context.form.message or scaffold_content.form.message or ""
+            }
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}

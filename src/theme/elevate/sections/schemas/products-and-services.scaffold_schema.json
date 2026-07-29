@@ -1,0 +1,103 @@
+[
+  {
+    "name": "heading",
+    "type": "text",
+    "description": "The main heading for the products and services section."
+  },
+  {
+    "name": "group_card_one",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "The heading for the first product or service card."
+      },
+      {
+        "name": "content",
+        "type": "text",
+        "description": "The description text for the first product or service card."
+      }
+    ]
+  },
+  {
+    "name": "group_card_two",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "The heading for the second product or service card."
+      },
+      {
+        "name": "content",
+        "type": "text",
+        "description": "The description text for the second product or service card."
+      }
+    ]
+  },
+  {
+    "name": "group_card_three",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "The heading for the third product or service card."
+      },
+      {
+        "name": "content",
+        "type": "text",
+        "description": "The description text for the third product or service card."
+      }
+    ]
+  },
+  {
+    "name": "group_card_four",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "The heading for the fourth product or service card."
+      },
+      {
+        "name": "content",
+        "type": "text",
+        "description": "The description text for the fourth product or service card."
+      }
+    ]
+  },
+  {
+    "name": "group_card_five",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "The heading for the fifth product or service card."
+      },
+      {
+        "name": "content",
+        "type": "text",
+        "description": "The description text for the fifth product or service card."
+      }
+    ]
+  },
+  {
+    "name": "group_card_six",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "The heading for the sixth product or service card."
+      },
+      {
+        "name": "content",
+        "type": "text",
+        "description": "The description text for the sixth product or service card."
+      }
+    ]
+  }
+]

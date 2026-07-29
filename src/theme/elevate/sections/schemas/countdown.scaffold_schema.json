@@ -1,0 +1,23 @@
+[
+  {
+    "name": "heading",
+    "type": "text",
+    "description": "The main heading for the countdown section which has a countdown timer that counts down to a specific date and time."
+  },
+  {
+    "name": "group_button",
+    "type": "group",
+    "children": [
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "The text for the call-to-action button that shows below the countdown timer."
+      },
+      {
+        "name": "button_link",
+        "type": "link",
+        "description": "The URL that the user will be directed to when clicking the button."
+      }
+    ]
+  }
+]

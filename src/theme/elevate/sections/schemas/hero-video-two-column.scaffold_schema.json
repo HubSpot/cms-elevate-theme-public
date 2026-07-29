@@ -1,0 +1,40 @@
+[
+  {
+    "name": "tag_line",
+    "type": "text",
+    "description": "A short tag line text that appears above the main heading."
+  },
+  {
+    "name": "heading",
+    "type": "text",
+    "description": "The main heading that describes the company, product, or service."
+  },
+  {
+    "name": "group_button",
+    "type": "group",
+    "children": [
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "The text for the call-to-action button."
+      },
+      {
+        "name": "button_link",
+        "type": "link",
+        "description": "The URL that the user will be directed to when clicking the button."
+      }
+    ]
+  },
+  {
+    "name": "paragraph",
+    "type": "text",
+    "description": "A two-sentence paragraph detailing the company, product, or service we are showcasing."
+  },
+  {
+    "name": "thumbnail",
+    "type": "image",
+    "description": "A thumbnail image that serves as a placeholder for the video accompanying this section.",
+    "width": 1239,
+    "height": 708
+  }
+]

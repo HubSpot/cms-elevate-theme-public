@@ -1,0 +1,31 @@
+<!--
+  templateType: global_partial
+  subtype: header
+  screenshotPath: ../../images/template-previews/partials/lp-header.png
+  label: Landing page header
+-->
+
+{# Partial variables #}
+
+{% set template_translations = load_translations('../_locales', html_lang, 'en') %}
+{% import "../../helpers/variables.hubl.html" %}
+
+{# Partial #}
+
+<header class="hs-elevate-header">
+  {% dnd_area "header" label="Header" %}
+    {% dnd_section
+      padding={
+        "top": spacing_24,
+        "bottom": spacing_24
+      }
+    %}
+      {% dnd_module
+        offset=0,
+        width=4,
+        path="@hubspot/logo"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+  {% end_dnd_area %}
+</header>

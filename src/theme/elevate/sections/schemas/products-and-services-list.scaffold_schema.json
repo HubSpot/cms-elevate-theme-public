@@ -1,0 +1,62 @@
+[
+  {
+    "name": "heading",
+    "type": "text",
+    "description": "The main heading for the products and services list section."
+  },
+  {
+    "name": "group_list_item_one",
+    "type": "group",
+    "children": [
+      {
+        "name": "content",
+        "type": "text",
+        "description": "The description text for the first product or service list item."
+      }
+    ]
+  },
+  {
+    "name": "group_list_item_two",
+    "type": "group",
+    "children": [
+      {
+        "name": "content",
+        "type": "text",
+        "description": "The description text for the second product or service list item."
+      }
+    ]
+  },
+  {
+    "name": "group_list_item_three",
+    "type": "group",
+    "children": [
+      {
+        "name": "content",
+        "type": "text",
+        "description": "The description text for the third product or service list item."
+      }
+    ]
+  },
+  {
+    "name": "group_list_item_four",
+    "type": "group",
+    "children": [
+      {
+        "name": "content",
+        "type": "text",
+        "description": "The description text for the fourth product or service list item."
+      }
+    ]
+  },
+  {
+    "name": "group_list_item_five",
+    "type": "group",
+    "children": [
+      {
+        "name": "content",
+        "type": "text",
+        "description": "The description text for the fifth product or service list item."
+      }
+    ]
+  }
+]

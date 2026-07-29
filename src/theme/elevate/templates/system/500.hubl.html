@@ -1,0 +1,61 @@
+<!--
+  templateType: error_page
+  isAvailableForNewContent: true
+  label: Elevate - 500 error
+  screenshotPath: ../../images/template-previews/500.png
+-->
+{% extends "../layouts/base.hubl.html" %}
+
+{% block body %}
+  <section class="hs-elevate-content-wrapper hs-elevate-content-padding">
+    <div class="hs-elevate-display-1" style="text-align: center;">500</div>
+
+    {% module "error_heading"
+      path="../../components/modules/Heading",
+      headingAndTextHeadingLevel="h1",
+      headingAndTextHeading={{ template_translations.error_500_heading.message }},
+      groupStyle={
+        "alignment": {
+          "text_align": "CENTER"
+        },
+        "headingStyleVariant": "h1",
+        "sectionStyleVariant": "section_variant_1"
+      }
+    %}
+
+    {% module_block module "error_description"
+      path="../../components/modules/RichText",
+      groupStyle={
+        "sectionStyleVariant": "section_variant_1"
+      }
+    %}
+      {% module_attribute "richTextContentHTML" %}
+        <div style="text-align: center;">
+          <p>{{ template_translations.error_500_description.message }}</p>
+        </div>
+      {% end_module_attribute %}
+    {% end_module_block %}
+
+    {% module "return_button"
+      path="../../components/modules/Button",
+      groupButtons=[
+        {
+          "buttonContentText": template_translations.error_500_button.message,
+          "buttonContentLink": {
+            "url": {
+              "href": "/"
+            }
+          }
+        }
+      ],
+      groupStyle={
+        "alignment": {
+          "horizontal_align": "CENTER"
+        },
+        "buttonStyleSize": "medium",
+        "buttonStyleVariant": "primary"
+      }
+    %}
+
+  </section>
+{% endblock body %}

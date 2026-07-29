@@ -1,0 +1,24 @@
+<!--
+  templateType: email_subscriptions_confirmation_page
+  isAvailableForNewContent: true
+  label: Elevate - email subscription confirmation
+  screenshotPath: ../../images/template-previews/email-subscription-confirmation.png
+-->
+{% set template_css = "../../assets/dist/css/system.hubl.css" %}
+{% extends "../layouts/base.hubl.html" %}
+
+{% block body %}
+  <section class="hs-elevate-content-wrapper hs-elevate-content-wrapper--sm hs-elevate-content-padding" style="text-align: center;">
+    <img class="success-image" src='{{ get_asset_url("../../images/success.png") }}' height="76" width="76" loading="eager" alt="">
+
+    {% module "email_subscriptions_confirmation"
+      path="@hubspot/email_subscriptions_confirmation",
+      extra_classes="hs-elevate-email-subscription-confirmation hs-elevate-system-form hs-elevate-system-form--confirmation",
+      email_heading_level="p",
+      header="",
+      unsubscribe_all_success={{ template_translations.subscription_confirmation_unsubscribe_all_success.message }},
+      subscription_update_success={{ template_translations.subscription_confirmation_sub_update_success.message }},
+      subheader_text=""
+    %}
+  </section>
+{% endblock body %}

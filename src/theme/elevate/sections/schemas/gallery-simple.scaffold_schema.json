@@ -1,0 +1,29 @@
+[
+  {
+    "name": "group_gallery",
+    "type": "group",
+    "children": [
+      {
+        "name": "image_one",
+        "type": "image",
+        "description": "The first image in the gallery grid",
+        "width": 700,
+        "height": 400
+      },
+      {
+        "name": "image_two",
+        "type": "image",
+        "description": "The second image in the gallery grid",
+        "width": 700,
+        "height": 400
+      },
+      {
+        "name": "image_three",
+        "type": "image",
+        "description": "The third image in the gallery grid",
+        "width": 700,
+        "height": 400
+      }
+    ]
+  }
+]

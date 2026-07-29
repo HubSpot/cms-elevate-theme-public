@@ -1,0 +1,62 @@
+<!--
+  templateType: email_subscription_preferences_page
+  isAvailableForNewContent: true
+  label: Elevate - email subscription preferences
+  screenshotPath: ../../images/template-previews/email-subscription-preferences.png
+-->
+{% set template_css = "../../assets/dist/css/system.hubl.css" %}
+{{ require_js(get_asset_url("../../assets/js/subscription-preferences.js"), { position: "footer", type: "module" }) }}
+{% extends "../layouts/base.hubl.html" %}
+
+{% block body %}
+  <section class="hs-elevate-content-wrapper hs-elevate-content-wrapper--sm hs-elevate-content-padding">
+    {% module "email_subscription_heading"
+      path="../../components/modules/Heading",
+      headingAndTextHeadingLevel="h1",
+      headingAndTextHeading={{ template_translations.subscription_preferences_heading.message }},
+      groupStyle={
+        "alignment": {
+          "text_align": "LEFT"
+        },
+        "headingStyleVariant": "h2",
+        "sectionStyleVariant": "section_variant_1"
+      }
+    %}
+
+    {% module_block module "email_subscription_preferences"
+      path="@hubspot/email_subscriptions",
+      extra_classes="hs-elevate-system-form hs-elevate-system-form--subscription-preferences",
+      email_heading_level="p",
+      language_dropdown_label={{ template_translations.subscription_preferences_language_input_label.message }},
+      resubscribe_button_text={{ template_translations.subscription_preferences_resubscribe_button_text.message }},
+      subheader_text="",
+      unsubscribe_all_unsubbed_text={{ template_translations.subscription_preferences_resubscribe_text.message }},
+      button_text={{ template_translations.subscription_preferences_button_text.message }},
+      header="",
+      unsubscribe_all_option={{ template_translations.subscription_preferences_unsub_all_option.message }},
+      unsubscribe_all_text=""
+    %}
+      {% module_attribute "unsubscribe_single_text" %}
+        {% if business_unit().name %}
+          {{ template_translations.subscription_preferences_single_text_business_unit.message }}
+        {% else %}
+          {{ template_translations.subscription_preferences_single_text.message }}
+        {% endif %}
+      {% end_module_attribute %}
+    {% end_module_block %}
+
+    {% module_block module "email_subscription_footer"
+      path="../../components/modules/RichText",
+      extra_classes="",
+      groupStyle={
+        "sectionStyleVariant": "section_variant_1"
+      }
+    %}
+      {% module_attribute "richTextContentHTML" %}
+        <div style="text-align: center;">
+          <p>{{ template_translations.subscription_preferences_footer.message }}</p>
+        </div>
+      {% end_module_attribute %}
+    {% end_module_block %}
+  </section>
+{% endblock body %}

@@ -1,0 +1,40 @@
+[
+  {
+    "name": "thumbnail",
+    "type": "image",
+    "description": "A thumbnail image that would be a placeholder for the video that would go on this part of the page.",
+    "width": 1239,
+    "height": 708
+  },
+  {
+    "name": "group_list",
+    "type": "group",
+    "children": [
+      {
+        "name": "item_one",
+        "type": "text",
+        "description": "First list item for the company, product, or service."
+      },
+      {
+        "name": "item_two",
+        "type": "text",
+        "description": "Second list item for the company, product, or service."
+      },
+      {
+        "name": "item_three",
+        "type": "text",
+        "description": "Third list item for the company, product, or service."
+      },
+      {
+        "name": "item_four",
+        "type": "text",
+        "description": "Fourth list item for the company, product, or service."
+      },
+      {
+        "name": "item_five",
+        "type": "text",
+        "description": "Fifth list item for the company, product, or service."
+      }
+    ]
+  }
+]

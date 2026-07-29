@@ -1,0 +1,61 @@
+<!--
+  templateType: error_page
+  isAvailableForNewContent: true
+  label: Elevate - 404 error
+  screenshotPath: ../../images/template-previews/404.png
+-->
+{% extends "../layouts/base.hubl.html" %}
+
+{% block body %}
+  <section class="hs-elevate-content-wrapper hs-elevate-content-padding">
+    <div class="hs-elevate-display-1" style="text-align: center;">404</div>
+
+    {% module "error_heading"
+      path="../../components/modules/Heading",
+      headingAndTextHeadingLevel="h1",
+      headingAndTextHeading={{ template_translations.error_404_heading.message }},
+      groupStyle={
+        "alignment": {
+          "text_align": "CENTER"
+        },
+        "headingStyleVariant": "h1",
+        "sectionStyleVariant": "section_variant_1"
+      }
+    %}
+
+    {% module_block module "error_description"
+      path="../../components/modules/RichText",
+      groupStyle={
+        "sectionStyleVariant": "section_variant_1"
+      }
+    %}
+      {% module_attribute "richTextContentHTML" %}
+        <div style="text-align: center;">
+          <p>{{ template_translations.error_404_description.message }}</p>
+        </div>
+      {% end_module_attribute %}
+    {% end_module_block %}
+
+    {% module "return_button"
+      path="../../components/modules/Button",
+      groupButtons=[
+        {
+          "buttonContentText": template_translations.error_404_button.message,
+          "buttonContentLink": {
+            "url": {
+              "href": "/"
+            }
+          }
+        }
+      ],
+      groupStyle={
+        "alignment": {
+          "horizontal_align": "CENTER"
+        },
+        "buttonStyleSize": "medium",
+        "buttonStyleVariant": "primary"
+      }
+    %}
+
+  </section>
+{% endblock body %}

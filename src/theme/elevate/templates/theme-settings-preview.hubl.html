@@ -1,0 +1,236 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Theme settings preview template
+-->
+{% extends "./layouts/base.hubl.html" %}
+
+{% block body %}
+
+  <div style="display: flex; padding: 50px; justify-content: space-between;">
+    <div>
+      <span>Typography</span>
+      <hr>
+      <h1>Heading 1</h1>
+      <h2>Heading 2</h2>
+      <h3>Heading 3</h3>
+      <h4>Heading 4</h4>
+      <h5>Heading 5</h5>
+      <h6>Heading 6</h6>
+      <p>Paragraph 1</p>
+      <div class="hs_cos_wrapper_type_rich_text">
+        <blockquote>Blockquote</blockquote>
+      </div>
+      <span class="hs-elevate-caption">Caption</span>
+      <div>
+      </div>
+      <div style="margin-top: 30px;">
+        <div style="display: inline-flex; flex-direction: column; gap: 15px;">
+          <span>Tags</span>
+          <span class="hs-elevate-tag">Tags</span>
+          <span class="hs-elevate-tag">Tags2</span>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; width: 50%;">
+      <div>
+        <span>Buttons</span>
+        <hr>
+        <div style="display: flex; flex-wrap: wrap; flex-direction: column;gap: 10px;">
+          {% module "button-primary"
+            path="../components/modules/Button"
+            buttonContentText="PRIMARY BUTTON"
+          %}
+
+          {% module "button-secondary"
+            path="../components/modules/Button"
+            buttonContentText="SECONDARY BUTTON"
+            groupStyle={
+              "buttonStyleVariant": "secondary"
+            }
+          %}
+          {% module "button-tertiary"
+            path="../components/modules/Button"
+            buttonContentText="TERTIARY BUTTON"
+            groupStyle={
+              "buttonStyleVariant": "tertiary"
+            }
+          %}
+          {% module "button-accent"
+            path="../components/modules/Button"
+            buttonContentText="ACCENT BUTTON"
+            groupStyle={
+            "buttonStyleVariant": "accent"
+          }
+          %}
+        </div>
+      </div>
+      <div style="margin-top: 30px">
+        <span>Links</span>
+        <hr>
+        <div style="display: flex; flex-direction: column;">
+          <a class="hs-elevate-link--primary">Primary Link</a>
+          <a class="hs-elevate-link--primary">Primary Link with a bit more text, for example</a>
+
+          <a class="hs-elevate-link--secondary">Secondary Link</a>
+          <a class="hs-elevate-link--secondary">Secondary Link with a bit more text, for example</a>
+        </div>
+      </div>
+      <div style="margin-top: 30px; display: flex; flex-direction: column; gap: 15px;">
+        <span>Cards</span>
+        <hr>
+        {% module "card-variants"
+          path="../components/modules/Card"
+          groupCards=[
+            {
+              "groupImage": {
+                "image": {
+                  "src": get_asset_url("../images/newsletter.png"),
+                  "alt": "",
+                  "loading": "lazy",
+                  "size_type": "auto_custom_max"
+                }
+              },
+              "groupIcon": {
+                "name": "play-circle"
+              },
+              "groupContent": {
+                "headingAndTextHeadingLevel": "h4",
+                "headingAndTextHeading": "CARD VARIANT 1",
+                "richTextContentHTML": "Stand out with our captivating content creation services, tailored to engage today's digital audience"
+              },
+              "groupButton": {
+                "showButton": false
+              }
+            }
+          ]
+          groupStyle={
+            "groupCard": {
+              "cardOrientation": "column",
+              "cardStyleVariant": "card_variant_1"
+            }
+          }
+        %}
+        {% module "card-variants"
+          path="../components/modules/Card"
+          groupCards=[
+            {
+              "groupImage": {
+                "image": {
+                  "src": get_asset_url("../images/newsletter.png"),
+                  "alt": "",
+                  "loading": "lazy",
+                  "size_type": "auto_custom_max"
+                }
+              },
+              "groupIcon": {
+                "name": "play-circle"
+              },
+              "groupContent": {
+                "headingAndTextHeadingLevel": "h4",
+                "headingAndTextHeading": "CARD VARIANT 2",
+                "richTextContentHTML": "Stand out with our captivating content creation services, tailored to engage today's digital audience"
+              },
+              "groupButton": {
+                "showButton": false
+              }
+            }
+          ]
+          groupStyle={
+            "groupCard": {
+              "cardOrientation": "column",
+              "cardStyleVariant": "card_variant_2"
+            }
+          }
+        %}
+        {% module "card-variants"
+          path="../components/modules/Card"
+          groupCards=[
+            {
+              "groupImage": {
+                "image": {
+                  "src": get_asset_url("../images/newsletter.png"),
+                  "alt": "",
+                  "loading": "lazy",
+                  "size_type": "auto_custom_max"
+                }
+              },
+              "groupIcon": {
+                "name": "play-circle"
+              },
+              "groupContent": {
+                "headingAndTextHeadingLevel": "h4",
+                "headingAndTextHeading": "CARD VARIANT 3",
+                "richTextContentHTML": "Stand out with our captivating content creation services, tailored to engage today's digital audience"
+              },
+              "groupButton": {
+                "showButton": false
+              }
+            }
+          ]
+          groupStyle={
+            "groupCard": {
+              "cardOrientation": "column",
+              "cardStyleVariant": "card_variant_3"
+            }
+          }
+        %}
+        {% module "card-variants"
+          path="../components/modules/Card"
+          groupCards=[
+            {
+              "groupImage": {
+                "image": {
+                  "src": get_asset_url("../images/newsletter.png"),
+                  "alt": "",
+                  "loading": "lazy",
+                  "size_type": "auto_custom_max"
+                }
+              },
+              "groupIcon": {
+                "name": "play-circle"
+              },
+              "groupContent": {
+                "headingAndTextHeadingLevel": "h4",
+                "headingAndTextHeading": "CARD VARIANT 4",
+                "richTextContentHTML": "Stand out with our captivating content creation services, tailored to engage today's digital audience",
+              },
+              "groupButton": {
+                "showButton": false
+              }
+            }
+          ]
+          groupStyle={
+            "groupCard": {
+              "cardOrientation": "column",
+              "cardStyleVariant": "card_variant_4"
+            }
+          }
+        %}
+        {% module "card-variants"
+          path="../components/modules/Card"
+          groupCards=[
+            {
+              "icon": {
+                "name": "play-circle"
+              },
+              "headingAndTextHeadingLevel": "h4",
+              "headingAndTextHeading": "NULL VARIANT",
+              "html": "<p>I am a card with no cardVariant</p>",
+            }
+          ]
+          groupStyle={
+            "cardOrientation": "column",
+            "cardStyleVariant": "null"
+          }
+        %}
+      </div>
+      <div style="margin-top: 30px;">
+        <span>Forms</span>
+        <hr>
+        {% module "form" path="@hubspot/form" %}
+      </div>
+    </div>
+  </div>
+
+{% endblock body %}

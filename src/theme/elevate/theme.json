@@ -1,0 +1,36 @@
+{
+  "label": "ElevateThemePublic",
+  "preview_path": "",
+  "screenshot_path": "./images/template-previews/home.png",
+  "pinned_module_versions": {
+    "@hubspot/divider": "1",
+    "@hubspot/language_switcher": "1",
+    "@hubspot/post_listing": "1",
+    "@hubspot/search_input": "1",
+    "@hubspot/search_results": "1"
+  },
+  "hidden_modules": [
+    "@hubspot/blog_content",
+    "@hubspot/button",
+    "@hubspot/header",
+    "@hubspot/language_switcher",
+    "@hubspot/menu",
+    "@hubspot/page_footer",
+    "@hubspot/rich_text",
+    "@hubspot/social_follow",
+    "@hubspot/section_heading",
+    "@hubspot/simple_menu",
+    "@hubspot/text",
+    "@hubspot/blog_article_body",
+    "@hubspot/blog_article_title"
+  ],
+  "responsive_breakpoints": [
+    {
+      "name": "mobile",
+      "mediaQuery": "@media (max-width: 767px)",
+      "previewWidth": {
+        "value": 477
+      }
+    }
+  ]
+}

@@ -1,0 +1,481 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: About
+  screenshotPath: ../images/template-previews/about.png
+  scaffoldSchemaPath: ./schemas/about.scaffold_schema.json
+-->
+{% extends "./layouts/base.hubl.html" %}
+
+{% block body %}
+    {% dnd_area "dnd_area"
+      label="Main section"
+    %}
+
+    {# Banner - top #}
+
+    {% dnd_section
+      max_width={{ section_width_narrow }},
+      padding={
+        "top": section_vertical_spacing_extra_small,
+        "bottom": 0
+      }
+    %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module
+            path="../components/modules/Heading",
+            headingAndTextHeadingLevel="h1",
+            headingAndTextHeading={{ scaffold_content.group_banner.heading or template_translations.about_banner_heading.message }},
+            groupStyle={
+              "alignment": {
+                "text_align": "CENTER"
+              },
+              "headingStyleVariant": "display_2",
+              "sectionStyleVariant": "section_variant_1"
+            }
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+        {% dnd_row %}
+          {% dnd_module
+            path="../components/modules/RichText",
+            groupStyle={
+              "sectionStyleVariant": "section_variant_1"
+            }
+          %}
+            {% module_attribute "richTextContentHTML" %}
+              <div style="text-align: center;">
+                <p>{{ scaffold_content.group_banner.about or template_translations.about_banner_description.message }}</p>
+              </div>
+            {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column%}
+    {% end_dnd_section %}
+
+    {# Banner - bottom #}
+
+    {% dnd_section
+      padding={
+        "top": section_vertical_spacing_extra_small
+      }
+    %}
+      {% dnd_module
+        path="@hubspot/linked_image",
+        img={
+          "alt": scaffold_content.group_banner.image.alt or "",
+          "loading": "eager",
+          "max_height": 414,
+          "max_width": 1232,
+          "size_type": "auto_custom_max",
+          "src": scaffold_content.group_banner.image.src or get_asset_url("../images/about-banner.png"),
+        },
+        horizontal_alignment="CENTER"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# Metrics #}
+
+    {% include_dnd_partial
+      path="../sections/metrics.hubl.html",
+      context={
+        "background_color": light_section_3_background_color,
+        "section_padding_top": section_vertical_spacing_extra_small,
+        "section_padding_bottom": section_vertical_spacing_extra_small,
+        "metric_heading_style": "h1",
+        "metrics": [
+          {
+            "value": scaffold_content.group_metrics.metric_one or template_translations.about_metric_one_value.message,
+            "description": scaffold_content.group_metrics.metric_description_one or template_translations.about_metric_one_description.message,
+          },
+          {
+            "value": scaffold_content.group_metrics.metric_two or template_translations.about_metric_two_value.message,
+            "description": scaffold_content.group_metrics.metric_description_two or  template_translations.about_metric_two_description.message,
+          },
+          {
+            "value": scaffold_content.group_metrics.metric_three or template_translations.about_metric_three_value.message,
+            "description": scaffold_content.group_metrics.metric_description_three or  template_translations.about_metric_three_description.message,
+          }
+        ]
+      }
+    %}
+
+    {# Cards #}
+
+    {% dnd_section
+      background_color={{ dark_section_1_background_color }}
+    %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_column %}
+            {% dnd_row %}
+              {% dnd_module
+                path="../components/modules/Heading",
+                headingAndTextHeadingLevel="h2",
+                headingAndTextHeading={{ scaffold_content.group_cards.heading or template_translations.about_our_services_heading.message }},
+                groupStyle={
+                  "alignment": {
+                    "text_align": "CENTER"
+                  },
+                  "headingStyleVariant": "h2",
+                  "sectionStyleVariant": "section_variant_4"
+                }
+              %}
+              {% end_dnd_module %}
+            {% end_dnd_row %}
+            {% dnd_row %}
+              {% dnd_module
+                path="../components/modules/Card",
+                groupCards=[
+                  {
+                    "groupImage": {
+                      "image": {
+                        "src": get_asset_url("../images/newsletter.png"),
+                        "alt": "",
+                        "loading": "lazy",
+                        "size_type": "auto_custom_max"
+                      }
+                    },
+                    "groupIcon": {
+                      "icon": {
+                        "name": "play-circle"
+                      }
+                    },
+                    "groupContent": {
+                      "headingAndTextHeadingLevel": "h3",
+                      "headingAndTextHeading": scaffold_content.group_cards.card_one.heading or template_translations.about_our_services_card_one_heading.message,
+                      "richTextContentHTML": scaffold_content.group_cards.card_one.content or template_translations.about_our_services_card_one_description.message
+                    },
+                    "groupButton": {
+                      "showButton": false
+                    }
+                  },
+                  {
+                    "groupImage": {
+                      "image": {
+                        "src": get_asset_url("../images/newsletter.png"),
+                        "alt": "",
+                        "loading": "lazy",
+                        "size_type": "auto_custom_max"
+                      }
+                    },
+                    "groupIcon": {
+                      "icon": {
+                        "name": "chart-column",
+                      }
+                    },
+                    "groupContent": {
+                      "headingAndTextHeadingLevel": "h3",
+                      "headingAndTextHeading": scaffold_content.group_cards.card_two.heading or template_translations.about_our_services_card_two_heading.message,
+                      "richTextContentHTML": scaffold_content.group_cards.card_two.content or template_translations.about_our_services_card_two_description.message
+                    },
+                    "groupButton": {
+                      "showButton": false
+                    }
+                  },
+                  {
+                    "groupImage": {
+                      "image": {
+                        "src": get_asset_url("../images/newsletter.png"),
+                        "alt": "",
+                        "loading": "lazy",
+                        "size_type": "auto_custom_max"
+                      }
+                    },
+                    "groupIcon": {
+                      "icon": {
+                        "name": "timeline"
+                      }
+                    },
+                    "groupContent": {
+                      "headingAndTextHeadingLevel": "h3",
+                      "headingAndTextHeading": scaffold_content.group_cards.card_three.heading or template_translations.about_our_services_card_three_heading.message,
+                      "richTextContentHTML": scaffold_content.group_cards.card_three.content or template_translations.about_our_services_card_three_description.message
+                    },
+                    "groupButton": {
+                      "showButton": false
+                    }
+                  }
+                ],
+                groupStyle={
+                  "groupCard": {
+                    "cardStyleVariant": "card_variant_4",
+                    "cardOrientation": "column"
+                  }
+                }
+              %}
+              {% end_dnd_module %}
+            {% end_dnd_row %}
+          {% end_dnd_column %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {# Call to action #}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../components/modules/Card",
+        imageOrIcon="image",
+        groupCards=[
+          {
+            "groupImage": {
+              "image": {
+                "src": get_asset_url("../images/our-mission.png"),
+                "alt": template_translations.about_our_mission_image_alt.message,
+                "loading": "lazy",
+                "size_type": "auto_custom_max"
+              }
+            },
+            "groupIcon": {
+              "icon": {
+                "name": "play-circle"
+              }
+            },
+            "groupContent": {
+              "headingAndTextHeadingLevel": "h2",
+              "headingAndTextHeading": scaffold_content.group_mission.content or template_translations.about_our_mission.message,
+              "richTextContentHTML": ""
+            },
+            "groupButton": {
+              "showButton": false,
+              "buttonContentText": "",
+              "buttonContentLink": {
+                "url": {
+                  "href": ""
+                }
+              }
+            }
+          }
+        ],
+        groupStyle={
+          "groupCard": {
+            "cardOrientation": "column",
+            "cardStyleVariant": "card_variant_2"
+          },
+          "groupContent": {
+            "headingStyleVariant": "h1",
+            "alignment": {
+              "horizontal_align": "CENTER"
+            }
+          },
+          "groupButton": {
+            "buttonStyleVariant": "primary"
+          }
+        }
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# Our values #}
+
+    {% dnd_section
+      padding={
+        "top": 0
+      }
+    %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_column %}
+            {% dnd_row %}
+              {% dnd_module
+                path="../components/modules/Heading",
+                headingAndTextHeadingLevel="h2",
+                headingAndTextHeading={{ scaffold_content.group_values.heading or template_translations.about_our_values_heading.message }},
+                groupStyle={
+                  "alignment": {
+                    "text_align": "CENTER"
+                  },
+                  "headingStyleVariant": "h2",
+                  "sectionStyleVariant": "section_variant_1"
+                }
+              %}
+              {% end_dnd_module %}
+            {% end_dnd_row %}
+            {% dnd_row %}
+              {% dnd_module
+                path="../components/modules/Card",
+                groupCards=[
+                  {
+                    "groupImage": {
+                      "image": {
+                        "src": get_asset_url("../images/newsletter.png"),
+                        "alt": "",
+                        "loading": "lazy",
+                        "size_type": "auto_custom_max"
+                      }
+                    },
+                    "groupIcon": {
+                      "icon": {
+                        "name": "certificate",
+                        "type": "SOLID"
+                      }
+                    },
+                    "groupContent": {
+                      "headingAndTextHeadingLevel": "h3",
+                      "headingAndTextHeading": scaffold_content.group_values.card_one.heading or template_translations.about_our_values_card_one_heading.message,
+                      "richTextContentHTML": scaffold_content.group_values.card_one.content or template_translations.about_our_values_card_one_description.message
+                    },
+                    "groupButton": {
+                      "showButton": false
+                    }
+                  },
+                  {
+                    "groupImage": {
+                      "image": {
+                        "src": get_asset_url("../images/newsletter.png"),
+                        "alt": "",
+                        "loading": "lazy",
+                        "size_type": "auto_custom_max"
+                      }
+                    },
+                    "groupIcon": {
+                      "icon": {
+                        "name": "star",
+                        "type": "SOLID"
+                      }
+                    },
+                    "groupContent": {
+                      "headingAndTextHeadingLevel": "h3",
+                      "headingAndTextHeading": scaffold_content.group_values.card_two.heading or template_translations.about_our_values_card_two_heading.message,
+                      "richTextContentHTML": scaffold_content.group_values.card_two.content or template_translations.about_our_values_card_two_description.message
+                    },
+                    "groupButton": {
+                      "showButton": false
+                    }
+                  },
+                  {
+                    "groupImage": {
+                      "image": {
+                        "src": get_asset_url("../images/newsletter.png"),
+                        "alt": "",
+                        "loading": "lazy",
+                        "size_type": "auto_custom_max"
+                      }
+                    },
+                    "groupIcon": {
+                      "icon": {
+                        "name": "heart",
+                        "type": "SOLID"
+                      }
+                    },
+                    "groupContent": {
+                      "headingAndTextHeadingLevel": "h3",
+                      "headingAndTextHeading": scaffold_content.group_values.card_three.heading or template_translations.about_our_values_card_three_heading.message,
+                      "richTextContentHTML": scaffold_content.group_values.card_three.content or template_translations.about_our_values_card_three_description.message
+                    },
+                    "groupButton": {
+                      "showButton": false
+                    }
+                  }
+                ]
+                groupStyle={
+                  "groupCard": {
+                    "cardStyleVariant": "card_variant_2",
+                    "cardOrientation": "column"
+                  },
+                  "groupContent": {
+                    "alignment": {
+                      "horizontal_align": "CENTER"
+                    }
+                  }
+                }
+              %}
+              {% end_dnd_module %}
+            {% end_dnd_row %}
+          {% end_dnd_column %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {# Our team #}
+
+    {% include_dnd_partial
+      path="../sections/team-members.hubl.html",
+      context={
+        "background_color": light_section_3_background_color,
+        "section_variant": "section_variant_3",
+        "team_member": [
+          {
+            "role": scaffold_content.group_team.member_one.role
+          },
+          {
+            "role": scaffold_content.group_team.member_two.role
+          },
+          {
+            "role": scaffold_content.group_team.member_three.role
+          },
+          {
+            "role": scaffold_content.group_team.member_four.role
+          },
+          {
+            "role": scaffold_content.group_team.member_five.role
+          },
+          {
+            "role": scaffold_content.group_team.member_six.role
+          },
+          {
+            "role": scaffold_content.group_team.member_seven.role
+          },
+          {
+            "role": scaffold_content.group_team.member_eight.role
+          }
+        ]
+      }
+    %}
+
+    {# Call to action #}
+
+    {% dnd_section
+      background_color={{ light_section_2_background_color }}
+    %}
+      {% dnd_module
+        path="../components/modules/Card"
+        imageOrIcon="icon",
+        groupCards=[
+          {
+            "groupImage": {
+              "image": {}
+            },
+            "groupIcon": {
+              "icon": {}
+            },
+            "groupContent": {
+              "headingAndTextHeadingLevel": "h2",
+              "headingAndTextHeading": scaffold_content.group_cta.heading or template_translations.about_call_to_action_heading.message,
+              "richTextContentHTML": scaffold_content.group_cta.content or template_translations.about_call_to_action_description.message
+            },
+            "groupButton": {
+              "showButton": true,
+              "buttonContentText": scaffold_content.group_cta.button_text or template_translations.about_call_to_action_button_text.message,
+              "buttonContentLink": {
+                "url": {
+                  "href": ""
+                }
+              }
+            }
+          }
+        ]
+        groupStyle={
+          "groupCard": {
+            "cardOrientation": "column",
+            "cardStyleVariant": "card_variant_4"
+          },
+          "groupContent": {
+            "alignment": {
+              "horizontal_align": "CENTER"
+            }
+          },
+          "groupButton": {
+            "buttonStyleVariant": "tertiary"
+          }
+        }
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+
+    {% end_dnd_area %}
+{% endblock body %}

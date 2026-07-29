@@ -1,0 +1,102 @@
+<!--
+  templateType: section
+  label: Frequently asked questions - two column
+  isAvailableForNewContent: true
+  landingPageSectionCategories: [FAQS]
+  scaffoldSchemaPath: ./schemas/faq-two-column.scaffold_schema.json
+  screenshotPath: ../images/section-previews/faq-two-column.png
+  description: "Section with repeated accordions with questions and answers on the left and an image on the right."
+-->
+
+{#
+  Context variables
+    - section_variant: The variant of the section style.
+    - background_color: The background color of the section.
+    - faqs: An array of FAQ items.
+    - faqs[0-5].title: The question for each FAQ item.
+    - faqs[0-5].content: The answer for each FAQ item.
+    - card_variant: The variant of the card style.
+    - image.alt: The alt text for the image.
+    - image.src: The source for the image.
+    - image.width: The width of the image.
+    - image.height: The height of the image.
+    - image.loading: The loading attribute for the image.
+#}
+
+{# Section variables #}
+
+{% set template_translations = load_translations("../templates/_locales", html_lang, "en") %}
+{% import "../helpers/variables.hubl.html" %}
+{% set section_variant = context.section_variant or "section_variant_1" %}
+
+{# Section #}
+
+{% dnd_section
+  background_color={{ context.background_color }}
+%}
+  {% dnd_column
+    width=8,
+    padding={
+      "mobile": {
+        "bottom": spacing_32
+      }
+    }
+  %}
+    {% dnd_row %}
+      {% dnd_module
+        path="../components/modules/Accordion",
+        icon="plus",
+        groupAccordions=[
+          {
+            "title": context.faqs[0].title or scaffold_content.group_faq_one.question or template_translations.section_faq_two_column_question_one.message,
+            "richTextContentHTML": context.faqs[0].content or scaffold_content.group_faq_one.answer or template_translations.section_faq_two_column_answer_one.message
+          },
+          {
+            "title": context.faqs[1].title or scaffold_content.group_faq_two.question or template_translations.section_faq_two_column_question_two.message,
+            "richTextContentHTML": context.faqs[1].content or scaffold_content.group_faq_two.answer or template_translations.section_faq_two_column_answer_two.message
+          },
+          {
+            "title": context.faqs[2].title or scaffold_content.group_faq_three.question or template_translations.section_faq_two_column_question_three.message,
+            "richTextContentHTML": context.faqs[2].content or scaffold_content.group_faq_three.answer or template_translations.section_faq_two_column_answer_three.message
+          },
+          {
+            "title": context.faqs[3].title or scaffold_content.group_faq_four.question or template_translations.section_faq_two_column_question_four.message,
+            "richTextContentHTML": context.faqs[3].content or scaffold_content.group_faq_four.answer or template_translations.section_faq_two_column_answer_four.message
+          },
+          {
+            "title": context.faqs[4].title or scaffold_content.group_faq_five.question or template_translations.section_faq_two_column_question_five.message,
+            "richTextContentHTML": context.faqs[4].content or scaffold_content.group_faq_five.answer or template_translations.section_faq_two_column_answer_five.message
+          },
+          {
+            "title": context.faqs[5].title or scaffold_content.group_faq_six.question or template_translations.section_faq_two_column_question_six.message,
+            "richTextContentHTML": context.faqs[5].content or scaffold_content.group_faq_six.answer or template_translations.section_faq_two_column_answer_six.message
+          }
+        ],
+        groupStyle={
+          "cardStyleVariant": context.card_variant or "card_variant_1",
+          "gap": "small"
+        }
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+  {% dnd_column
+    offset=8,
+    width=4
+  %}
+    {% dnd_row %}
+      {% dnd_module
+        path="@hubspot/linked_image",
+        img={
+          "alt": context.image.alt or scaffold_content.image.alt or "",
+          "loading": context.image.loading or "lazy",
+          "max_height": context.image.height or scaffold_content.image.height or 552,
+          "max_width": context.image.width or scaffold_content.image.width or 372,
+          "size_type": "auto_custom_max",
+          "src": context.image.src or scaffold_content.image.src or get_asset_url("../images/features.png")
+        }
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}

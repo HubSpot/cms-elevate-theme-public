@@ -1,0 +1,85 @@
+<!--
+  templateType: section
+  label: Recent Blog Posts
+  isAvailableForNewContent: true
+  landingPageSectionCategories: [SOCIAL_PROOF]
+  screenshotPath: ../images/section-previews/recent-blog-posts.png
+  scaffoldSchemaPath: ./schemas/recent-blog-posts.scaffold_schema.json
+  goals: [PUBLISH_BLOG]
+  description: "Section displaying recent blog posts with a heading"
+-->
+
+{#
+  Context Variables Used:
+  - context.anchor_id (string): Optional ID for anchor tag navigation
+  - context.background_color (string): Background color for the section
+  - context.heading (string): Main heading text for the section
+  - context.heading_level (string): Heading level for both main heading and card headings (defaults to h2 for main, h3 for cards)
+  - context.heading_style_variant (string): Style variant for the heading
+  - context.section_style_variant (string): Style variant for the section
+  - context.card_style_variant (string): Style variant for the blog post cards
+  - context.blog_id (string): ID of the blog to pull posts from (defaults to 'default')
+#}
+
+{% set template_translations = load_translations('../templates/_locales', html_lang, 'en') %}
+{% from "../helpers/variables.hubl.html" import section_vertical_spacing_medium, section_width_wide, light_section_2_background_color %}
+
+{% dnd_section
+  background_color={{ context.background_color or light_section_2_background_color }}
+  max_width={{ section_width_wide }}
+%}
+  {% dnd_column %}
+    {% dnd_row %}
+      {% dnd_module
+        path="../components/modules/Anchor",
+        anchor={{ context.anchor_id or scaffold_content.anchor.anchor_id }}
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+
+    {# Heading Row #}
+    {% dnd_row
+      margin={
+        "bottom": section_vertical_spacing_medium
+      }
+    %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module
+            path="../components/modules/Heading"
+            headingAndTextHeading={{ context.heading or scaffold_content.heading or template_translations.section_recent_blog_posts_heading.message }}
+            headingAndTextHeadingLevel={{ context.heading_level or 'h2' }}
+            groupStyle={
+              "alignment" : {
+                "text_align" : "CENTER"
+              },
+              "headingStyleVariant": context.heading_style_variant or 'h2',
+              "sectionStyleVariant": context.section_style_variant or 'section_variant_2',
+            }
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_row %}
+
+    {# Recent Blog Posts Row #}
+    {% dnd_row %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module
+            path="../components/modules/RecentBlogPosts"
+            blog={{ context.blog_id or 'default' }}
+            headingAndTextHeadingLevel={{ context.heading_level or 'h3' }}
+            groupStyle={
+              "cardStyleVariant": context.card_style_variant or 'card_variant_2',
+              "headingStyleVariant": context.heading_style_variant or 'h3'
+            }
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}
+
+

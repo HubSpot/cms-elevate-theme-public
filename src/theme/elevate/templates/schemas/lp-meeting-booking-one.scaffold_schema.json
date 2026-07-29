@@ -1,0 +1,291 @@
+[
+  {
+    "name": "group_hero",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "The main heading that appears at the top of the page, encouraging visitors to book a meeting."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A brief paragraph explaining the benefits of scheduling a call with your team."
+      },
+      {
+        "name": "image",
+        "type": "image",
+        "description": "An image that reinforces the meeting booking concept, like a calendar or scheduling visual.",
+        "width": 200,
+        "height": 200
+      },
+      {
+        "name": "form",
+        "type": "form",
+        "description": "A form that allows visitors to schedule a meeting or consultation."
+      }
+    ]
+  },
+  {
+    "name": "group_testimonial_cards",
+    "type": "group",
+    "children": [
+      {
+        "name": "testimonial_one",
+        "type": "text",
+        "description": "A brief testimonial quote highlighting a specific benefit or positive outcome."
+      },
+      {
+        "name": "testimonial_two",
+        "type": "text",
+        "description": "A brief testimonial quote highlighting a specific benefit or positive outcome."
+      },
+      {
+        "name": "testimonial_three",
+        "type": "text",
+        "description": "A brief testimonial quote highlighting a specific benefit or positive outcome."
+      }
+    ]
+  },
+  {
+    "name": "group_features",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that introduces the capabilities or features section of the page."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A brief sentence that elaborates on the heading and encourages exploration of the features."
+      },
+      {
+        "name": "image",
+        "type": "image",
+        "description": "An image that visually represents the features or capabilities being highlighted.",
+        "width": 376,
+        "height": 658
+      },
+      {
+        "name": "group_feature_one",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "The name of the first feature or capability."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "A brief description of the first feature explaining its benefits."
+          }
+        ]
+      },
+      {
+        "name": "group_feature_two",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "The name of the second feature or capability."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "A brief description of the second feature explaining its benefits."
+          }
+        ]
+      },
+      {
+        "name": "group_feature_three",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "The name of the third feature or capability."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "A brief description of the third feature explaining its benefits."
+          }
+        ]
+      },
+      {
+        "name": "group_feature_four",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "The name of the fourth feature or capability."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "A brief description of the fourth feature explaining its benefits."
+          }
+        ]
+      },
+      {
+        "name": "group_feature_five",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "The name of the fifth feature or capability."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "A brief description of the fifth feature explaining its benefits."
+          }
+        ]
+      },
+      {
+        "name": "group_feature_six",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "The name of the sixth feature or capability."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "A brief description of the sixth feature explaining its benefits."
+          }
+        ]
+      },
+      {
+        "name": "group_feature_seven",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "The name of the seventh feature or capability."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "A brief description of the seventh feature explaining its benefits."
+          }
+        ]
+      },
+      {
+        "name": "group_feature_eight",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "The name of the eighth feature or capability."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "A brief description of the eighth feature explaining its benefits."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "group_testimonial",
+    "type": "group",
+    "children": [
+      {
+        "name": "quote",
+        "type": "text",
+        "description": "A detailed testimonial quote from a satisfied customer about their experience."
+      },
+      {
+        "name": "author_name",
+        "type": "text",
+        "description": "The name of the person providing the testimonial."
+      },
+      {
+        "name": "author_title",
+        "type": "text",
+        "description": "The job title and company of the person providing the testimonial."
+      },
+      {
+        "name": "author_image",
+        "type": "image",
+        "description": "A professional portrait of the person providing the testimonial.",
+        "width": "300",
+        "height": "300"
+      },
+      {
+        "name": "link_text",
+        "type": "text",
+        "description": "Text for a link to read more about this testimonial or case study."
+      },
+      {
+        "name": "link",
+        "type": "link",
+        "description": "The URL for the link to read more about this testimonial or case study."
+      }
+    ]
+  },
+  {
+    "name": "group_video",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that introduces the video section."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A brief description that explains what viewers will learn from watching the video."
+      },
+      {
+        "name": "thumbnail_image",
+        "type": "image",
+        "description": "A thumbnail image for the video.",
+        "width": 1239,
+        "height": 708
+      }
+    ]
+  },
+  {
+    "name": "group_cta",
+    "type": "group",
+    "children": [
+      {
+        "name": "image",
+        "type": "image",
+        "description": "An image for the call-to-action section.",
+        "width": 300,
+        "height": 300
+      },
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A compelling call-to-action heading encouraging visitors to take the next step."
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "Action-oriented text for the call-to-action button."
+      },
+      {
+        "name": "button_link",
+        "type": "link",
+        "description": "The URL for the call-to-action button."
+      }
+    ]
+  }
+]

@@ -1,0 +1,372 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Landing page - meeting booking 1
+  goals: [GET_VISITORS_TO_BOOK_A_MEETING]
+  screenshotPath: ../images/template-previews/lp-meeting-booking-one.png
+  scaffoldSchemaPath: ./schemas/lp-meeting-booking-one.scaffold_schema.json
+-->
+{% extends "./layouts/base.hubl.html" %}
+
+{% block header %}
+  {% global_partial path="./partials/lp-header.hubl.html" type="HEADER" %}
+{% endblock header %}
+
+{% block body %}
+
+{# Default content for testimonials #}
+
+{% set testimonials = [
+    {
+      "quote": "{{ scaffold_content.group_testimonial_cards.testimonial_one or template_translations.lp_meeting_booking_one_testimonial_one.message }}",
+      "author_name": "{{ template_translations.section_testimonial_cards_author_name_1.message }}",
+      "author_title": "{{ template_translations.section_testimonial_cards_author_title_1.message }}"
+    },
+    {
+      "quote": "{{ scaffold_content.group_testimonial_cards.testimonial_two or template_translations.lp_meeting_booking_one_testimonial_two.message }}",
+      "author_name": "{{ template_translations.section_testimonial_cards_author_name_2.message }}",
+      "author_title": "{{ template_translations.section_testimonial_cards_author_title_2.message }}"
+    },
+    {
+      "quote": "{{ scaffold_content.group_testimonial_cards.testimonial_three or template_translations.lp_meeting_booking_one_testimonial_three.message }}",
+      "author_name": "{{ template_translations.section_testimonial_cards_author_name_3.message }}",
+      "author_title": "{{ template_translations.section_testimonial_cards_author_title_3.message }}"
+    }
+  ]
+%}
+{% set testimonials_content = [] %}
+{% for testimonial in testimonials %}
+{% do testimonials_content.append("<p>" ~ testimonial.quote ~ "</p><span><strong>" ~ testimonial.author_name ~ "</strong></span><br><span>" ~ testimonial.author_title ~ "</span>") %}
+{% endfor %}
+
+{% set testimonials_cards = [
+    {
+      "groupIcon": {
+        "icon": {
+          "name": ""
+        }
+      },
+      "groupImage": {
+        "image": {
+          "alt": "",
+          "loading": "lazy",
+          "max_height": 31,
+          "max_width": 160,
+          "size_type": "auto_custom_max",
+          "src": get_asset_url("../images/reviluxify-dark.png")
+        }
+      },
+      "groupContent": {
+        "richTextContentHTML": testimonials_content[0]|render
+      },
+      "groupButton": {
+        "showButton": false
+      }
+    },
+    {
+      "groupIcon": {
+        "icon": {
+          "name": ""
+        }
+      },
+      "groupImage": {
+        "image": {
+          "alt": "",
+          "loading": "lazy",
+          "max_height": 30,
+          "max_width": 160,
+          "size_type": "auto_custom_max",
+          "src": get_asset_url("../images/zyntellix-dark.png")
+        }
+      },
+      "groupContent": {
+        "richTextContentHTML": testimonials_content[1]|render
+      },
+      "groupButton": {
+        "showButton": false
+      }
+    },
+    {
+      "groupIcon": {
+        "icon": {
+          "name": ""
+        }
+      },
+      "groupImage": {
+        "image": {
+          "alt": "",
+          "loading": "lazy",
+          "max_height": 30,
+          "max_width": 160,
+          "size_type": "auto_custom_max",
+          "src": get_asset_url("../images/crypturon-dark.png")
+        }
+      },
+      "groupContent": {
+        "richTextContentHTML": testimonials_content[2]|render
+      },
+      "groupButton": {
+        "showButton": false
+      }
+    }
+  ]
+%}
+
+    {% dnd_area "dnd_area"
+      label="Main section"
+    %}
+
+    {# Hero banner section #}
+
+    {% dnd_section
+      vertical_alignment="TOP"
+    %}
+      {% dnd_column
+        width=6,
+        padding={
+          "mobile": {
+            "bottom": spacing_32
+          }
+        }
+      %}
+        {% dnd_row %}
+          {% dnd_module
+            path="../components/modules/Heading",
+            headingAndTextHeading={{ scaffold_content.group_hero.heading or template_translations.lp_meeting_booking_one_hero_heading.message }},
+            groupStyle={
+              "headingStyleVariant": "display_2"
+            }
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+        {% dnd_row
+          margin={
+            "bottom": spacing_32
+          }
+        %}
+          {% dnd_module path="../components/modules/RichText" %}
+            {% module_attribute "richTextContentHTML" %}
+              <p>{{ scaffold_content.group_hero.description or template_translations.lp_meeting_booking_one_hero_description.message }}</p>
+            {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+        {% dnd_row %}
+          {% dnd_module
+            path="@hubspot/linked_image",
+            img={
+              "alt": scaffold_content.group_hero.image.alt or "",
+              "loading": "eager",
+              "max_height": scaffold_content.group_hero.image.height or 194,
+              "max_width": scaffold_content.group_hero.image.width or 200,
+              "size_type": "auto_custom_max",
+              "src": scaffold_content.group_hero.image.src or get_asset_url("../images/calendar.png")
+            }
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+      {% dnd_column
+        offset=6,
+        width=6
+      %}
+        {% dnd_row %}
+          {% dnd_module
+            path="@hubspot/form",
+            form={
+              "form_id": scaffold_content.group_hero.form.form_id or "",
+              "response_type": scaffold_content.group_hero.form.response_type or "redirect",
+              "redirect_id": scaffold_content.group_hero.form.redirect_id or null,
+              "message": scaffold_content.group_hero.form.message or ""
+            }
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {# Testimonial cards section #}
+
+    {% include_dnd_partial
+      path="../sections/testimonial-cards.hubl.html",
+      context={
+        "testimonials": [
+          {
+            "quote": scaffold_content.group_testimonial_cards.testimonial_one or template_translations.lp_meeting_booking_one_testimonial_one.message
+          },
+          {
+            "quote": scaffold_content.group_testimonial_cards.testimonial_two or template_translations.lp_meeting_booking_one_testimonial_two.message
+          },
+          {
+            "quote": scaffold_content.group_testimonial_cards.testimonial_three or template_translations.lp_meeting_booking_one_testimonial_three.message
+          }
+        ]
+      }
+    %}
+
+    {# Features section #}
+
+    {% include_dnd_partial
+      path="../sections/features.hubl.html",
+      context={
+        "background_color": light_section_2_background_color,
+        "section_variant": "section_variant_2",
+        "heading": {
+          "text": scaffold_content.group_features.heading or template_translations.lp_meeting_booking_one_features_heading.message
+        },
+        "description": scaffold_content.group_features.description or template_translations.lp_meeting_booking_one_features_description.message,
+        "image": scaffold_content.group_features.image,
+        "features": [
+          {
+            "heading": {
+              "text": scaffold_content.group_features.group_feature_one.heading
+            },
+            "content": scaffold_content.group_features.group_feature_one.content or template_translations.lp_meeting_booking_one_feature_one_content.message
+          },
+          {
+            "heading": {
+              "text": scaffold_content.group_features.group_feature_two.heading
+            },
+            "content": scaffold_content.group_features.group_feature_two.content or template_translations.lp_meeting_booking_one_feature_two_content.message
+          },
+          {
+            "heading": {
+              "text": scaffold_content.group_features.group_feature_three.heading
+            },
+            "content": scaffold_content.group_features.group_feature_three.content or template_translations.lp_meeting_booking_one_feature_three_content.message
+          },
+          {
+            "heading": {
+              "text": scaffold_content.group_features.group_feature_four.heading
+            },
+            "content": scaffold_content.group_features.group_feature_four.content or template_translations.lp_meeting_booking_one_feature_four_content.message
+          },
+          {
+            "heading": {
+              "text": scaffold_content.group_features.group_feature_five.heading
+            },
+            "content": scaffold_content.group_features.group_feature_five.content or template_translations.lp_meeting_booking_one_feature_five_content.message
+          },
+          {
+            "heading": {
+              "text": scaffold_content.group_features.group_feature_six.heading
+            },
+            "content": scaffold_content.group_features.group_feature_six.content or template_translations.lp_meeting_booking_one_feature_six_content.message
+          },
+          {
+            "heading": {
+              "text": scaffold_content.group_features.group_feature_seven.heading
+            },
+            "content": scaffold_content.group_features.group_feature_seven.content or template_translations.lp_meeting_booking_one_feature_seven_content.message
+          },
+          {
+            "heading": {
+              "text": scaffold_content.group_features.group_feature_eight.heading
+            },
+            "content": scaffold_content.group_features.group_feature_eight.content or template_translations.lp_meeting_booking_one_feature_eight_content.message
+          }
+        ]
+      }
+    %}
+
+    {# Testimonials section #}
+
+    {% include_dnd_partial
+      path="../sections/testimonial.hubl.html",
+      context={
+        "background_color": dark_section_1_background_color,
+        "quote": scaffold_content.group_testimonial.quote or template_translations.lp_meeting_booking_one_testimonial_quote.message,
+        "author": {
+          "name": scaffold_content.group_testimonial.author_name or template_translations.shared_testimonials_author_name_1.message,
+          "title": scaffold_content.group_testimonial.author_title or template_translations.shared_testimonials_author_title_1.message,
+        },
+        "image": scaffold_content.group_testimonial.author_image,
+        "testimonial_link": {
+          "text": scaffold_content.group_testimonial.link_text or template_translations.shared_testimonials_link_text.message,
+          "url": scaffold_content.group_testimonial.link.url.href or ""
+        },
+        "card_style_variant": "card_variant_3"
+      }
+    %}
+
+    {# Video #}
+
+    {% dnd_section %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module
+            path="../components/modules/Heading",
+            headingAndTextHeadingLevel="h2",
+            headingAndTextHeading={{ scaffold_content.group_video.heading or template_translations.lp_meeting_booking_one_video_heading.message }},
+            groupStyle={
+              "alignment": {
+                "text_align": "CENTER"
+              },
+              "headingStyleVariant": "h2"
+            }
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+        {% dnd_row %}
+          {% dnd_module
+            path="../components/modules/RichText"
+          %}
+            {% module_attribute "richTextContentHTML" %}
+              <p style="text-align: center;">{{ scaffold_content.group_video.description or template_translations.lp_meeting_booking_one_video_description.message }}</p>
+            {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+        {% dnd_row %}
+          {% dnd_module
+            path="@hubspot/video",
+            embed_field={
+              "oembed_response": {
+                "type": "video"
+              },
+              "oembed_url": "https://www.youtube.com/watch?v=q89-gvYRO_I",
+              "size_type": "auto_full_width",
+              "source_type": "oembed"
+            },
+            oembed_thumbnail={
+              "src": scaffold_content.group_video.thumbnail_image.src or get_asset_url("../images/video-placeholder-full-width.png")
+            },
+            video_type="embed"
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {# Call to action #}
+
+    {% include_dnd_partial
+      path="../sections/two-column-call-to-action.hubl.html",
+      context={
+        "section_padding_top": 0,
+        "section_padding_bottom": section_vertical_spacing_small,
+        "button_style_variant": "primary",
+        "card_variant": "card_variant_2",
+        "cards": [
+          {
+            "image": {
+              "src": scaffold_content.group_cta.image.src or get_asset_url("../images/event-signup-two-cta.png"),
+              "alt": scaffold_content.group_cta.image.alt or ""
+            },
+            "heading": {
+              "text": scaffold_content.group_cta.heading or template_translations.lp_meeting_booking_one_cta_heading.message,
+              "heading_level": "h2"
+            },
+            "button": {
+              "text": scaffold_content.group_cta.button_text or template_translations.lp_meeting_booking_one_cta_button_text.message,
+              "href": scaffold_content.group_cta.button_link.url.href or ""
+            },
+          }
+        ]
+      }
+    %}
+
+    {% end_dnd_area %}
+{% endblock body %}
+
+{% block footer %}
+  {% global_partial path="./partials/lp-footer.hubl.html" type="FOOTER" %}
+{% endblock footer %}

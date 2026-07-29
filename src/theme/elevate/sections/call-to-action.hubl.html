@@ -1,0 +1,89 @@
+<!--
+  templateType: section
+  label: Call to action
+  isAvailableForNewContent: true
+  landingPageSectionCategories: [CALL_TO_ACTION]
+  goals: [ATTRACT_LEADS]
+  scaffoldSchemaPath: ./schemas/call-to-action.scaffold_schema.json
+  screenshotPath: ../images/section-previews/call-to-action.png
+  description: "Middle centered heading with a button below"
+-->
+{#
+  Context variables
+    - section_variant: The variant of the section style.
+    - background_color: The background color of the section.
+    - heading.heading_level: The heading level for the section heading.
+    - heading.text: The text for the section heading.
+    - heading.style_variant: The style variant for the heading.
+    - button.text: The text for the call-to-action button.
+    - button.href: The link for the call-to-action button.
+    - button.size: The size of the call-to-action button (e.g., "medium").
+    - button.style: The style variant of the call-to-action button (e.g., "primary").
+#}
+
+{# Section variables #}
+
+{% set template_translations = load_translations("../templates/_locales", html_lang, "en") %}
+{% import "../helpers/variables.hubl.html" %}
+{% set section_variant = context.section_variant or "section_variant_1" %}
+
+{# Section #}
+
+{% dnd_section
+  background_color={{ context.background_color }},
+  max_width={{ section_width_narrow }},
+  vertical_alignment="MIDDLE"
+%}
+  {% dnd_column %}
+      {% dnd_row %}
+        {% dnd_module
+          path="../components/modules/Anchor",
+          anchor={{ context.anchor_id or scaffold_content.anchor.anchor_id }}
+        %}
+        {% end_dnd_module %}
+      {% end_dnd_row %}
+    {% dnd_row %}
+      {% dnd_module
+        path="../components/modules/Heading",
+        headingAndTextHeadingLevel={{ context.heading.heading_level or "h2" }},
+        headingAndTextHeading={{ context.heading.text or scaffold_content.heading or template_translations.section_cta_heading.message }},
+        groupStyle={
+          "alignment": {
+            "text_align": "CENTER"
+          },
+          "headingStyleVariant": context.heading.style_variant or "h2",
+          "sectionStyleVariant": section_variant
+        }
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+    {% dnd_row %}
+      {% dnd_module
+        path="../components/modules/Button",
+        groupButtons=[
+          {
+            "buttonContentText": context.button.text or scaffold_content.button_text or template_translations.section_cta_button_text.message,
+            "buttonContentLink": {
+              "url": {
+                "href": context.button.href or scaffold_content.button_link.url.href or ""
+              }
+            },
+            "buttonContentShowIcon": false,
+            "buttonContentIcon": {
+              "name": "arrow-right"
+            },
+            "buttonContentIconPosition": "right"
+          }
+        ],
+        groupStyle={
+          "alignment": {
+            "horizontal_align": "CENTER"
+          },
+          "buttonStyleSize": context.button.size or "medium",
+          "buttonStyleVariant": context.button.style or "primary"
+        }
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}

@@ -1,0 +1,29 @@
+[
+  {
+    "name": "heading",
+    "type": "text",
+    "description": "The main heading for the newsletter section"
+  },
+  {
+    "name": "description",
+    "type": "text",
+    "description": "A brief description of what subscribers will receive"
+  },
+  {
+    "name": "form",
+    "type": "form",
+    "description": "This is a form that users would fill out to get in contact with the company."
+  },
+  {
+    "name": "image",
+    "type": "image",
+    "description": "The illustration displayed alongside the newsletter signup form",
+    "width": 400,
+    "height": 400
+  },
+  {
+    "name": "anchor",
+    "type": "anchor",
+    "description": "An anchor id for the newsletter section"
+  }
+]

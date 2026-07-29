@@ -1,0 +1,313 @@
+[
+  {
+    "name": "group_countdown",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes the purpose of the page. This heading is displayed above a countdown timer that counts down to an event start date."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A couple of sentences that describe the purpose of the page. This description is displayed above a countdown timer that counts down to an event start date."
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "The button text that describes the call to action the user should take. This button is displayed above a countdown timer that counts down to an event start date."
+      },
+      {
+        "name": "button_link",
+        "type": "link",
+        "description": "The URL that a user should be taken to when they click the button."
+      }
+    ]
+  },
+  {
+    "name": "group_testimonials",
+    "type": "group",
+    "children": [
+      {
+        "name": "testimonial_one",
+        "type": "text",
+        "description": "First positive review about the product."
+      },
+      {
+        "name": "testimonial_two",
+        "type": "text",
+        "description": "Second positive review about the product."
+      },
+      {
+        "name": "testimonial_three",
+        "type": "text",
+        "description": "Third positive review about the product."
+      }
+    ]
+  },
+  {
+    "name": "group_features",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes the features of the product."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A few sentences that provide more detail about the features of the product."
+      },
+      {
+        "name": "image",
+        "type": "image",
+        "description": "An image that displays one of the features of the product.",
+        "width": 372,
+        "height": 651
+      },
+      {
+        "name": "group_feature_one",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "A heading that describes the first feature of the product."
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "description": "A sentence that provides more detail about the first feature of the product."
+          }
+        ]
+      },
+      {
+        "name": "group_feature_two",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "A heading that describes the second feature of the product."
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "description": "A sentence that provides more detail about the second feature of the product."
+          }
+        ]
+      },
+      {
+        "name": "group_feature_three",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "A heading that describes the third feature of the product."
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "description": "A sentence that provides more detail about the third feature of the product."
+          }
+        ]
+      },
+      {
+        "name": "group_feature_four",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "A heading that describes the fourth feature of the product."
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "description": "A sentence that provides more detail about the fourth feature of the product."
+          }
+        ]
+      },
+      {
+        "name": "group_feature_five",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "A heading that describes the fifth feature of the product."
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "description": "A sentence that provides more detail about the fifth feature of the product."
+          }
+        ]
+      },
+      {
+        "name": "group_feature_six",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "A heading that describes the sixth feature of the product."
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "description": "A sentence that provides more detail about the sixth feature of the product."
+          }
+        ]
+      },
+      {
+        "name": "group_feature_seven",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "A heading that describes the seventh feature of the product."
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "description": "A sentence that provides more detail about the seventh feature of the product."
+          }
+        ]
+      },
+      {
+        "name": "group_feature_eight",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "A heading that describes the eighth feature of the product."
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "description": "A sentence that provides more detail about the eighth feature of the product."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "group_speakers",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes the speakers of the event."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A couple of sentences that describe the speakers of the event."
+      }
+    ]
+  },
+  {
+    "name": "group_products",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes the products and services of the business."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A few sentences that provide more detail about the products and services of the business."
+      },
+      {
+        "name": "image",
+        "type": "image",
+        "description": "An image that displays one of the products or services of the business.",
+        "width": 372,
+        "height": 651
+      },
+      {
+        "name": "group_product_one",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "A heading that describes the first product or service of the business."
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "description": "A sentence that provides more detail about the first product or service of the business."
+          }
+        ]
+      },
+      {
+        "name": "group_product_two",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "A heading that describes the second product or service of the business."
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "description": "A sentence that provides more detail about the second product or service of the business."
+          }
+        ]
+      },
+      {
+        "name": "group_product_three",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "A heading that describes the third product or service of the business."
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "description": "A sentence that provides more detail about the third product or service of the business."
+          }
+        ]
+      },
+      {
+        "name": "group_product_four",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "A heading that describes the fourth product or service of the business."
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "description": "A sentence that provides more detail about the fourth product or service of the business."
+          }
+        ]
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "The button text that describes the call to action the user should take. This button is displayed below the products and services of the business."
+      },
+      {
+        "name": "button_link",
+        "type": "link",
+        "description": "The URL that a user should be taken to when they click the button."
+      }
+    ]
+  }
+]

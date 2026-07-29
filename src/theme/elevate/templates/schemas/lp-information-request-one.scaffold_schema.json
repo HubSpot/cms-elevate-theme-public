@@ -1,0 +1,291 @@
+[
+  {
+    "name": "group_hero_banner",
+    "type": "group",
+    "children": [
+      {
+        "name": "tag_line",
+        "type": "text",
+        "description": "A short tag line that appears above the main heading in the hero banner."
+      },
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "The main heading that describes the information request page and its purpose."
+      },
+      {
+        "name": "paragraph",
+        "type": "text",
+        "description": "A paragraph that provides more details about the information request and what users can expect."
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "The call-to-action button text that encourages users to take action."
+      },
+      {
+        "name": "button_link",
+        "type": "link",
+        "description": "The URL that a user should be taken to when they click the button."
+      },
+      {
+        "name": "image",
+        "type": "image",
+        "description": "A hero image that visually represents the products or services being offered.",
+        "width": "650",
+        "height": "650"
+      }
+    ]
+  },
+  {
+    "name": "group_logo_gallery",
+    "type": "group",
+    "children": [
+      {
+        "name": "content",
+        "type": "text",
+        "description": "Text that introduces the logo gallery section, typically describing partnerships or clients."
+      }
+    ]
+  },
+  {
+    "name": "group_features",
+    "type": "group",
+    "children": [
+      {
+        "name": "label",
+        "type": "text",
+        "description": "A label that appears above the features heading."
+      },
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "The main heading for the features section."
+      },
+      {
+        "name": "group_card_one",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "The heading for the first feature card."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "The description content for the first feature card."
+          }
+        ]
+      },
+      {
+        "name": "group_card_two",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "The heading for the second feature card."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "The description content for the second feature card."
+          }
+        ]
+      },
+      {
+        "name": "group_card_three",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "The heading for the third feature card."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "The description content for the third feature card."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "group_testimonials",
+    "type": "group",
+    "children": [
+      {
+        "name": "group_testimonial_one",
+        "type": "group",
+        "children": [
+          {
+            "name": "quote",
+            "type": "text",
+            "description": "The testimonial quote from the first customer."
+          },
+          {
+            "name": "author_name",
+            "type": "text",
+            "description": "The name of the first testimonial author."
+          },
+          {
+            "name": "author_title",
+            "type": "text",
+            "description": "The job title or position of the first testimonial author."
+          },
+          {
+            "name": "image",
+            "type": "image",
+            "description": "A professional headshot of the first testimonial author.",
+            "width": "300",
+            "height": "300"
+          }
+        ]
+      },
+      {
+        "name": "group_testimonial_two",
+        "type": "group",
+        "children": [
+          {
+            "name": "quote",
+            "type": "text",
+            "description": "The testimonial quote from the second customer."
+          },
+          {
+            "name": "author_name",
+            "type": "text",
+            "description": "The name of the second testimonial author."
+          },
+          {
+            "name": "author_title",
+            "type": "text",
+            "description": "The job title or position of the second testimonial author."
+          },
+          {
+            "name": "image",
+            "type": "image",
+            "description": "A professional headshot of the second testimonial author.",
+            "width": "300",
+            "height": "300"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "group_faq",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "The main heading for the FAQ section."
+      },
+      {
+        "name": "group_question_one",
+        "type": "group",
+        "children": [
+          {
+            "name": "question",
+            "type": "text",
+            "description": "The first frequently asked question."
+          },
+          {
+            "name": "answer",
+            "type": "text",
+            "description": "The answer to the first frequently asked question."
+          }
+        ]
+      },
+      {
+        "name": "group_question_two",
+        "type": "group",
+        "children": [
+          {
+            "name": "question",
+            "type": "text",
+            "description": "The second frequently asked question."
+          },
+          {
+            "name": "answer",
+            "type": "text",
+            "description": "The answer to the second frequently asked question."
+          }
+        ]
+      },
+      {
+        "name": "group_question_three",
+        "type": "group",
+        "children": [
+          {
+            "name": "question",
+            "type": "text",
+            "description": "The third frequently asked question."
+          },
+          {
+            "name": "answer",
+            "type": "text",
+            "description": "The answer to the third frequently asked question."
+          }
+        ]
+      },
+      {
+        "name": "group_question_four",
+        "type": "group",
+        "children": [
+          {
+            "name": "question",
+            "type": "text",
+            "description": "The fourth frequently asked question."
+          },
+          {
+            "name": "answer",
+            "type": "text",
+            "description": "The answer to the fourth frequently asked question."
+          }
+        ]
+      },
+      {
+        "name": "group_question_five",
+        "type": "group",
+        "children": [
+          {
+            "name": "question",
+            "type": "text",
+            "description": "The fifth frequently asked question."
+          },
+          {
+            "name": "answer",
+            "type": "text",
+            "description": "The answer to the fifth frequently asked question."
+          }
+        ]
+      },
+      {
+        "name": "group_question_six",
+        "type": "group",
+        "children": [
+          {
+            "name": "question",
+            "type": "text",
+            "description": "The sixth frequently asked question."
+          },
+          {
+            "name": "answer",
+            "type": "text",
+            "description": "The answer to the sixth frequently asked question."
+          }
+        ]
+      },
+      {
+        "name": "image",
+        "type": "image",
+        "description": "An image that complements the FAQ section, showing features or product interface.",
+        "width": "372",
+        "height": "651"
+      }
+    ]
+  }
+]

@@ -1,0 +1,93 @@
+.hs-elevate-pricing-card-container {
+  display: grid;
+  align-items: start;
+  grid-template-rows: auto 1fr;
+  gap: var(--hsElevate--spacing--32, 32px);
+
+  @media (width >= 1000px) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+.hs-elevate-pricing-card-container__card {
+  --hsElevate--card--display: grid;
+  --hsElevate--card--padding: 0;
+
+  grid-row: span 2;
+  grid-template-rows: subgrid;
+}
+
+.hs-elevate-pricing-card-container__button {
+  width: 100%;
+}
+
+.hs-elevate-pricing-card-container__summary {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  border-bottom: var(--hsElevate--pricingCard__borderThickness) solid var(--hsElevate--pricingCard__borderColor);
+  flex-direction: column;
+  grid-row: 1;
+  gap: var(--hsElevate--spacing--16, 16px);
+  padding-block: var(--hsElevate--spacing--48, 48px) var(--hsElevate--spacing--32, 32px);
+  padding-inline: var(--hsElevate--spacing--32, 32px);
+}
+
+.hs-elevate-pricing-card-container__description {
+  margin: 0;
+  font-size: var(--hsElevate--body--small__fontSize);
+  overflow-wrap: break-word;
+}
+
+.hs-elevate-pricing-card-container__price-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1px;
+}
+
+.hs-elevate-pricing-card-container__price {
+  font-size: var(--hsElevate--body--extraLarge__fontSize);
+}
+
+.hs-elevate-pricing-card-container__time-period {
+  font-size: var(--hsElevate--body--large__fontSize);
+}
+
+.hs-elevate-pricing-card-container__features {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin-bottom: var(--hsElevate--spacing--32, 32px);
+  flex-direction: column;
+  align-items: flex-start;
+  grid-row: 2;
+  padding-block: var(--hsElevate--spacing--32, 32px) var(--hsElevate--spacing--72, 72px);
+  padding-inline: var(--hsElevate--spacing--32, 32px);
+}
+
+.hs-elevate-pricing-card-container__features-list {
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+.hs-elevate-pricing-card-container__features-list-item {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  margin-block: 0 var(--hsElevate--spacing--20, 20px);
+
+  svg {
+    flex: 0 0 auto;
+    fill: var(--hsElevate--cardIcon__color);
+    margin-block-start: var(--hsElevate--spacing--4, 4px);
+    margin-inline-end: var(--hsElevate--spacing--12, 12px);
+  }
+}
+
+.hs-elevate-pricing-card-container__button-container {
+  width: 100%;
+  margin-block: auto 0;
+  padding-block: 0 var(--hsElevate--spacing--48, 48px);
+  padding-inline: var(--hsElevate--spacing--32, 32px);
+}

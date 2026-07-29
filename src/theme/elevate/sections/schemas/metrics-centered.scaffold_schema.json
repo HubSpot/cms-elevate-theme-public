@@ -1,0 +1,60 @@
+[
+  {
+    "name": "heading",
+    "type": "text",
+    "description": "A heading that describes the video."
+  },
+  {
+    "name": "group_metric_one",
+    "type": "group",
+    "children": [
+      {
+        "name": "value",
+        "type": "text",
+        "description": "A statistic related to the event. For example, '200' or '90%'."
+      },
+      {
+        "name": "label",
+        "type": "text",
+        "description": "The label associated with the metric_value such as 'number of attendees' or 'satisfaction rate'."
+      }
+    ]
+  },
+  {
+    "name": "group_metric_two",
+    "type": "group",
+    "children": [
+      {
+        "name": "value",
+        "type": "text",
+        "description": "A statistic related to the event. For example, '200' or '90%'."
+      },
+      {
+        "name": "label",
+        "type": "text",
+        "description": "The label associated with the metric_value such as 'number of attendees' or 'satisfaction rate'."
+      }
+    ]
+  },
+  {
+    "name": "group_metric_three",
+    "type": "group",
+    "children": [
+      {
+        "name": "value",
+        "type": "text",
+        "description": "A statistic related to the event. For example, '200' or '90%'."
+      },
+      {
+        "name": "label",
+        "type": "text",
+        "description": "The label associated with the metric_value such as 'number of attendees' or 'satisfaction rate'."
+      }
+    ]
+  },
+  {
+    "name": "anchor",
+    "type": "anchor",
+    "description": "An anchor id for the metrics centered section"
+  }
+]

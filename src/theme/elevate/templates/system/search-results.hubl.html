@@ -1,0 +1,25 @@
+<!--
+  templateType: search_results_page
+  isAvailableForNewContent: true
+  label: Elevate - search results
+  screenshotPath: ../../images/template-previews/search-results.png
+-->
+{% set template_css = "../../assets/dist/css/system.hubl.css" %}
+{% extends "../layouts/base.hubl.html" %}
+
+{% block body %}
+  <section class="hs-elevate-content-wrapper hs-elevate-content-padding">
+    {% module "search_results_input"
+      path="@hubspot/search_input",
+      extra_classes="hs-elevate-system-form hs-elevate-system-form--search",
+      overrideable=true
+    %}
+
+    {% module "search_results"
+      path="@hubspot/search_results",
+      title={
+        "show_title": "true"
+      }
+    %}
+  </section>
+{% endblock body %}

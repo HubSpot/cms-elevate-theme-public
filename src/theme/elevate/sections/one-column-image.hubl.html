@@ -1,0 +1,45 @@
+<!--
+  templateType: section
+  label: Image - full width
+  isAvailableForNewContent: true
+  landingPageSectionCategories: [MEDIA]
+  scaffoldSchemaPath: ./schemas/one-column-image.scaffold_schema.json
+  screenshotPath: ../images/section-previews/image-full-width-one-column.png
+  description: "Section with a single image that spans the full container width."
+-->
+
+{% set template_translations = load_translations("../templates/_locales", html_lang, "en") %}
+{% import "../helpers/variables.hubl.html" %}
+
+{#
+  Context Variables:
+  - context.background_color: The background color of the section.
+  - context.image.alt: The alt text for the image.
+  - context.image.loading: The loading state for the image.
+  - context.image.src: The source URL for the image.
+  - context.image.height: The height for the image.
+  - context.image.width: The width for the image.
+#}
+
+{% dnd_section
+  background_color={{ context.background_color }},
+  full_width=true,
+  %}
+  {% dnd_column %}
+    {% dnd_row %}
+      {% dnd_module
+        path="@hubspot/linked_image",
+        img={
+          "src": context.image.src or scaffold_content.image.src or get_asset_url("../images/shopping-workflow-full-width.png"),
+          "alt": context.image.alt or scaffold_content.image.alt or template_translations.section_one_column_image_alt_text.message or "",
+          "loading": context.image.loading or "lazy",
+          "max_width": context.image.width or scaffold_content.image.width or 2100,
+          "max_height": context.image.height or scaffold_content.image.height or 1200,
+          "size_type": "auto_custom_max"
+          },
+        horizontal_alignment="CENTER"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}

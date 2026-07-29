@@ -1,0 +1,60 @@
+.hs-elevate-countdown-timer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--hsElevate--spacing--12, 12px);
+}
+
+@media (width >= 767px) {
+  .hs-elevate-countdown-timer {
+    gap: var(--hsElevate--spacing--20, 20px);
+  }
+}
+
+.hs-elevate-countdown-timer__time-unit-container {
+  display: flex;
+
+  /* Width logic:
+   * - Tries to be 200px wide by default
+   * - Won't go smaller than 25% of container width
+   * - Will shrink below 200px if 25% of container is smaller
+   * - Will expand beyond 200px if 25% of container is larger
+  */
+  width: max(min(200px, 25%), 25%);
+  flex-direction: column;
+  align-items: center;
+  gap: var(--hsElevate--spacing--8, 8px);
+}
+
+.hs-elevate-countdown-timer__value {
+  width: 100%;
+  padding: var(--hsElevate--spacing--16, 16px) var(--hsElevate--spacing--12, 12px);
+  border: var(--hsElevate--countdownTimer__borderThickness) solid var(--hsElevate--countdownTimer__borderColor);
+  border-radius: var(--hsElevate-rounded);
+  color: var(--hsElevate--countdownTimer__textColor);
+  font-size: clamp(1rem, 5vw + 1rem, var(--hsElevate--display1__fontSize));
+  line-height: 1;
+  text-align: center;
+}
+
+.hs-elevate-countdown-timer__value--filled {
+  background-color: var(--hsElevate--countdownTimer__fillColor);
+}
+
+@media (width >= 767px) {
+  .hs-elevate-countdown-timer__value {
+    padding: var(--hsElevate--spacing--32, 32px) var(--hsElevate--spacing--24, 24px);
+  }
+}
+
+.hs-elevate-countdown-timer__label {
+  width: 100%;
+  color: var(--hsElevate--countdownTimer__labelTextColor);
+  font-size: clamp(0.75rem, 1vw + 0.75rem, var(--hsElevate--h4__fontSize));
+  text-align: center;
+}
+
+.hs-elevate-countdown-timer__completed-message {
+  color: var(--hsElevate--countdownTimer__labelTextColor);
+  text-align: center;
+}

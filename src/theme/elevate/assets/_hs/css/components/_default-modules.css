@@ -1,0 +1,14 @@
+.logo-company-name {
+  margin-block: 0;
+}
+
+/* Offsets margin on ul element inside default image grid */
+.hs-image__grid__list {
+  margin-block: 0;
+}
+
+/* Logo responsive styling */
+.widget-type-logo img {
+  height: auto;
+  max-width: 100%;
+}

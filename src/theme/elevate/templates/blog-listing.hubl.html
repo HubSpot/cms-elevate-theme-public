@@ -1,0 +1,65 @@
+<!--
+  templateType: blog_listing
+  isAvailableForNewContent: true
+  label: Blog listing
+  screenshotPath: '../images/template-previews/blog-listing.png'
+-->
+{% extends "./layouts/base.hubl.html" %}
+
+{% block body %}
+
+{% dnd_area 'main'%}
+  {% dnd_section
+    padding={
+      "default" : {
+        "bottom" : spacing_32
+      }
+    }
+  %}
+    {% dnd_column
+    %}
+      {% dnd_row %}
+        {% dnd_module
+          path="../components/modules/Heading",
+          groupStyle={
+            "alignment" : {
+              "text_align" : "CENTER"
+            }
+          },
+          headingAndTextHeading={{ group.public_title }}
+        %}
+        {% end_dnd_module %}
+      {% end_dnd_row %}
+      {% dnd_row %}
+        {% dnd_module
+          path="../components/modules/RichText",
+        %}
+          {% module_attribute "richTextContentHTML" %}
+            <p style="text-align: center;">{{ template_translations.blog_listing_page_description.message }}</p>
+          {% end_module_attribute %}
+        {% end_dnd_module %}
+      {% end_dnd_row %}
+    {% end_dnd_column %}
+  {% end_dnd_section %}
+
+  {% dnd_section
+    padding={
+      "default" : {
+        "top" : spacing_32
+      }
+    }
+  %}
+    {% dnd_column
+    %}
+      {% dnd_row %}
+        {% dnd_module
+          path="../components/modules/BlogListing",
+        %}
+        {% end_dnd_module %}
+      {% end_dnd_row %}
+    {% end_dnd_column %}
+  {% end_dnd_section %}
+
+{% end_dnd_area %}
+
+{% endblock %}

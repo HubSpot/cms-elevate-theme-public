@@ -1,0 +1,58 @@
+<!--
+  templateType: section
+  label: Form - two column
+  isAvailableForNewContent: true
+  landingPageSectionCategories: [FORMS]
+  scaffoldSchemaPath: ./schemas/form-two-column.scaffold_schema.json
+  screenshotPath: ../images/section-previews/form-two-column.png
+  description: "Section with a form on the left and an image on the right."
+-->
+
+{#
+  Context variables
+    - image.alt: The alt text for the image.
+    - image.src: The source for the image.
+    - image.width: The width of the image.
+    - image.height: The height of the image.
+    - image.loading: The loading attribute for the image.
+#}
+
+{# Section #}
+
+{% dnd_section %}
+  {% dnd_column
+    width=8
+  %}
+    {% dnd_row %}
+      {% dnd_module
+        path="@hubspot/linked_image"
+        img={
+          "alt": context.image.alt or scaffold_content.image.alt or "",
+          "loading": context.image.loading or "lazy",
+          "max_height": context.image.height or scaffold_content.image.height or 543,
+          "max_width": context.image.width or scaffold_content.image.width or 795,
+          "size_type": "auto_custom_max",
+          "src": context.image.src or scaffold_content.image.src or get_asset_url("../images/data.png")
+        }
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+  {% dnd_column
+    offset=8,
+    width=4
+  %}
+    {% dnd_row %}
+      {% dnd_module
+        path="@hubspot/form",
+        form={
+          "form_id": scaffold_content.form.form_id or "",
+          "response_type": scaffold_content.form.response_type or "redirect",
+          "redirect_id": scaffold_content.form.redirect_id or null,
+          "message": scaffold_content.form.message or ""
+        }
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}

@@ -1,0 +1,105 @@
+<!--
+  templateType: section
+  label: Hero banner - centered dark
+  isAvailableForNewContent: true
+  landingPageSectionCategories: [HERO]
+  scaffoldSchemaPath: ./schemas/hero-banner-centered.scaffold_schema.json
+  screenshotPath: ../images/section-previews/hero-banner-centered-dark.png
+  description: "Section with a centered heading, description, and button"
+-->
+
+{# Note: Schema is shared with hero-banner-centered.hubl.html #}
+
+{#
+  Context variables
+    - section_variant: The variant of the section style.
+    - background_image: The background image of the section.
+    - heading.heading_level: The heading level for the section heading.
+    - heading.text: The text for the section heading.
+    - content: The description content for the section.
+    - button.text: The text for the call-to-action button.
+    - button.href: The URL for the call-to-action button.
+    - button.size: The size of the button.
+    - button.style: The style variant of the button.
+#}
+
+{# Section variables #}
+
+{% set template_translations = load_translations("../templates/_locales", html_lang, "en") %}
+{% import "../helpers/variables.hubl.html" %}
+{% set section_variant = context.section_variant or "section_variant_4" %}
+
+{# Section #}
+
+{% dnd_section
+  background_image={
+    "backgroundPosition": "MIDDLE_CENTER",
+    "backgroundSize": "cover",
+    "imageUrl": context.background_image.src or get_asset_url("../images/hero-banner-background.png")
+  },
+  padding={
+    "top": section_vertical_spacing_extra_large,
+    "bottom": section_vertical_spacing_extra_large
+  },
+  max_width={{ section_width_medium }}
+%}
+  {% dnd_column %}
+    {% dnd_row %}
+      {% dnd_module
+        path="../components/modules/Heading",
+        headingAndTextHeadingLevel={{ context.heading.heading_level or "h1" }},
+        headingAndTextHeading={{ context.heading.text or scaffold_content.heading or template_translations.section_hero_centered_dark_heading.message }},
+        groupStyle={
+          "alignment": {
+            "text_align": "CENTER"
+          },
+          "headingStyleVariant": "display_2",
+          "sectionStyleVariant": section_variant
+        }
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+    {% dnd_row %}
+      {% dnd_module
+        path="../components/modules/RichText",
+        groupStyle={
+          "sectionStyleVariant": section_variant
+        }
+      %}
+        {% module_attribute "richTextContentHTML" %}
+          <div style="text-align: center;">
+            <p>{{ context.content or scaffold_content.description or template_translations.section_hero_centered_dark_content.message }}</p>
+          </div>
+        {% end_module_attribute %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+    {% dnd_row %}
+      {% dnd_module
+        path="../components/modules/Button",
+        groupButtons=[
+          {
+            "buttonContentText": context.button.text or scaffold_content.button_text or template_translations.section_hero_centered_dark_button_text.message,
+            "buttonContentLink": {
+              "url": {
+                "href": context.button.href or scaffold_content.button_link.url.href or ""
+              }
+            },
+            "buttonContentShowIcon": false,
+            "buttonContentIcon": {
+              "name": "arrow-right"
+            },
+            "buttonContentIconPosition": "right"
+          }
+        ],
+        groupStyle={
+          "alignment": {
+            "horizontal_align": "CENTER"
+          },
+          "buttonStyleSize": context.button.size or "medium",
+          "buttonStyleVariant": context.button.style or "tertiary"
+        }
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}

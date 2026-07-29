@@ -1,0 +1,119 @@
+<!--
+  templateType: section
+  label: Products and services list - two column
+  isAvailableForNewContent: true
+  landingPageSectionCategories: [PRODUCTS_AND_SERVICES]
+  scaffoldSchemaPath: ./schemas/products-and-services-video-list.scaffold_schema.json
+  screenshotPath: ../images/section-previews/products-and-services-video-list.png
+  description: "Section displaying products and services in a list with a video on the left side."
+-->
+
+{#
+Context Variables:
+  - context.section_variant: The variant of the section layout.
+  - context.background_color: The background color of the section.
+  - video.embed_url: The embed URL for the video.
+  - video.thumbnail: The thumbnail image for the video.
+  - context.list_item[0-2].text: Array of benefit items with text descriptions.
+#}
+
+{# Section variables #}
+{% set template_translations = load_translations("../templates/_locales", html_lang, "en") %}
+{% import "../helpers/variables.hubl.html" %}
+{% set section_variant = context.section_variant or "section_variant_1" %}
+
+{# Section #}
+{% dnd_section
+  background_color={{ context.background_color }}
+%}
+  {% dnd_column %}
+    {% dnd_row
+      vertical_alignment="MIDDLE"
+    %}
+      {% dnd_column
+        width=7,
+        padding={
+          "default": {
+            "right": spacing_40,
+          },
+          "mobile": {
+            "right": 0,
+            "bottom": spacing_32
+          }
+        }
+      %}
+        {% dnd_row %}
+          {% dnd_module
+            path="@hubspot/video",
+            embed_field={
+              "oembed_response": {
+                  "type": "video",
+              },
+              "oembed_url": context.video.embed_url or "https://www.youtube.com/watch?v=q89-gvYRO_I",
+              "size_type": "auto_full_width",
+              "source_type": "oembed"
+            },
+            oembed_thumbnail={
+              "src": context.video.thumbnail or scaffold_content.thumbnail.src or get_asset_url("../images/video-placeholder.png")
+            },
+            video_type="embed"
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+
+      {% dnd_column
+        offset=7,
+        width=5,
+        padding={
+        "default": {
+          "left": spacing_40,
+        },
+        "mobile": {
+          "left": 0,
+        }
+      }
+      %}
+        {% dnd_row %}
+          {% dnd_module
+            path="../components/modules/List",
+            listIcon={
+              "name": "check"
+            },
+            groupListItems=[
+              {
+                "groupListContent": {
+                  "listItemContent": context.list_item[0].text or scaffold_content.group_list.item_one or template_translations.section_products_services_video_list_item_one.message
+                }
+              },
+              {
+                "groupListContent": {
+                  "listItemContent": context.list_item[1].text or scaffold_content.group_list.item_two or template_translations.section_products_services_video_list_item_two.message
+                }
+              },
+              {
+                "groupListContent": {
+                  "listItemContent": context.list_item[2].text or scaffold_content.group_list.item_three or template_translations.section_products_services_video_list_item_three.message
+                }
+              },
+              {
+                "groupListContent": {
+                  "listItemContent": context.list_item[3].text or scaffold_content.group_list.item_four or template_translations.section_products_services_video_list_item_four.message
+                }
+              },
+              {
+                "groupListContent": {
+                  "listItemContent": context.list_item[4].text or scaffold_content.group_list.item_five or template_translations.section_products_services_video_list_item_five.message
+                }
+              }
+            ],
+            groupStyle={
+              "sectionStyleVariant": section_variant
+            }
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}

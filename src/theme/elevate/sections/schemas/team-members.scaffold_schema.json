@@ -1,0 +1,17 @@
+[
+  {
+    "name": "heading",
+    "type": "text",
+    "description": "A heading shows above a group of team members."
+  },
+  {
+    "name": "description",
+    "type": "text",
+    "description": "A short description that shows above a group of team members."
+  },
+  {
+    "name": "anchor",
+    "type": "anchor",
+    "description": "An anchor id for the team members section"
+  }
+]

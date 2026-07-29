@@ -1,0 +1,22 @@
+[
+  {
+    "name": "heading",
+    "type": "text",
+    "description": "A heading that shows above a contact form."
+  },
+  {
+    "name": "content",
+    "type": "text",
+    "description": "A couple of sentences (1-2) that describe this contact form."
+  },
+  {
+    "name": "form",
+    "type": "form",
+    "description": "This is a form that users would fill out to get in contact with the company."
+  },
+  {
+    "name": "anchor",
+    "type": "anchor",
+    "description": "An anchor id for the contact section"
+  }
+]

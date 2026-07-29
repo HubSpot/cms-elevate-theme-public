@@ -1,0 +1,56 @@
+[
+  {
+    "name": "tag_line",
+    "type": "text",
+    "description": "A short tag line text that appears above the main heading."
+  },
+  {
+    "name": "heading",
+    "type": "text",
+    "description": "The main heading that describes the company, product, or service."
+  },
+  {
+    "name": "group_list",
+    "type": "group",
+    "children": [
+      {
+        "name": "item_one",
+        "type": "text",
+        "description": "First list item for the company, product, or service."
+      },
+      {
+        "name": "item_two",
+        "type": "text",
+        "description": "Second list item for the company, product, or service."
+      },
+      {
+        "name": "item_three",
+        "type": "text",
+        "description": "Third list item for the company, product, or service."
+      }
+    ]
+  },
+  {
+    "name": "group_button",
+    "type": "group",
+    "children": [
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "The text for the call-to-action button."
+      },
+      {
+        "name": "button_link",
+        "type": "link",
+        "description": "The URL that the user will be directed to when clicking the button."
+      }
+    ]
+  },
+  {
+    "name": "image",
+    "type": "image",
+    "description": "An image showing a company or product visualization.",
+    "width": 800,
+    "height": 800
+  }
+]

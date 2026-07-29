@@ -1,0 +1,391 @@
+[
+  {
+    "name": "group_hero_banner",
+    "type": "group",
+    "children": [
+      {
+        "name": "tag_line",
+        "type": "text",
+        "description": "A short tag line that introduces the resource being offered."
+      },
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "The main heading explaining what the resource is about."
+      },
+      {
+        "name": "list_item_1",
+        "type": "text",
+        "description": "First bullet point in the hero section."
+      },
+      {
+        "name": "list_item_2",
+        "type": "text",
+        "description": "Second bullet point in the hero section."
+      },
+      {
+        "name": "list_item_3",
+        "type": "text",
+        "description": "Third bullet point in the hero section."
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "Call-to-action text for downloading the resource."
+      },
+      {
+        "name": "button_link",
+        "type": "link",
+        "description": "URL that the hero CTA button links to."
+      },
+      {
+        "name": "image",
+        "type": "image",
+        "description": "Image representing the downloadable resource.",
+        "width": "640",
+        "height": "640"
+      }
+    ]
+  },
+  {
+    "name": "group_features",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Main heading for the features section."
+      },
+      {
+        "name": "subheading",
+        "type": "text",
+        "description": "A short description introducing the features of the resource."
+      },
+      {
+        "name": "group_feature_1",
+        "type": "group",
+        "children": [
+          {
+            "name": "image",
+            "type": "image",
+            "description": "Image for the first feature.",
+            "width": "140",
+            "height": "140"
+          },
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "Heading for the first feature."
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "description": "Description of the first feature."
+          }
+        ]
+      },
+      {
+        "name": "group_feature_2",
+        "type": "group",
+        "children": [
+          {
+            "name": "image",
+            "type": "image",
+            "description": "Image for the second feature.",
+            "width": "140",
+            "height": "140"
+          },
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "Heading for the second feature."
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "description": "Description of the second feature."
+          }
+        ]
+      },
+      {
+        "name": "group_feature_3",
+        "type": "group",
+        "children": [
+          {
+            "name": "image",
+            "type": "image",
+            "description": "Image for the third feature.",
+            "width": "140",
+            "height": "140"
+          },
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "Heading for the third feature."
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "description": "Description of the third feature."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "group_testimonial",
+    "type": "group",
+    "children": [
+      {
+        "name": "quote",
+        "type": "text",
+        "description": "Testimonial quote about the resource."
+      },
+      {
+        "name": "author_name",
+        "type": "text",
+        "description": "Name of the testimonial author."
+      },
+      {
+        "name": "author_title",
+        "type": "text",
+        "description": "Title of the testimonial author."
+      }
+    ]
+  },
+  {
+    "name": "group_image_and_text_1",
+    "type": "group",
+    "children": [
+      {
+        "name": "image",
+        "type": "image",
+        "description": "Image for the first image/text section.",
+        "width": "400",
+        "height": "400"
+      },
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Heading for the first image/text section."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "Description for the first image/text section."
+      }
+    ]
+  },
+  {
+    "name": "group_image_and_text_2",
+    "type": "group",
+    "children": [
+      {
+        "name": "image",
+        "type": "image",
+        "description": "Image for the second image/text section.",
+        "width": "655",
+        "height": "655"
+      },
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Heading for the second image/text section."
+      },
+      {
+        "name": "list_item_1",
+        "type": "text",
+        "description": "First bullet point for the second image/text section."
+      },
+      {
+        "name": "list_item_2",
+        "type": "text",
+        "description": "Second bullet point for the second image/text section."
+      },
+      {
+        "name": "list_item_3",
+        "type": "text",
+        "description": "Third bullet point for the second image/text section."
+      }
+    ]
+  },
+  {
+    "name": "group_pricing",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Main heading for the pricing section."
+      },
+      {
+        "name": "subheading",
+        "type": "text",
+        "description": "Subheading for the pricing section."
+      },
+      {
+        "name": "group_pricing_card_1",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "Heading for the first pricing card."
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "description": "Description for the first pricing card."
+          },
+          {
+            "name": "features_heading",
+            "type": "text",
+            "description": "Heading for the features list in the first pricing card."
+          },
+          {
+            "name": "feature_1",
+            "type": "text",
+            "description": "First feature of the first pricing card."
+          },
+          {
+            "name": "feature_2",
+            "type": "text",
+            "description": "Second feature of the first pricing card."
+          },
+          {
+            "name": "feature_3",
+            "type": "text",
+            "description": "Third feature of the first pricing card."
+          },
+          {
+            "name": "feature_4",
+            "type": "text",
+            "description": "Fourth feature of the first pricing card."
+          },
+          {
+            "name": "button_text",
+            "type": "text",
+            "description": "Button text for the first pricing card."
+          },
+          {
+            "name": "button_link",
+            "type": "link",
+            "description": "URL that the first pricing card button links to."
+          }
+        ]
+      },
+      {
+        "name": "group_pricing_card_2",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "Heading for the second pricing card."
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "description": "Description for the second pricing card."
+          },
+          {
+            "name": "features_heading",
+            "type": "text",
+            "description": "Heading for the features list in the second pricing card."
+          },
+          {
+            "name": "feature_1",
+            "type": "text",
+            "description": "First feature of the second pricing card."
+          },
+          {
+            "name": "feature_2",
+            "type": "text",
+            "description": "Second feature of the second pricing card."
+          },
+          {
+            "name": "feature_3",
+            "type": "text",
+            "description": "Third feature of the second pricing card."
+          },
+          {
+            "name": "feature_4",
+            "type": "text",
+            "description": "Fourth feature of the second pricing card."
+          },
+          {
+            "name": "feature_5",
+            "type": "text",
+            "description": "Fifth feature of the second pricing card."
+          },
+          {
+            "name": "button_text",
+            "type": "text",
+            "description": "Button text for the second pricing card."
+          },
+          {
+            "name": "button_link",
+            "type": "link",
+            "description": "URL that the second pricing card button links to."
+          }
+        ]
+      },
+      {
+        "name": "group_pricing_card_3",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "Heading for the third pricing card."
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "description": "Description for the third pricing card."
+          },
+          {
+            "name": "features_heading",
+            "type": "text",
+            "description": "Heading for the features list in the third pricing card."
+          },
+          {
+            "name": "feature_1",
+            "type": "text",
+            "description": "First feature of the third pricing card."
+          },
+          {
+            "name": "feature_2",
+            "type": "text",
+            "description": "Second feature of the third pricing card."
+          },
+          {
+            "name": "feature_3",
+            "type": "text",
+            "description": "Third feature of the third pricing card."
+          },
+          {
+            "name": "feature_4",
+            "type": "text",
+            "description": "Fourth feature of the third pricing card."
+          },
+          {
+            "name": "feature_5",
+            "type": "text",
+            "description": "Fifth feature of the third pricing card."
+          },
+          {
+            "name": "button_text",
+            "type": "text",
+            "description": "Button text for the third pricing card."
+          },
+          {
+            "name": "button_link",
+            "type": "link",
+            "description": "URL that the third pricing card button links to."
+          }
+        ]
+      }
+    ]
+  }
+]

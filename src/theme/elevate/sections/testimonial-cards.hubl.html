@@ -1,0 +1,149 @@
+<!--
+  templateType: section
+  label: Testimonial cards
+  isAvailableForNewContent: true
+  landingPageSectionCategories: [SOCIAL_PROOF]
+  scaffoldSchemaPath: ./schemas/testimonial-cards.scaffold_schema.json
+  screenshotPath: ../images/section-previews/testimonial-cards.png
+  description: "Section with three testimonial cards displaying quotes and author information."
+-->
+
+{#
+  Context variables
+    - section_variant: The variant of the section style.
+    - vertical_spacing: The vertical spacing of the section.
+    - background_color: The background color of the section.
+    - card_variant: The variant of the card style.
+    - testimonials[0-2].quote: The testimonial quote text.
+    - testimonials[0-2].author_name: The name of the testimonial author.
+    - testimonials[0-2].author_title: The title of the testimonial author.
+#}
+
+{# Section variables #}
+
+{% import "../helpers/variables.hubl.html" %}
+{% set section_variant = context.section_variant or "section_variant_1" %}
+{% set template_translations = load_translations("../templates/_locales", html_lang, "en") %}
+
+{# Default content for features #}
+{% set testimonials = [
+    {
+      "quote": "{{ context.testimonials[0].quote or scaffold_content.group_testimonial_1.quote or template_translations.section_testimonial_cards_quote_1.message }}",
+      "author_name": "{{ context.testimonials[0].author_name or scaffold_content.group_testimonial_1.author_name or template_translations.section_testimonial_cards_author_name_1.message }}",
+      "author_title": "{{ context.testimonials[0].author_title or scaffold_content.group_testimonial_1.author_title or template_translations.section_testimonial_cards_author_title_1.message }}"
+    },
+    {
+      "quote": "{{ context.testimonials[1].quote or scaffold_content.group_testimonial_2.quote or template_translations.section_testimonial_cards_quote_2.message }}",
+      "author_name": "{{ context.testimonials[1].author_name or scaffold_content.group_testimonial_2.author_name or template_translations.section_testimonial_cards_author_name_2.message }}",
+      "author_title": "{{ context.testimonials[1].author_title or scaffold_content.group_testimonial_2.author_title or template_translations.section_testimonial_cards_author_title_2.message }}"
+    },
+    {
+      "quote": "{{ context.testimonials[2].quote or scaffold_content.group_testimonial_3.quote or template_translations.section_testimonial_cards_quote_3.message }}",
+      "author_name": "{{ context.testimonials[2].author_name or scaffold_content.group_testimonial_3.author_name or template_translations.section_testimonial_cards_author_name_3.message }}",
+      "author_title": "{{ context.testimonials[2].author_title or scaffold_content.group_testimonial_3.author_title or template_translations.section_testimonial_cards_author_title_3.message }}"
+    }
+  ]
+%}
+{% set testimonials_content = [] %}
+{% for testimonial in testimonials %}
+  {% do testimonials_content.append("<p>" ~ testimonial.quote ~ "</p><span><strong>" ~ testimonial.author_name ~ "</strong></span><br><span>" ~ testimonial.author_title ~ "</span>") %}
+{% endfor %}
+
+
+{# Section #}
+
+{% dnd_section
+  background_color={{ context.background_color }}
+  padding={
+    "top": context.vertical_spacing or section_vertical_spacing_medium,
+    "bottom": context.vertical_spacing or section_vertical_spacing_medium
+  }
+%}
+  {% dnd_column %}
+    {% dnd_row %}
+      {% dnd_module
+        path="../components/modules/Card",
+        imageOrIcon="image",
+        groupCards=[
+          {
+            "groupIcon": {
+              "icon": {
+                "name": ""
+              }
+            },
+            "groupImage": {
+              "image": {
+                "alt": "",
+                "loading": "lazy",
+                "max_height": context.image.height or scaffold_content.group_testimonial_1.customer_logo.height or 31,
+                "max_width": context.image.width or scaffold_content.group_testimonial_1.customer_logo.width or 160,
+                "size_type": "auto_custom_max",
+                "src": context.testimonials[0].image or scaffold_content.group_testimonial_1.customer_logo.src or get_asset_url("../images/reviluxify-dark.png")
+              }
+            },
+            "groupContent": {
+              "richTextContentHTML": testimonials_content[0]|render
+            },
+            "groupButton": {
+              "showButton": false
+            }
+          },
+          {
+            "groupIcon": {
+              "icon": {
+                "name": ""
+              }
+            },
+            "groupImage": {
+              "image": {
+                "alt": "",
+                "loading": "lazy",
+                "max_height": context.image.height or scaffold_content.group_testimonial_2.customer_logo.height or 30,
+                "max_width": context.image.width or scaffold_content.group_testimonial_2.customer_logo.width or 160,
+                "size_type": "auto_custom_max",
+                "src": context.testimonials[0].image or scaffold_content.group_testimonial_2.customer_logo.src or get_asset_url("../images/zyntellix-dark.png")
+              }
+            },
+            "groupContent": {
+              "richTextContentHTML": testimonials_content[1]|render
+            },
+            "groupButton": {
+              "showButton": false
+            }
+          },
+          {
+            "groupIcon": {
+              "icon": {
+                "name": ""
+              }
+            },
+            "groupImage": {
+              "image": {
+                "alt": "",
+                "loading": "lazy",
+                "max_height": context.image.height or scaffold_content.group_testimonial_3.customer_logo.height or 30,
+                "max_width": context.image.width or scaffold_content.group_testimonial_3.customer_logo.width or 160,
+                "size_type": "auto_custom_max",
+                "src": context.testimonials[0].image or scaffold_content.group_testimonial_3.customer_logo.src or get_asset_url("../images/crypturon-dark.png")
+              }
+            },
+            "groupContent": {
+              "richTextContentHTML": testimonials_content[2]|render
+            },
+            "groupButton": {
+              "showButton": false
+            }
+          }
+        ],
+        groupStyle={
+          "groupContent": {
+            "alignment": {
+              "horizontal_align": "CENTER"
+            }
+          }
+        }
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}

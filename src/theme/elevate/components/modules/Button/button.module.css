@@ -1,0 +1,25 @@
+.hs-elevate-button-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: var(--hsElevate--buttons__alignment, flex-start);
+  gap: var(--hsElevate--buttons__gap);
+}
+
+.hs-elevate-button-wrapper--bootstrap {
+  container-type: inline-size;
+}
+
+.hs-elevate-button-wrapper--bootstrap .hs-elevate-button-container {
+  @container (width <= 400px) {
+    flex-direction: column;
+    align-items: var(--hsElevate--buttons__alignment, flex-start);
+  }
+}
+
+.hs-elevate-button-wrapper--grids .hs-elevate-button-container {
+  @media (width <= 768px) {
+    flex-direction: column;
+    align-items: var(--hsElevate--buttons__alignment, flex-start);
+  }
+}

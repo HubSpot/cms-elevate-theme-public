@@ -1,0 +1,12 @@
+[
+  {
+    "name": "heading",
+    "type": "text",
+    "description": "A heading that shows above recent blog post cards."
+  },
+  {
+    "name": "anchor",
+    "type": "anchor",
+    "description": "An anchor id for the recent blog posts section"
+  }
+]

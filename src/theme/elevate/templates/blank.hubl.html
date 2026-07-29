@@ -1,0 +1,14 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Blank
+  screenshotPath: ../images/template-previews/blank.png
+-->
+{% extends "./layouts/base.hubl.html" %}
+
+{% block body %}
+  {% dnd_area "dnd_area"
+    label="Main section"
+  %}
+  {% end_dnd_area %}
+{% endblock body %}

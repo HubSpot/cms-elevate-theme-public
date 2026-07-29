@@ -1,0 +1,226 @@
+{% set primary_button = theme.group_elements.group_button_types.group_primary_button %}
+{% set secondary_button = theme.group_elements.group_button_types.group_secondary_button %}
+{% set tertiary_button = theme.group_elements.group_button_types.group_tertiary_button %}
+{% set accent_button = theme.group_elements.group_button_types.group_accent_button %}
+
+:root {
+  /* Primary button variables  */
+  --hsElevate--button--primary__buttonFill: {{ primary_button.button_fill }};
+
+  /* Primary button font */
+  --hsElevate--button--primary__font: {{ primary_button.group_text.text.font }};
+  /*
+    TODO: Look into why primary_button.text.size ~ primary_button.text.size_unit
+    is not evaluating to the correct size_unit, but can still take in px
+  */
+  --hsElevate--button--primary__fontSize: {{ primary_button.group_text.text.size / base_size ~ "rem" }};
+  --hsElevate--button--primary__fontWeight: {{ primary_button.group_text.text.styles["font-weight"] }};
+  --hsElevate--button--primary__fontStyle: {{ primary_button.group_text.text.styles["font-style"] }};
+
+  /* Primary button text color */
+  --hsElevate--button--primary__textColor: {{ primary_button.group_default_state.text_color.color }};
+  --hsElevate--button--primary__hover--textColor: {{ primary_button.group_hover_state.text_color.color }};
+
+  /* Primary button shape */
+  {% if primary_button.button_fill == "filled" %}
+    {% set shape_field = primary_button.shape_filled %}
+  {% else %}
+    {% set shape_field = primary_button.shape_unfilled %}
+  {% endif %}
+
+  {% if shape_field == "pill" %}
+    --hsElevate--button--primary__borderRadius: 50px;
+  {% elif shape_field == "rounded" %}
+    --hsElevate--button--primary__borderRadius: 8px;
+  {% elif shape_field == "rectangle" %}
+    --hsElevate--button--primary__borderRadius: 0;
+  {% endif %}
+
+  /* Primary button background color */
+  {% if primary_button.button_fill == "filled" %}
+    --hsElevate--button--primary__backgroundColor: {{ primary_button.group_default_state.fill_color.color }};
+    --hsElevate--button--primary__hover--backgroundColor: {{ primary_button.group_hover_state.fill_color.color }};
+    {% set primary_button_active_background_color = color_variant(primary_button.group_hover_state.fill_color.color, -30) %}
+    --hsElevate--button--primary__active--backgroundColor: {{ primary_button_active_background_color }};
+
+  {% elif primary_button.button_fill == "no_fill" %}
+    --hsElevate--button--primary__backgroundColor: transparent;
+    --hsElevate--button--primary__hover--backgroundColor: transparent;
+    {% set primary_button_active_border_color = "transparent" %}
+  {% endif %}
+
+  /* Primary button border */
+  --hsElevate--button--primary__borderThickness: {{ primary_button.border_thickness ~ "px" }};
+  --hsElevate--button--primary__hover--borderThickness: {{ primary_button.border_thickness ~ "px" }};
+
+  {% if primary_button.border_thickness > 0 %}
+    --hsElevate--button--primary__borderColor: {{ primary_button.group_default_state.border_color.color }};
+    --hsElevate--button--primary__hover--borderColor: {{ primary_button.group_hover_state.border_color.color }};
+    {% set primary_button_active_border_color = color_variant(primary_button.group_hover_state.border_color.color, -30) %}
+    --hsElevate--button--primary__active--borderColor: {{ primary_button_active_border_color }};
+  {% else %}
+  --hsElevate--button--primary__borderColor: transparent;
+  --hsElevate--button--primary__hover--borderColor: transparent;
+  {% endif %}
+
+  /* Secondary button variables  */
+  --hsElevate--button--secondary__buttonFill: {{ secondary_button.button_fill }};
+
+  /* Secondary button font */
+  --hsElevate--button--secondary__font: {{ secondary_button.group_text.text.font }};
+  --hsElevate--button--secondary__fontSize: {{ secondary_button.group_text.text.size / base_size ~ "rem" }};
+  --hsElevate--button--secondary__fontWeight: {{ secondary_button.group_text.text.styles["font-weight"] }};
+  --hsElevate--button--secondary__fontStyle: {{ secondary_button.group_text.text.styles["font-style"] }};
+
+  /* Secondary button text color */
+  --hsElevate--button--secondary__textColor: {{ secondary_button.group_default_state.text_color.color }};
+  --hsElevate--button--secondary__hover--textColor: {{ secondary_button.group_hover_state.text_color.color }};
+
+  /* Secondary button shape */
+  {% if secondary_button.button_fill == "filled" %}
+    {% set shape_field = secondary_button.shape_filled %}
+  {% else %}
+    {% set shape_field = secondary_button.shape_unfilled %}
+  {% endif %}
+
+  {% if shape_field == "pill" %}
+    --hsElevate--button--secondary__borderRadius: 50px;
+  {% elif shape_field == "rounded" %}
+    --hsElevate--button--secondary__borderRadius: 8px;
+  {% elif shape_field == "rectangle" %}
+    --hsElevate--button--secondary__borderRadius: 0;
+  {% endif %}
+
+  /* Secondary button background color */
+  {% if secondary_button.button_fill == "filled" %}
+    --hsElevate--button--secondary__backgroundColor: {{ secondary_button.group_default_state.fill_color.color }};
+    --hsElevate--button--secondary__hover--backgroundColor: {{ secondary_button.group_hover_state.fill_color.color }};
+    {% set secondary_button_active_background_color = color_variant(secondary_button.group_hover_state.fill_color.color, -30) %}
+
+  {% elif secondary_button.button_fill == "no_fill" %}
+    --hsElevate--button--secondary__backgroundColor: transparent;
+    --hsElevate--button--secondary__hover--backgroundColor: transparent;
+    {% set secondary_button_active_background_color = "transparent" %}
+  {% endif %}
+
+  /* Secondary button border */
+  --hsElevate--button--secondary__borderThickness: {{ secondary_button.border_thickness ~ "px" }};
+  --hsElevate--button--secondary__hover--borderThickness: {{ secondary_button.border_thickness ~ "px" }};
+
+  {% if secondary_button.border_thickness > 0 %}
+    --hsElevate--button--secondary__borderColor: {{ secondary_button.group_default_state.border_color.color }};
+    --hsElevate--button--secondary__hover--borderColor: {{ secondary_button.group_hover_state.border_color.color }};
+    {% set secondary_button_active_border_color = color_variant(secondary_button.group_hover_state.border_color.color, -30) %}
+  {% else %}
+    --hsElevate--button--secondary__borderColor: transparent;
+    --hsElevate--button--secondary__hover--borderColor: transparent;
+    {% set secondary_button_active_border_color = "transparent" %}
+  {% endif %}
+
+  /* Tertiary button variables  */
+  --hsElevate--button--tertiary__buttonFill: {{ tertiary_button.button_fill }};
+
+  /* Tertiary button font */
+  --hsElevate--button--tertiary__font: {{ tertiary_button.group_text.text.font }};
+  --hsElevate--button--tertiary__fontSize: {{ tertiary_button.group_text.text.size / base_size ~ "rem" }};
+  --hsElevate--button--tertiary__fontWeight: {{ tertiary_button.group_text.text.styles["font-weight"] }};
+  --hsElevate--button--tertiary__fontStyle: {{ tertiary_button.group_text.text.styles["font-style"] }};
+
+  /* Tertiary button text color */
+  --hsElevate--button--tertiary__textColor: {{ tertiary_button.group_default_state.text_color.color }};
+  --hsElevate--button--tertiary__hover--textColor: {{ tertiary_button.group_hover_state.text_color.color }};
+
+  /* Tertiary button shape */
+  {% if tertiary_button.button_fill == "filled" %}
+    {% set shape_field = tertiary_button.shape_filled %}
+  {% else %}
+    {% set shape_field = tertiary_button.shape_unfilled %}
+  {% endif %}
+
+  {% if shape_field == "pill" %}
+    --hsElevate--button--tertiary__borderRadius: 50px;
+  {% elif shape_field == "rounded" %}
+    --hsElevate--button--tertiary__borderRadius: 8px;
+  {% elif shape_field == "rectangle" %}
+    --hsElevate--button--tertiary__borderRadius: 0;
+  {% endif %}
+
+  /* Tertiary button background color */
+  {% if tertiary_button.button_fill == "filled" %}
+    --hsElevate--button--tertiary__backgroundColor: {{ tertiary_button.group_default_state.fill_color.color }};
+    --hsElevate--button--tertiary__hover--backgroundColor: {{ tertiary_button.group_hover_state.fill_color.color }};
+    {% set tertiary_button_active_background_color = color_variant(tertiary_button.group_hover_state.fill_color.color, -30) %}
+
+  {% elif tertiary_button.button_fill == "no_fill" %}
+    --hsElevate--button--tertiary__backgroundColor: transparent;
+    --hsElevate--button--tertiary__hover--backgroundColor: transparent;
+    {% set tertiary_button_active_border_color = "transparent" %}
+  {% endif %}
+
+  /* Tertiary button border */
+  --hsElevate--button--tertiary__borderThickness: {{ tertiary_button.border_thickness ~ "px" }};
+  --hsElevate--button--tertiary__hover--borderThickness: {{ tertiary_button.border_thickness ~ "px" }};
+
+  {% if tertiary_button.border_thickness > 0 %}
+    --hsElevate--button--tertiary__borderColor: {{ tertiary_button.group_default_state.border_color.color }};
+    --hsElevate--button--tertiary__hover--borderColor: {{ tertiary_button.group_hover_state.border_color.color }};
+    {% set tertiary_button_active_border_color = color_variant(tertiary_button.group_hover_state.border_color.color, -30) %}
+  {% else %}
+    --hsElevate--button--tertiary__borderColor: transparent;
+    --hsElevate--button--tertiary__hover--borderColor: transparent;
+  {% endif %}
+
+  /* Accent button variables  */
+  --hsElevate--button--accent__buttonFill: {{ accent_button.button_fill }};
+
+  /* Accent button font */
+  --hsElevate--button--accent__font: {{ accent_button.group_text.text.font }};
+  --hsElevate--button--accent__fontSize: {{ accent_button.group_text.text.size / base_size ~ "rem" }};
+  --hsElevate--button--accent__fontWeight: {{ accent_button.group_text.text.styles["font-weight"] }};
+  --hsElevate--button--accent__fontStyle: {{ accent_button.group_text.text.styles["font-style"] }};
+
+  /* Accent button text color */
+  --hsElevate--button--accent__textColor: {{ accent_button.group_default_state.text_color.color }};
+  --hsElevate--button--accent__hover--textColor: {{ accent_button.group_hover_state.text_color.color }};
+
+  /* Accent button shape */
+  {% if accent_button.button_fill == "filled" %}
+    {% set shape_field = accent_button.shape_filled %}
+  {% else %}
+    {% set shape_field = accent_button.shape_unfilled %}
+  {% endif %}
+
+  {% if shape_field == "pill" %}
+    --hsElevate--button--accent__borderRadius: 50px;
+  {% elif shape_field == "rounded" %}
+    --hsElevate--button--accent__borderRadius: 8px;
+  {% elif shape_field == "rectangle" %}
+    --hsElevate--button--accent__borderRadius: 0;
+  {% endif %}
+
+  /* Accent button background color */
+  {% if accent_button.button_fill == "filled" %}
+    --hsElevate--button--accent__backgroundColor: {{ accent_button.group_default_state.fill_color.color }};
+    --hsElevate--button--accent__hover--backgroundColor: {{ accent_button.group_hover_state.fill_color.color }};
+    {% set accent_button_active_background_color = color_variant(accent_button.group_hover_state.fill_color.color, -30) %}
+
+  {% elif accent_button.button_fill == "no_fill" %}
+    --hsElevate--button--accent__backgroundColor: transparent;
+    --hsElevate--button--accent__hover--backgroundColor: transparent;
+    {% set accent_button_active_border_color = "transparent" %}
+  {% endif %}
+
+  /* Accent button border */
+  --hsElevate--button--accent__borderThickness: {{ accent_button.border_thickness ~ "px" }};
+  --hsElevate--button--accent__hover--borderThickness: {{ accent_button.border_thickness ~ "px" }};
+
+  {% if accent_button.border_thickness > 0 %}
+    --hsElevate--button--accent__borderColor: {{ accent_button.group_default_state.border_color.color }};
+    --hsElevate--button--accent__hover--borderColor: {{ accent_button.group_hover_state.border_color.color }};
+    {% set accent_button_active_border_color = color_variant(accent_button.group_hover_state.border_color.color, -30) %}
+  {% else %}
+    --hsElevate--button--accent__borderColor: transparent;
+    --hsElevate--button--accent__hover--borderColor: transparent;
+  {% endif %}
+
+}

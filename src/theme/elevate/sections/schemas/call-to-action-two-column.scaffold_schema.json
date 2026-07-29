@@ -1,0 +1,27 @@
+[
+  {
+    "name": "heading",
+    "type": "text",
+    "description": "A heading that describes an action that someone should take."
+  },
+  {
+    "name": "paragraph_1",
+    "type": "text",
+    "description": "A couple of sentences that provide more information about the action that someone should take."
+  },
+  {
+    "name": "paragraph_2",
+    "type": "text",
+    "description": "A couple of sentences that provide more information about the action that someone should take."
+  },
+  {
+    "name": "button_text",
+    "type": "text",
+    "description": "The button text that describes the call to action the user should take."
+  },
+  {
+    "name": "button_link",
+    "type": "link",
+    "description": "The destination URL for the call to action button."
+  }
+]

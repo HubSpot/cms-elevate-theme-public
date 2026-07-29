@@ -1,0 +1,14 @@
+{% set base_colors = theme.group_foundation.group_colors.group_base_colors %}
+{% set accent_colors = theme.group_foundation.group_colors.group_accent_colors %}
+
+:root {
+  /* Base colors */
+  --hsElevate--color--base--1: {{ base_colors.color_1.color }};
+  --hsElevate--color--base--2: {{ base_colors.color_2.color }};
+  --hsElevate--color--base--3: {{ base_colors.color_3.color }};
+
+  /* Accent colors */
+  --hsElevate--color--accent--1: {{ accent_colors.color_1.color }};
+  --hsElevate--color--accent--2: {{ accent_colors.color_2.color }};
+  --hsElevate--color--accent--3: {{ accent_colors.color_3.color }};
+}

@@ -1,0 +1,116 @@
+[
+  {
+    "name": "group_hero",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Main heading for the hero section (h1). Should introduce the event in 3-5 words."
+      },
+      {
+        "name": "subheading",
+        "type": "text",
+        "description": "A short supporting sentence or blurb for the hero section."
+      },
+      {
+        "name": "video_thumbnail",
+        "type": "image",
+        "description": "Thumbnail image for the hero video."
+      }
+    ]
+  },
+  {
+    "name": "group_form",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Heading for the registration form section (h2)."
+      },
+      {
+        "name": "event_date",
+        "type": "text",
+        "description": "Event date (e.g., 'August 4-11, 2025')."
+      },
+      {
+        "name": "event_location",
+        "type": "text",
+        "description": "Event location (e.g., 'Madrid, Spain')."
+      },
+      {
+        "name": "body",
+        "type": "text",
+        "description": "Short description or instructions for the registration form."
+      },
+      {
+        "name": "form",
+        "type": "form",
+        "description": "The HubSpot form to embed for event registration."
+      }
+    ]
+  },
+  {
+    "name": "group_gallery",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Heading for the event gallery section (h2)."
+      },
+      {
+        "name": "subheading",
+        "type": "text",
+        "description": "Short supporting text for the gallery section."
+      },
+      {
+        "name": "image_1",
+        "type": "image",
+        "description": "First image to display in the event gallery. Should have src and alt text."
+      },
+      {
+        "name": "image_2",
+        "type": "image",
+        "description": "Second image to display in the event gallery. Should have src and alt text."
+      },
+      {
+        "name": "image_3",
+        "type": "image",
+        "description": "Third image to display in the event gallery. Should have src and alt text."
+      }
+    ]
+  },
+  {
+    "name": "group_cta",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Heading for the call-to-action section."
+      },
+      {
+        "name": "body",
+        "type": "text",
+        "description": "Supporting text for the CTA section."
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "Text to display on the CTA button."
+      },
+      {
+        "name": "button_link",
+        "type": "link",
+        "description": "URL or anchor for the CTA button."
+      },
+      {
+        "name": "image",
+        "type": "image",
+        "description": "Image to display in the CTA section."
+      }
+    ]
+  }
+]

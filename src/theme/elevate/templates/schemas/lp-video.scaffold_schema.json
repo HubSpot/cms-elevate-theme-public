@@ -1,0 +1,261 @@
+[
+  {
+    "name": "group_banner",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes the page, which is a landing page about an upcoming event."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A few sentences that describes the page, which is a landing page about an upcoming event."
+      },
+      {
+        "name": "form",
+        "type": "form",
+        "description": "This is a form that is related to the focus of the page."
+      }
+    ]
+  },
+  {
+    "name": "group_logos",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that goes over a group of customer logos who use the product."
+      }
+    ]
+  },
+  {
+    "name": "group_image_and_text",
+    "type": "group",
+    "children": [
+      {
+        "name": "image",
+        "type": "image",
+        "description": "An image that shows a photo from the event.",
+        "width": 590,
+        "height": 590
+      },
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes some of the highlights of the event."
+      },
+      {
+        "name": "bullet_intro",
+        "type": "text",
+        "description": "A heading labeling the bullet point section below which covers some of the highlights of the event."
+      },
+      {
+        "name": "bullet_one",
+        "type": "text",
+        "description": "A short but descriptive bullet point related to the first highlight of the event."
+      },
+      {
+        "name": "bullet_two",
+        "type": "text",
+        "description": "A short but descriptive bullet point related to the second highlight of the event."
+      },
+      {
+        "name": "bullet_three",
+        "type": "text",
+        "description": "A short but descriptive bullet point related to the third highlight of the event."
+      }
+    ]
+  },
+  {
+    "name": "group_metrics",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes the video."
+      },
+      {
+        "name": "group_metric_one",
+        "type": "group",
+        "children": [
+          {
+            "name": "value",
+            "type": "text",
+            "description": "A statistic related to the event. For example, '200' or '90%'."
+          },
+          {
+            "name": "label",
+            "type": "text",
+            "description": "The label associated with the metric_value such as 'number of attendees' or 'satisfaction rate'."
+          }
+        ]
+      },
+      {
+        "name": "group_metric_two",
+        "type": "group",
+        "children": [
+          {
+            "name": "value",
+            "type": "text",
+            "description": "A statistic related to the event. For example, '200' or '90%'."
+          },
+          {
+            "name": "label",
+            "type": "text",
+            "description": "The label associated with the metric_value such as 'number of attendees' or 'satisfaction rate'."
+          }
+        ]
+      },
+      {
+        "name": "group_metric_three",
+        "type": "group",
+        "children": [
+          {
+            "name": "value",
+            "type": "text",
+            "description": "A statistic related to the event. For example, '200' or '90%'."
+          },
+          {
+            "name": "label",
+            "type": "text",
+            "description": "The label associated with the metric_value such as 'number of attendees' or 'satisfaction rate'."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "group_video",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes the video."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A few sentences that provide more detail about the video."
+      },
+      {
+        "name": "thumbnail",
+        "type": "image",
+        "description": "A thumbnail image that would be a placeholder for the video that would go on this part of the page.",
+        "width": 1239,
+        "height": 708
+      }
+    ]
+  },
+  {
+    "name": "group_faqs",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "The heading that shows above a group of frequently asked questions."
+      },
+      {
+        "name": "group_faq_one",
+        "type": "group",
+        "children": [
+          {
+            "name": "question",
+            "type": "text",
+            "description": "The first frequently asked question that the customer might have."
+          },
+          {
+            "name": "answer",
+            "type": "text",
+            "description": "The answer to the first frequently asked question that the customer might have."
+          }
+        ]
+      },
+      {
+        "name": "group_faq_two",
+        "type": "group",
+        "children": [
+          {
+            "name": "question",
+            "type": "text",
+            "description": "The second frequently asked question that the customer might have."
+          },
+          {
+            "name": "answer",
+            "type": "text",
+            "description": "The answer to the second frequently asked question that the customer might have."
+          }
+        ]
+      },
+      {
+        "name": "group_faq_three",
+        "type": "group",
+        "children": [
+          {
+            "name": "question",
+            "type": "text",
+            "description": "The third frequently asked question that the customer might have."
+          },
+          {
+            "name": "answer",
+            "type": "text",
+            "description": "The answer to the third frequently asked question that the customer might have."
+          }
+        ]
+      },
+      {
+        "name": "group_faq_four",
+        "type": "group",
+        "children": [
+          {
+            "name": "question",
+            "type": "text",
+            "description": "The fourth frequently asked question that the customer might have."
+          },
+          {
+            "name": "answer",
+            "type": "text",
+            "description": "The answer to the fourth frequently asked question that the customer might have."
+          }
+        ]
+      },
+      {
+        "name": "group_faq_five",
+        "type": "group",
+        "children": [
+          {
+            "name": "question",
+            "type": "text",
+            "description": "The fifth frequently asked question that the customer might have."
+          },
+          {
+            "name": "answer",
+            "type": "text",
+            "description": "The answer to the fifth frequently asked question that the customer might have."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "group_call_to_action",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes an action that someone should take."
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "The button text that describes the call to action the user should take."
+      }
+    ]
+  }
+]

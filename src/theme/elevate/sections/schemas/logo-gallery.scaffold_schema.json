@@ -1,0 +1,60 @@
+[
+  {
+    "name": "heading",
+    "type": "text",
+    "description": "A heading that goes over a group of customer logos who use the product."
+  },
+  {
+    "name": "anchor",
+    "type": "anchor",
+    "description": "An anchor id for the logo gallery section"
+  },
+  {
+    "name": "group_logos",
+    "type": "group",
+    "children": [
+      {
+        "name": "logo_one",
+        "type": "image",
+        "description": "First company logo",
+        "width": 200,
+        "height": 200
+      },
+      {
+        "name": "logo_two",
+        "type": "image",
+        "description": "Second company logo",
+        "width": 200,
+        "height": 200
+      },
+      {
+        "name": "logo_three",
+        "type": "image",
+        "description": "Third company logo",
+        "width": 200,
+        "height": 200
+      },
+      {
+        "name": "logo_four",
+        "type": "image",
+        "description": "Fourth company logo",
+        "width": 200,
+        "height": 200
+      },
+      {
+        "name": "logo_five",
+        "type": "image",
+        "description": "Fifth company logo",
+        "width": 200,
+        "height": 200
+      },
+      {
+        "name": "logo_six",
+        "type": "image",
+        "description": "Sixth company logo",
+        "width": 200,
+        "height": 200
+      }
+    ]
+  }
+]

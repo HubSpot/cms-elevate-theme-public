@@ -1,0 +1,208 @@
+/***** EMAIL BACKUP UNSUBSCRIBE *****/
+
+/* Makes h2/h3 appear as paragraph content */
+.hs-elevate-backup-unsubscribe :is(h2, h3) {
+  color: var(--hsElevate--section--lightSection--1__textColor);
+  font-family: var(--hsElevate--body__font);
+  font-size: var(--hsElevate--body__fontSize);
+  font-style: var(--hsElevate--body__fontStyle);
+  font-weight: var(--hsElevate--body__fontWeight) !important;
+  line-height: var(--hsElevate--body__lineHeight);
+}
+
+/***** EMAIL SUBSCRIPTION CONFIRMATION *****/
+
+/* Removes spacing on blank h1 */
+.hs-elevate-email-subscription-confirmation h1 {
+  margin-block-end: 0;
+}
+
+.hs-elevate-email-subscription-confirmation p {
+  font-size: var(--hsElevate--body--large__fontSize);
+  font-weight: bold;
+  margin-block-end: 0;
+}
+
+.hs-elevate-system-form--confirmation form {
+  margin-block-start: var(--hsElevate--spacing--32);
+}
+
+#hs-subscriptions-unsubscribe-survey-legend {
+  margin-block-end: var(--hsf-module__vertical-spacing);
+  text-align: left;
+}
+
+#hs-subscriptions-unsubscribe-survey-options {
+  margin-block-end: var(--hsf-row__vertical-spacing);
+  text-align: left;
+}
+
+#hs-subscriptions-unsubscribe-survey-options label {
+  align-items: center;
+}
+
+#hs-subscriptions-unsubscribe-survey-options input[type="radio"] {
+  flex-shrink: 0;
+}
+
+/***** EMAIL SUBSCRIPTION PREFERENCES *****/
+
+/* Allows for email to show above the form without form styles */
+.hs-elevate-system-form--subscription-preferences form {
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+/* Hides spacing on blank h1 */
+.hs-elevate-system-form--subscription-preferences .page-header h1 {
+  margin-block-end: 0;
+}
+
+/* Makes email appear visually larger */
+.hs-elevate-system-form--subscription-preferences .page-header p {
+  font-size: var(--hsElevate--body--large__fontSize);
+  font-weight: bold;
+  margin-block-end: 0;
+}
+
+/* Removes spacing on "choose which emails" line */
+.hs-elevate-system-form--subscription-preferences .email-prefs .header {
+  margin-block-end: 0;
+}
+
+/* Allows alignment of input + labels to be even */
+.hs-elevate-system-form--subscription-preferences input[type='checkbox'] {
+  vertical-align: middle;
+}
+
+.hs-elevate-system-form--subscription-preferences .fakelabel {
+  display: inline-block;
+  padding-inline-start: 2.5rem;
+  text-indent: -2.5rem;
+}
+
+.hs-elevate-system-form--subscription-preferences .item p {
+  margin-inline-start : 2.5rem;
+}
+
+/* Applies spacing between items */
+.hs-elevate-system-form--subscription-preferences .item {
+  margin-block: calc(var(--hsElevate--formField__marginBottom) / 2);
+}
+
+.hs-elevate-system-form--subscription-preferences .item:last-of-type {
+  margin-block-end: 0;
+}
+
+/* Applies styles to the global unsubscribe option so it visually stands out */
+.hs-elevate-system-form--subscription-preferences .subscribe-options {
+  border-top: 1px solid var(--hsElevate--form__borderColor);
+  margin-block: var(--hsElevate--formField__marginBottom);
+  padding-block-start: var(--hsElevate--formField__marginBottom);
+}
+
+.hs-elevate-system-form--subscription-preferences .subscribe-options p {
+  margin-block: 0;
+}
+
+/* Applies spacing under form */
+.hs-elevate-system-form--subscription-preferences {
+  margin-bottom: var(--hsElevate--spacing--32);
+}
+
+/* Applies button styles to delete and download data buttons */
+.hs-delete-data__button,
+.hs-download-data__button {
+  width: auto;
+  min-width: 45%;
+  border-color: var(--hsElevate--button--primary__borderColor);
+  border-radius: var(--hsElevate--button--primary__borderRadius);
+  border-style: solid;
+  border-width: var(--hsElevate--button--primary__borderThickness);
+  background-color: var(--hsElevate--button--primary__backgroundColor);
+  color: var(--hsElevate--button--primary__textColor);
+  font-family: var(--hsElevate--button--primary__font);
+  font-size: var(--hsElevate--button--primary__fontSize);
+  font-style: var(--hsElevate--button--primary__fontStyle);
+  font-weight: var(--hsElevate--button--primary__fontWeight);
+  text-decoration: none;
+}
+
+.hs-delete-data__button:hover,
+.hs-download-data__button:hover {
+  border-color: var(--hsElevate--button--primary__hover--borderColor);
+  border-width: var(--hsElevate--button--primary__hover--borderThickness);
+  background-color: var(--hsElevate--button--primary__hover--backgroundColor);
+  color: var(--hsElevate--button--primary__hover--textColor);
+  text-decoration: none;
+}
+
+.hs-delete-data__button:focus,
+.hs-download-data__button:focus {
+  outline: 2px solid #53ACFF;
+  outline-offset: 2px;
+}
+
+.hs-delete-data__button:active,
+.hs-download-data__button:active {
+  border-width: var(--hsElevate--button--primary__hover--borderThickness);
+  color: var(--hsElevate--button--primary__hover--textColor);
+  text-decoration: none;
+  background-color: {{ primary_button_active_background_color }};
+  border-color: {{ primary_button_active_border_color }};
+}
+
+/***** PASSWORD PROMPT *****/
+
+/* Resets some styles on the input to match other form field styles */
+.hs-elevate-system-form--password-prompt input[type='password'] {
+  height: auto !important;
+  margin-top: 0 !important;
+  margin-block-end: var(--hsElevate--formField__marginBottom);
+}
+
+/***** SEARCH RESULTS *****/
+
+/* Removes form wrapper styles */
+.hs-elevate-system-form--search form {
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+/* Allows search button to appear as part of the input */
+.hs-elevate-system-form--search input[type='search'] {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.hs-elevate-system-form--search .hs-search-field__button {
+  border-color: var(--hsElevate--button--primary__borderColor);
+  border-radius: 0 var(--hsElevate--formField__borderRadius) var(--hsElevate--formField__borderRadius) 0;
+  border-width: var(--hsElevate--formField__borderThickness);
+  background-color: var(--hsElevate--button--primary__backgroundColor);
+  padding-block: var(--hsElevate--spacing--20);
+  padding-inline: var(--hsElevate--spacing--24);
+  transition: all 0.15s linear;
+}
+
+.hs-elevate-system-form--search .hs-search-field__button svg {
+  fill: var(--hsElevate--button--primary__textColor);
+}
+
+.hs-elevate-system-form--search .hs-search-field__button:hover,
+.hs-elevate-system-form--search .hs-search-field__button:focus {
+  border-color: var(--hsElevate--button--primary__hover--borderColor);
+  background-color: var(--hsElevate--button--primary__hover--backgroundColor);
+}
+
+.hs-elevate-system-form--search .hs-search-field__button:hover svg,
+.hs-elevate-system-form--search .hs-search-field__button:focus svg {
+  fill: var(--hsElevate--button--primary__hover--textColor);
+}
+
+/* Adds spacing between form and results information */
+.hs-elevate-system-form--search {
+  margin-bottom: var(--hsElevate--spacing--32);
+}

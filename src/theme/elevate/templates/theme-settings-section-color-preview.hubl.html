@@ -1,0 +1,76 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Theme settings Section colors preview template
+-->
+{% extends "./layouts/base.hubl.html" %}
+
+{% block body %}
+
+  <div style="display: flex; flex-direction:column; align-items:center; gap: 30px; padding: 30px;">
+  <span>Note that borders are not linked to theme settings -- just to help visually contain the colors</span>
+    <div style="color: {{ light_section_1_text_color }}; background-color: {{ light_section_1_background_color }}; height: 200px; width: 100%; border: 1px solid black; display: flex; flex-direction: row; justify-content: space-around; align-items: center">
+      <h4>Section Color: Light 1</h4>
+      <div style="background-color: {{ light_section_1_accent_color }}; height: 100px; width: 100px; display: flex; align-items: center; text-align:center;">
+        <span>Accent Color</span>
+      </div>
+      <span style="color: {{ light_section_1_caption_color }}" class="hs-elevate-caption">Caption</span>
+      <blockquote style="
+        --hsElevate--blockquote__fontColor: {{ light_section_1_blockquote_text_color }};
+        --hsElevate--blockquote__backgroundColor: {{ light_section_1_blockquote_background_color }};
+        --hsElevate--blockquote__accentColor: {{ light_section_1_blockquote_accent_color }};
+      ">
+        “Blockquote”
+      </blockquote>
+    </div>
+
+    <div style="color: {{ light_section_2_text_color }}; background-color: {{ light_section_2_background_color }}; height: 200px; width: 100%; border: 1px solid black; display: flex; flex-direction: row; justify-content: space-around; align-items: center">
+      <h4>Section Color: Light 2</h4>
+      <div style="background-color: {{ light_section_2_accent_color }}; height: 100px; width: 100px; display: flex; align-items: center; text-align:center;">
+        <span>Accent Color</span>
+      </div>
+      <span style="color: {{ light_section_2_caption_color }}" class="hs-elevate--caption">Caption</span>
+      <blockquote style="
+        --hsElevate--blockquote__fontColor: {{ light_section_2_blockquote_text_color }};
+        --hsElevate--blockquote__backgroundColor: {{ light_section_2_blockquote_background_color }};
+        --hsElevate--blockquote__accentColor: {{ light_section_2_blockquote_accent_color }};
+      ">
+        “Blockquote”
+      </blockquote>
+    </div>
+
+    <div style="color: {{ light_section_3_text_color }}; background-color: {{ light_section_3_background_color }}; height: 200px; width: 100%; border: 1px solid black; display: flex; flex-direction: row; justify-content: space-around; align-items: center">
+      <h4>Section Color: Light 3</h4>
+      <div style="background-color: {{ light_section_3_accent_color }}; height: 100px; width: 100px; display: flex; align-items: center; text-align:center;">
+        <span>Accent Color</span>
+      </div>
+      <span style="color: {{ light_section_3_caption_color }}" class="hs-elevate--caption">Caption</span>
+      <blockquote style="background-color: {{ light_section_3_blockquote_background_color }}; color: {{ light_section_3_blockquote_text_color }}; border-left: 3px solid {{ light_section_3_blockquote_accent_color }};">
+        “Blockquote”
+      </blockquote>
+    </div>
+
+    <div style="color: {{ dark_section_1_text_color }}; background-color: {{ dark_section_1_background_color }}; height: 200px; width: 100%; border: 1px solid black; display: flex; flex-direction: row; justify-content: space-around; align-items: center">
+      <h4>Section Color: Dark 1</h4>
+      <div style="background-color: {{ dark_section_1_accent_color }}; height: 100px; width: 100px; display: flex; align-items: center; text-align:center;">
+        <span>Accent Color</span>
+      </div>
+      <span style="color: {{ dark_section_1_caption_color }}" class="hs-elevate--caption">Caption</span>
+      <blockquote style="
+        --hsElevate--blockquote__fontColor: {{ dark_section_1_blockquote_text_color }};
+        --hsElevate--blockquote__backgroundColor: {{ dark_section_1_blockquote_background_color }};
+        --hsElevate--blockquote__accentColor: {{ dark_section_1_blockquote_accent_color }};
+      ">
+        “Blockquote”
+      </blockquote>
+    </div>
+    <h4>Default Blockquote</h4>
+    <blockquote>
+      “Blockquote”
+    </blockquote>
+  </div>
+
+
+
+
+{% endblock body %}

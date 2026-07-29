@@ -1,0 +1,120 @@
+[
+  {
+    "name": "group_banner",
+    "type": "group",
+    "children": [
+      {
+        "name": "download_image",
+        "type": "image",
+        "description": "An image that displays the piece of content that a user would download on the thank you page.",
+        "width": 172,
+        "height": 301
+      },
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes the page, which is intended to allow the user to download a piece of content."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A few sentences that describe the piece of content the user will download."
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "The button text that describes the call to action the user should take which is downloading a piece of content."
+      },
+      {
+        "name": "button_link",
+        "type": "link",
+        "description": "The URL that a user should be taken to when they click the button."
+      }
+    ]
+  },
+  {
+    "name": "group_next_steps",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes the next steps that a user should take after downloading the piece of content."
+      },
+      {
+        "name": "subheading",
+        "type": "text",
+        "description": "A subheading that shows under the heading describing the next steps that a user should take after downloading the piece of content."
+      },
+      {
+        "name": "group_step_one",
+        "type": "group",
+        "children": [
+          {
+            "name": "image",
+            "type": "image",
+            "description": "An image that is related to the first step that the user should take after downloading the piece of content.",
+            "width": 140,
+            "height": 140
+          },
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "A heading that is related to the first step that the user should take after downloading the piece of content."
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "description": "A short one sentence description that is related to the first step that the user should take after downloading the piece of content."
+          }
+        ]
+      },
+      {
+        "name": "group_step_two",
+        "type": "group",
+        "children": [
+          {
+            "name": "image",
+            "type": "image",
+            "description": "An image that is related to the second step that the user should take after downloading the piece of content.",
+            "width": 140,
+            "height": 140
+          },
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "A heading that is related to the second step that the user should take after downloading the piece of content."
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "description": "A short one sentence description that is related to the second step that the user should take after downloading the piece of content."
+          }
+        ]
+      },
+      {
+        "name": "group_step_three",
+        "type": "group",
+        "children": [
+          {
+            "name": "image",
+            "type": "image",
+            "description": "An image that is related to the third step that the user should take after downloading the piece of content.",
+            "width": 140,
+            "height": 140
+          },
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "A heading that is related to the third step that the user should take after downloading the piece of content."
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "description": "A short one sentence description that is related to the third step that the user should take after downloading the piece of content."
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,143 @@
+<!--
+  templateType: section
+  label: Logo gallery
+  isAvailableForNewContent: true
+  landingPageSectionCategories: [SOCIAL_PROOF]
+  scaffoldSchemaPath: ./schemas/logo-gallery.scaffold_schema.json
+  goals: [GROW_PRESENCE]
+  screenshotPath: ../images/section-previews/logo-gallery.png
+  description: "Full size background color section with middle centered title with an grid of logos below."
+-->
+
+{#
+  Context variables
+    - section_variant: Determines the section variant style.
+    - logo_colors: Determines whether to use light or dark logos.
+    - background_color: Sets the background color of the section.
+    - content: Provides the content for the heading.
+#}
+
+{# Section variables #}
+
+{% set template_translations = load_translations("../templates/_locales", html_lang, "en") %}
+{% import "../helpers/variables.hubl.html" %}
+{% set section_variant = context.section_variant or "section_variant_1" %}
+
+{# Dynamically gets light/dark logos based on section context #}
+{% set light_logos = [
+  get_asset_url("../images/hexagontalxio-light.png"),
+  get_asset_url("../images/reviluxify-light.png"),
+  get_asset_url("../images/zyntellix-light.png"),
+  get_asset_url("../images/crypturon-light.png"),
+  get_asset_url("../images/spectroxium-light.png"),
+  get_asset_url("../images/lyraxionics-light.png")
+]
+%}
+{% set dark_logos = [
+  get_asset_url("../images/hexagontalxio-dark.png"),
+  get_asset_url("../images/reviluxify-dark.png"),
+  get_asset_url("../images/zyntellix-dark.png"),
+  get_asset_url("../images/crypturon-dark.png"),
+  get_asset_url("../images/spectroxium-dark.png"),
+  get_asset_url("../images/lyraxionics-dark.png")
+]
+%}
+
+{% if context.logo_colors == "light" %}
+  {% set logos = light_logos %}
+{% else %}
+  {% set logos = dark_logos %}
+{% endif %}
+
+{# Section #}
+
+{% dnd_section
+  background_color={{ context.background_color }},
+  padding={
+    "top": section_vertical_spacing_extra_small,
+    "bottom": section_vertical_spacing_extra_small
+  }
+%}
+  {% dnd_column %}
+    {% dnd_row %}
+      {% dnd_module
+        path="../components/modules/Anchor",
+        anchor={{ context.anchor_id or scaffold_content.anchor.anchor_id }}
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+    {% dnd_row %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module
+            path="../components/modules/RichText"
+            groupStyle={
+              "sectionStyleVariant": section_variant
+            }
+          %}
+            {% module_attribute "richTextContentHTML" %}
+              <div style="text-align: center;">
+                <p>{{ context.content or scaffold_content.heading or template_translations.section_logo_gallery_heading.message }}</p>
+              </div>
+            {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+        {% dnd_row %}
+          {% dnd_module
+            path="@hubspot/logo_grid",
+            styles={
+              "group_logo_grid": {
+                "column_count": 6,
+              }
+            },
+            group_logos=[
+              {
+                "logo": {
+                  "alt": scaffold_content.group_logos.logo_one.alt or "",
+                  "src": scaffold_content.group_logos.logo_one.src or logos[0],
+                  "loading": "eager"
+                }
+              },
+              {
+                "logo": {
+                  "alt": scaffold_content.group_logos.logo_two.alt or "",
+                  "src": scaffold_content.group_logos.logo_two.src or logos[1],
+                  "loading": "eager"
+                }
+              },
+              {
+                "logo": {
+                  "alt": scaffold_content.group_logos.logo_three.alt or "",
+                  "src": scaffold_content.group_logos.logo_three.src or logos[2],
+                  "loading": "eager"
+                }
+              },
+              {
+                "logo": {
+                  "alt": scaffold_content.group_logos.logo_four.alt or "",
+                  "src": scaffold_content.group_logos.logo_four.src or logos[3],
+                  "loading": "eager"
+                }
+              },
+              {
+                "logo": {
+                  "alt": scaffold_content.group_logos.logo_five.alt or "",
+                  "src": scaffold_content.group_logos.logo_five.src or logos[4],
+                  "loading": "eager"
+                }
+              },
+              {
+                "logo": {
+                  "alt": scaffold_content.group_logos.logo_six.alt or "",
+                  "src": scaffold_content.group_logos.logo_six.src or logos[5],
+                  "loading": "eager"
+                }
+              }
+            ]
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}

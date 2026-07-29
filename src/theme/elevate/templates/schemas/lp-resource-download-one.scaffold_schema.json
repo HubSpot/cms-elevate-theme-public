@@ -1,0 +1,305 @@
+[
+  {
+    "name": "group_hero_banner",
+    "type": "group",
+    "children": [
+      {
+        "name": "tag_line",
+        "type": "text",
+        "description": "A short tag line that introduces the resource being offered"
+      },
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "The main heading explaining what the resource is about"
+      },
+      {
+        "name": "paragraph",
+        "type": "text",
+        "description": "A paragraph that elaborates on the benefits of the resource"
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "Call-to-action text for downloading the resource"
+      },
+      {
+        "name": "button_link",
+        "type": "link",
+        "description": "URL that the hero CTA button links to."
+      },
+      {
+        "name": "image",
+        "type": "image",
+        "description": "Image representing the downloadable resource",
+        "width": "650",
+        "height": "650"
+      }
+    ]
+  },
+  {
+    "name": "group_features",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Main heading for the features section"
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A short description introducing the features of the resource"
+      },
+      {
+        "name": "image",
+        "type": "image",
+        "description": "Image illustrating the features of the resource",
+        "width": "372",
+        "height": "651"
+      },
+      {
+        "name": "group_feature_one",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "Heading for the first feature"
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Description of the first feature"
+          }
+        ]
+      },
+      {
+        "name": "group_feature_two",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "Heading for the second feature"
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Description of the second feature"
+          }
+        ]
+      },
+      {
+        "name": "group_feature_three",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "Heading for the third feature"
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Description of the third feature"
+          }
+        ]
+      },
+      {
+        "name": "group_feature_four",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "Heading for the fourth feature"
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Description of the fourth feature"
+          }
+        ]
+      },
+      {
+        "name": "group_feature_five",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "Heading for the fifth feature"
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Description of the fifth feature"
+          }
+        ]
+      },
+      {
+        "name": "group_feature_six",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "Heading for the sixth feature"
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Description of the sixth feature"
+          }
+        ]
+      },
+      {
+        "name": "group_feature_seven",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "Heading for the seventh feature"
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Description of the seventh feature"
+          }
+        ]
+      },
+      {
+        "name": "group_feature_eight",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "Heading for the eighth feature"
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Description of the eighth feature"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "group_faq",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Main heading for the FAQ section"
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A brief description introducing the FAQs"
+      },
+      {
+        "name": "image",
+        "type": "image",
+        "description": "Image to be displayed alongside the FAQ section",
+        "width": "552",
+        "height": "552"
+      },
+      {
+        "name": "question_one",
+        "type": "text",
+        "description": "First frequently asked question about the resource"
+      },
+      {
+        "name": "answer_one",
+        "type": "text",
+        "description": "Answer to the first frequently asked question about the resource"
+      },
+      {
+        "name": "question_two",
+        "type": "text",
+        "description": "Second frequently asked question about the resource"
+      },
+      {
+        "name": "answer_two",
+        "type": "text",
+        "description": "Answer to the second frequently asked question about the resource"
+      },
+      {
+        "name": "question_three",
+        "type": "text",
+        "description": "Third frequently asked question about the resource"
+      },
+      {
+        "name": "answer_three",
+        "type": "text",
+        "description": "Answer to the third frequently asked question about the resource"
+      },
+      {
+        "name": "question_four",
+        "type": "text",
+        "description": "Fourth frequently asked question about the resource"
+      },
+      {
+        "name": "answer_four",
+        "type": "text",
+        "description": "Answer to the fourth frequently asked question about the resource"
+      },
+      {
+        "name": "question_five",
+        "type": "text",
+        "description": "Fifth frequently asked question about the resource"
+      },
+      {
+        "name": "answer_five",
+        "type": "text",
+        "description": "Answer to the fifth frequently asked question about the resource"
+      },
+      {
+        "name": "question_six",
+        "type": "text",
+        "description": "Sixth frequently asked question about the resource"
+      },
+      {
+        "name": "answer_six",
+        "type": "text",
+        "description": "Answer to the sixth frequently asked question about the resource"
+      }
+    ]
+  },
+  {
+    "name": "group_cta",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Heading for the final call-to-action section"
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A brief description encouraging the user to download the resource"
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "Call-to-action button text for the final download prompt"
+      },
+      {
+        "name": "button_link",
+        "type": "link",
+        "description": "URL that the final CTA button links to."
+      }
+    ]
+  },
+  {
+    "name": "form",
+    "type": "form",
+    "description": "A form that users complete to download the resource"
+  }
+]

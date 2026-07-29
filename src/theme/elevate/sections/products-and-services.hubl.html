@@ -1,0 +1,256 @@
+<!--
+  templateType: section
+  label: Products and services
+  isAvailableForNewContent: true
+  landingPageSectionCategories: [PRODUCTS_AND_SERVICES]
+  scaffoldSchemaPath: ./schemas/products-and-services.scaffold_schema.json
+  screenshotPath: ../images/section-previews/products-and-services.png
+  description: "Section displaying products and services in a grid layout with cards."
+-->
+
+{#
+  Context Variables:
+    - section_variant: The variant of the section style.
+    - background_color: The background color of the section.
+    - heading: The heading for the section.
+    - card_variant: The card variant to use.
+    - cards[0-5].icon: The icon for each card.
+    - cards[0-5].heading: The heading for each card.
+    - cards[0-5].content: The content for each card.
+#}
+
+{# Section variables #}
+{% set template_translations = load_translations("../templates/_locales", html_lang, "en") %}
+{% import "../helpers/variables.hubl.html" %}
+{% set section_variant = context.section_variant or "section_variant_2" %}
+{% set card_variant = context.card_variant or "card_variant_1" %}
+
+{# Section #}
+{% dnd_section
+  background_color={{ context.background_color or light_section_2_background_color }}
+%}
+  {% dnd_column %}
+    {% dnd_row %}
+      {% dnd_module
+        path="../components/modules/Heading"
+        headingAndTextHeadingLevel="h2"
+        headingAndTextHeading={{ context.heading or scaffold_content.heading or template_translations.section_products_and_services_heading.message }}
+        groupStyle={
+          "alignment": {
+            "text_align": "CENTER"
+          },
+          "headingStyleVariant": "h2",
+          "sectionStyleVariant": section_variant
+        }
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+    {% dnd_row
+      padding={
+        "bottom": spacing_32
+      }
+    %}
+      {% dnd_module
+        path="../components/modules/Card",
+        groupCards=[
+          {
+            "groupImage": {
+              "image": {
+                "src": get_asset_url("../images/newsletter.png"),
+                "alt": "",
+                "loading": "lazy",
+                "size_type": "auto_custom_max"
+              }
+            },
+            "groupIcon": {
+              "icon": {
+                "name": context.cards[0].icon or "circle-check",
+                "type": "SOLID"
+              }
+            },
+            "groupContent": {
+              "headingAndTextHeadingLevel": "h3",
+              "headingAndTextHeading": context.cards[0].heading or scaffold_content.group_card_one.heading or template_translations.section_products_and_services_card_one_title.message,
+              "richTextContentHTML": context.cards[0].content or scaffold_content.group_card_one.content or template_translations.section_products_and_services_card_one_description.message
+            },
+            "groupButton": {
+              "showButton": false
+            }
+          },
+          {
+            "groupImage": {
+              "image": {
+                "src": get_asset_url("../images/newsletter.png"),
+                "alt": "",
+                "loading": "lazy",
+                "size_type": "auto_custom_max"
+              }
+            },
+            "groupIcon": {
+              "icon": {
+                "name": context.cards[1].icon or "circle-check",
+                "type": "SOLID"
+              }
+            },
+            "groupContent": {
+              "headingAndTextHeadingLevel": "h3",
+              "headingAndTextHeading": context.cards[1].heading or scaffold_content.group_card_two.heading or template_translations.section_products_and_services_card_two_title.message,
+              "richTextContentHTML": context.cards[1].content or scaffold_content.group_card_two.content or template_translations.section_products_and_services_card_two_description.message
+            },
+            "groupButton": {
+              "showButton": false
+            }
+          }
+        ]
+        groupStyle={
+          "groupCard": {
+            "cardStyleVariant": card_variant,
+            "cardOrientation": "column",
+          },
+          "groupContent": {
+            "headingStyleVariant": "h4"
+          }
+        }
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+    {% dnd_row
+      padding={
+        "bottom": spacing_32
+      }
+    %}
+      {% dnd_module
+        path="../components/modules/Card",
+        groupCards=[
+          {
+            "groupImage": {
+              "image": {
+                "src": get_asset_url("../images/newsletter.png"),
+                "alt": "",
+                "loading": "lazy",
+                "size_type": "auto_custom_max"
+              }
+            },
+            "groupIcon": {
+              "icon": {
+                "name": context.cards[2].icon or "circle-check",
+                "type": "SOLID"
+              }
+            },
+            "groupContent": {
+              "headingAndTextHeadingLevel": "h3",
+              "headingAndTextHeading": context.cards[2].heading or scaffold_content.group_card_three.heading or template_translations.section_products_and_services_card_three_title.message,
+              "richTextContentHTML": context.cards[2].content or scaffold_content.group_card_three.content or template_translations.section_products_and_services_card_three_description.message
+            },
+            "groupButton": {
+              "showButton": false
+            }
+          },
+          {
+            "groupImage": {
+              "image": {
+                "src": get_asset_url("../images/newsletter.png"),
+                "alt": "",
+                "loading": "lazy",
+                "size_type": "auto_custom_max"
+              }
+            },
+            "groupIcon": {
+              "icon": {
+                "name": context.cards[3].icon or "circle-check",
+                "type": "SOLID"
+              }
+            },
+            "groupContent": {
+              "headingAndTextHeadingLevel": "h3",
+              "headingAndTextHeading": context.cards[3].heading or scaffold_content.group_card_four.heading or template_translations.section_products_and_services_card_four_title.message,
+              "richTextContentHTML": context.cards[3].content or scaffold_content.group_card_four.content or template_translations.section_products_and_services_card_four_description.message
+            },
+            "groupButton": {
+              "showButton": false
+            }
+          }
+        ]
+        groupStyle={
+          "groupCard": {
+            "cardStyleVariant": card_variant,
+            "cardOrientation": "column"
+          },
+          "groupContent": {
+            "headingStyleVariant": "h4"
+          }
+        }
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+    {% dnd_row
+      padding={
+        "bottom": spacing_32
+      }
+    %}
+      {% dnd_module
+        path="../components/modules/Card",
+        groupCards=[
+          {
+            "groupImage": {
+              "image": {
+                "src": get_asset_url("../images/newsletter.png"),
+                "alt": "",
+                "loading": "lazy",
+                "size_type": "auto_custom_max"
+              }
+            },
+            "groupIcon": {
+              "icon": {
+                "name": context.cards[4].icon or "circle-check",
+                "type": "SOLID"
+              }
+            },
+            "groupContent": {
+              "headingAndTextHeadingLevel": "h3",
+              "headingAndTextHeading": context.cards[4].heading or scaffold_content.group_card_five.heading or template_translations.section_products_and_services_card_five_title.message,
+              "richTextContentHTML": context.cards[4].content or scaffold_content.group_card_five.content or template_translations.section_products_and_services_card_five_description.message
+            },
+            "groupButton": {
+              "showButton": false
+            }
+          },
+          {
+            "groupImage": {
+              "image": {
+                "src": get_asset_url("../images/newsletter.png"),
+                "alt": "",
+                "loading": "lazy",
+                "size_type": "auto_custom_max"
+              }
+            },
+            "groupIcon": {
+              "icon": {
+                "name": context.cards[5].icon or "circle-check",
+                "type": "SOLID"
+              }
+            },
+            "groupContent": {
+              "headingAndTextHeadingLevel": "h3",
+              "headingAndTextHeading": context.cards[5].heading or scaffold_content.group_card_six.heading or template_translations.section_products_and_services_card_six_title.message,
+              "richTextContentHTML": context.cards[5].content or scaffold_content.group_card_six.content or template_translations.section_products_and_services_card_six_description.message
+            },
+            "groupButton": {
+              "showButton": false
+            }
+          }
+        ]
+        groupStyle={
+          "groupCard": {
+            "cardStyleVariant": card_variant,
+            "cardOrientation": "column"
+          },
+          "groupContent": {
+            "headingStyleVariant": "h4"
+          }
+        }
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}

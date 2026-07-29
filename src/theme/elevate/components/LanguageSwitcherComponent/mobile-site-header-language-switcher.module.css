@@ -1,0 +1,99 @@
+.hs-elevate-site-header__language-switcher-container {
+  position: absolute;
+  z-index: 1030;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  height: 100%;
+  max-height: 75vh;
+  width: 100%;
+  border-top: 1px solid var(--hsElevate--languageSwitcher__hover--backgroundColor);
+  flex-direction: column;
+  background-color: var(--hsElevate--languageSwitcher__backgroundColor);
+  transform: translateY(calc(100% - 56px));
+  transition: transform 0.3s ease;
+}
+
+.hs-elevate-site-header__language-switcher-container--open {
+  transform: translateY(0);
+}
+
+.hs-elevate-site-header__language-switcher-button {
+  display: flex;
+  height: auto;
+  width: 100%;
+  padding: var(--hsElevate--spacing--16, 16px) var(--hsElevate--spacing--40, 40px);
+  border: none;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  color: var(--hsElevate--languageSwitcher__textColor);
+  cursor: pointer;
+  font-size: var(--hsElevate--heading--h5__fontSize, 18px);
+  font-weight: 600;
+  text-align: left;
+}
+
+.hs-elevate-site-header__language-switcher-button-content {
+  display: flex;
+  align-items: center;
+  gap: var(--hsElevate--spacing--12, 12px);
+
+  svg {
+    height: 20px;
+
+    path {
+      fill: currentcolor;
+    }
+  }
+}
+
+.hs-elevate-site-header__language-switcher-options-container {
+  display: flex;
+  overflow: hidden;
+  padding: var(--hsElevate--spacing--16, 16px) var(--hsElevate--spacing--40, 40px);
+  flex: 1;
+  flex-direction: column;
+  background-color: var(--hsElevate--languageSwitcher__backgroundColor);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  visibility: hidden;
+}
+
+.hs-elevate-site-header__language-switcher-container--open .hs-elevate-site-header__language-switcher-options-container {
+  opacity: 1;
+  visibility: visible;
+}
+
+.hs-elevate-site-header__language-switcher-select-language-label {
+  margin-bottom: var(--hsElevate--spacing--12, 12px);
+  flex-shrink: 0;
+  color: var(--hsElevate--languageSwitcher__textColor);
+  font-size: var(--hsElevate--heading--h6__fontSize, 14px);
+  font-weight: 600;
+}
+
+.hs-elevate-site-header__language-switcher-options-scroll-wrapper {
+  overflow-y: auto;
+  flex: 1;
+}
+
+.hs-elevate-site-header__language-switcher-overlay {
+  position: fixed;
+  z-index: 1025;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  visibility: hidden;
+}
+
+.hs-elevate-site-header__language-switcher-overlay--open {
+  opacity: 1;
+  visibility: visible;
+}

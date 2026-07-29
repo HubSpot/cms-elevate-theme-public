@@ -1,0 +1,97 @@
+.hs-elevate-language-switcher {
+  --hsElevate--languageSwitcher__slideInAnimationDuration: 0.3s;
+
+  position: relative;
+  display: inline-block;
+}
+
+.hs-elevate-language-switcher__button {
+  display: flex;
+  padding: var(--hsElevate--spacing--8, 8px) var(--hsElevate--spacing--12, 12px);
+  align-items: center;
+  background-color: transparent;
+  color: var(--hsElevate--languageSwitcher__textColor);
+  cursor: pointer;
+  font-size: var(--hsElevate--heading--h5__fontSize, 18px);
+  gap: var(--hsElevate--spacing--8, 8px);
+
+  svg {
+    height: 20px;
+
+    path {
+      fill: currentcolor;
+    }
+  }
+}
+
+.hs-elevate-language-switcher__side-panel {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  overflow-y: auto;
+  height: 100vh;
+  width: 400px;
+  background: var(--hsElevate--languageSwitcher__backgroundColor);
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 10%);
+  transform: translateX(100%);
+  transition: transform var(--hsElevate--languageSwitcher__slideInAnimationDuration) ease;
+
+  @media (width <= 400px) {
+    width: 100%;
+  }
+}
+
+.hs-elevate-language-switcher__side-panel--open {
+  transform: translateX(0);
+}
+
+.hs-elevate-language-switcher__side-panel-header {
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  display: flex;
+  padding: var(--hsElevate--spacing--24, 24px);
+  border-bottom: 1px solid var(--hsElevate--languageSwitcher__textColor);
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--hsElevate--languageSwitcher__backgroundColor);
+}
+
+.hs-elevate-language-switcher__side-panel-title {
+  margin: 0;
+  color: var(--hsElevate--languageSwitcher__textColor);
+  font-size: var(--hsElevate--heading--h4__fontSize, 24px);
+  font-weight: 600;
+}
+
+.hs-elevate-language-switcher__side-panel-close-button {
+  padding: var(--hsElevate--spacing--8, 8px);
+  border: none;
+  background: none;
+  color: var(--hsElevate--languageSwitcher__textColor);
+  cursor: pointer;
+}
+
+.hs-elevate-language-switcher__side-panel-options-container {
+  padding: var(--hsElevate--spacing--24, 24px);
+}
+
+.hs-elevate-language-switcher__overlay {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 30%);
+  opacity: 0;
+  transition: opacity var(--hsElevate--languageSwitcher__slideInAnimationDuration) ease,
+    visibility var(--hsElevate--languageSwitcher__slideInAnimationDuration) ease;
+  visibility: hidden;
+}
+
+.hs-elevate-language-switcher__overlay--open {
+  opacity: 1;
+  visibility: visible;
+}

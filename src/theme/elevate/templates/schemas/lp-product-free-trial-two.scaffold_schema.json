@@ -1,0 +1,347 @@
+[
+  {
+    "name": "group_hero_banner",
+    "type": "group",
+    "children": [
+      {
+        "name": "tag_line",
+        "type": "text",
+        "description": "A short tagline above the main heading in the hero banner."
+      },
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "The main headline that describes the product or offering."
+      },
+      {
+        "name": "paragraph",
+        "type": "text",
+        "description": "A short paragraph that provides more details about the product or offering."
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "Text for the call-to-action button in the hero section."
+      },
+      {
+        "name": "button_link",
+        "type": "link",
+        "description": "URL that the hero CTA button links to."
+      },
+      {
+        "name": "video",
+        "type": "group",
+        "children": [
+          {
+            "name": "thumbnail",
+            "type": "image",
+            "description": "Thumbnail image for the video that shows before playing.",
+            "width": "700",
+            "height": "400"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "group_highlights",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Heading for the features overview section."
+      },
+      {
+        "name": "group_highlight_one",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "Heading for the first feature highlight."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Description text for the first feature highlight."
+          }
+        ]
+      },
+      {
+        "name": "group_highlight_two",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "Heading for the second feature highlight."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Description text for the second feature highlight."
+          }
+        ]
+      },
+      {
+        "name": "group_highlight_three",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "Heading for the third feature highlight."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Description text for the third feature highlight."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "group_features",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Main heading for the detailed features section."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "Description text that introduces the detailed features."
+      },
+      {
+        "name": "image",
+        "type": "image",
+        "description": "Image that illustrates the product features.",
+        "width": "376",
+        "height": "658"
+      },
+      {
+        "name": "group_feature_one",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "Heading for the first detailed feature."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Description for the first detailed feature."
+          }
+        ]
+      },
+      {
+        "name": "group_feature_two",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "Heading for the second detailed feature."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Description for the second detailed feature."
+          }
+        ]
+      },
+      {
+        "name": "group_feature_three",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "Heading for the third detailed feature."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Description for the third detailed feature."
+          }
+        ]
+      },
+      {
+        "name": "group_feature_four",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "Heading for the fourth detailed feature."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Description for the fourth detailed feature."
+          }
+        ]
+      },
+      {
+        "name": "group_feature_five",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "Heading for the fifth detailed feature."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Description for the fifth detailed feature."
+          }
+        ]
+      },
+      {
+        "name": "group_feature_six",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "Heading for the sixth detailed feature."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Description for the sixth detailed feature."
+          }
+        ]
+      },
+      {
+        "name": "group_feature_seven",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "Heading for the seventh detailed feature."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Description for the seventh detailed feature."
+          }
+        ]
+      },
+      {
+        "name": "group_feature_eight",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "Heading for the eighth detailed feature."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Description for the eighth detailed feature."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "group_faq",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Heading for the frequently asked questions section."
+      },
+      {
+        "name": "group_faq_one",
+        "type": "group",
+        "children": [
+          {
+            "name": "title",
+            "type": "text",
+            "description": "Question for the first FAQ item."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Answer for the first FAQ item."
+          }
+        ]
+      },
+      {
+        "name": "group_faq_two",
+        "type": "group",
+        "children": [
+          {
+            "name": "title",
+            "type": "text",
+            "description": "Question for the second FAQ item."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Answer for the second FAQ item."
+          }
+        ]
+      },
+      {
+        "name": "group_faq_three",
+        "type": "group",
+        "children": [
+          {
+            "name": "title",
+            "type": "text",
+            "description": "Question for the third FAQ item."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Answer for the third FAQ item."
+          }
+        ]
+      },
+      {
+        "name": "group_faq_four",
+        "type": "group",
+        "children": [
+          {
+            "name": "title",
+            "type": "text",
+            "description": "Question for the fourth FAQ item."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Answer for the fourth FAQ item."
+          }
+        ]
+      },
+      {
+        "name": "group_faq_five",
+        "type": "group",
+        "children": [
+          {
+            "name": "title",
+            "type": "text",
+            "description": "Question for the fifth FAQ item."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Answer for the fifth FAQ item."
+          }
+        ]
+      }
+    ]
+  }
+]

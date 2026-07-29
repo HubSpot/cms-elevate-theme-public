@@ -1,0 +1,41 @@
+<!--
+  templateType: global_partial
+  subtype: header
+  screenshotPath: ../../images/template-previews/partials/header.png
+  label: Website header
+-->
+
+{# Partial variables #}
+
+{% set template_translations = load_translations('../_locales', html_lang, 'en') %}
+{% import "../../helpers/variables.hubl.html" %}
+
+{# Partial #}
+
+<header class="hs-elevate-header">
+
+  {# The link below is used for a navigation skipper which allows users navigating the site with their keyboard to skip over the site navigation #}
+  <a href="#main-content" class="hs-elevate-header__skip">{{ template_translations.partial_header_skip_to_content.message }}</a>
+
+  {% dnd_area "header" label="Header" %}
+    {% dnd_section
+      full_width=true,
+      vertical_alignment="MIDDLE"
+      padding={
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    %}
+      {% dnd_module
+        path="../../components/modules/SiteHeader",
+        groupNavigation={
+          "menu": "default"
+        }
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+  {% end_dnd_area %}
+
+</header>

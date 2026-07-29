@@ -1,0 +1,124 @@
+.hs-elevate-button:focus {
+  outline: 2px solid #53ACFF;
+  outline-offset: 2px;
+}
+
+.hs-elevate-button--primary {
+  font-family: var(--hsElevate--button--primary__font);
+  font-size: var(--hsElevate--button--primary__fontSize);
+  font-weight: var(--hsElevate--button--primary__fontWeight);
+  font-style: var(--hsElevate--button--primary__fontStyle);
+  color: var(--hsElevate--button--primary__textColor);
+  border-width: var(--hsElevate--button--primary__borderThickness);
+  background-color: var(--hsElevate--button--primary__backgroundColor);
+  border-style: solid;
+  border-color: var(--hsElevate--button--primary__borderColor);
+  border-radius: var(--hsElevate--button--primary__borderRadius);
+  text-decoration: none;
+}
+
+.hs-elevate-button--primary:hover {
+  color: var(--hsElevate--button--primary__hover--textColor);
+  background-color: var(--hsElevate--button--primary__hover--backgroundColor);
+  border-color: var(--hsElevate--button--primary__hover--borderColor);
+  border-width: var(--hsElevate--button--primary__hover--borderThickness);
+  text-decoration: none;
+}
+
+.hs-elevate-button--primary:active {
+  color: var(--hsElevate--button--primary__hover--textColor);
+  background-color: {{ primary_button_active_background_color }};
+  border-color: {{ primary_button_active_border_color }};
+  border-width: var(--hsElevate--button--primary__hover--borderThickness);
+  text-decoration: none;
+}
+
+.hs-elevate-button--secondary {
+  font-family: var(--hsElevate--button--secondary__font);
+  font-size: var(--hsElevate--button--secondary__fontSize);
+  font-weight: var(--hsElevate--button--secondary__fontWeight);
+  font-style: var(--hsElevate--button--secondary__fontStyle);
+  color: var(--hsElevate--button--secondary__textColor);
+  border-width: var(--hsElevate--button--secondary__borderThickness);
+  background-color: var(--hsElevate--button--secondary__backgroundColor);
+  border-style: solid;
+  border-color: var(--hsElevate--button--secondary__borderColor);
+  border-radius: var(--hsElevate--button--secondary__borderRadius);
+  text-decoration: none;
+}
+
+.hs-elevate-button--secondary:hover {
+  color: var(--hsElevate--button--secondary__hover--textColor);
+  background-color: var(--hsElevate--button--secondary__hover--backgroundColor);
+  border-color: var(--hsElevate--button--secondary__hover--borderColor);
+  border-width: var(--hsElevate--button--secondary__hover--borderThickness);
+  text-decoration: none;
+}
+
+.hs-elevate-button--secondary:active {
+  color: var(--hsElevate--button--secondary__hover--textColor);
+  background-color: {{ secondary_button_active_background_color }};
+  border-color: {{ secondary_button_active_border_color }};
+  border-width: var(--hsElevate--button--secondary__hover--borderThickness);
+  text-decoration: none;
+}
+
+.hs-elevate-button--tertiary {
+  font-family: var(--hsElevate--button--tertiary__font);
+  font-size: var(--hsElevate--button--tertiary__fontSize);
+  font-weight: var(--hsElevate--button--tertiary__fontWeight);
+  font-style: var(--hsElevate--button--tertiary__fontStyle);
+  color: var(--hsElevate--button--tertiary__textColor);
+  border-width: var(--hsElevate--button--tertiary__borderThickness);
+  background-color: var(--hsElevate--button--tertiary__backgroundColor);
+  border-style: solid;
+  border-color: var(--hsElevate--button--tertiary__borderColor);
+  border-radius: var(--hsElevate--button--tertiary__borderRadius);
+  text-decoration: none;
+}
+
+.hs-elevate-button--tertiary:hover {
+  color: var(--hsElevate--button--tertiary__hover--textColor);
+  background-color: var(--hsElevate--button--tertiary__hover--backgroundColor);
+  border-color: var(--hsElevate--button--tertiary__hover--borderColor);
+  border-width: var(--hsElevate--button--tertiary__hover--borderThickness);
+  text-decoration: none;
+}
+
+.hs-elevate-button--tertiary:active {
+  color: var(--hsElevate--button--tertiary__hover--textColor);
+  background-color: {{ tertiary_button_active_background_color }};
+  border-color: {{ tertiary_button_active_border_color }};
+  border-width: var(--hsElevate--button--tertiary__hover--borderThickness);
+  text-decoration: none;
+}
+
+.hs-elevate-button--accent {
+  font-family: var(--hsElevate--button--accent__font);
+  font-size: var(--hsElevate--button--accent__fontSize);
+  font-weight: var(--hsElevate--button--accent__fontWeight);
+  font-style: var(--hsElevate--button--accent__fontStyle);
+  color: var(--hsElevate--button--accent__textColor);
+  border-width: var(--hsElevate--button--accent__borderThickness);
+  background-color: var(--hsElevate--button--accent__backgroundColor);
+  border-style: solid;
+  border-color: var(--hsElevate--button--accent__borderColor);
+  border-radius: var(--hsElevate--button--accent__borderRadius);
+  text-decoration: none;
+}
+
+.hs-elevate-button--accent:hover {
+  color: var(--hsElevate--button--accent__hover--textColor);
+  background-color: var(--hsElevate--button--accent__hover--backgroundColor);
+  border-color: var(--hsElevate--button--accent__hover--borderColor);
+  border-width: var(--hsElevate--button--accent__hover--borderThickness);
+  text-decoration: none;
+}
+
+.hs-elevate-button--accent:active {
+  color: var(--hsElevate--button--accent__hover--textColor);
+  background-color: {{ accent_button_active_background_color }};
+  border-color: {{ accent_button_active_border_color }};
+  border-width: var(--hsElevate--button--accent__hover--borderThickness);
+  text-decoration: none;
+}

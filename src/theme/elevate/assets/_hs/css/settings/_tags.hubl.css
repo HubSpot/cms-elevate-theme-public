@@ -1,0 +1,42 @@
+{% set tags = theme.group_elements.group_tags %}
+
+:root {
+  /* Font */
+  --hsElevate--tag__font: {{ tags.group_text.font.font }};
+  --hsElevate--tag__fontColor: {{ tags.group_text.text_color.color }};
+  --hsElevate--tag__fontSize: {{ tags.group_text.font.size / base_size ~ "rem" }};
+  --hsElevate--tag__fontWeight: {{ tags.group_text.font.styles["font-weight"] }};
+  --hsElevate--tag__fontStyle: {{ tags.group_text.font.styles["font-style"] }};
+
+  /* Text colors */
+  --hsElevate--tag__textColor: {{ tags.group_colors.text_color.color }};
+
+  /* Background colors */
+  {% if tags.group_background.background == "filled" %}
+    --hsElevate--tag__backgroundColor: {{ tags.group_colors.fill_color.color }};
+  {% else %}
+    --hsElevate--tag__backgroundColor: transparent;
+  {% endif %}
+
+  /* Shape */
+  {% if tags.group_background.background == "filled" %}
+    {% set shape_field = tags.group_shape.shape_filled %}
+  {% else %}
+    {% set shape_field = tags.group_shape.shape_unfilled %}
+  {% endif %}
+
+  {% if shape_field == "pill" %}
+    --hsElevate--tag__borderRadius: 50px;
+  {% elif shape_field == "rounded" %}
+    --hsElevate--tag__borderRadius: 8px;
+  {% elif shape_field == "rectangle" %}
+    --hsElevate--tag__borderRadius: 0;
+  {% endif %}
+
+  /* Border thickness */
+  --hsElevate--tag__borderThickness: {{ tags.group_border.border_thickness ~ "px" }};
+  --hsElevate--tag__borderColor: {{ tags.group_colors.border_color.color }};
+
+  /* Case */
+  --hsElevate--tag__case: {{ tags.case }};
+}

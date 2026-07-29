@@ -1,0 +1,29 @@
+[
+  {
+    "name": "image",
+    "type": "image",
+    "description": "An image that is related to the action that someone should take.",
+    "width": 140,
+    "height": 140
+  },
+  {
+    "name": "heading",
+    "type": "text",
+    "description": "A heading that describes an action that someone should take."
+  },
+  {
+    "name": "button_text",
+    "type": "text",
+    "description": "The button text that describes the call to action the user should take."
+  },
+  {
+    "name": "button_link",
+    "type": "link",
+    "description": "The URL that a user should be taken to when they click the button."
+  },
+  {
+    "name": "anchor",
+    "type": "anchor",
+    "description": "An anchor id for the two column call to action section"
+  }
+]

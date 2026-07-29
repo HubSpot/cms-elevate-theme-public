@@ -1,0 +1,53 @@
+<!--
+  templateType: none
+-->
+<!DOCTYPE html>
+
+{# Translations for the template #}
+{% set template_translations = load_translations("../_locales", html_lang, "en") %}
+{# HubL variables used for template styles #}
+{% import "../../helpers/variables.hubl.html" %}
+
+<html lang="{{ html_lang }}" {{ html_lang_dir }}>
+  <head>
+    <meta charset="utf-8">
+    {% if page_meta.html_title %}
+      <title>{{ page_meta.html_title|sanitize_html('STRIP') }}</title>
+    {% endif %}
+    {% if brand_settings.favicon.src %}
+      <link rel="shortcut icon" href="{{ brand_settings.favicon.src|escape_url }}" />
+    {% endif %}
+    <meta name="description" content="{{ page_meta.meta_description }}" />
+    {{ require_css(get_asset_url("../../assets/dist/css/main.hubl.css")) }}
+    {# This is intended to be used if a template requires template specific style sheets #}
+    {% if template_css %}
+      {{ require_css(get_asset_url(template_css)) }}
+    {% endif %}
+    {# To see a full list of what is included via standard_header_includes please reference this article: https://developers.hubspot.com/docs/cms/hubl/variables#required-page-template-variables #}
+    {{ standard_header_includes }}
+  </head>
+  {# .theme-overrides is used to apply style field css variables #}
+  <body class="body-wrapper {{ builtin_body_classes }} theme-overrides">
+
+    {% block header %}
+      {% global_partial path="../partials/header.hubl.html" type="HEADER" %}
+    {% endblock header %}
+
+    {# The main-content ID is used for the navigation skipper in the header.html file #}
+    <main id="main-content">
+      {% block body %}
+      {% endblock body %}
+    </main>
+
+    {% block footer %}
+      {% global_partial path="../partials/footer.hubl.html" type="FOOTER" %}
+    {% endblock footer %}
+
+    {# This is intended to be used if a template requires template specific JavaScript files #}
+    {% if template_js %}
+      {{ require_js(get_asset_url(template_js)) }}
+    {% endif %}
+    {# To see a full list of what is included via standard_footer_includes please reference this article: https://developers.hubspot.com/docs/cms/hubl/variables#required-page-template-variables #}
+    {{ standard_footer_includes }}
+  </body>
+</html>

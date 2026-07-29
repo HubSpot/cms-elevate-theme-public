@@ -1,0 +1,24 @@
+[
+  {
+    "name": "heading",
+    "type": "text",
+    "description": "The main heading for the about section."
+  },
+  {
+    "name": "description",
+    "type": "text",
+    "description": "A description of your company, including background, industry, or recent successes. Two to four sentences recommended."
+  },
+  {
+    "name": "image",
+    "type": "image",
+    "description": "The main image to be displayed alongside the company description.",
+    "width": 700,
+    "height": 400
+  },
+  {
+     "name": "anchor",
+    "type": "anchor",
+    "description": "An anchor id for the about us section"
+  }
+]

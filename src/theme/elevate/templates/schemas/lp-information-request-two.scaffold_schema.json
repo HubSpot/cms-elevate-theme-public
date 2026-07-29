@@ -1,0 +1,434 @@
+[
+  {
+    "name": "group_hero_banner",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "The main heading that captures visitor attention and describes the information being offered."
+      },
+      {
+        "name": "content",
+        "type": "text",
+        "description": "Supporting text that provides more details about the information request offer."
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "Call-to-action text for the hero button."
+      },
+      {
+        "name": "button_link",
+        "type": "link",
+        "description": "URL that the hero CTA button links to."
+      }
+    ]
+  },
+  {
+    "name": "group_collaboration",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Heading for the collaboration benefits section."
+      },
+      {
+        "name": "content",
+        "type": "text",
+        "description": "Description of collaboration features and benefits."
+      },
+      {
+        "name": "collaboration_visual",
+        "type": "group",
+        "children": [
+          {
+            "name": "image",
+            "type": "image",
+            "description": "Image showcasing collaboration features.",
+            "width": 779,
+            "height": 779
+          }
+        ]
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "Button text for the collaboration section call-to-action."
+      },
+      {
+        "name": "button_link",
+        "type": "link",
+        "description": "URL that the collaboration button links to."
+      }
+    ]
+  },
+  {
+    "name": "group_content_creation",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Heading for the content creation benefits section."
+      },
+      {
+        "name": "content",
+        "type": "text",
+        "description": "Description of content creation features and benefits."
+      },
+      {
+        "name": "content_creation_visual",
+        "type": "group",
+        "children": [
+          {
+            "name": "image",
+            "type": "image",
+            "description": "Image showcasing content creation features.",
+            "width": 779,
+            "height": 779
+          }
+        ]
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "Button text for the content creation section call-to-action."
+      },
+      {
+        "name": "button_link",
+        "type": "link",
+        "description": "URL that the content creation button links to."
+      }
+    ]
+  },
+  {
+    "name": "group_multichannel",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Heading for the multichannel benefits section."
+      },
+      {
+        "name": "content",
+        "type": "text",
+        "description": "Description of multichannel features and benefits."
+      },
+      {
+        "name": "multichannel_image_visual",
+        "type": "group",
+        "children": [
+          {
+            "name": "image",
+            "type": "image",
+            "description": "Image showcasing multichannel features.",
+            "width": 779,
+            "height": 779
+          }
+        ]
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "Button text for the multichannel section call-to-action."
+      },
+      {
+        "name": "button_link",
+        "type": "link",
+        "description": "URL that the multichannel button links to."
+      }
+    ]
+  },
+  {
+    "name": "group_pricing",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Main heading for the pricing section."
+      },
+      {
+        "name": "group_pricing_starter",
+        "type": "group",
+        "children": [
+          {
+            "name": "name",
+            "type": "text",
+            "description": "Name of the starter pricing plan."
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "description": "Description of who the starter plan is suited for."
+          },
+          {
+            "name": "price",
+            "type": "text",
+            "description": "Price of the starter plan. An example of this would be '$10'."
+          },
+          {
+            "name": "time_period",
+            "type": "text",
+            "description": "Time period for the starter plan pricing. An example of this would be '/month'."
+          },
+          {
+            "name": "features_heading",
+            "type": "text",
+            "description": "Heading for the starter plan features list."
+          },
+          {
+            "name": "group_features",
+            "type": "group",
+            "children": [
+              {
+                "name": "feature_1",
+                "type": "text",
+                "description": "First feature of the starter plan."
+              },
+              {
+                "name": "feature_2",
+                "type": "text",
+                "description": "Second feature of the starter plan."
+              },
+              {
+                "name": "feature_3",
+                "type": "text",
+                "description": "Third feature of the starter plan."
+              },
+              {
+                "name": "feature_4",
+                "type": "text",
+                "description": "Fourth feature of the starter plan."
+              }
+            ]
+          },
+          {
+            "name": "button_text",
+            "type": "text",
+            "description": "Button text for the starter plan call-to-action."
+          },
+          {
+            "name": "button_link",
+            "type": "link",
+            "description": "URL that the starter plan button links to."
+          }
+        ]
+      },
+      {
+        "name": "group_pricing_pro",
+        "type": "group",
+        "children": [
+          {
+            "name": "name",
+            "type": "text",
+            "description": "Name of the pro pricing plan."
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "description": "Description of who the pro plan is suited for."
+          },
+          {
+            "name": "price",
+            "type": "text",
+            "description": "Price of the pro plan. An example of this would be '$25'."
+          },
+          {
+            "name": "time_period",
+            "type": "text",
+            "description": "Time period for the pro plan pricing. An example of this would be '/month'."
+          },
+          {
+            "name": "features_heading",
+            "type": "text",
+            "description": "Heading for the pro plan features list."
+          },
+          {
+            "name": "group_features",
+            "type": "group",
+            "children": [
+              {
+                "name": "feature_1",
+                "type": "text",
+                "description": "First feature of the pro plan."
+              },
+              {
+                "name": "feature_2",
+                "type": "text",
+                "description": "Second feature of the pro plan."
+              },
+              {
+                "name": "feature_3",
+                "type": "text",
+                "description": "Third feature of the pro plan."
+              },
+              {
+                "name": "feature_4",
+                "type": "text",
+                "description": "Fourth feature of the pro plan."
+              },
+              {
+                "name": "feature_5",
+                "type": "text",
+                "description": "Fifth feature of the pro plan."
+              }
+            ]
+          },
+          {
+            "name": "button_text",
+            "type": "text",
+            "description": "Button text for the pro plan call-to-action."
+          },
+          {
+            "name": "button_link",
+            "type": "link",
+            "description": "URL that the pro plan button links to."
+          }
+        ]
+      },
+      {
+        "name": "group_pricing_enterprise",
+        "type": "group",
+        "children": [
+          {
+            "name": "name",
+            "type": "text",
+            "description": "Name of the enterprise pricing plan."
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "description": "Description of who the enterprise plan is suited for."
+          },
+          {
+            "name": "price",
+            "type": "text",
+            "description": "Price of the enterprise plan. An example of this would be '$40'."
+          },
+          {
+            "name": "time_period",
+            "type": "text",
+            "description": "Time period for the enterprise plan pricing. An example of this would be '/month'."
+          },
+          {
+            "name": "features_heading",
+            "type": "text",
+            "description": "Heading for the enterprise plan features list."
+          },
+          {
+            "name": "group_features",
+            "type": "group",
+            "children": [
+              {
+                "name": "feature_1",
+                "type": "text",
+                "description": "First feature of the enterprise plan."
+              },
+              {
+                "name": "feature_2",
+                "type": "text",
+                "description": "Second feature of the enterprise plan."
+              },
+              {
+                "name": "feature_3",
+                "type": "text",
+                "description": "Third feature of the enterprise plan."
+              },
+              {
+                "name": "feature_4",
+                "type": "text",
+                "description": "Fourth feature of the enterprise plan."
+              },
+              {
+                "name": "feature_5",
+                "type": "text",
+                "description": "Fifth feature of the enterprise plan."
+              }
+            ]
+          },
+          {
+            "name": "button_text",
+            "type": "text",
+            "description": "Button text for the enterprise plan call-to-action."
+          },
+          {
+            "name": "button_link",
+            "type": "link",
+            "description": "URL that the enterprise plan button links to."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "group_faq",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Main heading for the FAQ section."
+      },
+      {
+        "name": "group_faqs",
+        "type": "group",
+        "children": [
+          {
+            "name": "question_1",
+            "type": "text",
+            "description": "First frequently asked question."
+          },
+          {
+            "name": "answer_1",
+            "type": "text",
+            "description": "Answer to the first frequently asked question."
+          },
+          {
+            "name": "question_2",
+            "type": "text",
+            "description": "Second frequently asked question."
+          },
+          {
+            "name": "answer_2",
+            "type": "text",
+            "description": "Answer to the second frequently asked question."
+          },
+          {
+            "name": "question_3",
+            "type": "text",
+            "description": "Third frequently asked question."
+          },
+          {
+            "name": "answer_3",
+            "type": "text",
+            "description": "Answer to the third frequently asked question."
+          },
+          {
+            "name": "question_4",
+            "type": "text",
+            "description": "Fourth frequently asked question."
+          },
+          {
+            "name": "answer_4",
+            "type": "text",
+            "description": "Answer to the fourth frequently asked question."
+          },
+          {
+            "name": "question_5",
+            "type": "text",
+            "description": "Fifth frequently asked question."
+          },
+          {
+            "name": "answer_5",
+            "type": "text",
+            "description": "Answer to the fifth frequently asked question."
+          }
+        ]
+      }
+    ]
+  }
+]

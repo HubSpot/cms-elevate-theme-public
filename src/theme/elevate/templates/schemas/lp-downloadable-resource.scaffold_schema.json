@@ -1,0 +1,144 @@
+[
+  {
+    "name": "group_banner",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that is 20-40 characters long that describes the page, which is a landing page where someone would fill out a form to receive a piece of content."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A few sentences that describe the piece of content the user would receive after filling out the form."
+      },
+      {
+        "name": "feature_image",
+        "type": "image",
+        "description": "An image that displays the piece of content that a user would download after filling out a form.",
+        "width": 480,
+        "height": 840
+      },
+      {
+        "name": "form",
+        "type": "form",
+        "description": "This is a form that is related to the focus of the page."
+      }
+    ]
+  },
+  {
+    "name": "group_call_to_action",
+    "type": "group",
+    "children": [
+      {
+        "name": "image",
+        "type": "image",
+        "description": "An image that is related to the action that someone should take.",
+        "width": 140,
+        "height": 140
+      },
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes an action that someone should take."
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "The button text that describes the call to action the user should take."
+      }
+    ]
+  },
+  {
+    "name": "group_faqs",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "The heading that shows above a group of frequently asked questions."
+      },
+      {
+        "name": "group_faq_one",
+        "type": "group",
+        "children": [
+          {
+            "name": "question",
+            "type": "text",
+            "description": "The first frequently asked question that the customer might have."
+          },
+          {
+            "name": "answer",
+            "type": "text",
+            "description": "The answer to the first frequently asked question that the customer might have."
+          }
+        ]
+      },
+      {
+        "name": "group_faq_two",
+        "type": "group",
+        "children": [
+          {
+            "name": "question",
+            "type": "text",
+            "description": "The second frequently asked question that the customer might have."
+          },
+          {
+            "name": "answer",
+            "type": "text",
+            "description": "The answer to the second frequently asked question that the customer might have."
+          }
+        ]
+      },
+      {
+        "name": "group_faq_three",
+        "type": "group",
+        "children": [
+          {
+            "name": "question",
+            "type": "text",
+            "description": "The third frequently asked question that the customer might have."
+          },
+          {
+            "name": "answer",
+            "type": "text",
+            "description": "The answer to the third frequently asked question that the customer might have."
+          }
+        ]
+      },
+      {
+        "name": "group_faq_four",
+        "type": "group",
+        "children": [
+          {
+            "name": "question",
+            "type": "text",
+            "description": "The fourth frequently asked question that the customer might have."
+          },
+          {
+            "name": "answer",
+            "type": "text",
+            "description": "The answer to the fourth frequently asked question that the customer might have."
+          }
+        ]
+      },
+      {
+        "name": "group_faq_five",
+        "type": "group",
+        "children": [
+          {
+            "name": "question",
+            "type": "text",
+            "description": "The fifth frequently asked question that the customer might have."
+          },
+          {
+            "name": "answer",
+            "type": "text",
+            "description": "The answer to the fifth frequently asked question that the customer might have."
+          }
+        ]
+      }
+    ]
+  }
+]

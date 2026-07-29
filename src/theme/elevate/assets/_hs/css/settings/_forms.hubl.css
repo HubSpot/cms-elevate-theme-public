@@ -1,0 +1,266 @@
+{% set form = theme.group_elements.group_forms %}
+{% set form_field_background = form.group_field_background.background %}
+
+:root {
+  /* Form field background color */
+  {% if form_field_background == "filled" %}
+    --hsElevate--formField__backgroundColor: {{ form.group_default_state.fill_color.color }};
+  {% endif %}
+
+  /* Form field shape */
+  {% if form_field_background == "filled" %}
+    {% set field_shape = form.group_field_shape.field_shape_filled %}
+  {% else %}
+    {% set field_shape = form.group_field_shape.field_shape_unfilled %}
+  {% endif %}
+
+  {% if field_shape == "pill" %}
+    --hsElevate--formField__borderRadius: 50px;
+  {% elif field_shape == "rounded" %}
+    --hsElevate--formField__borderRadius: 8px;
+  {% elif field_shape == "rectangle" %}
+    --hsElevate--formField__borderRadius: 0;
+  {% endif %}
+
+  /* Form field border -- multiple fields to properly handle field visibility for both fill and no fill */
+  {% if form_field_background == "filled" and field_shape == "rectangle" %}
+    {% set field_border_shape = form.group_field_border.field_border_shape_rectangle %}
+  {% elif form_field_background == "filled" %}
+    {% set field_border_shape = form.group_field_border.field_border_shape %}
+  {% elif form_field_background == "no_fill" and field_shape == "rectangle" %}
+    {% set field_border_shape = form.group_field_border.field_border_shape_rectangle_unfilled %}
+  {% elif form_field_background == "no_fill" %}
+    {% set field_border_shape = form.group_field_border.field_border_shape_unfilled %}
+  {% endif %}
+
+  /* Proper usage of variables to achieve "All" or "Bottom" will be within CSS */
+  {% if field_border_shape == "all" or field_border_shape == "bottom" %}
+    --hsElevate--formField__borderThickness: {{ form.group_field_border.border_thickness ~ "px" }};
+    --hsElevate--formField__borderColor: {{ form.group_default_state.border_color.color }};
+  {% else %}
+    --hsElevate--formField__borderThickness: 0;
+    --hsElevate--formField__borderColor: transparent;
+  {% endif %}
+
+  {% if field_border_shape == "all" %}
+    --hsElevate--formField__borderTop: {{ form.group_field_border.border_thickness ~ "px" ~ " solid " ~ form.group_default_state.border_color.color }};
+    --hsElevate--formField__borderRight: {{ form.group_field_border.border_thickness ~ "px" ~ " solid " ~ form.group_default_state.border_color.color }};
+    --hsElevate--formField__borderBottom: {{ form.group_field_border.border_thickness ~ "px" ~ " solid " ~ form.group_default_state.border_color.color }};
+    --hsElevate--formField__borderLeft: {{ form.group_field_border.border_thickness ~ "px" ~ " solid " ~ form.group_default_state.border_color.color }};
+  {% endif %}
+
+  {% if field_border_shape == "all" or field_border_shape == "bottom" %}
+    --hsElevate--formField__borderBottom: {{ form.group_field_border.border_thickness ~ "px" ~ " solid " ~ form.group_default_state.border_color.color }};
+    --hsElevate--formField__borderColor: {{ form.group_default_state.border_color.color }};
+  {% endif %}
+
+  {% if form_field_shape == "bottom" or form_field_shape == "none" %}
+    --hsElevate--formField__borderTop: none;
+    --hsElevate--formField__borderRight: none;
+    --hsElevate--formField__borderLeft: none;
+  {% endif %}
+
+  {% if form_field_shape == "none" %}
+    --hsElevate--formField__borderBottom: none;
+  {% endif %}
+
+  /* Form field text color */
+  --hsElevate--formFieldInput__textColor: {{ form.group_input_text.text_color.color }};
+
+  /* Form field spacing */
+  --hsElevate--formField__marginBottom: var(--hsElevate--spacing--32);
+
+  /* Form textarea border radius */
+  --hsElevate--formFieldTextArea__borderRadius: calc(var(--hsElevate--formField__borderRadius) * 0.5);
+
+  /* Form field checkbox/radio */
+  --hsElevate--formFieldCheckboxRadio__size: 24px;
+  --hsElevate--formFieldCheckboxRadio__fillColor: #000000;
+
+  /* Form field placeholder */
+  --hsElevate--formFieldPlaceholder__textColor: {{ form.group_placeholder_text.text_color.color }};
+
+  /* Form required field color */
+  --hsElevate--formRequired__color: #de2828;
+
+  /* Form field datepicker icon */
+  --hsElevate--formField__datepickerIcon: url("data:image/svg+xml,%3Csvg width='24' height='29' viewBox='0 0 24 29' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_3812_12272)'%3E%3Cpath d='M8.14286 2.07136C8.14286 1.35886 7.56964 0.785645 6.85714 0.785645C6.14464 0.785645 5.57143 1.35886 5.57143 2.07136V4.21422H3.42857C1.5375 4.21422 0 5.75172 0 7.64279V8.49993V11.0714V24.7856C0 26.6767 1.5375 28.2142 3.42857 28.2142H20.5714C22.4625 28.2142 24 26.6767 24 24.7856V11.0714V8.49993V7.64279C24 5.75172 22.4625 4.21422 20.5714 4.21422H18.4286V2.07136C18.4286 1.35886 17.8554 0.785645 17.1429 0.785645C16.4304 0.785645 15.8571 1.35886 15.8571 2.07136V4.21422H8.14286V2.07136ZM2.57143 11.0714H21.4286V24.7856C21.4286 25.2571 21.0429 25.6428 20.5714 25.6428H3.42857C2.95714 25.6428 2.57143 25.2571 2.57143 24.7856V11.0714Z' fill='%2309152B'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_3812_12272'%3E%3Crect width='24' height='27.4286' fill='white' transform='translate(0 0.785645)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+
+  /* Form field select icon */
+  --hsElevate--formField__selectIcon: url("data:image/svg+xml,%3Csvg width='24' height='25' viewBox='0 0 24 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.9407 19.5595C11.5267 20.1454 12.4782 20.1454 13.0642 19.5595L22.0642 10.5595C22.6501 9.97354 22.6501 9.02197 22.0642 8.43604C21.4782 7.8501 20.5267 7.8501 19.9407 8.43604L12.0001 16.3767L4.05947 8.44072C3.47354 7.85478 2.52197 7.85478 1.93604 8.44072C1.3501 9.02666 1.3501 9.97822 1.93604 10.5642L10.936 19.5642L10.9407 19.5595Z' fill='%2309152B'/%3E%3C/svg%3E%0A");
+
+  /* Textarea drag icon */
+  --hsElevate--formField__dragIcon: url("data:image/svg+xml,%3Csvg width='11' height='12' viewBox='0 0 22 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline y1='-1' x2='29.5206' y2='-1' transform='matrix(-0.666795 0.745241 -0.806754 -0.590888 19.6843 0)' stroke='%23303F59' stroke-width='2'/%3E%3Cpath d='M21.0005 9.99756L10.5005 21.9976' stroke='%23303F59' stroke-width='2'/%3E%3C/svg%3E%0A");
+
+  /* Label text */
+  --hsElevate--formLabel__textColor: {{ form.group_label_text.text_color.color }};
+  --hsElevate--formLabel__font: {{ form.group_label_text.font.font }};
+  --hsElevate--formLabel__fontSize: {{ form.group_label_text.font.size / base_size ~ "rem" }};
+  --hsElevate--formLabel__fontWeight: {{ form.group_label_text.font.styles["font-weight"] }};
+  --hsElevate--formLabel__marginBottom: var(--hsElevate--spacing--8);
+
+  /* Help text */
+  --hsElevate--formHelpText__textColor: #647390;
+
+  /* Form background color */
+  {% if form.group_form_background.background == "filled" %}
+    --hsElevate--form__backgroundColor: {{ form.form_fill_color.color }};
+  {% elif form.group_form_background.background == "no_fill" %}
+    --hsElevate--form__backgroundColor: transparent;
+  {% endif %}
+
+  /* Form shape */
+  {% if form.group_form_background.background == "filled" %}
+    {% set form_shape_field = form.group_form_shape.form_shape %}
+  {% else %}
+    {% set form_shape_field = form.group_form_shape.form_shape_unfilled %}
+  {% endif %}
+
+  {% if form_shape_field == "rounded" %}
+    --hsElevate--form__borderRadius: 24px;
+  {% elif form_shape_field == "rectangle" %}
+    --hsElevate--form__borderRadius: 0;
+  {% endif %}
+
+  /* Form border */
+  {% if form.group_form_border.form_border_shape == "all" %}
+    --hsElevate--form__borderThickness: {{ form.group_form_border.border_thickness ~ "px" }};
+    --hsElevate--form__borderColor: {{ form.group_form_border.form_border_color.color }};
+  {% else %}
+    --hsElevate--form__borderThickness: 0;
+    --hsElevate--form__borderColor: transparent;
+  {% endif %}
+
+  /* Form spacing */
+  --hsElevate--form__padding: var(--hsElevate--spacing--48);
+
+  /* CSS variables for new forms */
+
+  /* Global vars */
+  --hsf-global__font-family: var(--hsElevate--formLabel__font);
+  --hsf-global__font-size: var(--hsElevate--formLabel__fontSize);
+  --hsf-global__color: var(--hsElevate--formLabel__textColor);
+  --hsf-global-error__color: var(--hsElevate--formRequired__color);
+
+  /* Form */
+  --hsf-background__background-color: var(--hsElevate--form__backgroundColor);
+  --hsf-background__padding: var(--hsElevate--form__padding);
+  --hsf-background__border-style: solid;
+  --hsf-background__border-color: var(--hsElevate--form__borderColor);
+  --hsf-background__border-radius: var(--hsElevate--form__borderRadius);
+  --hsf-background__border-width: var(--hsElevate--form__borderThickness);
+
+  /* Content */
+  --hsf-heading__font-family: var(--hsf-global__font-family);
+  --hsf-heading__color: var(--hsf-global__color);
+  --hsf-heading__text-shadow: none;
+  --hsf-richtext__font-family: var(--hsf-global__font-family);
+  --hsf-richtext__font-size: var(--hsf-global__font-size);
+  --hsf-richtext__color: var(--hsf-global__color);
+
+  /* Labels */
+  --hsf-field-label__font-family: var(--hsf-global__font-family);
+  --hsf-field-label__font-size: var(--hsf-global__font-size);
+  --hsf-field-label__color: var(--hsf-global__color);
+  --hsf-field-label-requiredindicator__color: var(--hsf-global-error__color);
+  --hsf-module__vertical-spacing: var(--hsElevate--formLabel__marginBottom);
+
+  /* Help text */
+  --hsf-field-description__font-family: var(--hsf-global__color);
+  --hsf-field-description__color: var(--hsElevate--formHelpText__textColor);
+
+  /* Errors */
+  --hsf-erroralert__font-family: var(--hsElevate--formLabel__font);
+  --hsf-erroralert__color: var(--hsf-global-error__color);
+
+  /* Field footer */
+  --hsf-field-footer__font-family: var(--hsf-field-description__font-family);
+  --hsf-field-footer__color: var(--hsf-field-description__color);
+
+  /* Field */
+  --hsf-field-input__font-family: var(--hsf-global__font-family);
+  --hsf-field-input__background-color: var(--hsElevate--formField__backgroundColor);
+  --hsf-field-input__placeholder-color: var(--hsElevate--formFieldPlaceholder__textColor);
+  --hsf-field-input__border-color: var(--hsElevate--formField__borderColor);
+  {% if field_border_shape == "all" %}
+    --hsf-field-input__border-width: var(--hsElevate--formField__borderThickness);
+  {% elif  field_border_shape == "bottom" %}
+    --hsf-field-input__border-width: 0 0 var(--hsElevate--formField__borderThickness) 0;
+  {% else %}
+    --hsf-field-input__border-width: 0;
+  {% endif %};
+  --hsf-field-input__border-style: solid;
+  --hsf-field-input__border-radius: var(--hsElevate--formField__borderRadius);
+  --hsf-field-input__padding: var(--hsElevate--spacing--20) var(--hsElevate--spacing--32);
+  --hsf-field-input__color: var(--hsElevate--formFieldInput__textColor);
+  --hsf-row__vertical-spacing: var(--hsElevate--formField__marginBottom);
+  --hsf-row__horizontal-spacing: var(--hsElevate--spacing--32);
+
+  /* Textarea */
+  --hsf-field-textarea__font-family: var(--hsf-field-input__font-family);
+  --hsf-field-textarea__color: var(--hsf-field-input__color);
+  --hsf-field-textarea__background-color: var(--hsf-field-input__background-color);
+  --hsf-field-textarea__border-color: var(--hsf-field-input__border-color);
+  --hsf-field-textarea__border-style: var(--hsf-field-input__border-style);
+  --hsf-field-textarea__border-radius: var(--hsElevate--formFieldTextArea__borderRadius);
+  --hsf-field-textarea__padding: var(--hsf-field-input__padding);
+
+  /* Checkbox */
+  --hsf-field-checkbox__padding: calc(var(--hsElevate--formFieldCheckboxRadio__size) / 2);
+  --hsf-field-checkbox__background-color: #fff;
+  --hsf-field-checkbox__color: var(--hsElevate--formFieldCheckboxRadio__fillColor);
+  --hsf-field-checkbox__border-color: var(--hsf-field-input__border-color);
+  --hsf-field-checkbox__border-width: 1px 1px 1px 1px;
+  --hsf-field-checkbox__border-style: var(--hsf-field-input__border-style);
+
+  /* Radio */
+  --hsf-field-radio__padding: calc(var(--hsElevate--formFieldCheckboxRadio__size) / 2);
+  --hsf-field-radio__background-color: #fff;
+  --hsf-field-radio__color: var(--hsElevate--formFieldCheckboxRadio__fillColor);
+  --hsf-field-radio__border-color: var(--hsf-field-input__border-color);
+  --hsf-field-radio__border-width: 1px 1px 1px 1px;
+  --hsf-field-radio__border-style: var(--hsf-field-input__border-style);
+
+  /* Progress bar CSS vars:
+    - --hsf-progressbar__font-family
+    - --hsf-progressbar__font-family
+    - --hsf-progressbar__font-size
+    - --hsf-progressbar__color
+    - --hsf-progressbar__background-color
+    - --hsf-progressbar__background
+    - --hsf-progressbar__border-color
+    - --hsf-progressbar__border-style
+    - --hsf-progressbar__border-width
+  */
+
+  /* Button */
+  --hsf-button__width: 100%;
+  --hsf-button__font-family: var(--hsElevate--button--primary__font);
+  --hsf-button__font-size: var(--hsElevate--button--primary__fontSize);
+  --hsf-button__font-weight: var(--hsElevate--button--primary__fontWeight);
+  --hsf-button__color: var(--hsElevate--button--primary__textColor);
+  --hsf-button__background-color: var(--hsElevate--button--primary__backgroundColor);
+  --hsf-button__background-image: none;
+  --hsf-button__border-radius: var(--hsElevate--button--primary__borderRadius);
+  --hsf-button__border-width: var(--hsElevate--button--primary__borderThickness);
+  --hsf-button__border-style: solid;
+  --hsf-button__border-color: var(--hsElevate--button--primary__borderColor);
+  --hsf-button__padding: var(--hsElevate--spacing--20) var(--hsElevate--spacing--24);
+  --hsf-button__box-shadow: none;
+  --hsf-button--hover__color: var(--hsElevate--button--primary__hover--textColor);
+  --hsf-button--hover__background-color: var(--hsElevate--button--primary__hover--backgroundColor);
+  --hsf-button--hover__border-color: var(--hsElevate--button--primary__hover--borderColor);
+  --hsf-button--focus__color: var(--hsElevate--button--primary__hover--textColor);
+  --hsf-button--focus__background-color: var(--hsElevate--button--primary__hover--backgroundColor);
+  --hsf-button--focus__border-color: var(--hsElevate--button--primary__hover--borderColor);
+}
+
+@media (width <= 600px) {
+  :root {
+    --hsElevate--form__padding: var(--hsElevate--spacing--24);
+  }
+
+  .hsfc-PhoneInput__FlagAndCaret {
+    --hsf-field-input__padding: var(--hsElevate--spacing--20) var(--hsElevate--spacing--16);
+  }
+}

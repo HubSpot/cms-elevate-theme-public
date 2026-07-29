@@ -1,0 +1,367 @@
+/* Spacing */
+.cs-title-container {
+  margin-bottom: 50px;
+}
+
+.cs-logo-wrapper {
+  margin-bottom: 32px;
+}
+
+.cs-testimonials-wrapper,
+.cs-about-company-wrapper,
+.cs-body-wrapper,
+.cs-metrics-wrapper,
+.cs-feature-wrapper {
+  margin-bottom: 5rem;
+}
+
+.case-studies-detail {
+  padding-top: 80px;
+  background-color: var(--hsElevate--section--lightSection--1__backgroundColor);
+  color: var(--hsElevate--section--lightSection--1__textColor);
+}
+
+/* Helpers */
+*[data-module-hidden='true'] {
+  display: none;
+}
+
+/* ------------------- */
+
+/*  Overrides */
+
+/* ------------------- */
+.cs-feature {
+  overflow: hidden;
+}
+
+.cs-feature-wrapper .cs-feature {
+  border-color: var(--hsElevate--card--variant2__borderColor);
+  border-radius: var(--hsElevate-rounded--extra-large);
+  border-style: solid;
+  border-width: var(--hsElevate--card--variant2__borderThickness);
+  background-color: var(--hsElevate--card--variant2__backgroundColor);
+}
+
+.cs-feature .cs-feature__content-container {
+  background-color: var(--hsElevate--card--variant2__backgroundColor);
+  color: var(--hsElevate--card--variant2__textColor);
+}
+
+.cs-feature .hs-elevate-details__label {
+  color: var(--hsElevate--card--variant2__textColor);
+}
+
+.cs-feature .cs-feature__link {
+  color: var(--hsElevate--card--variant2--link__fontColor);
+}
+
+.cs-feature .cs-feature__link:hover {
+  color: var(--hsElevate--card--variant2--link__hover--fontColor);
+  opacity: 0.8;
+}
+
+.cs-feature .cs-feature__link .cs-feature__chevron-path {
+  fill: var(--hsElevate--card--variant2--link__fontColor);
+}
+
+.cs-feature .cs-feature__link:hover .cs-feature__chevron-path {
+  fill: var(--hsElevate--card--variant2--link__hover--fontColor);
+  opacity: 0.8;
+}
+
+/* Metrics */
+.cs-metrics-container .cs-metric__data {
+  color: var(--hsElevate--section--lightSection--1__accentColor);
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+/* CS Testimonials */
+.cs-testimonials .cs-testimonial__slide {
+  border-color: var(--hsElevate--card--variant2__borderColor);
+  border-radius: var(--hsElevate-rounded--large);
+  border-style: solid;
+  border-width: var(--hsElevate--card--variant2__borderThickness);
+  background-color: var(--hsElevate--card--variant2__backgroundColor);
+  color: var(--hsElevate--card--variant2__textColor);
+}
+
+.cs-testimonials .cs-testimonial__content-container {
+  max-width: 952px;
+  margin-inline: auto;
+}
+
+.cs-testimonials .cs-testimonial__testimonial {
+  color: var(--hsElevate--card--variant2__textColor);
+  font-size: 2rem;
+  font-weight: var(--hsElevate--h3__fontWeight);
+  line-height: 1.5;
+}
+
+.cs-testimonials .cs-testimonial__quote-icon {
+  display: none;
+}
+
+.cs-testimonials .splide__pagination .splide__pagination__page.is-active {
+  background-color: var(--hsElevate--card--variant2__iconColor);
+  opacity: 1;
+}
+
+.cs-testimonials .cs-testimonial__arrow path,
+.cs-testimonials .cs-testimonial__quote-icon-path {
+  fill: var(--hsElevate--card--variant2__iconColor);
+}
+
+@media (width < 768px) {
+  .cs-testimonials .cs-testimonial__testimonial {
+    font-size: 1.125rem;
+  }
+
+  .cs-testimonials .cs-testimonial__slide {
+    padding-right: var(--hsElevate--spacing--48);
+    padding-left: var(--hsElevate--spacing--48);
+  }
+
+  .cs-testimonials .splide__arrow--prev {
+    left: 0.5em;
+  }
+
+  .cs-testimonials .splide__arrow--next {
+    right: 0.5em;
+  }
+}
+
+@media (width < 393px) {
+  .cs-testimonials .cs-testimonial__testimonial {
+    font-size: 1rem;
+  }
+}
+
+/* About Company */
+
+.cs-about-company-wrapper .cs-about-company {
+  gap: var(--hsElevate--spacing--64);
+}
+
+.cs-about-company-wrapper .cs-about-company__content-container {
+  padding: var(--hsElevate--spacing--56) 0;
+}
+
+.cs-about-company__content-container h2 {
+  font-size: var(--hsElevate--h3__fontSize);
+  font-weight: var(--hsElevate--h3__fontWeight);
+  line-height: var(--hsElevate--heading__lineHeight);
+}
+
+.cs-about-company-wrapper .cs-about-company__image-container {
+  max-width: 50%;
+  aspect-ratio: 1.4;
+}
+
+.cs-about-company-wrapper .cs-about-company__image {
+  border-radius: var(--hsElevate--card--variant1__borderRadius);
+}
+
+@media (width < 768px) {
+  .cs-about-company-wrapper .cs-about-company {
+    gap: 30px;
+  }
+
+  .cs-about-company-wrapper .cs-about-company__image-container {
+    max-width: 100%;
+    aspect-ratio: 1.4;
+  }
+
+  .cs-about-company-wrapper .cs-about-company__content-container {
+    padding: 0;
+  }
+}
+
+/* Body */
+.cs-body-container img {
+  max-width: 100%;
+}
+
+/* CTA module */
+.cs-cta-banner .cs-cta-banner__cta .hs-button {
+  padding: var(--hsElevate--spacing--16) var(--hsElevate--spacing--24);
+  border-color: var(--hsElevate--button--primary__borderColor);
+  border-radius: var(--hsElevate--button--primary__borderRadius);
+  border-style: solid;
+  border-width: var(--hsElevate--button--primary__borderThickness);
+  background-color: var(--hsElevate--button--primary__backgroundColor);
+  color: var(--hsElevate--button--primary__textColor);
+  font-family: var(--hsElevate--button--primary__font);
+  font-size: var(--hsElevate--button--primary__fontSize);
+  font-weight: var(--hsElevate--button--primary__fontWeight);
+  text-decoration: none;
+}
+
+.cs-cta-banner .cs-cta-banner__cta .hs-button:hover,
+.cs-cta-banner .cs-cta-banner__cta .hs-button:focus {
+  border-color: var(--hsElevate--button--primary__hover--borderColor);
+  border-width: var(--hsElevate--button--primary__hover--borderThickness);
+  background-color: var(--hsElevate--button--primary__hover--backgroundColor);
+  color: var(--hsElevate--button--primary__hover--textColor);
+  text-decoration: none;
+}
+
+/* CTA banner */
+.cs-cta-banner-wrapper .cs-cta-banner {
+  padding-top: 160px;
+  padding-bottom: 160px;
+  background: none;
+}
+
+/* Related Case studies */
+#main-content .cs-background--off-white {
+  background-color: var(--hsElevate--section--lightSection--2__backgroundColor);
+  color: var(--hsElevate--section--lightSection--2__textColor);
+}
+
+.cs-related-articles-wrapper {
+  padding-top: 90px;
+  padding-bottom: 60px;
+}
+
+.cs-listing .cs-listing__case-study,
+.cs-related .cs-related__case-study {
+  overflow: hidden;
+  border-color: var(--hsElevate--card--variant1__borderColor);
+  border-radius: var(--hsElevate--card--variant1__borderRadius);
+  border-style: solid;
+  border-width: var(--hsElevate--card--variant1__borderThickness);
+  background-color: var(--hsElevate--card--variant1__backgroundColor);
+  color: var(--hsElevate--card--variant1__textColor);
+  text-decoration: none;
+}
+
+.cs-listing .cs-listing__case-study:is(:hover, :focus, :visited),
+.cs-listing .cs-listing__case-study-link:is(:hover, :visited, :focus),
+.cs-related .cs-related__case-study:is(:hover, :focus, :visited) {
+  text-decoration: none;
+}
+
+.cs-listing .cs-listing__image-container,
+.cs-related .cs-related__image-container {
+  max-height: 230px;
+  min-height: 230px;
+}
+
+.cs-listing .cs-listing__content-container,
+.cs-related .cs-related__content-container {
+  background-color: var(--hsElevate--card--variant1__backgroundColor);
+}
+
+.cs-related .cs-related__case-study:is(:hover, :focus, :visited) h3 {
+  color: var(--hsElevate--card--variant1__textColor);
+}
+
+/* related card tag */
+.cs-listing .cs-listing__industry,
+.cs-related .cs-related__case-study .cs-related__industry {
+  padding: 2px 8px;
+  border-color: var(--hsElevate--tag__borderColor);
+  border-radius: var(--hsElevate--tag__borderRadius);
+  border-style: solid;
+  border-width: var(--hsElevate--tag__borderThickness);
+  background-color: var(--hsElevate--tag__backgroundColor);
+  color: var(--hsElevate--tag__textColor);
+  font-family: var(--hsElevate--tag__font);
+  font-size: var(--hsElevate--tag__fontSize);
+  font-style: var(--hsElevate--tag__fontStyle);
+  font-weight: var(--hsElevate--tag__fontWeight);
+  text-transform: var(--hsElevate--tag__case);
+}
+
+/* ------------------- */
+
+/* Listing page */
+
+/* ------------------- */
+
+.cs-listing-wrapper {
+  padding: 80px 0;
+}
+
+.cs-listing .cs-listing__case-study-name {
+  color: var(--hsElevate--card--variant1__textColor);
+}
+
+/* Select dropdown */
+.cs-listing .cs-listing__filter-container {
+  margin-bottom: 80px;
+}
+
+.cs-listing .cs-listing__filter {
+  border-color: var(--hsElevate--button--secondary__borderColor);
+  border-radius: var(--hsElevate--button--secondary__borderRadius);
+  border-style: solid;
+  border-width: var(--hsElevate--button--secondary__borderThickness);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: var(--hsElevate--button--secondary__backgroundColor);
+  color: var(--hsElevate--button--secondary__textColor);
+  cursor: pointer;
+  font-family: var(--hsElevate--button--secondary__font);
+  font-size: var(--hsElevate--button--secondary__fontSize);
+  font-weight: var(--hsElevate--button--secondary__fontWeight);
+  text-decoration: none;
+}
+
+.cs-listing .cs-listing__filter-container--inner .cs-chevron-down {
+  pointer-events: none;
+}
+
+.cs-listing .cs-listing__heading {
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.cs-listing__subheading {
+  font-size: 18px;
+  text-align: center;
+}
+
+/* Paginaiton */
+
+.cs-listing .hs-listing__pagination-link--chevron:first-of-type,
+.cs-listing .cs-listing__pagination-link {
+  margin-inline-end: 25px;
+}
+
+.cs-listing .cs-listing__pagination-link,
+.cs-listing .cs-listing__pagination-link:visited {
+  display: inline-flex;
+  padding: 0;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  color: var(--hsElevate--link--primary__fontColor);
+  font-size: 16px;
+}
+
+.cs-listing .cs-listing__pagination-link:hover,
+.cs-listing .cs-listing__pagination-link:focus,
+.cs-listing .cs-listing__pagination-link:active {
+  display: inline-flex;
+  padding: 0;
+  color: var(--hsElevate--link--primary__hover--fontColor);
+  text-decoration: none;
+}
+
+.cs-listing .cs-listing__pagination-link.hs-active {
+  height: 50px;
+  width: 50px;
+  border-color: var(--hsElevate--link--primary__fontColor);
+  border-radius: 100%;
+  color: var(--hsElevate--link--primary__fontColor);
+}
+
+.cs-listing :not(.hs-helper--disabled) .cs-chevron-down path {
+  fill: var(--hsElevate--button--secondary__textColor);
+}

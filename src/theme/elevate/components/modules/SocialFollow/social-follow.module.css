@@ -1,0 +1,53 @@
+.hs-elevate-social-follow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: var(--hsElevate--socialFollow__justifyContent, flex-start);
+  gap: var(--hsElevate--socialFollowIcon__gap);
+}
+
+.hs-elevate-social-follow__link {
+  display: flex;
+  padding: var(--hsElevate--socialFollowIcon__padding);
+  border-color: var(--hsElevate--socialFollowIcon__borderColor);
+  border-radius: var(--hsElevate--socialFollowIcon__shape);
+  border-style: solid;
+  border-width: var(--hsElevate--socialFollowIcon__borderWidth);
+  align-items: center;
+  justify-content: center;
+  background-color: var(--hsElevate--socialFollowIcon__backgroundColor);
+
+  :global(svg) {
+    fill: var(--hsElevate--socialFollowIcon__color);
+  }
+
+  &:hover {
+    border-color: var(--hsElevate--socialFollowIcon__hover--borderColor);
+    border-width: var(--hsElevate--socialFollowIcon__hover--borderWidth);
+    background-color: var(--hsElevate--socialFollowIcon__hover--backgroundColor);
+
+    :global(svg) {
+      fill: var(--hsElevate--socialFollowIcon__hover--color);
+    }
+  }
+
+  &:active {
+    border-color: var(--hsElevate--socialFollowIcon__active--borderColor);
+    border-width: var(--hsElevate--socialFollowIcon__active--borderWidth);
+    background-color: var(--hsElevate--socialFollowIcon__active--backgroundColor);
+
+    :global(svg) {
+      fill: var(--hsElevate--socialFollowIcon__active--color);
+    }
+  }
+
+  &:focus {
+    outline: 2px solid #53acff;
+    outline-offset: 2px;
+  }
+}
+
+.hs-elevate-social-follow__icon {
+  height: var(--hsElevate--socialFollowIcon__size);
+  width: var(--hsElevate--socialFollowIcon__size);
+}

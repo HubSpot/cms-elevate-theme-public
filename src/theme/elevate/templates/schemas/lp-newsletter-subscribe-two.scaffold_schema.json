@@ -1,0 +1,159 @@
+[
+  {
+    "name": "group_hero_banner",
+    "type": "group",
+    "children": [
+      {
+        "name": "tag_line",
+        "type": "text",
+        "description": "A short tag line that appears above the main heading"
+      },
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "The main headline that describes the newsletter subscription offering"
+      },
+      {
+        "name": "paragraph",
+        "type": "text",
+        "description": "A brief description explaining the benefits of subscribing to the newsletter"
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "Call-to-action text for the subscription button"
+      },
+      {
+        "name": "button_link",
+        "type": "link",
+        "description": "Link for the subscription button"
+      },
+      {
+        "name": "image",
+        "type": "image",
+        "description": "An image that visually represents the newsletter or digital marketing concepts",
+        "width": "791",
+        "height": "452"
+      }
+    ]
+  },
+  {
+    "name": "group_newsletter_signup",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Heading for the newsletter signup section"
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "Description text explaining what subscribers will receive"
+      },
+      {
+        "name": "image",
+        "type": "image",
+        "description": "An image that visually represents the newsletter or digital marketing concepts",
+        "width": "500",
+        "height": "875"
+      },
+      {
+        "name": "form",
+        "type": "form",
+        "description": "Newsletter subscription form"
+      }
+    ]
+  },
+  {
+    "name": "group_faq",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Heading for the FAQ section"
+      },
+      {
+        "name": "group_faq_one",
+        "type": "group",
+        "children": [
+          {
+            "name": "title",
+            "type": "text",
+            "description": "First frequently asked question about the product or newsletter."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Answer to the first frequently asked question."
+          }
+        ]
+      },
+      {
+        "name": "group_faq_two",
+        "type": "group",
+        "children": [
+          {
+            "name": "title",
+            "type": "text",
+            "description": "Second frequently asked question about the product or newsletter."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Answer to the second frequently asked question."
+          }
+        ]
+      },
+      {
+        "name": "group_faq_three",
+        "type": "group",
+        "children": [
+          {
+            "name": "title",
+            "type": "text",
+            "description": "Third frequently asked question about the product or newsletter."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Answer to the third frequently asked question."
+          }
+        ]
+      },
+      {
+        "name": "group_faq_four",
+        "type": "group",
+        "children": [
+          {
+            "name": "title",
+            "type": "text",
+            "description": "Fourth frequently asked question about the product or newsletter."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Answer to the fourth frequently asked question."
+          }
+        ]
+      },
+      {
+        "name": "group_faq_five",
+        "type": "group",
+        "children": [
+          {
+            "name": "title",
+            "type": "text",
+            "description": "Fifth frequently asked question about the product or newsletter."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Answer to the fifth frequently asked question."
+          }
+        ]
+      }
+    ]
+  }
+]

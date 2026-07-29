@@ -1,0 +1,333 @@
+[
+  {
+    "name": "group_banner",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "The main heading that appears at the top of the page, encouraging visitors to book a meeting."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A brief paragraph explaining the benefits of scheduling a call with your team."
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "Call-to-action text for the main banner button."
+      },
+      {
+        "name": "button_link",
+        "type": "link",
+        "description": "Link for the main banner button."
+      },
+      {
+      "type": "image",
+      "name": "image",
+      "description": "An image that reinforces the meeting booking concept, like a dashboard or scheduling visual.",
+      "width": 1400,
+      "height": 800
+      }
+    ]
+  },
+  {
+    "name": "group_services",
+    "type": "group",
+    "children": [
+      {
+        "name": "label",
+        "type": "text",
+        "description": "A label that appears above the services heading."
+      },
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that introduces the services section."
+      },
+      {
+        "name": "group_service_one",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "The name of the first service."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "A brief description of the first service explaining its benefits."
+          }
+        ]
+      },
+      {
+        "name": "group_service_two",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "The name of the second service."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "A brief description of the second service explaining its benefits."
+          }
+        ]
+      },
+      {
+        "name": "group_service_three",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "The name of the third service."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "A brief description of the third service explaining its benefits."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "group_benefits",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that introduces the benefits section."
+      },
+      {
+        "name": "image",
+        "type": "image",
+        "description": "An image that visually represents the benefits being highlighted.",
+        "width": 400,
+        "height": 400
+      },
+      {
+        "name": "group_benefit_one",
+        "type": "group",
+        "children": [
+          {
+            "name": "content",
+            "type": "text",
+            "description": "A brief description of the first benefit."
+          }
+        ]
+      },
+      {
+        "name": "group_benefit_two",
+        "type": "group",
+        "children": [
+          {
+            "name": "content",
+            "type": "text",
+            "description": "A brief description of the second benefit."
+          }
+        ]
+      },
+      {
+        "name": "group_benefit_three",
+        "type": "group",
+        "children": [
+          {
+            "name": "content",
+            "type": "text",
+            "description": "A brief description of the third benefit."
+          }
+        ]
+      },
+      {
+        "name": "group_benefit_four",
+        "type": "group",
+        "children": [
+          {
+            "name": "content",
+            "type": "text",
+            "description": "A brief description of the fourth benefit."
+          }
+        ]
+      },
+      {
+        "name": "group_benefit_five",
+        "type": "group",
+        "children": [
+          {
+            "name": "content",
+            "type": "text",
+            "description": "A brief description of the fifth benefit."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "group_products",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that introduces the products and services section."
+      },
+      {
+        "name": "group_product_one",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "The name of the first product or service."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "A brief description of the first product or service explaining its benefits."
+          }
+        ]
+      },
+      {
+        "name": "group_product_two",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "The name of the second product or service."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "A brief description of the second product or service explaining its benefits."
+          }
+        ]
+      },
+      {
+        "name": "group_product_three",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "The name of the third product or service."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "A brief description of the third product or service explaining its benefits."
+          }
+        ]
+      },
+      {
+        "name": "group_product_four",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "The name of the fourth product or service."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "A brief description of the fourth product or service explaining its benefits."
+          }
+        ]
+      },
+      {
+        "name": "group_product_five",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "The name of the fifth product or service."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "A brief description of the fifth product or service explaining its benefits."
+          }
+        ]
+      },
+      {
+        "name": "group_product_six",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "The name of the sixth product or service."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "A brief description of the sixth product or service explaining its benefits."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "group_metrics",
+    "type": "group",
+    "children": [
+      {
+        "name": "group_metric_one",
+        "type": "group",
+        "children": [
+          {
+            "name": "value",
+            "type": "text",
+            "description": "The numerical value or statistic for the first metric."
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "description": "A brief description explaining what the first metric represents."
+          }
+        ]
+      },
+      {
+        "name": "group_metric_two",
+        "type": "group",
+        "children": [
+          {
+            "name": "value",
+            "type": "text",
+            "description": "The numerical value or statistic for the second metric."
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "description": "A brief description explaining what the second metric represents."
+          }
+        ]
+      },
+      {
+        "name": "group_metric_three",
+        "type": "group",
+        "children": [
+          {
+            "name": "value",
+            "type": "text",
+            "description": "The numerical value or statistic for the third metric."
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "description": "A brief description explaining what the third metric represents."
+          }
+        ]
+      }
+    ]
+  }
+]

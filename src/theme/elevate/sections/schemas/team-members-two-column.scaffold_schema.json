@@ -1,0 +1,136 @@
+[
+  {
+    "name": "heading",
+    "type": "text",
+    "description": "The main heading for the team members section that appears at the top."
+  },
+  {
+    "name": "content",
+    "type": "text",
+    "description": "A brief description that provides context about the team members displayed in this section."
+  },
+  {
+    "name": "group_team_member_one",
+    "type": "group",
+    "children": [
+      {
+        "name": "name",
+        "type": "text",
+        "description": "The name of the first team member."
+      },
+      {
+        "name": "role",
+        "type": "text",
+        "description": "The job title or role description of the first team member."
+      },
+      {
+        "name": "image",
+        "type": "image",
+        "description": "A professional photo of the first team member.",
+        "width": "300",
+        "height": "300"
+      }
+    ]
+  },
+  {
+    "name": "group_team_member_two",
+    "type": "group",
+    "children": [
+      {
+        "name": "name",
+        "type": "text",
+        "description": "The name of the second team member."
+      },
+      {
+        "name": "role",
+        "type": "text",
+        "description": "The job title or role description of the second team member."
+      },
+      {
+        "name": "image",
+        "type": "image",
+        "description": "A professional photo of the second team member.",
+        "width": "300",
+        "height": "300"
+      }
+    ]
+  },
+  {
+    "name": "group_team_member_three",
+    "type": "group",
+    "children": [
+      {
+        "name": "name",
+        "type": "text",
+        "description": "The name of the third team member."
+      },
+      {
+        "name": "role",
+        "type": "text",
+        "description": "The job title or role description of the third team member."
+      },
+      {
+        "name": "image",
+        "type": "image",
+        "description": "A professional photo of the third team member.",
+        "width": "300",
+        "height": "300"
+      }
+    ]
+  },
+  {
+    "name": "group_team_member_four",
+    "type": "group",
+    "children": [
+      {
+        "name": "name",
+        "type": "text",
+        "description": "The name of the fourth team member."
+      },
+      {
+        "name": "role",
+        "type": "text",
+        "description": "The job title or role description of the fourth team member."
+      },
+      {
+        "name": "image",
+        "type": "image",
+        "description": "A professional photo of the fourth team member.",
+        "width": "300",
+        "height": "300"
+      }
+    ]
+  },
+  {
+    "name": "group_button_one",
+    "type": "group",
+    "children": [
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "The button text that describes the call to action the user should take."
+      },
+      {
+        "name": "button_link",
+        "type": "link",
+        "description": "The URL that a user should be taken to when they click the button."
+      }
+    ]
+  },
+  {
+    "name": "group_button_two",
+    "type": "group",
+    "children": [
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "The button text that describes the call to action the user should take."
+      },
+      {
+        "name": "button_link",
+        "type": "link",
+        "description": "The URL that a user should be taken to when they click the button."
+      }
+    ]
+  }
+]

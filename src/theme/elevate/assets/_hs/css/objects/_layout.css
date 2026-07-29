@@ -1,0 +1,166 @@
+.dnd-section {
+  padding: var(--hsElevate--section--medium__verticalPadding)
+    var(--hsElevate--section--horizontalPadding);
+}
+
+.dnd-section > .row-fluid,
+.hs-elevate-content-wrapper {
+  margin: 0 auto;
+  max-width: var(--hsElevate--contentWrapper--wide__maxWidth);
+}
+
+.hs-elevate-content-wrapper {
+  padding: 0 var(--hsElevate--section--horizontalPadding);
+}
+
+/* Helper Classes */
+
+.hs-elevate-content-wrapper--sm {
+  max-width: var(--hsElevate--contentWrapper--narrow__maxWidth);
+  padding: 0;
+}
+
+.hs-elevate-content-wrapper--md {
+  max-width: var(--hsElevate--contentWrapper--medium__maxWidth);
+  padding: 0;
+}
+
+/* Padding for non DND sections */
+
+.hs-elevate-content-padding {
+  padding-block: var(--hsElevate--section--medium__verticalPadding);
+}
+
+.hs-elevate-content-padding--extra-small {
+  padding-block: var(  --hsElevate--section--extraSmall__verticalPadding);
+}
+
+.hs-elevate-content-padding--small {
+  padding-block: var(--hsElevate--section--small__verticalPadding);
+}
+
+.hs-elevate-content-padding--large {
+  padding-block: var(--hsElevate--section--large__verticalPadding);
+}
+
+.hs-elevate-content-padding--extra-large {
+  padding-block: var(--hsElevate--section--extraLarge__verticalPadding);
+}
+
+
+.row-fluid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.row-fluid .span1,
+.row-fluid .span2,
+.row-fluid .span3,
+.row-fluid .span4,
+.row-fluid .span5,
+.row-fluid .span6,
+.row-fluid .span7,
+.row-fluid .span8,
+.row-fluid .span9,
+.row-fluid .span10,
+.row-fluid .span11,
+.row-fluid .span12 {
+  min-height: 1px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .row-fluid {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  .row-fluid .span1 {
+    width: calc(
+      var(--hsElevate--column__widthMultiplier) * 1% * 1 -
+        var(--hsElevate--column__gap) *
+        var(--hsElevate--column__widthMultiplier) * 11 / 100
+    );
+  }
+
+  .row-fluid .span2 {
+    width: calc(
+      var(--hsElevate--column__widthMultiplier) * 1% * 2 -
+        var(--hsElevate--column__gap) *
+        var(--hsElevate--column__widthMultiplier) * 10 / 100
+    );
+  }
+
+  .row-fluid .span3 {
+    width: calc(
+      var(--hsElevate--column__widthMultiplier) * 1% * 3 -
+        var(--hsElevate--column__gap) *
+        var(--hsElevate--column__widthMultiplier) * 9 / 100
+    );
+  }
+
+  .row-fluid .span4 {
+    width: calc(
+      var(--hsElevate--column__widthMultiplier) * 1% * 4 -
+        var(--hsElevate--column__gap) *
+        var(--hsElevate--column__widthMultiplier) * 8 / 100
+    );
+  }
+
+  .row-fluid .span5 {
+    width: calc(
+      var(--hsElevate--column__widthMultiplier) * 1% * 5 -
+        var(--hsElevate--column__gap) *
+        var(--hsElevate--column__widthMultiplier) * 7 / 100
+    );
+  }
+
+  .row-fluid .span6 {
+    width: calc(
+      var(--hsElevate--column__widthMultiplier) * 1% * 6 -
+        var(--hsElevate--column__gap) *
+        var(--hsElevate--column__widthMultiplier) * 6 / 100
+    );
+  }
+
+  .row-fluid .span7 {
+    width: calc(
+      var(--hsElevate--column__widthMultiplier) * 1% * 7 -
+        var(--hsElevate--column__gap) *
+        var(--hsElevate--column__widthMultiplier) * 5 / 100
+    );
+  }
+
+  .row-fluid .span8 {
+    width: calc(
+      var(--hsElevate--column__widthMultiplier) * 1% * 8 -
+        var(--hsElevate--column__gap) *
+        var(--hsElevate--column__widthMultiplier) * 4 / 100
+    );
+  }
+
+  .row-fluid .span9 {
+    width: calc(
+      var(--hsElevate--column__widthMultiplier) * 1% * 9 -
+        var(--hsElevate--column__gap) *
+        var(--hsElevate--column__widthMultiplier) * 3 / 100
+    );
+  }
+
+  .row-fluid .span10 {
+    width: calc(
+      var(--hsElevate--column__widthMultiplier) * 1% * 10 -
+        var(--hsElevate--column__gap) *
+        var(--hsElevate--column__widthMultiplier) * 2 / 100
+    );
+  }
+
+  .row-fluid .span11 {
+    width: calc(
+      var(--hsElevate--column__widthMultiplier) * 1% * 11 -
+        var(--hsElevate--column__gap) *
+        var(--hsElevate--column__widthMultiplier) * 1 / 100
+    );
+  }
+}

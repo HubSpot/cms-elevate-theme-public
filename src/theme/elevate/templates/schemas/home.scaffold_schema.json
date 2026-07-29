@@ -1,0 +1,355 @@
+[
+  {
+    "name": "group_banner",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A brief heading that shows at the top of the hero banner and describes the page. Should be 3 words or less."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A couple of sentences that provide more information about the heading."
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "The button text that describes the call to action the user should take."
+      },
+      {
+        "name": "button_two_text",
+        "type": "text",
+        "description": "The button text that describes the secondary call to action the user should take."
+      },
+      {
+        "name": "image",
+        "type": "image",
+        "width": 700,
+        "height": 700,
+        "description": "An image related to the group_banner.heading and group_banner.description."
+      }
+    ]
+  },
+  {
+    "name": "group_logo_wall",
+    "type": "group",
+    "children":[
+      {
+        "name": "content",
+        "type": "text",
+        "description": "A brief sentence which describes why the following logos are relevant to the page's content."
+      }
+    ]
+  },
+  {
+    "name": "group_heading_and_cards",
+    "type":"group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that introduces the content included in the following cards."
+      },
+      {
+        "name": "group_card_one",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "A brief heading (a few words) that summarizes the content of the card."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "htmlElement": "p",
+            "description": "A few brief sentences describing the focus of the card."
+          }
+        ]
+      },
+      {
+        "name": "group_card_two",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "A brief heading (a few words) that summarizes the content of the card."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "htmlElement": "p",
+            "description": "A few brief sentences describing the focus of the card."
+          }
+        ]
+      },
+      {
+        "name": "group_card_three",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "A brief heading (a few words) that summarizes the content of the card."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "htmlElement": "p",
+            "description": "A few brief sentences describing the focus of the card."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "group_multi_row_alternating",
+    "type": "group",
+    "children": [
+      {
+        "name": "group_one",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "A brief heading (a few words) that introduce this section's focus."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "A couple of sentences (2-3) that describe this group."
+          },
+          {
+            "name": "button_text",
+            "type": "text",
+            "description": "A very short call-to-action. Should be active and engaging text prompting the user to take action. "
+          },
+          {
+            "name": "image",
+            "type": "image",
+            "description": "An image related to the group_one heading and group_one content.",
+            "width": "700",
+            "height": "400"
+          }
+        ]
+      },
+      {
+        "name": "group_two",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "A brief heading (a few words) that introduce this section's focus."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "A couple of sentences (2-3) that describe this group."
+          },
+          {
+            "name": "button_text",
+            "type": "text",
+            "description": "A very short call-to-action. Should be active and engaging text prompting the user to take action. "
+          },
+          {
+            "name": "image",
+            "type": "image",
+            "description": "An image related to the group_two heading and group_two content.",
+            "width": "700",
+            "height": "400"
+          }
+        ]
+      },
+      {
+        "name": "group_three",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "A brief heading (a few words) that introduce this section's focus."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "A couple of sentences (2-3) that describe this group."
+          },
+          {
+            "name": "button_text",
+            "type": "text",
+            "description": "A very short call-to-action. Should be active and engaging text prompting the user to take action. "
+          },
+          {
+            "name": "image",
+            "type": "image",
+            "description": "An image related to the group_three heading and group_three content.",
+            "width": "700",
+            "height": "400"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "group_testimonial_slider",
+    "type": "group",
+    "children": [
+      {
+        "name":"testimonial_one",
+        "type": "group",
+        "children": [
+          {
+            "name": "quote",
+            "type": "text",
+            "description": "A placeholder quote from a potential client or customer recommending the page's service or offer."
+          },
+          {
+            "name": "author",
+            "type": "text",
+            "description": "A name of the person giving the quote / testimonial."
+          },
+          {
+            "name": "author_title",
+            "type": "text",
+            "description": "A one or two word role of the testimonial author in their company."
+          },
+          {
+            "name": "image",
+            "type": "image",
+            "description": "An image that visually captures an element or aspect of the quote.",
+            "width": "300",
+            "height": "300"
+          },
+          {
+            "name": "button_text",
+            "type": "text",
+            "description": "A brief CTA prompting the visitor to take action with the testimonial."
+          }
+        ]
+      },
+      {
+        "name":"testimonial_two",
+        "type": "group",
+        "children": [
+          {
+            "name": "quote",
+            "type": "text",
+            "description": "A placeholder quote from a potential client or customer recommending the page's service or offer."
+          },
+          {
+            "name": "author",
+            "type": "text",
+            "description": "A name of the person giving the quote / testimonial."
+          },
+          {
+            "name": "author_title",
+            "type": "text",
+            "description": "A one or two word role of the testimonial author in their company."
+          },
+          {
+            "name": "image",
+            "type": "image",
+            "description": "An image that visually captures an element or aspect of the quote.",
+            "width": "300",
+            "height": "300"
+          },
+          {
+            "name": "button_text",
+            "type": "text",
+            "description": "A brief CTA prompting the visitor to take action with the testimonial."
+          }
+        ]
+      },{
+        "name":"testimonial_three",
+        "type": "group",
+        "children": [
+          {
+            "name": "quote",
+            "type": "text",
+            "description": "A placeholder quote from a potential client or customer recommending the page's service or offer."
+          },
+          {
+            "name": "author",
+            "type": "text",
+            "description": "A name of the person giving the quote / testimonial."
+          },
+          {
+            "name": "author_title",
+            "type": "text",
+            "description": "A one or two word role of the testimonial author in their company."
+          },
+          {
+            "name": "image",
+            "type": "image",
+            "description": "An image that visually captures an element or aspect of the quote.",
+            "width": "300",
+            "height": "300"
+          },
+          {
+            "name": "button_text",
+            "type": "text",
+            "description": "A brief CTA prompting the visitor to take action with the testimonial."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name":"group_metrics",
+    "type": "group",
+    "children": [
+      {
+        "name": "metric_one",
+        "type": "text",
+        "description": "A number and unit signifying an important statistic related to the focus of the page. Exclude if it a longer, non-standard unit, which would fit better in the metric_description below."
+      },
+      {
+        "name": "metric_description_one",
+        "type": "text",
+        "description": "A brief and concise description of the metric above. Should be no longer than 5 words."
+      },
+      {
+        "name": "metric_two",
+        "type": "text",
+        "description": "A number and unit signifying an important statistic related to the focus of the page. Exclude if it a longer, non-standard unit, which would fit better in the metric_description below."
+      },
+      {
+        "name": "metric_description_two",
+        "type": "text",
+        "description": "A brief and concise description of the metric above. Should be no longer than 5 words."
+      },
+      {
+        "name": "metric_three",
+        "type": "text",
+        "description": "A number and unit signifying an important statistic related to the focus of the page. Exclude if it a longer, non-standard unit, which would fit better in the metric_description below."
+      },
+      {
+        "name": "metric_description_three",
+        "type": "text",
+        "description": "A brief and concise description of the metric above. Should be no longer than 5 words."
+      }
+    ]
+  },
+  {
+    "name":"group_cta",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A brief heading that should be engaging and prepare the user for a call to action. A question works well here. Example: 'Ready to get started?'"
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "A call to action related to the heading above."
+      }
+    ]
+  }
+
+]

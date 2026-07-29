@@ -1,0 +1,41 @@
+<!--
+  templateType: case_study_listing_page
+  isAvailableForNewContent: true
+  label: Case study listing page
+  screenshotPath: ../images/template-previews/case-studies-index.png
+-->
+{% set template_css = "../../assets/dist/css/case-studies.hubl.css" %}
+{% extends "./layouts/base.hubl.html" %}
+
+{% set is_in_preview_mode = is_in_module_previewer or is_in_template_previewer or is_in_theme_editor or is_in_theme_previewer %}
+
+
+{% block body %}
+
+  <div class="cs-listing-wrapper cs-background--off-white">
+    <div class="content-wrapper" id="cs-listing__filter-anchor">
+
+      <div class="hs-elevate-content-wrapper hs-elevate-content-wrapper--sm">
+        <h1 class="cs-listing__heading">
+          {% if is_in_preview_mode %}
+            Case study title
+          {% else %}
+            {{ content_type_group.values.hs_name|escape_html }}
+          {% endif %}
+        </h1>
+        <p class="cs-listing__subheading">
+          {% if is_in_preview_mode %}
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          {% else %}
+            {{ content_type_group.values.hs_sub_heading|escape_html }}
+          {% endif %}
+        </p>
+      </div>
+
+    <div class="hs-elevate-content-wrapper">
+      {% module "cs_listing_filter_pagination" path="@hubspot/cs_listing_filter_pagination" %}
+    </div>
+
+    </div>
+  </div>
+{% endblock %}

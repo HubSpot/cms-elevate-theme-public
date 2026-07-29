@@ -1,0 +1,99 @@
+<!--
+  templateType: section
+  label: Call to action - centered
+  isAvailableForNewContent: true
+  landingPageSectionCategories: [CALL_TO_ACTION]
+  scaffoldSchemaPath: ./schemas/call-to-action-centered.scaffold_schema.json
+  goals: [ATTRACT_LEADS]
+  screenshotPath: ../images/section-previews/call-to-action-centered.png
+  description: "Middle centered logo, heading, description, and button"
+-->
+
+{#
+  Context variables
+    - section_background_color: The background color of the section.
+    - card_variant: The variant of the card style.
+    - button_style_variant: The variant of the button style.
+    - cards: An array containing a single card item.
+    - cards[0].image.src: The source URL for the card image.
+    - cards[0].image.alt: The alt text for the card image.
+    - cards[0].image.loading: The loading attribute for the card image.
+    - cards[0].heading.text: The text for the card heading.
+    - cards[0].content: The content text for the card.
+    - cards[0].button.text: The text for the card button.
+    - cards[0].button.href: The link for the card button.
+#}
+
+{# Section variables #}
+
+{% set template_translations = load_translations("../templates/_locales", html_lang, "en") %}
+
+{% set card_content = "<p>{{ context.cards[0].content or scaffold_content.description or template_translations.section_cta_centered_content.message }}</p>" %}
+
+{# Section #}
+
+{% dnd_section
+  background_color={{ context.section_background_color }},
+%}
+  {% dnd_column %}
+    {% dnd_row %}
+      {% dnd_module
+        path="../components/modules/Anchor",
+        anchor={{ context.anchor_id or scaffold_content.anchor.anchor_id }}
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+    {% dnd_row %}
+      {% dnd_module
+        path="../components/modules/Card"
+        imageOrIcon="image",
+        groupCards=[
+          {
+            "groupImage": {
+              "image": {
+                "src": context.cards[0].image.src or scaffold_content.image.src or get_asset_url("../images/logo-small.png"),
+                "alt": context.cards[0].image.alt or scaffold_content.image.alt or template_translations.section_cta_centered_logo_alt.message,
+                "loading": context.cards[0].image.loading or "lazy",
+                "size_type": "auto_custom_max"
+              }
+            },
+            "groupIcon": {
+              "icon": {
+                "name": "play-circle"
+              }
+            },
+            "groupContent": {
+              "headingAndTextHeadingLevel": "h3",
+              "headingAndTextHeading": context.cards[0].heading.text or scaffold_content.heading or template_translations.section_cta_centered_heading.message,
+              "richTextContentHTML": card_content|render
+            },
+            "groupButton": {
+              "showButton": true,
+              "buttonContentText": context.cards[0].button.text or scaffold_content.button_text or template_translations.section_cta_centered_button_text.message,
+              "buttonContentLink": {
+                "url": {
+                  "href": context.cards[0].button.href or scaffold_content.button_link.url.href or ""
+                }
+              }
+            }
+          }
+        ],
+        groupStyle={
+          "groupCard": {
+            "cardOrientation": "column",
+            "cardStyleVariant": context.card_variant or "card_variant_4",
+          },
+          "groupContent": {
+            "alignment": {
+              "horizontal_align": "CENTER"
+            }
+          },
+          "groupButton": {
+            "buttonStyleVariant": context.button_style_variant or "tertiary"
+          }
+        }
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}

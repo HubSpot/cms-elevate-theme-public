@@ -1,0 +1,152 @@
+<!--
+  templateType: blog_post
+  isAvailableForNewContent: true
+  label: Blog post
+  screenshotPath: '../images/template-previews/blog-post.png'
+-->
+{% set template_css = "../../assets/dist/css/blog.hubl.css" %}
+{% extends "./layouts/base.hubl.html" %}
+
+{% block body %}
+
+<div class="hs-elevate-content-wrapper">
+
+  {% if content.featured_image %}
+    <div class="hs-elevate-blog-image-container">
+      <img src="{{ content.featured_image|escape_attr }}" alt="{{ content.featured_image_alt_text|escape_attr }}" width="{{ content.featured_image_width|escape_attr }}" height="{{ content.featured_image_height|escape_attr }}">
+    </div>
+  {% endif %}
+
+  <section class="hs-elevate-blog-content-container hs-elevate-content-wrapper hs-elevate-content-wrapper--sm">
+    {% if content.topic_list|length > 0 %}
+      <div class="hs-elevate-blog-tags-container">
+        {% for topic in content.topic_list %}
+          {% if loop.index <= 3 %}
+            <span class='hs-elevate-tag'>{{ topic.name|sanitize_html }}</span>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <h1 class="hs-elevate-blog-title">{{ content.name|sanitize_html }}</h1>
+
+    {% set authors_to_display = content.blog_author_list if content.blog_author_list and content.blog_author_list|length > 0 else [content.blog_author] if content.blog_author else [] %}
+    {% if authors_to_display and authors_to_display|length > 0 %}
+      <div class="hs-elevate-blog-meta">
+        <div class="hs-elevate-blog-meta__avatars">
+          {% for author in authors_to_display %}
+            <div class="hs-elevate-blog-meta__image-container">
+              <img src="{{ author.avatar or get_asset_url('../images/avatar-placeholder.jpg') }}" alt="{{ author.display_name|escape_attr }}" width="48" height="48">
+            </div>
+          {% endfor %}
+        </div>
+
+        <div class="hs-elevate-blog-meta__content">
+          <div class="hs-elevate-blog-meta__authors">
+            {% for author in authors_to_display %}
+              {% if author.display_name %}
+                {{ author.display_name|sanitize_html }}{% if not loop.last %}{% if loop.revindex == 2 %}, and {% else %}, {% endif %}{% endif %}
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      {% if content.publish_date %}
+        <div class="hs-elevate-blog-meta__date-container">
+          <time datetime="{{ content.publish_date }}" class="hs-elevate-blog-meta__date">{{ content.publish_date|format_date('long') }}</time>
+        </div>
+      {% endif %}
+    {% endif %}
+
+    <div class="hs-elevate-blog-audio-narration">
+      {% module "narration"
+        path="@hubspot/blog_audio",
+        overrideable=False
+      %}
+    </div>
+
+    <div class="hs-elevate-blog-content ">
+      {{ content.post_body }}
+    </div>
+
+    <div class="hs-elevate-blog-share">
+      {% module "blog-share-heading-2" path="../components/modules/Heading"
+        headingAndTextHeadingLevel="h2",
+        headingAndTextHeading={{ template_translations.blog_post_share_post_heading.message }},
+        groupStyle={
+          "alignment": {
+            "text_align": "CENTER"
+          },
+          "headingStyleVariant": "h5",
+          "sectionStyleVariant": "section_variant_1"
+        }
+      %}
+
+      {% module "social_share" path="../components/modules/SocialShare"
+        groupStyle={
+          buttonStyleVariant: "secondary",
+          spaceBetweenIcons: "small"
+        }
+      %}
+    </div>
+
+  </section>
+
+  {% set rec_posts = blog_recent_posts(group.id, 3) %}
+  {% set posts_to_use = [] %}
+  {% for post in rec_posts %}
+    {% do posts_to_use.append(post) if post.id != content.id and posts_to_use|length < 2 %}
+  {% endfor %}
+
+  {% macro build_recent_post(post) %}
+    <article class="hs-elevate-card--recent-post hs-elevate-card--variant-2">
+      <a class="hs-elevate-card--recent-post__link" href="{{ post.absolute_url|escape_url }}">
+        {% if group.use_featured_image_in_summary %}
+          <div class="hs-elevate-card--recent-post__image-container">
+            <img src="{{ post.featured_image|escape_url }}" alt="{{ post.featured_image_alt_text|escape_attr }}" width="{{ post.featured_image_width|escape_attr }}" height="{{ post.featured_image_height|escape_attr }}">
+          </div>
+        {% endif %}
+
+        <div class="hs-elevate-card--recent-post__content-container">
+        {% if post.topic_list|length > 0 %}
+          <div class="hs-elevate-card--recent-post__tag-container">
+            {% for topic in post.topic_list %}
+              {% if loop.index <= 3 %}
+                <span class='hs-elevate-tag'>{{ topic.name|sanitize_html }}</span>
+              {% endif %}
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          <h3 class="hs-elevate-card--recent-post__title">{{ post.title|sanitize_html }}</h3>
+
+        </div>
+      </a>
+    </article>
+  {% endmacro %}
+</div>
+
+{% if group.allow_comments %}
+  <section class="hs-elevate-content-wrapper hs-elevate-blog-comments-container">
+    <div class="hs-elevate-content-wrapper hs-elevate-content-wrapper--sm">
+      {% module "blog_comments" path="@hubspot/blog_comments" %}
+    </div>
+  </section>
+{% endif %}
+
+
+
+{% if posts_to_use|length > 0 %}
+ <section class="hs-elevate-blog-recent-posts">
+  <div class="hs-elevate-content-wrapper">
+    <h2 class="hs-elevate-blog-recent-posts__heading">{{ template_translations.blog_post_recent_posts_heading.message }}</h2>
+    <div class=" hs-elevate-blog-recent-posts__card-container">
+      {% for post in posts_to_use %}
+        {{ build_recent_post(post) }}
+      {% endfor %}
+    </div>
+  </div>
+  </section>
+{% endif %}
+{% endblock %}

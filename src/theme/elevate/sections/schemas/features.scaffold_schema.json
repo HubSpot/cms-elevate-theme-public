@@ -1,0 +1,152 @@
+[
+  {
+    "name": "heading",
+    "type": "text",
+    "description": "A heading that describes the features of the product."
+  },
+  {
+    "name": "description",
+    "type": "text",
+    "description": "A few sentences that provide more detail about the features of the product."
+  },
+  {
+    "name": "image",
+    "type": "image",
+    "description": "An image that displays one of the features of the product.",
+    "width": 372,
+    "height": 651
+  },
+  {
+    "name": "group_feature_one",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes the first feature of the product."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A sentence that provides more detail about the first feature of the product."
+      }
+    ]
+  },
+  {
+    "name": "group_feature_two",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes the second feature of the product."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A sentence that provides more detail about the second feature of the product."
+      }
+    ]
+  },
+  {
+    "name": "group_feature_three",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes the third feature of the product."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A sentence that provides more detail about the third feature of the product."
+      }
+    ]
+  },
+  {
+    "name": "group_feature_four",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes the fourth feature of the product."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A sentence that provides more detail about the fourth feature of the product."
+      }
+    ]
+  },
+  {
+    "name": "group_feature_five",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes the fifth feature of the product."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A sentence that provides more detail about the fifth feature of the product."
+      }
+    ]
+  },
+  {
+    "name": "group_feature_six",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes the sixth feature of the product."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A sentence that provides more detail about the sixth feature of the product."
+      }
+    ]
+  },
+  {
+    "name": "group_feature_seven",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes the seventh feature of the product."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A sentence that provides more detail about the seventh feature of the product."
+      }
+    ]
+  },
+  {
+    "name": "group_feature_eight",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes the eighth feature of the product."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A sentence that provides more detail about the eighth feature of the product."
+      }
+    ]
+  },
+  {
+    "name": "anchor",
+    "type": "anchor",
+    "description": "An anchor id for the features section"
+  }
+]

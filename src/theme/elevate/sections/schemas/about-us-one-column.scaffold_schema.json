@@ -1,0 +1,17 @@
+[
+  {
+    "name": "label",
+    "type": "text",
+    "description": "A short label that appears above the main heading in the about us section."
+  },
+  {
+    "name": "heading",
+    "type": "text",
+    "description": "The main heading for the about us section that introduces the company or organization."
+  },
+  {
+    "name": "content",
+    "type": "text",
+    "description": "The main paragraph content that describes the company, organization, or team in more detail."
+  }
+]

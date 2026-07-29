@@ -1,0 +1,55 @@
+[
+  {
+    "name": "heading",
+    "type": "text",
+    "description": "A heading above a group of cards that describes a company, product, or service."
+  },
+  {
+    "name": "group_card_one",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading for the first card that describes a company, product, or service."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A few sentences that provide more detail about the first card."
+      }
+    ]
+  },
+  {
+    "name": "group_card_two",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading for the second card that describes a company, product, or service."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A few sentences that provide more detail about the second card."
+      }
+    ]
+  },
+  {
+    "name": "group_card_three",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading for the third card that describes a company, product, or service."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A few sentences that provide more detail about the third card."
+      }
+    ]
+  }
+]

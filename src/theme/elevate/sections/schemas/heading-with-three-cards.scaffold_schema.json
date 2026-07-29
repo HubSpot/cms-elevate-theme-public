@@ -1,0 +1,65 @@
+[
+  {
+    "name": "heading",
+    "type": "text",
+    "description": "A heading shows above a group of cards."
+  },
+  {
+    "name": "subheading",
+    "type": "text",
+    "description": "A short subheading that provides more information about the heading."
+  },
+  {
+    "name": "group_card_one",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes the first card."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A few sentences that provide more detail about the first card."
+      }
+    ]
+  },
+  {
+    "name": "group_card_two",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes the second card."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A few sentences that provide more detail about the second card."
+      }
+    ]
+  },
+  {
+    "name": "group_card_three",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes the third card."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A few sentences that provide more detail about the third card."
+      }
+    ]
+  },
+  {
+    "name": "anchor",
+    "type": "anchor",
+    "description": "An anchor id for the heading with three cards section"
+  }
+]

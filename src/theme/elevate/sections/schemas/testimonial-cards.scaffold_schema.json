@@ -1,0 +1,86 @@
+[
+  {
+    "name": "group_testimonial_1",
+    "type": "group",
+    "children": [
+      {
+        "name": "customer_logo",
+        "type": "image",
+        "description": "The logo of the customer or client who provided the first testimonial.",
+        "width": "140",
+        "height": "80"
+      },
+      {
+        "name": "quote",
+        "type": "text",
+        "description": "A testimonial quote from a customer or client about their positive experience with the product or service."
+      },
+      {
+        "name": "author_name",
+        "type": "text",
+        "description": "The name of the person who provided the first testimonial."
+      },
+      {
+        "name": "author_title",
+        "type": "text",
+        "description": "The job title and company of the person who provided the first testimonial."
+      }
+    ]
+  },
+  {
+    "name": "group_testimonial_2",
+    "type": "group",
+    "children": [
+      {
+        "name": "customer_logo",
+        "type": "image",
+        "description": "The logo of the customer or client who provided the second testimonial.",
+        "width": "140",
+        "height": "80"
+      },
+      {
+        "name": "quote",
+        "type": "text",
+        "description": "A second testimonial quote from a different customer or client about their positive experience."
+      },
+      {
+        "name": "author_name",
+        "type": "text",
+        "description": "The name of the person who provided the second testimonial."
+      },
+      {
+        "name": "author_title",
+        "type": "text",
+        "description": "The job title and company of the person who provided the second testimonial."
+      }
+    ]
+  },
+  {
+    "name": "group_testimonial_3",
+    "type": "group",
+    "children": [
+      {
+        "name": "customer_logo",
+        "type": "image",
+        "description": "The logo of the customer or client who provided the third testimonial.",
+        "width": "140",
+        "height": "80"
+      },
+      {
+        "name": "quote",
+        "type": "text",
+        "description": "A third testimonial quote from a different customer or client about their positive experience."
+      },
+      {
+        "name": "author_name",
+        "type": "text",
+        "description": "The name of the person who provided the third testimonial."
+      },
+      {
+        "name": "author_title",
+        "type": "text",
+        "description": "The job title and company of the person who provided the third testimonial."
+      }
+    ]
+  }
+]

@@ -1,0 +1,205 @@
+<!--
+  templateType: section
+  label: Pricing - four column
+  isAvailableForNewContent: true
+  scaffoldSchemaPath: ./schemas/pricing-four-column.scaffold_schema.json
+  landingPageSectionCategories: [PRICING]
+  screenshotPath: ../images/section-previews/pricing-four-column.png
+  description: "Displays four pricing cards for different plan options with features and pricing details."
+-->
+
+{#
+  Context variables
+    - card_variant: The variant of the card style.
+    - background_color: The background color of the section.
+    - pricing_cards[0-3].heading: The heading for each pricing card.
+    - pricing_cards[0-3].price: The price for each pricing card.
+    - pricing_cards[0-3].time_period: The time period for each pricing card.
+    - pricing_cards[0-3].features[0-2]: The features for each pricing card.
+    - pricing_cards[0-3].button_text: The text for the button in each pricing card.
+    - pricing_cards[0-3].button_link: The link for the button in each pricing card.
+    - summary_heading: The heading style for the pricing card titles.
+#}
+
+{# Section variables #}
+
+{% set template_translations = load_translations("../templates/_locales", html_lang, "en") %}
+{% import "../helpers/variables.hubl.html" %}
+
+{# Section #}
+
+{% dnd_section
+  background_color={{ context.background_color }}
+%}
+  {% dnd_column %}
+    {% dnd_row %}
+      {% dnd_module
+        path="../components/modules/PricingCard",
+        groupPricingCards=[
+          {
+            "groupSummary": {
+              "headingAndTextHeadingLevel": "h2",
+              "headingAndTextHeading": context.pricing_cards[0].heading or scaffold_content.group_pricing_card_one.heading or template_translations.section_pricing_four_column_card_one_heading.message,
+              "description": context.pricing_cards[0].description or scaffold_content.group_pricing_card_one.description or "",
+              "price": context.pricing_cards[0].price or scaffold_content.group_pricing_card_one.price or template_translations.section_pricing_four_column_card_one_price.message,
+              "timePeriod": context.pricing_cards[0].time_period or scaffold_content.group_pricing_card_one.time_period or template_translations.section_pricing_four_column_time_period.message,
+            },
+            "groupPlanFeatures": {
+              "headingAndTextHeadingLevel": "h3",
+              "headingAndTextHeading": context.pricing_cards[0].features_title or scaffold_content.group_pricing_card_one.features_title or "",
+              "groupFeatures": [
+                {
+                  "feature": context.pricing_cards[0].features[0] or scaffold_content.group_pricing_card_one.feature_one or template_translations.section_pricing_four_column_card_one_feature_one.message
+                },
+                {
+                  "feature": context.pricing_cards[0].features[1] or scaffold_content.group_pricing_card_one.feature_two or template_translations.section_pricing_four_column_card_one_feature_two.message
+                }
+              ],
+            },
+            "groupButton": {
+              "showButton": true,
+              "buttonContentText": context.pricing_cards[0].button_text or scaffold_content.group_pricing_card_one.button_text or template_translations.section_pricing_four_column_card_one_button_text.message,
+              "buttonContentLink": {
+                "url": {
+                  "href": context.pricing_cards[0].button_link or scaffold_content.group_pricing_card_one.button_link or ""
+                },
+                "open_in_new_tab": true
+              },
+              "buttonContentShowIcon": false,
+              "buttonContentIcon": {
+                "name": "dollar-sign"
+              },
+              "buttonContentIconPosition": "right"
+            }
+          },
+          {
+            "groupSummary": {
+              "headingAndTextHeadingLevel": "h2",
+              "headingAndTextHeading": context.pricing_cards[1].heading or scaffold_content.group_pricing_card_two.heading or template_translations.section_pricing_four_column_card_two_heading.message,
+              "description": context.pricing_cards[1].description or scaffold_content.group_pricing_card_two.description or "",
+              "price": context.pricing_cards[1].price or scaffold_content.group_pricing_card_two.price or template_translations.section_pricing_four_column_card_two_price.message,
+              "timePeriod": context.pricing_cards[1].time_period or scaffold_content.group_pricing_card_two.time_period or template_translations.section_pricing_four_column_time_period.message,
+            },
+            "groupPlanFeatures": {
+              "headingAndTextHeadingLevel": "h3",
+              "headingAndTextHeading": context.pricing_cards[1].features_title or scaffold_content.group_pricing_card_two.features_title or "",
+              "groupFeatures": [
+                {
+                  "feature": context.pricing_cards[1].features[0] or scaffold_content.group_pricing_card_two.feature_one or template_translations.section_pricing_four_column_card_two_feature_one.message
+                },
+                {
+                  "feature": context.pricing_cards[1].features[1] or scaffold_content.group_pricing_card_two.feature_two or template_translations.section_pricing_four_column_card_two_feature_two.message
+                },
+                {
+                  "feature": context.pricing_cards[1].features[2] or scaffold_content.group_pricing_card_two.feature_three or template_translations.section_pricing_four_column_card_two_feature_three.message
+                }
+              ],
+            },
+            "groupButton": {
+              "showButton": true,
+              "buttonContentText": context.pricing_cards[1].button_text or scaffold_content.group_pricing_card_two.button_text or template_translations.section_pricing_four_column_card_one_button_text.message,
+              "buttonContentLink": {
+                "url": {
+                  "href": context.pricing_cards[1].button_link or scaffold_content.group_pricing_card_two.button_link or ""
+                },
+                "open_in_new_tab": true
+              },
+              "buttonContentShowIcon": false,
+              "buttonContentIcon": {
+                "name": "dollar-sign"
+              },
+              "buttonContentIconPosition": "right"
+            }
+          },
+          {
+            "groupSummary": {
+              "headingAndTextHeadingLevel": "h2",
+              "headingAndTextHeading": context.pricing_cards[2].heading or scaffold_content.group_pricing_card_three.heading or template_translations.section_pricing_four_column_card_three_heading.message,
+              "description": context.pricing_cards[2].description or scaffold_content.group_pricing_card_three.description or "",
+              "price": context.pricing_cards[2].price or scaffold_content.group_pricing_card_three.price or template_translations.section_pricing_four_column_card_three_price.message,
+              "timePeriod": context.pricing_cards[2].time_period or scaffold_content.group_pricing_card_three.time_period or template_translations.section_pricing_four_column_time_period.message,
+            },
+            "groupPlanFeatures": {
+              "headingAndTextHeadingLevel": "h3",
+              "headingAndTextHeading": context.pricing_cards[2].features_title or scaffold_content.group_pricing_card_three.features_title or "",
+              "groupFeatures": [
+                {
+                  "feature": context.pricing_cards[2].features[0] or scaffold_content.group_pricing_card_three.feature_one or template_translations.section_pricing_four_column_card_three_feature_one.message
+                },
+                {
+                  "feature": context.pricing_cards[2].features[1] or scaffold_content.group_pricing_card_three.feature_two or template_translations.section_pricing_four_column_card_three_feature_two.message
+                },
+                {
+                  "feature": context.pricing_cards[2].features[2] or scaffold_content.group_pricing_card_three.feature_three or template_translations.section_pricing_four_column_card_three_feature_three.message
+                }
+              ],
+            },
+            "groupButton": {
+              "showButton": true,
+              "buttonContentText": context.pricing_cards[2].button_text or scaffold_content.group_pricing_card_three.button_text or template_translations.section_pricing_four_column_card_one_button_text.message,
+              "buttonContentLink": {
+                "url": {
+                  "href": context.pricing_cards[2].button_link or scaffold_content.group_pricing_card_three.button_link or ""
+                },
+                "open_in_new_tab": true
+              },
+              "buttonContentShowIcon": false,
+              "buttonContentIcon": {
+                "name": "dollar-sign"
+              },
+              "buttonContentIconPosition": "right"
+            }
+          },
+          {
+            "groupSummary": {
+              "headingAndTextHeadingLevel": "h2",
+              "headingAndTextHeading": context.pricing_cards[3].heading or scaffold_content.group_pricing_card_four.heading or template_translations.section_pricing_four_column_card_four_heading.message,
+              "description": context.pricing_cards[3].description or scaffold_content.group_pricing_card_four.description or "",
+              "price": context.pricing_cards[3].price or scaffold_content.group_pricing_card_four.price or template_translations.section_pricing_four_column_card_four_price.message,
+              "timePeriod": context.pricing_cards[3].time_period or scaffold_content.group_pricing_card_four.time_period or template_translations.section_pricing_four_column_time_period.message,
+            },
+            "groupPlanFeatures": {
+              "headingAndTextHeadingLevel": "h3",
+              "headingAndTextHeading": context.pricing_cards[3].features_title or scaffold_content.group_pricing_card_four.features_title or "",
+              "groupFeatures": [
+                {
+                  "feature": context.pricing_cards[3].features[0] or scaffold_content.group_pricing_card_four.feature_one or template_translations.section_pricing_four_column_card_four_feature_one.message
+                },
+                {
+                  "feature": context.pricing_cards[3].features[1] or scaffold_content.group_pricing_card_four.feature_two or template_translations.section_pricing_four_column_card_four_feature_two.message
+                },
+                {
+                  "feature": context.pricing_cards[3].features[2] or scaffold_content.group_pricing_card_four.feature_three or template_translations.section_pricing_four_column_card_four_feature_three.message
+                }
+              ],
+            },
+            "groupButton": {
+              "showButton": true,
+              "buttonContentText": context.pricing_cards[3].button_text or scaffold_content.group_pricing_card_four.button_text or template_translations.section_pricing_four_column_card_four_button_text.message,
+              "buttonContentLink": {
+                "url": {
+                  "href": context.pricing_cards[3].button_link or scaffold_content.group_pricing_card_four.button_link or ""
+                },
+                "open_in_new_tab": true
+              },
+              "buttonContentShowIcon": false,
+              "buttonContentIcon": {
+                "name": "dollar-sign"
+              },
+              "buttonContentIconPosition": "right"
+            }
+          }
+        ],
+        groupStyle={
+          "groupCard": {
+            "cardStyleVariant": context.card_variant or "card_variant_1"
+          },
+          "groupSummary": {
+            "headingStyleVariant": context.summary_heading.style or "h4"
+          }
+        }
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}

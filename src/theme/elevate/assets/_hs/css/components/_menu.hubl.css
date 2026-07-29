@@ -1,0 +1,55 @@
+/*
+  Spacing variables are:
+  --hsElevate--menuItem__padding
+  --hsElevate--menuItem__margin
+  --hsElevate--menu--topLevel__gap
+  --hsElevate--flyoutSubMenu__top
+  --hsElevate--flyoutSubMenu__left
+  --hsElevate--flyoutSubMenu__right
+  --hsElevate--flyoutSubMenu__bottom
+  --hsElevate--firstFlyoutMenu__top
+  --hsElevate--firstFlyoutMenu__left
+  --hsElevate--firstFlyoutMenu__right
+  --hsElevate--firstFlyoutMenu__bottom
+ */
+
+.hs-elevate-menu {
+  display: flex;
+}
+
+.hs-elevate-menu,
+.hs-elevate-menu ul {
+  list-style: none;
+}
+
+.hs-elevate-menu li {
+  position: relative;
+}
+
+.hs-elevate-menu--horizontal {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.hs-elevate-menu--vertical {
+  flex-direction: column;
+}
+
+.hs-elevate-menu {
+  gap: var(--hsElevate--menu--topLevel__gap, 0);
+}
+
+.hs-elevate-menu--desktop {
+  margin: 0;
+}
+
+.hs-elevate-menu__flyout-submenu {
+  min-width: max-content;
+  max-width: 250px;
+  white-space: nowrap;
+  overflow-wrap: break-word;
+  padding: 20px;
+  border: 1px solid #f7f7f7;
+  border-radius: 8px;
+  background-color: white;
+}

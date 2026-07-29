@@ -1,0 +1,21 @@
+.hs-elevate-anchor {
+  position: relative;
+}
+
+.hs-elevate-anchor__visual {
+  display: block;
+  width: 47px;
+  background: url('./assets/editor-anchor.svg') no-repeat 100% 100% !important;
+  margin-block: 4px;
+  margin-inline-start: auto;
+  padding-block: 10px 11px;
+
+  &:before {
+    position: absolute;
+    left: 0;
+    height: 8px;
+    width: calc(100% - 45px);
+    border-top: 1px solid #00a4bd;
+    content: '';
+  }
+}

@@ -1,0 +1,209 @@
+<!--
+  templateType: section
+  label: Multi-row content
+  isAvailableForNewContent: true
+  landingPageSectionCategories: [PRODUCTS_AND_SERVICES]
+  scaffoldSchemaPath: ./schemas/multi-row.scaffold_schema.json
+  screenshotPath: ../images/section-previews/multi-row.png
+  description: "Section with three rows that are separated in two columns. The left column has a heading, description, and a button and the right column has a linked image."
+-->
+
+{#
+  Context variables
+    - section_variant: The variant of the section style.
+    - background_color: The background color of the section.
+    - group[0-2].image.alt: The alt text for the image in each row.
+    - group[0-2].image.loading: The loading attribute for the image in each row.
+    - group[0-2].image.height: The height of the image in each row.
+    - group[0-2].image.width: The width of the image in each row.
+    - group[0-2].image.src: The source URL for the image in each row.
+    - group[0-2].heading.heading_level: The heading level for each row.
+    - group[0-2].heading.text: The heading text for each row.
+    - group[0-2].content: The content for each row.
+    - group[0-2].button.show_button: Whether to show the button in each row.
+    - group[0-2].button.text: The text for the button in each row.
+    - group[0-2].button.href: The link for the button in each row.
+#}
+
+{# Section variables #}
+
+{% set template_translations = load_translations("../templates/_locales", html_lang, "en") %}
+{% import "../helpers/variables.hubl.html" %}
+{% set section_variant = context.section_variant or "section_variant_1" %}
+
+{# Section #}
+
+{% dnd_section
+  background_color={{ context.background_color }},
+  padding={
+    "top": 0,
+    "bottom": 0
+  }
+%}
+  {% dnd_column %}
+    {# First Row #}
+    {% dnd_row %}
+      {% dnd_module
+        path="../components/modules/Anchor",
+        anchor={{ context.anchor_id or scaffold_content.anchor.anchor_id }}
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+
+    {# Second Row #}
+    {% dnd_row
+      padding={
+        "top": section_vertical_spacing_medium,
+        "bottom": 0
+      }
+    %}
+      {# To do: we need to add color options on this module so that we can pass text_color through where appropriate #}
+      {% dnd_module
+        path="../components/modules/ImageAndText",
+        groupImage={
+          "imagePosition": "left",
+          "image": {
+            "alt": context.group[0].image.alt or scaffold_content.group_image_and_text_one.image.alt or "",
+            "loading": context.group[0].image.loading or "lazy",
+            "max_height": context.group[0].image.height or scaffold_content.group_image_and_text_one.image.height or 599,
+            "max_width": context.group[0].image.width or scaffold_content.group_image_and_text_one.image.width or 779,
+            "size_type": "auto_custom_max",
+            "src": context.group[0].image.src or scaffold_content.group_image_and_text_one.image.src or get_asset_url("../images/products-feature-image-1.png")
+          }
+        },
+        groupContent={
+          "headingAndTextHeadingLevel": context.group[0].heading.heading_level or "h2",
+          "headingAndTextHeading": context.group[0].heading.text or scaffold_content.group_image_and_text_one.heading or template_translations.section_multi_row_row_one_heading.message,
+          "richTextContentHTML": context.group[0].content or scaffold_content.group_image_and_text_one.description or template_translations.section_multi_row_row_one_content.message
+        },
+        groupButton={
+          "showButton": context.group[0].button.show_button == 'false' ? context.group[0].button.show_button : true,
+          "buttonContentText": context.group[0].button.text or template_translations.section_multi_row_row_one_button_text.message,
+          "buttonContentLink": {
+            "url": {
+              "href": context.group[0].button.href or ""
+            }
+          }
+        },
+        groupStyle={
+          "groupContent": {
+            "sectionStyleVariant": section_variant,
+            "headingStyleVariant": "h2",
+            "verticalAlignment": {
+              "vertical_align": "MIDDLE"
+            }
+          },
+          "groupButton": {
+            "buttonStyleVariant": "primary",
+            "buttonStyleSize": "medium"
+          }
+        }
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+
+    {# Third Row #}
+    {% dnd_row
+      vertical_alignment="MIDDLE"
+      padding={
+        "top": section_vertical_spacing_medium,
+        "bottom": 0
+      }
+    %}
+      {% dnd_module
+        path="../components/modules/ImageAndText",
+        groupImage={
+          "imagePosition": "left",
+          "image": {
+            "alt": context.group[1].image.alt or scaffold_content.group_image_and_text_two.image.alt or "",
+            "loading": context.group[1].image.loading or "lazy",
+            "max_height": context.group[1].image.height or scaffold_content.group_image_and_text_two.image.height or 599,
+            "max_width": context.group[1].image.width or scaffold_content.group_image_and_text_two.image.width or 779,
+            "size_type": "auto_custom_max",
+            "src": context.group[1].image.src or scaffold_content.group_image_and_text_two.image.src or get_asset_url("../images/products-feature-image-2.png")
+          }
+        },
+        groupContent={
+          "headingAndTextHeadingLevel": context.group[1].heading.heading_level or "h2",
+          "headingAndTextHeading": context.group[1].heading.text or scaffold_content.group_image_and_text_two.heading or template_translations.section_multi_row_row_two_heading.message,
+          "richTextContentHTML": context.group[1].content or scaffold_content.group_image_and_text_two.description or template_translations.section_multi_row_row_two_content.message
+        },
+        groupButton={
+          "showButton": context.group[1].button.show_button == 'false' ? context.group[1].button.show_button : true,
+          "buttonContentText": context.group[1].button.text or template_translations.section_multi_row_row_two_button_text.message,
+          "buttonContentLink": {
+            "url": {
+              "href": context.group[1].button.href or ""
+            }
+          }
+        },
+        groupStyle={
+          "groupContent": {
+            "sectionStyleVariant": section_variant,
+            "headingStyleVariant": "h2",
+            "verticalAlignment": {
+              "vertical_align": "MIDDLE"
+            }
+          },
+          "groupButton": {
+            "buttonStyleVariant": "primary",
+            "buttonStyleSize": "medium"
+          }
+        }
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+
+    {# Fourth Row #}
+    {% dnd_row
+      vertical_alignment="MIDDLE"
+      padding={
+        "top": section_vertical_spacing_medium,
+        "bottom": section_vertical_spacing_medium
+      }
+    %}
+      {% dnd_module
+        path="../components/modules/ImageAndText",
+        groupImage={
+          "imagePosition": "left",
+          "image": {
+            "alt": context.group[2].image.alt or scaffold_content.group_image_and_text_three.image.alt or "",
+            "loading": context.group[2].image.loading or "lazy",
+            "max_height": context.group[2].image.height or scaffold_content.group_image_and_text_three.image.height or 599,
+            "max_width": context.group[2].image.width or scaffold_content.group_image_and_text_three.image.width or 779,
+            "size_type": "auto_custom_max",
+            "src": context.group[2].image.src or scaffold_content.group_image_and_text_three.image.src or get_asset_url("../images/products-feature-image-3.png")
+          }
+        },
+        groupContent={
+          "headingAndTextHeadingLevel": context.group[2].heading.heading_level or "h2",
+          "headingAndTextHeading": context.group[2].heading.text or scaffold_content.group_image_and_text_three.heading or template_translations.section_multi_row_row_three_heading.message,
+          "richTextContentHTML": context.group[2].content or scaffold_content.group_image_and_text_three.description or template_translations.section_multi_row_row_three_content.message
+        },
+        groupButton={
+          "showButton": context.group[2].button.show_button == 'false' ? context.group[2].button.show_button : true,
+          "buttonContentText": context.group[2].button.text or template_translations.section_multi_row_row_three_button_text.message,
+          "buttonContentLink": {
+            "url": {
+              "href": context.group[2].button.href or ""
+            }
+          }
+        },
+        groupStyle={
+          "groupContent": {
+            "sectionStyleVariant": section_variant,
+            "headingStyleVariant": "h2",
+            "verticalAlignment": {
+              "vertical_align": "MIDDLE"
+            }
+          },
+          "groupButton": {
+            "buttonStyleVariant": "primary",
+            "buttonStyleSize": "medium"
+          }
+        }
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}

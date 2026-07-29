@@ -1,0 +1,12 @@
+/*
+  TODO: Move this code to the MenuComponent styled-component code -- keeping it here to prevent conflicts with open Menu PRs
+  TODO: Remove this file and its references from main.hubl.css
+*/
+
+@media (width <= 767px) {
+  .hs-elevate-footer .hs-elevate-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

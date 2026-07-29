@@ -1,0 +1,109 @@
+<!--
+  templateType: section
+  label: Countdown
+  isAvailableForNewContent: true
+  landingPageSectionCategories: [EVENTS]
+  scaffoldSchemaPath: ./schemas/countdown.scaffold_schema.json
+  screenshotPath: ../images/section-previews/countdown.png
+  description: "Section with a heading, countdown timer, and a button."
+-->
+
+{#
+  Context variables
+    - section_variant: The variant of the section style.
+    - max_width: The width of the section.
+    - vertical_spacing: The vertical spacing of the section.
+    - background_color: The background color of the section.
+    - heading.heading_level: The heading level for the section heading.
+    - heading.text: The text for the section heading.
+    - heading.style_variant: The style variant for the section heading.
+    - button.text: The text for the button.
+    - button.href: The URL for the button.
+    - button.size: The size of the button.
+    - button.style: The style of the button.
+#}
+
+{# Section variables #}
+
+{% set template_translations = load_translations("../templates/_locales", html_lang, "en") %}
+{% import "../helpers/variables.hubl.html" %}
+{% set section_variant = context.section_variant or "section_variant_1" %}
+
+{# Section #}
+
+{% dnd_section
+  background_color={{ context.background_color }},
+  padding={
+    "top": context.vertical_spacing or section_vertical_spacing_medium,
+    "bottom": context.vertical_spacing or section_vertical_spacing_medium
+  },
+  max_width={{ context.max_width or section_width_medium }}
+%}
+  {% dnd_column %}
+    {% dnd_row %}
+      {% dnd_column %}
+        {% dnd_row
+          margin={
+            "default": {
+              "bottom": spacing_32
+            }
+          }
+        %}
+          {% dnd_module
+            path="../components/modules/Heading",
+            headingAndTextHeadingLevel={{ context.heading.heading_level or "h2" }},
+            headingAndTextHeading={{ context.heading.text or scaffold_content.heading or template_translations.section_countdown_heading.message }},
+            groupStyle={
+              "alignment": {
+                "text_align": "CENTER"
+              },
+              "headingStyleVariant": context.heading.style_variant or "h2",
+              "sectionStyleVariant": section_variant
+            }
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+        {% dnd_row
+          margin={
+            "default": {
+              "bottom": spacing_64
+            }
+          }
+        %}
+          {% dnd_module
+            path="../components/modules/CountdownTimer"
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+        {% dnd_row %}
+          {% dnd_module
+            path="../components/modules/Button",
+            groupButtons=[
+              {
+                "buttonContentText": context.button.text or scaffold_content.group_button.button_text or template_translations.section_countdown_button_text.message,
+                "buttonContentLink": {
+                  "url": {
+                    "href": context.button.href or scaffold_content.group_button.button_link or "#"
+                  }
+                },
+                "buttonContentShowIcon": true,
+                "buttonContentIcon": {
+                  "name": "arrow-right"
+                },
+                "buttonContentIconPosition": "right"
+              }
+            ],
+            groupStyle={
+              "alignment": {
+                "horizontal_align": "CENTER"
+              },
+              "buttonStyleSize": context.button.size or "medium",
+              "buttonStyleVariant": context.button.style or "primary"
+            }
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}

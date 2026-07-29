@@ -1,0 +1,95 @@
+.hs-elevate-site-header__back-button {
+  position: absolute;
+  z-index: 50;
+  top: 50%;
+  left: var(--hsElevate--spacing--48);
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  color: var(--hsElevate--link--primary__fontColor);
+  cursor: pointer;
+  transform: translateY(-50%);
+
+  &:hover {
+    color: var(--hsElevate--link--primary__hover--fontColor);
+
+    svg path {
+      fill: var(--hsElevate--link--primary__hover--fontColor);
+    }
+  }
+
+  svg {
+    margin-inline-end: var(--hsElevate--spacing--8);
+    transform: rotate(180deg);
+
+    path {
+      fill: var(--hsElevate--link--primary__fontColor);
+    }
+  }
+}
+
+.hs-elevate-site-header__logo-link {
+  pointer-events: initial;
+}
+
+.hs-elevate-site-header__back-button-container--show-back-button .hs-elevate-site-header__logo-link {
+  pointer-events: none;
+}
+
+.hs-elevate-site-header__logo {
+  display: block;
+  max-height: 75px;
+  width: auto;
+  max-width: min(250px, 100%);
+  -o-object-fit: contain;
+  object-fit: contain;
+  pointer-events: auto;
+  visibility: visible;
+
+  @media (width >= 769px) {
+    max-width: 250px;
+  }
+}
+
+.hs-elevate-site-header__logo:not(.hs-elevate-site-header__logo--is-svg) {
+  height: auto;
+}
+
+.hs-elevate-site-header__back-button-container--show-back-button .hs-elevate-site-header__logo {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.hs-elevate-site-header__logo-link-screen-reader {
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  padding: 0;
+  border: 0;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+}
+
+.hs-elevate-site-header__back-button-container--show-back-button .hs-elevate-site-header__logo-link-screen-reader {
+  display: none;
+}
+
+.hs-elevate-site-header__company-name {
+  display: block;
+  max-width: min(250px, 45vw);
+  font-size: 1.3rem;
+  overflow-wrap: anywhere;
+  white-space: break-spaces;
+
+  @media (width >= 576px) {
+    font-size: 1.6rem;
+  }
+
+  @media (width >= 768px) {
+    font-size: 1.8rem;
+  }
+}

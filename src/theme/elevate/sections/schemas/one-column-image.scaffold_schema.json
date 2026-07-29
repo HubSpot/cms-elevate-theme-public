@@ -1,0 +1,9 @@
+[
+  {
+    "name": "image",
+    "type": "image",
+    "description": "A full-width image that will be displayed in the section.",
+    "width": 2100,
+    "height": 1200
+  }
+]

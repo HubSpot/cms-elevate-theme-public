@@ -1,0 +1,222 @@
+<!--
+  templateType: global_partial
+  subtype: footer
+  screenshotPath: ../../images/template-previews/partials/footer.png
+  label: Website footer
+-->
+
+{# Partial variables #}
+
+{% set template_translations = load_translations('../_locales', html_lang, 'en') %}
+{% import "../../helpers/variables.hubl.html" %}
+
+{# Partial #}
+
+<footer class="hs-elevate-footer">
+  {% dnd_area "footer" label="Footer" %}
+
+    {# Footer top #}
+
+    {% dnd_section
+      background_color={{ dark_section_1_background_color }}
+      padding={
+        "top": section_vertical_spacing_small,
+        "bottom": section_vertical_spacing_small
+      }
+    %}
+      {% dnd_column %}
+        {% dnd_row
+          margin={
+            "bottom": spacing_16
+          }
+        %}
+          {% dnd_module
+            path="@hubspot/horizontal_spacer",
+            offset=0,
+            width=4
+          %}
+          {% end_dnd_module %}
+
+          {% dnd_module
+            path="@hubspot/logo",
+            offset=4,
+            width=4,
+            horizontal_alignment="CENTER",
+            img={
+              "loading": "lazy"
+            }
+          %}
+          {% end_dnd_module %}
+
+          {% dnd_module
+            path="@hubspot/horizontal_spacer",
+            offset=8,
+            width=4
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+        {% dnd_row
+          margin={
+            "bottom": spacing_16
+          }
+        %}
+          {% dnd_module
+            path="../../components/modules/Menu",
+            styles={
+              "groupMenu": {
+                "menuAlignment": {
+                  "horizontal_align": "CENTER"
+                },
+                "menuColumnGap": "medium"
+              },
+              "groupMenuItem": {
+                "menuItemVerticalGap": "medium",
+                "menuItemPadding": "medium"
+              },
+              "groupLink": {
+                "linkStyleVariant": "secondary_links"
+              }
+            }
+            flyouts=False,
+            maxDepth="1"
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+        {% dnd_row %}
+          {% dnd_module
+            path="../../components/modules/SocialFollow"
+            groupSocialLinks=[
+              {
+                "groupLink": {
+                  "link": {
+                    "url": {
+                      "href": "https://www.linkedin.com"
+                    },
+                    "open_in_new_window": true
+                  }
+                },
+                "groupIcon": {
+                  "customizeIcon": false,
+                }
+              },
+              {
+                "groupLink": {
+                  "link": {
+                    "url": {
+                      "href": "https://www.facebook.com"
+                    },
+                    "open_in_new_window": true
+                  }
+                },
+                "groupIcon": {
+                  "customizeIcon": false,
+                }
+              },
+              {
+                "groupLink": {
+                  "link": {
+                    "url": {
+                      "href": "https://www.twitter.com"
+                    },
+                    "open_in_new_window": true
+                  }
+                },
+                "groupIcon": {
+                  "customizeIcon": false,
+                }
+              },
+              {
+                "groupLink": {
+                  "link": {
+                    "url": {
+                      "href": "https://www.instagram.com"
+                    },
+                    "open_in_new_window": true
+                  }
+                },
+                "groupIcon": {
+                  "customizeIcon": false,
+                }
+              },
+              {
+                "groupLink": {
+                  "link": {
+                    "url": {
+                      "href": "https://www.tiktok.com"
+                    },
+                    "open_in_new_window": true
+                  }
+                },
+                "groupIcon": {
+                  "customizeIcon": false,
+                }
+              }
+            ],
+            groupStyle={
+              "buttonStyleVariant": "accent",
+              "buttonStyleSize": "small",
+              "spaceBetweenIcons": "small",
+              "alignment": {
+                "horizontal_align": "CENTER"
+              }
+            }
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {# Divider #}
+
+    {% dnd_section
+      background_color={{ dark_section_1_background_color }},
+      padding={
+        "top": 0,
+        "bottom": 0
+      },
+      full_width=true
+    %}
+      {% dnd_module
+        path="@hubspot/divider",
+        styles={
+          "line": {
+            "color": {
+              "color": "#303F59",
+              "opacity": 100
+            }
+          },
+          "size": {
+            "width": 100
+          }
+        }
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# Footer bottom #}
+
+    {% dnd_section
+      background_color={{ dark_section_1_background_color }},
+      padding={
+        "top": spacing_32,
+        "bottom": spacing_32
+      },
+    %}
+      {% dnd_module
+        path="../../components/modules/RichText",
+        groupStyle={
+          "sectionStyleVariant": "section_variant_4"
+        }
+      %}
+        {% module_attribute "richTextContentHTML"%}
+          <div style="text-align: center;">
+            <a href="" style="text-decoration: none;">{{ template_translations.partial_footer_privacy.message }}</a> &#183;
+            <a href="" style="text-decoration: none;">{{ template_translations.partial_footer_legal.message }}</a> &#183;
+            <span>{{ template_translations.partial_footer_copyright.message }}</span>
+          </div>
+        {% end_module_attribute %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+</footer>

@@ -1,0 +1,22 @@
+[
+  {
+    "name": "heading",
+    "type": "text",
+    "description": "A heading that describes an action that someone should take."
+  },
+  {
+    "name": "button_text",
+    "type": "text",
+    "description": "The button text that describes the call to action the user should take."
+  },
+  {
+    "name": "button_link",
+    "type": "link",
+    "description": "The URL that a user should be taken to when they click the button."
+  },
+  {
+    "name": "anchor",
+    "type": "anchor",
+    "description": "An anchor id for the call to action section"
+  }
+]

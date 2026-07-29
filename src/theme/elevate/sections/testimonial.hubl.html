@@ -1,0 +1,86 @@
+<!--
+  templateType: section
+  label: Testimonial
+  isAvailableForNewContent: true
+  landingPageSectionCategories: [SOCIAL_PROOF]
+  scaffoldSchemaPath: ./schemas/testimonial.scaffold_schema.json
+  screenshotPath: ../images/section-previews/testimonial.png
+  description: "A single testimonial section with an optional image, quote, author details, and case study link."
+-->
+
+{#
+  Context variables
+    - section_variant: The variant of the section style.
+    - quote: The testimonial quote text.
+    - author.name: The name of the person giving the testimonial.
+    - author.title: The title or role of the person.
+    - author.image: The author's profile image.
+    - image.show_image: Whether to show an image alongside the testimonial.
+    - image.image: The image to display alongside the testimonial.
+    - link.text: The text to display for the testimonial link.
+    - link.url: The URL for the testimonial.
+    - card_style_variant: The variant of the card style.
+#}
+
+{# Section variables #}
+{% set template_translations = load_translations("../templates/_locales", html_lang, "en") %}
+{% import "../helpers/variables.hubl.html" %}
+{% set section_variant = context.section_variant or "section_variant_1" %}
+
+{# Section #}
+{% dnd_section
+  background_color={{ context.background_color or light_section_2_background_color }},
+  max_width={{ section_width_wide }},
+  padding={
+    "top": section_vertical_spacing_medium,
+    "bottom": section_vertical_spacing_medium
+  }
+%}
+  {% dnd_column %}
+    {% dnd_row %}
+      {% dnd_module
+        path="../components/modules/Anchor",
+        anchor={{ context.anchor_id or scaffold_content.anchor.anchor_id }}
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+    {% dnd_row %}
+      {% dnd_module
+        path="../components/modules/TestimonialSlider",
+        groupTestimonial=[
+          {
+            "groupQuote": {
+              "quote": context.quote or template_translations.section_testimonial_quote.message
+            },
+            "groupAuthor": {
+              "authorName": context.author.name or template_translations.section_testimonial_author_name.message,
+              "authorTitle": context.author.title or template_translations.section_testimonial_author_title.message,
+              "authorImage": context.author.image.src or {}
+            },
+            "groupImage": {
+              "showImage": context.image.show_image != null ? context.image.show_image : true,
+              "image": {
+                "alt": context.image.alt or "",
+                "loading": context.image.loading or "lazy",
+                "max_height": context.image.height or 300,
+                "max_width": context.image.width or 300,
+                "size_type": context.image.size_type or "auto_custom_max",
+                "src": context.image.src or get_asset_url("../images/testimonial-user-image-1.png")
+              }
+            },
+            "groupLink": {
+              "linkText": context.testimonial_link.text != null ? context.testimonial_link.text : template_translations.section_testimonial_link_text.message,
+              "link": {
+                "url": context.testimonial_link.url or {}
+              }
+            }
+          }
+        ],
+        groupStyle={
+          "cardStyleVariant": context.card_style_variant or "card_variant_1"
+        }
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}

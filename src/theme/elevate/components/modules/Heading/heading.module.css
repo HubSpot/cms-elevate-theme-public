@@ -1,0 +1,21 @@
+.hs-elevate-heading-container {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--hsElevate--heading__textColor);
+  }
+}
+
+.hs-elevate-heading-container--grids {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-block-end: 0;
+  }
+}

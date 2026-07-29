@@ -1,0 +1,142 @@
+<!--
+  templateType: section
+  label: Products and services - two column
+  isAvailableForNewContent: true
+  landingPageSectionCategories: [PRODUCTS_AND_SERVICES]
+  scaffoldSchemaPath: ./schemas/products-and-services-two-column.scaffold_schema.json
+  screenshotPath: ../images/section-previews/products-and-services-two-column.png
+  description: "Section showcasing products and services with icon, title, and description in a two-column layout."
+-->
+
+{# Context variables
+  - section_variant: The variant of the section style.
+  - background_color: The background color of the section.
+  - heading: The heading for the section.
+  - features[0-5].icon: The icon for each feature.
+  - features[0-5].heading: The heading for each feature.
+  - features[0-5].heading: The heading for each feature.
+  - features[0-5].content: The content for each feature.
+#}
+
+{# Section variables #}
+
+{% set template_translations = load_translations("../templates/_locales", html_lang, "en") %}
+{% import "../helpers/variables.hubl.html" %}
+{% set section_variant = context.section_variant or "section_variant_1" %}
+
+{# Section #}
+
+{% dnd_section
+  background_color={{ context.background_color }}
+%}
+  {% dnd_module
+    path="../components/modules/Heading",
+    width=4,
+    headingAndTextHeadingLevel="h2",
+    headingAndTextHeading={{ context.heading.text or scaffold_content.heading or template_translations.section_products_and_services_two_col_heading.message }},
+    groupStyle={
+      "alignment": {
+        "text_align": "LEFT"
+      },
+      "headingStyleVariant": "display_2",
+      "sectionStyleVariant": section_variant
+    }
+  %}
+  {% end_dnd_module %}
+  {% dnd_module
+    path="../components/modules/FeatureList",
+    groupFeatures=[
+      {
+        "groupIcon": {
+          "showIcon": true,
+          "icon": {
+            "name": context.features[0].icon or "circle-check",
+            "type": "SOLID"
+          }
+        },
+        "groupFeatureContent": {
+          "headingAndTextHeadingLevel": "h3",
+          "headingAndTextHeading": context.features[0].heading.text or scaffold_content.group_feature_one.heading or template_translations.section_products_and_services_two_col_feature_one_heading.message,
+          "featureDescription": context.features[0].content or scaffold_content.group_feature_one.description or template_translations.section_products_and_services_two_col_feature_one_description.message
+        }
+      },
+      {
+        "groupIcon": {
+          "showIcon": true,
+          "icon": {
+            "name": context.features[1].icon or "circle-check",
+            "type": "SOLID"
+          }
+        },
+        "groupFeatureContent": {
+          "headingAndTextHeadingLevel": "h3",
+          "headingAndTextHeading": context.features[1].heading.text or scaffold_content.group_feature_two.heading or template_translations.section_products_and_services_two_col_feature_two_heading.message,
+          "featureDescription": context.features[1].content or scaffold_content.group_feature_two.description or template_translations.section_products_and_services_two_col_feature_two_description.message
+        }
+      },
+      {
+        "groupIcon": {
+          "showIcon": true,
+          "icon": {
+            "name": context.features[2].icon or "circle-check",
+            "type": "SOLID"
+          }
+        },
+        "groupFeatureContent": {
+          "headingAndTextHeadingLevel": "h3",
+          "headingAndTextHeading": context.features[2].heading.text or scaffold_content.group_feature_three.heading or template_translations.section_products_and_services_two_col_feature_three_heading.message,
+          "featureDescription": context.features[2].content or scaffold_content.group_feature_three.description or template_translations.section_products_and_services_two_col_feature_three_description.message
+        }
+      },
+      {
+        "groupIcon": {
+          "showIcon": true,
+          "icon": {
+            "name": context.features[3].icon or "circle-check",
+            "type": "SOLID"
+          }
+        },
+        "groupFeatureContent": {
+          "headingAndTextHeadingLevel": "h3",
+          "headingAndTextHeading": context.features[3].heading.text or scaffold_content.group_feature_four.heading or template_translations.section_products_and_services_two_col_feature_four_heading.message,
+          "featureDescription": context.features[3].content or scaffold_content.group_feature_four.description or template_translations.section_products_and_services_two_col_feature_four_description.message
+        }
+      },
+      {
+        "groupIcon": {
+          "showIcon": true,
+          "icon": {
+            "name": context.features[4].icon or "circle-check",
+            "type": "SOLID"
+          }
+        },
+        "groupFeatureContent": {
+          "headingAndTextHeadingLevel": "h3",
+          "headingAndTextHeading": context.features[4].heading.text or scaffold_content.group_feature_five.heading or template_translations.section_products_and_services_two_col_feature_five_heading.message,
+          "featureDescription": context.features[4].content or scaffold_content.group_feature_five.description or template_translations.section_products_and_services_two_col_feature_five_description.message
+        }
+      },
+      {
+        "groupIcon": {
+          "showIcon": true,
+          "icon": {
+            "name": context.features[5].icon or "circle-check",
+            "type": "SOLID"
+          }
+        },
+        "groupFeatureContent": {
+          "headingAndTextHeadingLevel": "h3",
+          "headingAndTextHeading": context.features[5].heading.text or scaffold_content.group_feature_six.heading or template_translations.section_products_and_services_two_col_feature_six_heading.message,
+          "featureDescription": context.features[5].content or scaffold_content.group_feature_six.description or template_translations.section_products_and_services_two_col_feature_six_description.message
+        }
+      }
+    ],
+    groupStyle={
+      "sectionStyleVariant": section_variant,
+      "headingStyleVariant": "h5"
+    },
+    offset=4,
+    width=8
+  %}
+  {% end_dnd_module %}
+{% end_dnd_section %}

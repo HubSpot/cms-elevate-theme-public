@@ -1,0 +1,113 @@
+.hs-elevate-card-container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: var(--hsElevate--spacing--24, 24px);
+}
+
+.hs-elevate-card-container--bootstrap {
+  container-type: normal;
+
+  @container (width >= 600px) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+.hs-elevate-card-container--grids {
+  @media (width >= 600px) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+.hs-elevate-card-container__icon-wrapper {
+  display: flex;
+  height: 72px;
+  width: 72px;
+  align-items: center;
+  align-self: var(--hsElevate--card__alignment);
+  justify-content: var(--hsElevate--card__alignment);
+  margin-block-end: var(--hsElevate--spacing--24, 24px);
+}
+
+@media (width >= 1000px) {
+  .hs-elevate-card-container__card--row .hs-elevate-card-container__icon-wrapper {
+    align-self: center;
+    justify-content: center;
+    margin-block-end: 0;
+    margin-inline-end: var(--hsElevate--spacing--24, 24px);
+  }
+}
+
+.hs-elevate-card-container__icon {
+  height: 72px;
+  width: 72px;
+  padding: var(--hsElevate--spacing--16, 16px);
+  border-radius: var(--hsElevate--cardIcon__borderRadius);
+  background-color: var(--hsElevate--cardIcon__backgroundColor);
+  fill: var(--hsElevate--cardIcon__fillColor);
+}
+
+.hs-elevate-card-container__image-wrapper {
+  display: flex;
+  overflow: hidden;
+  height: auto;
+  max-width: 100%;
+  align-self: var(--hsElevate--card__alignment);
+  justify-content: var(--hsElevate--card__alignment);
+  margin-block-end: var(--hsElevate--spacing--24, 24px);
+
+  img {
+    height: auto;
+    max-width: min(250px, 100%);
+    min-width: 80px;
+    -o-object-fit: contain;
+    object-fit: contain;
+    -o-object-position: center;
+    object-position: center;
+  }
+}
+
+@media (width >= 1000px) {
+  .hs-elevate-card-container__card--row .hs-elevate-card-container__image-wrapper {
+    max-width: 40%;
+    flex: 0 0 auto;
+    align-self: center;
+    justify-content: center;
+    margin-block-end: 0;
+    margin-inline-end: var(--hsElevate--spacing--24, 24px);
+  }
+}
+
+.hs-elevate-card-container__image-wrapper--use-background {
+  border-radius: var(--hsElevate-rounded--large);
+  background-color: var(--hsElevate--cardIcon__backgroundColor);
+}
+
+.hs-elevate-card-container__content {
+  display: flex;
+  flex-direction: column;
+  align-self: var(--hsElevate--card__alignment);
+
+  &:last-child {
+    margin-block-end: 0;
+  }
+}
+
+@media (width >= 1000px) {
+  .hs-elevate-card-container__card--row .hs-elevate-card-container__content {
+    flex: 1 1 auto;
+    align-self: center;
+  }
+}
+
+.hs-elevate-card-container__body {
+  text-align: var(--hsElevate--card__textAlignment);
+}
+
+.hs-elevate-card-container__card--no-button .hs-elevate-card-container__body *:last-child {
+  margin-block-end: 0;
+}
+
+.hs-elevate-card-container__button-wrapper {
+  align-self: var(--hsElevate--card__alignment);
+}

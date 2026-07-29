@@ -1,0 +1,70 @@
+<!--
+  templateType: section
+  label: Gallery - simple
+  isAvailableForNewContent: true
+  landingPageSectionCategories: [MEDIA]
+  scaffoldSchemaPath: ./schemas/gallery-simple.scaffold_schema.json
+  screenshotPath: ../images/section-previews/gallery-simple.png
+  description: "Section with a grid of images in a gallery layout."
+-->
+
+{#
+  Context Variables:
+  - context.background_color: The background color of the section.
+  - context.gallery_image[0-2].src: The source URL of the first gallery image.
+  - context.gallery_image[0-2].alt: The alt text for the first gallery image.
+#}
+
+{% import "../helpers/variables.hubl.html" %}
+
+{% dnd_section
+  background_color="{{ context.background_color }}"
+%}
+  {% dnd_module
+    path="@hubspot/image_grid",
+    grid_settings={
+      "group_uniform_display_options": {
+        "number_of_columns": 3,
+        "mobile_columns": true,
+        "mobile_number_of_columns": 1
+      },
+      "group_aspect_ratio": {
+        "aspect_ratio": "1/1"
+      },
+      "group_image_click": {
+        "image_click_functionality": "nothing"
+      },
+      "group_image_hover": {
+        "overlay_show_on": "never"
+      }
+    },
+    styles={
+      "grid_images": {
+        "group_gap": {
+          "gap": 32
+        }
+      }
+    },
+    slides=[
+      {
+        "img": {
+          "alt": context.gallery_image[0].alt or scaffold_content.group_gallery.image_one.alt or "",
+          "src": context.gallery_image[0].src or scaffold_content.group_gallery.image_one.src or get_asset_url("../images/gallery-1.png")
+        }
+      },
+      {
+        "img": {
+          "alt": context.gallery_image[1].alt or scaffold_content.group_gallery.image_two.alt or "",
+          "src": context.gallery_image[1].src or scaffold_content.group_gallery.image_two.src or get_asset_url("../images/gallery-2.png")
+        }
+      },
+      {
+        "img": {
+          "alt": context.gallery_image[2].alt or scaffold_content.group_gallery.image_three.alt or "",
+          "src": context.gallery_image[2].src or scaffold_content.group_gallery.image_three.src or get_asset_url("../images/gallery-3.png")
+        }
+      }
+    ]
+  %}
+  {% end_dnd_module %}
+{% end_dnd_section %}

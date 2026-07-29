@@ -1,0 +1,78 @@
+<!--
+  templateType: section
+  label: Contact
+  isAvailableForNewContent: true
+  landingPageSectionCategories: [FORMS]
+  screenshotPath: ../images/section-previews/contact.png
+  scaffoldSchemaPath: ./schemas/contact.scaffold_schema.json
+  description: "Centered heading and subheading with a contact form below."
+-->
+
+{#
+  Context Variables Used:
+  - context.anchor_id (string): Optional ID for anchor tag navigation
+  - context.background_color (string): Background color for the section
+  - context.heading (string): Main heading text for the section
+  - context.content (string): Main content text below the heading
+  - context.form (object): Form configuration containing:
+      - id (string): ID of the HubSpot form to display
+      - response_type (string): Form response type (e.g., "redirect")
+      - message (string): Response message for the form
+#}
+
+{% set template_translations = load_translations('../templates/_locales', html_lang, 'en') %}
+{% from "../helpers/variables.hubl.html" import section_vertical_spacing_extra_small, section_width_narrow, light_section_3_background_color %}
+
+{% dnd_section
+  background_color={{ context.background_color or light_section_3_background_color }}
+  max_width={{ section_width_narrow }}
+%}
+  {% dnd_column %}
+    {# First Row #}
+    {% dnd_row %}
+      {% dnd_module
+        path="../components/modules/Anchor",
+        anchor={{ context.anchor_id or scaffold_content.anchor.anchor_id }}
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+
+    {# Second Row #}
+    {% dnd_row %}
+      {% dnd_column
+        margin={
+          "bottom": section_vertical_spacing_extra_small
+        }
+      %}
+        {% dnd_row %}
+        {% dnd_module path="../components/modules/RichText" %}
+        {% module_attribute "richTextContentHTML" %}
+          <div style="text-align:center;">
+            <h2>{{ context.heading or scaffold_content.heading or template_translations.section_contact_heading.message }}</h2>
+            <p>{{ context.content or scaffold_content.content or template_translations.section_contact_content.message }}</p>
+          </div>
+        {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_row %}
+
+    {# Third Row #}
+    {% dnd_row %}
+      {% dnd_column %}
+        {% dnd_row %}
+        {% dnd_module
+          path="@hubspot/form"
+          form={
+            "form_id": context.form_id or scaffold_content.form.form_id or "",
+            "response_type": context.form.response_type or scaffold_content.form.response_type or "redirect",
+            "message": context.form.message or scaffold_content.form.message or ""
+          }
+        %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}
+

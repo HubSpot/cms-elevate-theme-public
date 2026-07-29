@@ -1,0 +1,82 @@
+<!--
+  templateType: section
+  label: About us - one column
+  isAvailableForNewContent: true
+  landingPageSectionCategories: [TEAM]
+  scaffoldSchemaPath: ./schemas/about-us-one-column.scaffold_schema.json
+  screenshotPath: ../images/section-previews/about-us-one-column.png
+  description: "Section with a heading and paragraph content."
+-->
+
+{#
+  Context variables
+    - section_variant: The variant of the section style.
+    - background_color: The background color of the section.
+    - label: The label for the section.
+    - heading.heading_level: The heading level for the section heading.
+    - heading.text: The text for the section heading.
+    - content: The paragraph content for the section.
+#}
+
+{# Section variables #}
+
+{% set template_translations = load_translations("../templates/_locales", html_lang, "en") %}
+{% import "../helpers/variables.hubl.html" %}
+{% set section_variant = context.section_variant or "section_variant_1" %}
+
+{# Section #}
+
+{% dnd_section
+  background_color={{ context.background_color }},
+  max_width={{ context.max_width or section_width_medium }}
+%}
+  {% dnd_column %}
+    {% dnd_row %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module
+            path="../components/modules/RichText",
+            groupStyle={
+              "sectionStyleVariant": section_variant
+            }
+          %}
+            {% module_attribute "richTextContentHTML" %}
+              <div style="text-align: center;">
+                <p>{{ context.label or scaffold_content.label or template_translations.section_about_us_one_column_label.message }}</p>
+              </div>
+            {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+        {% dnd_row %}
+          {% dnd_module
+            path="../components/modules/Heading",
+            headingAndTextHeadingLevel={{ context.heading.heading_level or "h2" }},
+            headingAndTextHeading={{ context.heading.text or scaffold_content.heading or template_translations.section_about_us_one_column_heading.message }},
+            groupStyle={
+              "alignment": {
+                "text_align": "CENTER"
+              },
+              "headingStyleVariant": "h1",
+              "sectionStyleVariant": section_variant
+            }
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+        {% dnd_row %}
+          {% dnd_module
+            path="../components/modules/RichText",
+            groupStyle={
+              "sectionStyleVariant": section_variant
+            }
+          %}
+            {% module_attribute "richTextContentHTML" %}
+              <div style="text-align: center;">
+                <p>{{ context.content or scaffold_content.content or template_translations.section_about_us_one_column_content.message }}</p>
+              </div>
+            {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}

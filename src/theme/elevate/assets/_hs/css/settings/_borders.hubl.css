@@ -1,0 +1,10 @@
+:root {
+    /* Border radius based on shape */
+    --hsElevate-sharp: 0;
+    --hsElevate-rounded--extra-small: 4px;
+    --hsElevate-rounded--small: 8px;
+    --hsElevate-rounded: 16px;
+    --hsElevate-rounded--large: 24px;
+    --hsElevate-rounded--extra-large: 32px;
+    --hsElevate-circle: 50%;
+}

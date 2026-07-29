@@ -1,0 +1,265 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Landing page - resource download 1
+  goals: [OFFER_DOWNLOADABLE_CONTENT]
+  screenshotPath: ../images/template-previews/lp-resource-download-one.png
+  scaffoldSchemaPath: ./schemas/lp-resource-download-one.scaffold_schema.json
+-->
+{% extends "./layouts/base.hubl.html" %}
+
+{% block header %}
+  {% global_partial path="./partials/lp-header.hubl.html" type="HEADER" %}
+{% endblock header %}
+
+{% set accordion_one_answer = "<p>{{ scaffold_content.group_faq.answer_one or template_translations.lp_information_request_one_faq_answer_one.message }}</p>" %}
+{% set accordion_two_answer = "<p>{{ scaffold_content.group_faq.answer_two or template_translations.lp_information_request_one_faq_answer_two.message }}</p>" %}
+{% set accordion_three_answer = "<p>{{ scaffold_content.group_faq.answer_three or template_translations.lp_information_request_one_faq_answer_three.message }}</p>" %}
+{% set accordion_four_answer = "<p>{{ scaffold_content.group_faq.answer_four or template_translations.lp_information_request_one_faq_answer_four.message }}</p>" %}
+{% set accordion_five_answer = "<p>{{ scaffold_content.group_faq.answer_five or template_translations.lp_information_request_one_faq_answer_five.message }}</p>" %}
+{% set accordion_six_answer = "<p>{{ scaffold_content.group_faq.answer_six or template_translations.lp_information_request_one_faq_answer_six.message }}</p>" %}
+
+{% block body %}
+    {% dnd_area "dnd_area"
+      label="Main section"
+    %}
+
+    {# Hero banner section #}
+
+    {% include_dnd_partial
+      path="../sections/hero-banner-two-column-text.hubl.html",
+      context={
+        "section_padding_top": section_vertical_spacing_extra_small,
+        "section_padding_bottom": section_vertical_spacing_extra_small,
+        "tag_line": {
+          "text": scaffold_content.group_hero_banner.tag_line or template_translations.lp_resource_download_one_hero_tag_line.message
+        },
+        "heading": {
+          "style_variant": "display_2",
+          "text": scaffold_content.group_hero_banner.heading or template_translations.lp_resource_download_one_hero_heading.message
+        },
+        "paragraph": {
+          "text": scaffold_content.group_hero_banner.paragraph or template_translations.lp_resource_download_one_hero_paragraph.message
+        },
+        "button": {
+          "show_icon": true,
+          "icon": "download",
+          "text": scaffold_content.group_hero_banner.button_text or template_translations.lp_resource_download_one_hero_button_text.message,
+          "href": scaffold_content.group_hero_banner.button_link.url.href or "",
+        },
+        "image": {
+          "alt": scaffold_content.group_hero_banner.image.alt or "",
+          "src": scaffold_content.group_hero_banner.image.src or get_asset_url("../images/document-grid.png"),
+          "height": scaffold_content.group_hero_banner.image.height or 650,
+          "width": scaffold_content.group_hero_banner.image.width or 650
+        }
+      }
+    %}
+
+    {# Features section #}
+
+    {% include_dnd_partial
+      path="../sections/features.hubl.html",
+      context={
+        "section_variant": "section_variant_4",
+        "background_color": dark_section_1_background_color,
+        "heading": {
+          "text": scaffold_content.group_features.heading or template_translations.lp_resource_download_one_features_heading.message
+        },
+        "description": scaffold_content.group_features.description or template_translations.lp_resource_download_one_features_description.message,
+        "image": scaffold_content.group_features.image,
+        "features": [
+          {
+            "icon": "rocket",
+            "heading": {
+              "text": scaffold_content.group_features.group_feature_one.heading or template_translations.lp_resource_download_one_feature_one_heading.message
+            },
+            "content": scaffold_content.group_features.group_feature_one.content or template_translations.lp_resource_download_one_feature_one_content.message
+          },
+          {
+            "icon": "chart-simple",
+            "heading": {
+              "text": scaffold_content.group_features.group_feature_two.heading or template_translations.lp_resource_download_one_feature_two_heading.message
+            },
+            "content": scaffold_content.group_features.group_feature_two.content or template_translations.lp_resource_download_one_feature_two_content.message
+          },
+          {
+            "icon": "toolbox",
+            "heading": {
+              "text": scaffold_content.group_features.group_feature_three.heading or template_translations.lp_resource_download_one_feature_three_heading.message
+            },
+            "content": scaffold_content.group_features.group_feature_three.content or template_translations.lp_resource_download_one_feature_three_content.message
+          },
+          {
+            "icon": "book",
+            "heading": {
+              "text": scaffold_content.group_features.group_feature_four.heading or template_translations.lp_resource_download_one_feature_four_heading.message
+            },
+            "content": scaffold_content.group_features.group_feature_four.content or template_translations.lp_resource_download_one_feature_four_content.message
+          },
+          {
+            "icon": "circle-exclamation",
+            "heading": {
+              "text": scaffold_content.group_features.group_feature_five.heading or template_translations.lp_resource_download_one_feature_five_heading.message
+            },
+            "content": scaffold_content.group_features.group_feature_five.content or template_translations.lp_resource_download_one_feature_five_content.message
+          },
+          {
+            "icon": "rectangle-list",
+            "heading": {
+              "text": scaffold_content.group_features.group_feature_six.heading or template_translations.lp_resource_download_one_feature_six_heading.message
+            },
+            "content": scaffold_content.group_features.group_feature_six.content or template_translations.lp_resource_download_one_feature_six_content.message
+          },
+          {
+            "icon": "lightbulb",
+            "heading": {
+              "text": scaffold_content.group_features.group_feature_seven.heading or template_translations.lp_resource_download_one_feature_seven_heading.message
+            },
+            "content": scaffold_content.group_features.group_feature_seven.content or template_translations.lp_resource_download_one_feature_seven_content.message
+          },
+          {
+            "icon": "mobile-retro",
+            "heading": {
+              "text": scaffold_content.group_features.group_feature_eight.heading or template_translations.lp_resource_download_one_feature_eight_heading.message
+            },
+            "content": scaffold_content.group_features.group_feature_eight.content or template_translations.lp_resource_download_one_feature_eight_content.message
+          }
+        ]
+      }
+    %}
+
+    {# FAQ section #}
+
+    {% dnd_section
+      background_color={{ light_section_2_background_color }}
+    %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module
+            path="../components/modules/Heading",
+            headingAndTextHeadingLevel="h2",
+            headingAndTextHeading={{ scaffold_content.group_faq.heading or template_translations.lp_resource_download_one_faq_heading.message }},
+            groupStyle={
+              "alignment": {
+                "text_align": "CENTER"
+              },
+              "headingStyleVariant": "h1",
+              "sectionStyleVariant": "section_variant_2"
+            }
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+        {% dnd_row
+          padding={
+            "default": {
+              "bottom": spacing_48
+            }
+          }
+        %}
+          {% dnd_module
+            path="../components/modules/RichText",
+            groupStyle={
+              "sectionStyleVariant": "section_variant_2"
+            }
+          %}
+            {% module_attribute "richTextContentHTML" %}
+              <div style="text-align:center;">
+                <p>{{ scaffold_content.group_faq.description or template_translations.lp_resource_download_one_faq_description.message }}</p>
+              </div>
+            {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+        {% dnd_row %}
+          {% dnd_column
+            width=8,
+            padding={
+              "mobile": {
+                "bottom": spacing_32
+              }
+            }
+          %}
+            {% dnd_row %}
+              {% dnd_module
+                path="../components/modules/Accordion",
+                icon="plus",
+                groupAccordions=[
+                  {
+                    "title": scaffold_content.group_faq.question_one or template_translations.lp_resource_download_one_faq_question_one.message,
+                    "richTextContentHTML": accordion_one_answer|render
+                  },
+                  {
+                    "title": scaffold_content.group_faq.question_two or template_translations.lp_resource_download_one_faq_question_two.message,
+                    "richTextContentHTML": accordion_two_answer|render
+                  },
+                  {
+                    "title": scaffold_content.group_faq.question_three or template_translations.lp_resource_download_one_faq_question_three.message,
+                    "richTextContentHTML": accordion_three_answer|render
+                  },
+                  {
+                    "title": scaffold_content.group_faq.question_four or template_translations.lp_resource_download_one_faq_question_four.message,
+                    "richTextContentHTML": accordion_four_answer|render
+                  },
+                  {
+                    "title": scaffold_content.group_faq.question_five or template_translations.lp_resource_download_one_faq_question_five.message,
+                    "richTextContentHTML": accordion_five_answer|render
+                  },
+                  {
+                    "title": scaffold_content.group_faq.question_six or template_translations.lp_resource_download_one_faq_question_six.message,
+                    "richTextContentHTML": accordion_six_answer|render
+                  }
+                ],
+                groupStyle={
+                  "cardStyleVariant": "card_variant_1",
+                  "gap": "medium"
+                }
+              %}
+              {% end_dnd_module %}
+            {% end_dnd_row %}
+          {% end_dnd_column %}
+          {% dnd_column
+            offset=8,
+            width=4
+          %}
+            {% dnd_row %}
+              {% dnd_module
+                path="@hubspot/linked_image",
+                img={
+                  "alt": scaffold_content.group_faq.image.alt or "",
+                  "max_height": scaffold_content.group_faq.image.height or 552,
+                  "max_width": scaffold_content.group_faq.image.width or 372,
+                  "size_type": "auto_custom_max",
+                  "src": scaffold_content.group_faq.image.src or get_asset_url("../images/features.png")
+                }
+              %}
+              {% end_dnd_module %}
+            {% end_dnd_row %}
+          {% end_dnd_column %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+
+    {# Hero centered #}
+
+    {% include_dnd_partial
+      path="../sections/hero-banner-centered.hubl.html",
+      context={
+        "heading": {
+          "style_variant": "h1",
+          "text": scaffold_content.group_cta.heading or template_translations.lp_resource_download_one_cta_heading.message
+        },
+        "content": scaffold_content.group_cta.description or template_translations.lp_resource_download_one_cta_description.message,
+        "button": {
+          "show_icon": true,
+          "icon": "download",
+          "text": scaffold_content.group_cta.button_text or template_translations.lp_resource_download_one_cta_button_text.message,
+          "href": scaffold_content.group_cta.button_link.url.href or "",
+        }
+      }
+    %}
+  {% end_dnd_area %}
+{% endblock body %}
+
+{% block footer %}
+  {% global_partial path="./partials/lp-footer.hubl.html" type="FOOTER" %}
+{% endblock footer %}

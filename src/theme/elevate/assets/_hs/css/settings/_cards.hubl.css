@@ -1,0 +1,286 @@
+{% set card_variant_1 = theme.group_elements.group_cards.group_card_variant_1 %}
+{% set card_variant_1_link = card_variant_1.group_other_elements.link_colors %}
+
+{% set card_variant_2 = theme.group_elements.group_cards.group_card_variant_2 %}
+{% set card_variant_2_link = card_variant_2.group_other_elements.link_colors %}
+
+{% set card_variant_3 = theme.group_elements.group_cards.group_card_variant_3 %}
+{% set card_variant_3_link = card_variant_3.group_other_elements.link_colors %}
+
+{% set card_variant_4 = theme.group_elements.group_cards.group_card_variant_4 %}
+{% set card_variant_4_link = card_variant_4.group_other_elements.link_colors %}
+
+:root {
+  /* Card variant 1 */
+
+  /* Shape */
+  {% if card_variant_1.card_background == "filled" %}
+    {% set shape_field = card_variant_1.card_shape_filled %}
+  {% else %}
+    {% set shape_field = card_variant_1.card_shape_unfilled %}
+  {% endif %}
+
+  {% if shape_field == "rounded" %}
+    --hsElevate--card--variant1__borderRadius: 16px;
+    --hsElevate--card--variant1__iconBorderRadius: 12px;
+  {% elif shape_field == "rectangle" %}
+    --hsElevate--card--variant1__borderRadius: 0;
+    --hsElevate--card--variant1__iconBorderRadius: 0;
+  {% endif %}
+
+  /* Border thickness */
+  --hsElevate--card--variant1__borderThickness: {{ card_variant_1.border_thickness ~ "px" }};
+
+  /* Colors */
+  {% if card_variant_1.card_background == "filled" %}
+    --hsElevate--card--variant1__backgroundColor: {{ card_variant_1.group_card_colors.fill_color.color }};
+  {% else %}
+    --hsElevate--card--variant1__backgroundColor: transparent;
+  {% endif %}
+
+  {% if card_variant_1.border_thickness > 0 %}
+    --hsElevate--card--variant1__borderColor: {{ card_variant_1.group_card_colors.border_color.color }};
+  {% else %}
+    --hsElevate--card--variant1__borderColor: transparent;
+  {% endif %}
+
+  --hsElevate--card--variant1__textColor: {{ card_variant_1.group_card_colors.text_color.color }};
+
+  /* Links */
+  {% if card_variant_1_link == "primary_links" %}
+    {% set card_variant_1_link_field = primary_links %}
+  {% else %}
+    {% set card_variant_1_link_field = secondary_links %}
+  {% endif %}
+
+  --hsElevate--card--variant1--link__fontColor: {{ card_variant_1_link_field.group_default_state.text_color.color }};
+
+  {% if card_variant_1_link_field.group_default_state.show_underline %}
+    --hsElevate--card--variant1--link__textDecoration: underline;
+    --hsElevate--card--variant1--link__textDecorationColor: {{ card_variant_1_link_field.group_default_state.underline_color.color }};
+  {% else %}
+    --hsElevate--card--variant1--link__textDecoration: none;
+    --hsElevate--card--variant1--link__textDecorationColor: transparent;
+  {% endif %}
+
+  /* Hover state */
+
+  --hsElevate--card--variant1--link__hover--fontColor: {{ card_variant_1_link_field.group_hover_state.text_color.color }};
+  {% if card_variant_1_link_field.group_hover_state.show_underline %}
+    --hsElevate--card--variant1--link__hover--textDecoration: underline;
+    --hsElevate--card--variant1--link__hover--textDecorationColor: {{ card_variant_1_link_field.group_hover_state.underline_color.color }};
+  {% else %}
+    --hsElevate--card--variant1--link__hover--textDecoration: none;
+    --hsElevate--card--variant1--link__hover--textDecorationColor: transparent;
+  {% endif %}
+
+  /* Icon colors */
+
+  --hsElevate--card--variant1__iconColor: {{ card_variant_1.group_icon_colors.fill_color.color }};
+  --hsElevate--card--variant1__iconBackgroundColor: {{ card_variant_1.group_icon_colors.background_color.color }};
+
+  /* Card variant 2 */
+
+  /* Shape */
+  {% if card_variant_2.card_background == "filled" %}
+    {% set shape_field = card_variant_2.card_shape_filled %}
+  {% else %}
+    {% set shape_field = card_variant_2.card_shape_unfilled %}
+  {% endif %}
+
+  {% if shape_field == "rounded" %}
+    --hsElevate--card--variant2__borderRadius: 16px;
+    --hsElevate--card--variant2__iconBorderRadius: 12px;
+  {% elif shape_field == "rectangle" %}
+    --hsElevate--card--variant2__borderRadius: 0;
+    --hsElevate--card--variant2__iconBorderRadius: 0;
+  {% endif %}
+
+  /* Border thickness */
+  --hsElevate--card--variant2__borderThickness: {{ card_variant_2.border_thickness ~ "px" }};
+
+  /* Colors */
+  {% if card_variant_2.card_background == "filled" %}
+    --hsElevate--card--variant2__backgroundColor: {{ card_variant_2.group_card_colors.fill_color.color }};
+  {% else %}
+    --hsElevate--card--variant2__backgroundColor: transparent;
+  {% endif %}
+
+  {% if card_variant_2.border_thickness > 0 %}
+    --hsElevate--card--variant2__borderColor: {{ card_variant_2.group_card_colors.border_color.color }};
+  {% else %}
+    --hsElevate--card--variant2__borderColor: transparent;
+  {% endif %}
+
+  --hsElevate--card--variant2__textColor: {{ card_variant_2.group_card_colors.text_color.color }};
+
+  /* Links */
+  {% if card_variant_2_link == "primary_links" %}
+    {% set card_variant_2_link_field = primary_links %}
+  {% else %}
+    {% set card_variant_2_link_field = secondary_links %}
+  {% endif %}
+
+  --hsElevate--card--variant2--link__fontColor: {{ card_variant_2_link_field.group_default_state.text_color.color }};
+
+  {% if card_variant_2_link_field.group_default_state.show_underline %}
+    --hsElevate--card--variant2--link__textDecoration: underline;
+    --hsElevate--card--variant2--link__textDecorationColor: {{ card_variant_2_link_field.group_default_state.underline_color.color }};
+  {% else %}
+    --hsElevate--card--variant2--link__textDecoration: none;
+    --hsElevate--card--variant2--link__textDecorationColor: transparent;
+  {% endif %}
+
+  /* Hover state */
+
+  --hsElevate--card--variant2--link__hover--fontColor: {{ card_variant_2_link_field.group_hover_state.text_color.color }};
+  {% if card_variant_2_link_field.group_hover_state.show_underline %}
+    --hsElevate--card--variant2--link__hover--textDecoration: underline;
+    --hsElevate--card--variant2--link__hover--textDecorationColor: {{ card_variant_2_link_field.group_hover_state.underline_color.color }};
+  {% else %}
+    --hsElevate--card--variant2--link__hover--textDecoration: none;
+    --hsElevate--card--variant2--link__hover--textDecorationColor: transparent;
+  {% endif %}
+
+  /* Icon colors */
+
+  --hsElevate--card--variant2__iconColor: {{ card_variant_2.group_icon_colors.fill_color.color }};
+  --hsElevate--card--variant2__iconBackgroundColor: {{ card_variant_2.group_icon_colors.background_color.color }};
+
+
+  /* Card variant 3 */
+
+  /* Shape */
+  {% if card_variant_3.card_background == "filled" %}
+    {% set shape_field = card_variant_3.card_shape_filled %}
+  {% else %}
+    {% set shape_field = card_variant_3.card_shape_unfilled %}
+  {% endif %}
+
+  {% if shape_field == "rounded" %}
+    --hsElevate--card--variant3__borderRadius: 16px;
+    --hsElevate--card--variant3__iconBorderRadius: 12px;
+  {% elif shape_field == "rectangle" %}
+    --hsElevate--card--variant3__borderRadius: 0;
+    --hsElevate--card--variant3__iconBorderRadius: 0;
+  {% endif %}
+
+  /* Border thickness */
+  --hsElevate--card--variant3__borderThickness: {{ card_variant_3.border_thickness ~ "px" }};
+
+  /* Colors */
+  {% if card_variant_3.card_background == "filled" %}
+    --hsElevate--card--variant3__backgroundColor: {{ card_variant_3.group_card_colors.fill_color.color }};
+  {% else %}
+    --hsElevate--card--variant3__backgroundColor: transparent;
+  {% endif %}
+
+  {% if card_variant_3.border_thickness > 0 %}
+    --hsElevate--card--variant3__borderColor: {{ card_variant_3.group_card_colors.border_color.color }};
+  {% else %}
+    --hsElevate--card--variant3__borderColor: transparent;
+  {% endif %}
+
+  --hsElevate--card--variant3__textColor: {{ card_variant_3.group_card_colors.text_color.color }};
+
+  /* Links */
+  {% if card_variant_3_link == "primary_links" %}
+    {% set card_variant_3_link_field = primary_links %}
+  {% else %}
+    {% set card_variant_3_link_field = secondary_links %}
+  {% endif %}
+
+  --hsElevate--card--variant3--link__fontColor: {{ card_variant_3_link_field.group_default_state.text_color.color }};
+
+  {% if card_variant_3_link_field.group_default_state.show_underline %}
+    --hsElevate--card--variant3--link__textDecoration: underline;
+    --hsElevate--card--variant3--link__textDecorationColor: {{ card_variant_3_link_field.group_default_state.underline_color.color }};
+  {% else %}
+    --hsElevate--card--variant3--link__textDecoration: none;
+    --hsElevate--card--variant3--link__textDecorationColor: transparent;
+  {% endif %}
+
+  /* Hover state */
+
+  --hsElevate--card--variant3--link__hover--fontColor: {{ card_variant_3_link_field.group_hover_state.text_color.color }};
+  {% if card_variant_3_link_field.group_hover_state.show_underline %}
+    --hsElevate--card--variant3--link__hover--textDecoration: underline;
+    --hsElevate--card--variant3--link__hover--textDecorationColor: {{ card_variant_3_link_field.group_hover_state.underline_color.color }};
+  {% else %}
+    --hsElevate--card--variant3--link__hover--textDecoration: none;
+    --hsElevate--card--variant3--link__hover--textDecorationColor: transparent;
+  {% endif %}
+
+  /* Icon colors */
+
+  --hsElevate--card--variant3__iconColor: {{ card_variant_3.group_icon_colors.fill_color.color }};
+  --hsElevate--card--variant3__iconBackgroundColor: {{ card_variant_3.group_icon_colors.background_color.color }};
+
+
+  /* Card variant 4 */
+
+  /* Shape */
+  {% if card_variant_4.card_background == "filled" %}
+    {% set shape_field = card_variant_4.card_shape_filled %}
+  {% else %}
+    {% set shape_field = card_variant_4.card_shape_unfilled %}
+  {% endif %}
+
+  {% if shape_field == "rounded" %}
+    --hsElevate--card--variant4__borderRadius: 16px;
+    --hsElevate--card--variant4__iconBorderRadius: 12px;
+  {% elif shape_field == "rectangle" %}
+    --hsElevate--card--variant4__borderRadius: 0;
+    --hsElevate--card--variant4__iconBorderRadius: 0;
+  {% endif %}
+
+  /* Border thickness */
+  --hsElevate--card--variant4__borderThickness: {{ card_variant_4.border_thickness ~ "px" }};
+
+  /* Colors */
+  {% if card_variant_4.card_background == "filled" %}
+    --hsElevate--card--variant4__backgroundColor: {{ card_variant_4.group_card_colors.fill_color.color }};
+  {% else %}
+    --hsElevate--card--variant4__backgroundColor: transparent;
+  {% endif %}
+
+  {% if card_variant_4.border_thickness > 0 %}
+    --hsElevate--card--variant4__borderColor: {{ card_variant_4.group_card_colors.border_color.color }};
+  {% else %}
+    --hsElevate--card--variant4__borderColor: transparent;
+  {% endif %}
+
+  --hsElevate--card--variant4__textColor: {{ card_variant_4.group_card_colors.text_color.color }};
+
+  /* Links */
+  {% if card_variant_4_link == "primary_links" %}
+    {% set card_variant_4_link_field = primary_links %}
+  {% else %}
+    {% set card_variant_4_link_field = secondary_links %}
+  {% endif %}
+
+  --hsElevate--card--variant4--link__fontColor: {{ card_variant_4_link_field.group_default_state.text_color.color }};
+
+  {% if card_variant_4_link_field.group_default_state.show_underline %}
+    --hsElevate--card--variant4--link__textDecoration: underline;
+    --hsElevate--card--variant4--link__textDecorationColor: {{ card_variant_4_link_field.group_default_state.underline_color.color }};
+  {% else %}
+    --hsElevate--card--variant4--link__textDecoration: none;
+    --hsElevate--card--variant4--link__textDecorationColor: transparent;
+  {% endif %}
+
+  /* Hover state */
+
+  --hsElevate--card--variant4--link__hover--fontColor: {{ card_variant_4_link_field.group_hover_state.text_color.color }};
+  {% if card_variant_4_link_field.group_hover_state.show_underline %}
+    --hsElevate--card--variant4--link__hover--textDecoration: underline;
+    --hsElevate--card--variant4--link__hover--textDecorationColor: {{ card_variant_4_link_field.group_hover_state.underline_color.color }};
+  {% else %}
+    --hsElevate--card--variant4--link__hover--textDecoration: none;
+    --hsElevate--card--variant4--link__hover--textDecorationColor: transparent;
+  {% endif %}
+
+  /* Icon colors */
+  --hsElevate--card--variant4__iconColor: {{ card_variant_4.group_icon_colors.fill_color.color }};
+  --hsElevate--card--variant4__iconBackgroundColor: {{ card_variant_4.group_icon_colors.background_color.color }};
+}

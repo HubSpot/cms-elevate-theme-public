@@ -1,0 +1,24 @@
+[
+  {
+    "name": "heading",
+    "type": "text",
+    "description": "A heading that describes the video."
+  },
+  {
+    "name": "description",
+    "type": "text",
+    "description": "A couple of sentences that provide more detail about the video."
+  },
+  {
+    "name": "thumbnail",
+    "type": "image",
+    "description": "A thumbnail image that would be a placeholder for the video that would go on this part of the page.",
+    "width": 1239,
+    "height": 708
+  },
+  {
+    "name": "anchor",
+    "type": "anchor",
+    "description": "An anchor id for the video section"
+  }
+]

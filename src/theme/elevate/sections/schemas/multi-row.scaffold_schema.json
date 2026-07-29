@@ -1,0 +1,76 @@
+[
+  {
+    "name": "group_image_and_text_one",
+    "type": "group",
+    "children": [
+      {
+        "name": "image",
+        "type": "image",
+        "description": "An image that displays the first benefit of the product.",
+        "width": 590,
+        "height": 590
+      },
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes the first benefit of the product."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A paragraph of 4-5 sentences that provide more detail about the first benefit of the product."
+      }
+    ]
+  },
+  {
+    "name": "group_image_and_text_two",
+    "type": "group",
+    "children": [
+      {
+        "name": "image",
+        "type": "image",
+        "description": "An image that displays the second benefit of the product.",
+        "width": 590,
+        "height": 590
+      },
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes the second benefit of the product."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A paragraph of 4-5 sentences that provide more detail about the second benefit of the product."
+      }
+    ]
+  },
+  {
+    "name": "group_image_and_text_three",
+    "type": "group",
+    "children": [
+      {
+        "name": "image",
+        "type": "image",
+        "description": "An image that displays the third benefit of the product.",
+        "width": 590,
+        "height": 590
+      },
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that describes the third benefit of the product."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A paragraph of 4-5 sentences that provide more detail about the third benefit of the product."
+      }
+    ]
+  },
+  {
+    "name": "anchor",
+    "type": "anchor",
+    "description": "An anchor id for the multi row section"
+  }
+]

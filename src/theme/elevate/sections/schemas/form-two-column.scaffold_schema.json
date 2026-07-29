@@ -1,0 +1,14 @@
+[
+  {
+    "name": "image",
+    "type": "image",
+    "description": "An image that will be displayed on the left side of a form.",
+    "width": "952",
+    "height": "544"
+  },
+  {
+    "name": "form",
+    "type": "form",
+    "description": "A form that will be displayed next to the image."
+  }
+]

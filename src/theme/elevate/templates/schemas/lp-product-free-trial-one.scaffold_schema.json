@@ -1,0 +1,355 @@
+[
+  {
+    "name": "group_hero_banner",
+    "type": "group",
+    "children": [
+      {
+        "name": "tagline",
+        "type": "text",
+        "description": "A short tagline that appears above the main heading in the hero banner section."
+      },
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "The main heading for the page that describes the product free trial offering."
+      },
+      {
+        "name": "list_item_one",
+        "type": "text",
+        "description": "First key benefit or feature of the product."
+      },
+      {
+        "name": "list_item_two",
+        "type": "text",
+        "description": "Second key benefit or feature of the product."
+      },
+      {
+        "name": "list_item_three",
+        "type": "text",
+        "description": "Third key benefit or feature of the product."
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "The button text that describes the call to action the user should take."
+      },
+      {
+        "name": "button_link",
+        "type": "link",
+        "description": "The URL that a user should be taken to when they click the button."
+      },
+      {
+        "name": "image",
+        "type": "image",
+        "description": "An image showing the product.",
+        "width": 740,
+        "height": 740
+      }
+    ]
+  },
+  {
+    "name": "group_solutions",
+    "type": "group",
+    "children": [
+      {
+        "name": "image",
+        "type": "image",
+        "description": "An image showcasing the solutions or features of the product.",
+        "width": 740,
+        "height": 740
+      },
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Heading for the solutions or features section."
+      },
+      {
+        "name": "item_one",
+        "type": "text",
+        "description": "First solution or feature description."
+      },
+      {
+        "name": "item_two",
+        "type": "text",
+        "description": "Second solution or feature description."
+      },
+      {
+        "name": "item_three",
+        "type": "text",
+        "description": "Third solution or feature description."
+      },
+      {
+        "name": "item_four",
+        "type": "text",
+        "description": "Fourth solution or feature description."
+      },
+      {
+        "name": "item_five",
+        "type": "text",
+        "description": "Fifth solution or feature description."
+      }
+    ]
+  },
+  {
+    "name": "group_testimonial",
+    "type": "group",
+    "children": [
+      {
+        "name": "quote",
+        "type": "text",
+        "description": "A customer testimonial quote about their experience with the product."
+      },
+      {
+        "name": "author_name",
+        "type": "text",
+        "description": "The name of the customer providing the testimonial."
+      },
+      {
+        "name": "author_title",
+        "type": "text",
+        "description": "The job title or company of the customer providing the testimonial."
+      },
+      {
+        "name": "author_image",
+        "type": "image",
+        "description": "A headshot of the customer providing the testimonial.",
+        "width": 100,
+        "height": 100
+      },
+      {
+        "name": "link_text",
+        "type": "text",
+        "description": "Text for the link to view more information about the testimonial (e.g. Read case study)."
+      }
+    ]
+  },
+  {
+    "name": "group_gallery",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Heading for the gallery section showing product screenshots or features."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A description of what's being showcased in the gallery images."
+      },
+      {
+        "name": "image_one",
+        "type": "image",
+        "description": "First gallery image showing a product screenshot or feature.",
+        "width": 400,
+        "height": 400
+      },
+      {
+        "name": "image_two",
+        "type": "image",
+        "description": "Second gallery image showing a product screenshot or feature.",
+        "width": 400,
+        "height": 400
+      },
+      {
+        "name": "image_three",
+        "type": "image",
+        "description": "Third gallery image showing a product screenshot or feature.",
+        "width": 400,
+        "height": 400
+      }
+    ]
+  },
+  {
+    "name": "group_metrics",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Heading for the metrics section highlighting key performance indicators or statistics."
+      },
+      {
+        "name": "group_metric_one",
+        "type": "group",
+        "children": [
+          {
+            "name": "number",
+            "type": "text",
+            "description": "First metric number or statistic."
+          },
+          {
+            "name": "label",
+            "type": "text",
+            "description": "Label explaining what the first metric represents."
+          }
+        ]
+      },
+      {
+        "name": "group_metric_two",
+        "type": "group",
+        "children": [
+          {
+            "name": "number",
+            "type": "text",
+            "description": "Second metric number or statistic."
+          },
+          {
+            "name": "label",
+            "type": "text",
+            "description": "Label explaining what the second metric represents."
+          }
+        ]
+      },
+      {
+        "name": "group_metric_three",
+        "type": "group",
+        "children": [
+          {
+            "name": "number",
+            "type": "text",
+            "description": "Third metric number or statistic."
+          },
+          {
+            "name": "label",
+            "type": "text",
+            "description": "Label explaining what the third metric represents."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "group_faqs",
+    "type": "group",
+    "children": [
+      {
+        "name": "group_faq_one",
+        "type": "group",
+        "children": [
+          {
+            "name": "question",
+            "type": "text",
+            "description": "First frequently asked question about the product or free trial."
+          },
+          {
+            "name": "answer",
+            "type": "text",
+            "description": "Answer to the first frequently asked question."
+          }
+        ]
+      },
+      {
+        "name": "group_faq_two",
+        "type": "group",
+        "children": [
+          {
+            "name": "question",
+            "type": "text",
+            "description": "Second frequently asked question about the product or free trial."
+          },
+          {
+            "name": "answer",
+            "type": "text",
+            "description": "Answer to the second frequently asked question."
+          }
+        ]
+      },
+      {
+        "name": "group_faq_three",
+        "type": "group",
+        "children": [
+          {
+            "name": "question",
+            "type": "text",
+            "description": "Third frequently asked question about the product or free trial."
+          },
+          {
+            "name": "answer",
+            "type": "text",
+            "description": "Answer to the third frequently asked question."
+          }
+        ]
+      },
+      {
+        "name": "group_faq_four",
+        "type": "group",
+        "children": [
+          {
+            "name": "question",
+            "type": "text",
+            "description": "Fourth frequently asked question about the product or free trial."
+          },
+          {
+            "name": "answer",
+            "type": "text",
+            "description": "Answer to the fourth frequently asked question."
+          }
+        ]
+      },
+      {
+        "name": "group_faq_five",
+        "type": "group",
+        "children": [
+          {
+            "name": "question",
+            "type": "text",
+            "description": "Fifth frequently asked question about the product or free trial."
+          },
+          {
+            "name": "answer",
+            "type": "text",
+            "description": "Answer to the fifth frequently asked question."
+          }
+        ]
+      },
+      {
+        "name": "group_faq_six",
+        "type": "group",
+        "children": [
+          {
+            "name": "question",
+            "type": "text",
+            "description": "Sixth frequently asked question about the product or free trial."
+          },
+          {
+            "name": "answer",
+            "type": "text",
+            "description": "Answer to the sixth frequently asked question."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "group_call_to_action",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Heading for the call-to-action section at the bottom of the page."
+      },
+      {
+        "name": "button_one_text",
+        "type": "text",
+        "description": "Text for the primary call-to-action button."
+      },
+      {
+        "name": "button_one_link",
+        "type": "link",
+        "description": "The URL that a user should be taken to when they click the primary call-to-action button."
+      },
+      {
+        "name": "button_two_text",
+        "type": "text",
+        "description": "Text for the secondary call-to-action button."
+      },
+      {
+        "name": "button_two_link",
+        "type": "link",
+        "description": "The URL that a user should be taken to when they click the secondary call-to-action button."
+      }
+    ]
+  }
+]

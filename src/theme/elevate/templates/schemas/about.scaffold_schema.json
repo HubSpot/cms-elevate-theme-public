@@ -1,0 +1,312 @@
+[
+  {
+    "name": "group_banner",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A brief h1 heading for the page. Should introduce the general concept that the page is about in 3 words or less"
+      },
+      {
+        "name": "about",
+        "type": "text",
+        "description": "A sentence or two that outline the key focus of the page. Should relate to the heading."
+      },
+      {
+        "name": "image",
+        "type": "image",
+        "width": 1792,
+        "height": 1024,
+        "description": "An image depicting something relevant to the focus of the page."
+      }
+    ]
+  },
+  {
+    "name":"group_metrics",
+    "type": "group",
+    "children": [
+      {
+        "name": "metric_one",
+        "type": "text",
+        "description": "A number and unit signifying an important statistic related to the focus of the page. Exclude if it a longer, non-standard unit, which would fit better in the metric_description below."
+      },
+      {
+        "name": "metric_description_one",
+        "type": "text",
+        "description": "A brief and concise description of the metric above. Should be no longer than 5 words."
+      },
+      {
+        "name": "metric_two",
+        "type": "text",
+        "description": "A number and unit signifying an important statistic related to the focus of the page. Exclude if it a longer, non-standard unit, which would fit better in the metric_description below."
+      },
+      {
+        "name": "metric_description_two",
+        "type": "text",
+        "description": "A brief and concise description of the metric above. Should be no longer than 5 words."
+      },
+      {
+        "name": "metric_three",
+        "type": "text",
+        "description": "A number and unit signifying an important statistic related to the focus of the page. Exclude if it a longer, non-standard unit, which would fit better in the metric_description below."
+      },
+      {
+        "name": "metric_description_three",
+        "type": "text",
+        "description": "A brief and concise description of the metric above. Should be no longer than 5 words."
+      }
+    ]
+  },
+  {
+    "name": "group_cards",
+    "type": "group",
+    "children":[
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A few words that will serve as the heading for this section."
+      },
+      {
+        "name": "card_one",
+        "type": "group",
+        "children":[
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "A few words that will serve as the heading for this card."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "htmlElement": "p",
+            "description": "A sentence or two expanding a bit on the card's heading."
+          }
+        ]
+      },
+      {
+        "name": "card_two",
+        "type": "group",
+        "children":[
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "A few words that will serve as the heading for this card."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "htmlElement": "p",
+            "description": "A sentence or two expanding a bit on the card's heading."
+          }
+        ]
+      },
+      {
+        "name": "card_three",
+        "type": "group",
+        "children":[
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "A few words that will serve as the heading for this card."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "htmlElement": "p",
+            "description": "A sentence or two expanding a bit on the card's heading."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name":"group_mission",
+    "type":"group",
+    "children":[
+      {
+        "name": "content",
+        "type": "text",
+        "description": "A sentence or two describing what the mission of the company / focus of the page is. This could also be a strong call to action but must be at least a sentence long."
+      }
+    ]
+  },
+  {
+    "name":"group_values",
+    "type":"group",
+    "children":[
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A word or two introducing the next section of cards."
+      },
+      {
+        "name":"card_one",
+        "type":"group",
+        "children":[
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "A word or two summarizing a key value of the company."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "htmlElement": "p",
+            "description": "A sentence providing a bit more context on the key value listed in the heading."
+          }
+        ]
+      },
+      {
+        "name": "card_two",
+        "type": "group",
+        "children":[
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "A word or two summarizing a key value of the company."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "htmlElement": "p",
+            "description": "A sentence providing a bit more context on the key value listed in the heading."
+          }
+        ]
+      },
+      {
+        "name": "card_three",
+        "type":"group",
+        "children":[
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "A word or two summarizing a key value of the company."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "htmlElement": "p",
+            "description": "A sentence providing a bit more context on the key value listed in the heading."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "group_team",
+    "type": "group",
+    "children": [
+      {
+        "name": "member_one",
+        "type": "group",
+        "children": [
+          {
+            "name": "role",
+            "type": "text",
+            "description": "A fictional role that they play on the team."
+          }
+        ]
+      },
+      {
+        "name": "member_two",
+        "type": "group",
+        "children": [
+          {
+            "name": "role",
+            "type": "text",
+            "description": "A fictional role that they play on the team."
+          }
+        ]
+      },
+      {
+        "name": "member_three",
+        "type": "group",
+        "children": [
+          {
+            "name": "role",
+            "type": "text",
+            "description": "A fictional role that they play on the team."
+          }
+        ]
+      },
+      {
+        "name": "member_four",
+        "type": "group",
+        "children": [
+          {
+            "name": "role",
+            "type": "text",
+            "description": "A fictional role that they play on the team."
+          }
+        ]
+      },
+      {
+        "name": "member_five",
+        "type": "group",
+        "children": [
+          {
+            "name": "role",
+            "type": "text",
+            "description": "A fictional role that they play on the team."
+          }
+        ]
+      },
+      {
+        "name": "member_six",
+        "type": "group",
+        "children": [
+          {
+            "name": "role",
+            "type": "text",
+            "description": "A fictional role that they play on the team."
+          }
+        ]
+      },
+      {
+        "name": "member_seven",
+        "type": "group",
+        "children": [
+          {
+            "name": "role",
+            "type": "text",
+            "description": "A fictional role that they play on the team."
+          }
+        ]
+      },
+      {
+        "name": "member_eight",
+        "type": "group",
+        "children": [
+          {
+            "name": "role",
+            "type": "text",
+            "description": "A fictional role that they play on the team."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "group_cta",
+    "type": "group",
+    "children":[
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A few words prompting the visitor to take action on something related to the focus of the page."
+      },
+      {
+        "name": "content",
+        "type": "text",
+        "htmlElement": "p",
+        "description": "One or two sentences which provide a bit more details on why the user should action on the call to action."
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "A few active words calling the user to action. This text will be used in a button."
+      }
+    ]
+  }
+]

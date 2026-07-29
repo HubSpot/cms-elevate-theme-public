@@ -1,0 +1,221 @@
+[
+  {
+    "name": "group_pricing_card_one",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Heading for the first pricing plan card."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "Brief description of the first pricing plan."
+      },
+      {
+        "name": "price",
+        "type": "text",
+        "description": "Price for the first pricing plan."
+      },
+      {
+        "name": "time_period",
+        "type": "text",
+        "description": "Time period for the pricing (e.g., per month, per year) for the first plan card."
+      },
+      {
+        "name": "features_title",
+        "type": "text",
+        "description": "Title for the features section of the first plan card."
+      },
+      {
+        "name": "feature_one",
+        "type": "text",
+        "description": "First feature included in the first plan."
+      },
+      {
+        "name": "feature_two",
+        "type": "text",
+        "description": "Second feature included in the first plan."
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "Text for the call-to-action button on the first plan card."
+      },
+      {
+        "name": "button_link",
+        "type": "text",
+        "description": "URL for the call-to-action button on the first plan card."
+      }
+    ]
+  },
+  {
+    "name": "group_pricing_card_two",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Heading for the second pricing plan card."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "Brief description of the second pricing plan."
+      },
+      {
+        "name": "price",
+        "type": "text",
+        "description": "Price for the second pricing plan."
+      },
+      {
+        "name": "time_period",
+        "type": "text",
+        "description": "Time period for the pricing (e.g., per month, per year) for the second plan card."
+      },
+      {
+        "name": "features_title",
+        "type": "text",
+        "description": "Title for the features section of the second plan card."
+      },
+      {
+        "name": "feature_one",
+        "type": "text",
+        "description": "First feature included in the second plan."
+      },
+      {
+        "name": "feature_two",
+        "type": "text",
+        "description": "Second feature included in the second plan."
+      },
+      {
+        "name": "feature_three",
+        "type": "text",
+        "description": "Third feature included in the second plan."
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "Text for the call-to-action button on the second plan card."
+      },
+      {
+        "name": "button_link",
+        "type": "text",
+        "description": "URL for the call-to-action button on the second plan card."
+      }
+    ]
+  },
+  {
+    "name": "group_pricing_card_three",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Heading for the third pricing plan card."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "Brief description of the third pricing plan."
+      },
+      {
+        "name": "price",
+        "type": "text",
+        "description": "Price for the third pricing plan."
+      },
+      {
+        "name": "time_period",
+        "type": "text",
+        "description": "Time period for the pricing (e.g., per month, per year) for the third plan card."
+      },
+      {
+        "name": "features_title",
+        "type": "text",
+        "description": "Title for the features section of the third plan card."
+      },
+      {
+        "name": "feature_one",
+        "type": "text",
+        "description": "First feature included in the third plan."
+      },
+      {
+        "name": "feature_two",
+        "type": "text",
+        "description": "Second feature included in the third plan."
+      },
+      {
+        "name": "feature_three",
+        "type": "text",
+        "description": "Third feature included in the third plan."
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "Text for the call-to-action button on the third plan card."
+      },
+      {
+        "name": "button_link",
+        "type": "text",
+        "description": "URL for the call-to-action button on the third plan card."
+      }
+    ]
+  },
+  {
+    "name": "group_pricing_card_four",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Heading for the fourth pricing plan card."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "Brief description of the fourth pricing plan."
+      },
+      {
+        "name": "price",
+        "type": "text",
+        "description": "Price for the fourth pricing plan."
+      },
+      {
+        "name": "time_period",
+        "type": "text",
+        "description": "Time period for the pricing (e.g., per month, per year) for the fourth plan card."
+      },
+      {
+        "name": "features_title",
+        "type": "text",
+        "description": "Title for the features section of the fourth plan card."
+      },
+      {
+        "name": "feature_one",
+        "type": "text",
+        "description": "First feature included in the fourth plan."
+      },
+      {
+        "name": "feature_two",
+        "type": "text",
+        "description": "Second feature included in the fourth plan."
+      },
+      {
+        "name": "feature_three",
+        "type": "text",
+        "description": "Third feature included in the fourth plan."
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "Text for the call-to-action button on the fourth plan card."
+      },
+      {
+        "name": "button_link",
+        "type": "text",
+        "description": "URL for the call-to-action button on the fourth plan card."
+      }
+    ]
+  }
+]

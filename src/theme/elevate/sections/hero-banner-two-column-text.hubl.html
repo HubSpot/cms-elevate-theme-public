@@ -1,0 +1,158 @@
+<!--
+  templateType: section
+  label: Hero banner - two column - text
+  isAvailableForNewContent: true
+  landingPageSectionCategories: [HERO]
+  scaffoldSchemaPath: ./schemas/hero-banner-two-column-text.scaffold_schema.json
+  screenshotPath: ../images/section-previews/hero-banner-two-column-text.png
+  description: "Hero section with a hero banner image on the right and a small heading, large heading, paragraph, and button on the left."
+-->
+
+{# Shares translations with hero-banner-two-column.hubl.html #}
+
+{#
+Context Variables:
+  - context.section_variant: The variant of the section layout.
+  - context.background_color: The background color of the section.
+  - context.section_padding_top: The padding-top of the section.
+  - context.section_padding_bottom: The padding-bottom of the section.
+  - context.tag_line.text: The tag line text above the heading.
+  - context.heading.heading_level: The heading level for the heading module.
+  - context.heading.text: The text content for the heading module.
+  - context.heading.style_variant: The headingStyleVariant for the heading module.
+  - context.paragraph.text: The text content for the rich text module.
+  - button.show_icon: Whether to show the icon for the call-to-action button.
+  - context.button.icon: The icon for the button
+  - context.button.text: The text for the CTA button.
+  - context.button.href: The link for the CTA button.
+  - context.button.size: The size of the button.
+  - context.button.style: The style of the button.
+  - context.image.alt: The alt text for the image.
+  - context.image.loading: The loading state for the image.
+  - context.image.src: The source URL for the image.
+  - context.image.height: The height for the image.
+  - context.image.width: The width for the image.
+#}
+
+{# Section variables #}
+{% set template_translations = load_translations("../templates/_locales", html_lang, "en") %}
+{% import "../helpers/variables.hubl.html" %}
+{% set section_variant = context.section_variant or "section_variant_1" %}
+
+{# Section #}
+{% dnd_section
+  background_color={{ context.background_color }},
+  padding={
+    "top": context.section_padding_top,
+    "bottom": context.section_padding_bottom
+  }
+%}
+  {% dnd_column %}
+    {% dnd_row
+      vertical_alignment="MIDDLE"
+    %}
+      {# Left column - text content #}
+      {% dnd_column
+        width=6,
+        padding={
+          "mobile": {
+            "bottom": spacing_32
+          }
+        }
+      %}
+        {# Tag line #}
+        {% dnd_row %}
+          {% dnd_module
+            path="../components/modules/RichText",
+            groupStyle={
+              "sectionStyleVariant": section_variant
+            }
+          %}
+            {% module_attribute "richTextContentHTML" %}
+              <p>{{ context.tag_line.text or scaffold_content.tag_line or template_translations.section_hero_banner_two_column_tag_line.message }}</p>
+            {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {# Main heading #}
+        {% dnd_row %}
+          {% dnd_module
+            path="../components/modules/Heading",
+            headingAndTextHeadingLevel={{ context.heading.heading_level or "h1" }},
+            headingAndTextHeading={{ context.heading.text or scaffold_content.heading or template_translations.section_hero_banner_two_column_heading.message }},
+            groupStyle={
+              "headingStyleVariant": context.heading.style_variant or "h1",
+              "sectionStyleVariant": section_variant
+            }
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {# Paragraph #}
+        {% dnd_row %}
+          {% dnd_module
+            path="../components/modules/RichText",
+            groupStyle={
+              "sectionStyleVariant": section_variant
+            }
+          %}
+            {% module_attribute "richTextContentHTML" %}
+              <p>{{ context.paragraph.text or scaffold_content.paragraph or template_translations.section_hero_banner_two_col_text_paragraph.message }}</p>
+            {% end_module_attribute %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {# CTA Button #}
+        {% dnd_row %}
+          {% dnd_module
+            path="../components/modules/Button",
+            groupButtons=[
+              {
+                "buttonContentText": context.button.text or scaffold_content.group_button.button_text or template_translations.section_hero_banner_two_col_text_button_text.message,
+                "buttonContentLink": {
+                  "url": {
+                    "href": context.button.href or scaffold_content.group_button.button_link or "#"
+                  }
+                },
+                "buttonContentShowIcon": context.button.show_icon or false,
+                "buttonContentIcon": {
+                  "name": context.button.icon or "arrow-right"
+                },
+                "buttonContentIconPosition": "right"
+              }
+            ],
+            groupStyle={
+              "alignment": {
+                "horizontal_align": "LEFT"
+              },
+              "buttonStyleSize": context.button.size or "medium",
+              "buttonStyleVariant": context.button.style or "primary"
+            }
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+
+      {% dnd_column
+        offset=6,
+        width=6
+      %}
+        {# Image #}
+        {% dnd_row %}
+          {% dnd_module
+            path="@hubspot/linked_image",
+            img={
+              "alt": context.image.alt or scaffold_content.image.alt or template_translations.section_hero_banner_two_column_image_alt.message or "",
+              "loading": context.image.loading or "eager",
+              "max_height": context.image.height or scaffold_content.image.height or 650,
+              "max_width": context.image.width or scaffold_content.image.width or 650,
+              "size_type": "auto_custom_max",
+              "src": context.image.src or scaffold_content.image.src or get_asset_url("../images/marketing-dashboard.png")
+            }
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}

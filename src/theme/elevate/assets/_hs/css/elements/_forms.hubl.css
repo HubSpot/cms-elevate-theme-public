@@ -1,0 +1,266 @@
+/* Form */
+
+.hs-form,
+.hs-elevate-system-form form,
+.hs-elevate-system-form--subscription-preferences form .email-prefs {
+  padding: var(--hsElevate--form__padding);
+  border-color: var(--hsElevate--form__borderColor);
+  border-radius: var(--hsElevate--form__borderRadius);
+  border-style: solid;
+  border-width: var(--hsElevate--form__borderThickness);
+  background: var(--hsElevate--form__backgroundColor);
+}
+
+/* Form labels */
+
+:is(.hs-form, .hs-elevate-system-form) label,
+.hs-elevate-system-form--subscription-preferences .fakelabel {
+  display: block;
+  color: var(--hsElevate--formLabel__textColor);
+  font-family: var(--hsElevate--formLabel__font);
+  font-size: var(--hsElevate--formLabel__fontSize);
+  font-weight: var(--hsElevate--formLabel__fontWeight);
+  margin-block-end: var(--hsElevate--formLabel__marginBottom);
+}
+
+/* Form fields */
+
+.hs-form .hs-form-field {
+  margin-block-end: var(--hsElevate--formField__marginBottom);
+}
+
+:is(.hs-form, .hs-elevate-system-form) input[type='text'],
+:is(.hs-form, .hs-elevate-system-form) input[type='email'],
+:is(.hs-form, .hs-elevate-system-form) input[type='password'],
+:is(.hs-form, .hs-elevate-system-form) input[type='tel'],
+:is(.hs-form, .hs-elevate-system-form) input[type='number'],
+:is(.hs-form, .hs-elevate-system-form) input[type='search'],
+:is(.hs-form, .hs-elevate-system-form) select,
+:is(.hs-form, .hs-elevate-system-form) textarea {
+  width: 100% !important;
+  border-radius: var(--hsElevate--formField__borderRadius);
+  border-top: var(--hsElevate--formField__borderTop);
+  border-right: var(--hsElevate--formField__borderRight);
+  border-bottom: var(--hsElevate--formField__borderBottom);
+  border-left: var(--hsElevate--formField__borderLeft);
+  background-color: var(--hsElevate--formField__backgroundColor);
+  color: var(--hsElevate--formFieldInput__textColor);
+  padding-block: var(--hsElevate--spacing--20);
+  padding-inline: var(--hsElevate--spacing--32);
+}
+
+.hs-input.hs-fieldtype-intl-phone {
+  display: flex;
+  width: 100% !important;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px; /* matches column margins from form injection */
+}
+
+.hs-input.hs-fieldtype-intl-phone > input {
+  flex: 1 0 calc(70% - 8px) !important;
+}
+
+.hs-input.hs-fieldtype-intl-phone > select {
+  flex: 1 0 30% !important;
+}
+
+@media (width <= 600px) {
+  .hs-input.hs-fieldtype-intl-phone {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .hs-input.hs-fieldtype-intl-phone > select,
+  .hs-input.hs-fieldtype-intl-phone > input {
+    min-width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .hs-input.hs-fieldtype-intl-phone > select {
+    padding-inline: var(--hsElevate--spacing--16);
+  }
+}
+
+.hs-form-field.hs-fieldtype-file .hs-input,
+.hs-form fieldset {
+  max-width: 100% !important;
+}
+
+/* Form fields - textarea */
+
+.hs-form textarea {
+  position: relative;
+  height: 160px;
+  border-radius: var(--hsElevate--formFieldTextArea__borderRadius);
+}
+
+.hs-form textarea::-webkit-resizer {
+  display: none;
+}
+
+.hs-form .hs_multi_line_field .input {
+  position: relative;
+}
+
+.hs-form .hs_multi_line_field .input:after {
+  position: absolute;
+  right: var(--hsElevate--spacing--8);
+  bottom: var(--hsElevate--spacing--8);
+  content: var(--hsElevate--formField__dragIcon);
+  pointer-events: none;
+}
+
+/* Form fields - select */
+
+.hs-form .hs-fieldtype-select .input {
+  position: relative;
+}
+
+.hs-form select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.hs-form .hs-fieldtype-select .input:after {
+  position: absolute;
+  top: 50%;
+  right: var(--hsElevate--spacing--32);
+  content: var(--hsElevate--formField__selectIcon);
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+/* Form fields - datepicker */
+
+.hs-form .hs-dateinput {
+  position: relative;
+}
+
+.hs-form .hs-dateinput:before {
+  position: absolute;
+  top: 50%;
+  right: var(--hsElevate--spacing--32);
+  content: var(--hsElevate--formField__datepickerIcon);
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+/* Form fields - placeholders */
+
+::-moz-placeholder {
+  color: var(--hsElevate--formFieldPlaceholder__textColor);
+}
+
+::placeholder {
+  color: var(--hsElevate--formFieldPlaceholder__textColor);
+}
+
+/* Form fields - checkbox/radio */
+
+.hs-form .inputs-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.hs-form .inputs-list li {
+  display: block;
+  margin-block-end: var(--hsElevate--spacing--16);
+}
+
+.hs-form .inputs-list li:last-of-type {
+  margin-block-end: 0;
+}
+
+.hs-form .inputs-list :is(input, span) {
+  vertical-align: middle;
+}
+
+:is(.hs-form, .hs-elevate-system-form) input[type='checkbox'],
+:is(.hs-form, .hs-elevate-system-form) input[type='radio'] {
+  height: var(--hsElevate--formFieldCheckboxRadio__size);
+  width: var(--hsElevate--formFieldCheckboxRadio__size) !important;
+  accent-color: var(--hsElevate--formFieldCheckboxRadio__fillColor);
+  cursor: pointer;
+  margin-inline-end: var(--hsElevate--spacing--12);
+}
+
+/* Form help text */
+
+.hs-form legend {
+  /* To do: figure out where we should pull this from */
+  color: var(--hsElevate--formHelpText__textColor);
+  margin-block-end: var(--hsElevate--spacing--8);
+}
+
+/* Form rich text */
+
+.hs-form .hs-richtext {
+  color: var(--hsElevate--formLabel__textColor);
+}
+
+.hs-form .hs-richtext img {
+  height: auto;
+  max-width: 100% !important;
+}
+
+/* Form error messages */
+
+.hs-form .hs-input.error {
+  border-color: var(--hsElevate--formRequired__color);
+}
+
+.hs-form .hs-error-msg,
+.hs-form .hs-error-msgs {
+  color: var(--hsElevate--formRequired__color);
+  margin-block-start: var(--hsElevate--spacing--4);
+}
+
+/* Form button */
+
+:is(.hs-form, .hs-elevate-system-form) .hs-button,
+:is(.hs-form, .hs-elevate-system-form) input[type='submit'] {
+  display: inline-block;
+  width: 100%;
+  border-color: var(--hsElevate--button--primary__borderColor);
+  border-radius: var(--hsElevate--button--primary__borderRadius);
+  border-style: solid;
+  border-width: var(--hsElevate--button--primary__borderThickness);
+  background-color: var(--hsElevate--button--primary__backgroundColor);
+  color: var(--hsElevate--button--primary__textColor);
+  cursor: pointer;
+  font-family: var(--hsElevate--button--primary__font);
+  font-size: var(--hsElevate--button--primary__fontSize);
+  font-style: var(--hsElevate--button--primary__fontStyle);
+  font-weight: var(--hsElevate--button--primary__fontWeight);
+  padding-block: var(--hsElevate--spacing--20);
+  padding-inline: var(--hsElevate--spacing--24);
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.15s linear;
+  white-space: normal !important;
+}
+
+:is(.hs-form, .hs-elevate-system-form) .hs-button:hover,
+:is(.hs-form, .hs-elevate-system-form) .hs-button:focus,
+:is(.hs-form, .hs-elevate-system-form) input[type='submit']:hover,
+:is(.hs-form, .hs-elevate-system-form) input[type='submit']:focus {
+  border-color: var(--hsElevate--button--primary__hover--borderColor);
+  border-width: var(--hsElevate--button--primary__hover--borderThickness);
+  background-color: var(--hsElevate--button--primary__hover--backgroundColor);
+  color: var(--hsElevate--button--primary__hover--textColor);
+  text-decoration: none;
+}
+
+/* Captcha */
+
+.grecaptcha-badge {
+  margin-block: 0;
+  margin-inline: auto;
+}

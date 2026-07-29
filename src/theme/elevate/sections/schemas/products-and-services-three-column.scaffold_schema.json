@@ -1,0 +1,55 @@
+[
+  {
+    "name": "heading",
+    "type": "text",
+    "description": "The main heading for the products and services section."
+  },
+  {
+    "name": "group_feature_one",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Heading for the first feature or product."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "Description text for the first feature or product."
+      }
+    ]
+  },
+  {
+    "name": "group_feature_two",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Heading for the second feature or product."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "Description text for the second feature or product."
+      }
+    ]
+  },
+  {
+    "name": "group_feature_three",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Heading for the third feature or product."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "Description text for the third feature or product."
+      }
+    ]
+  }
+]

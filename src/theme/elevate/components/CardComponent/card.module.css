@@ -1,0 +1,13 @@
+.hs-elevate-card {
+  display: var(--hsElevate--card--display, flex);
+  padding: var(--hsElevate--card--padding, var(--hsElevate--spacing--32, 32px));
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (width >= 1000px) {
+  .hs-elevate-card--row {
+    flex-direction: row;
+  }
+}

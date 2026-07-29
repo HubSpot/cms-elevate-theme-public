@@ -1,0 +1,188 @@
+[
+  {
+    "name": "group_newsletter_signup",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A compelling heading that encourages visitors to subscribe to the newsletter."
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "A description that explains the value and benefits of subscribing to the newsletter."
+      },
+      {
+        "name": "newsletter_image",
+        "type": "image",
+        "description": "An image showing newsletter examples or email mockups to visualize what subscribers will receive.",
+        "width": "400",
+        "height": "700"
+      },
+      {
+        "name": "form",
+        "type": "form",
+        "description": "A newsletter subscription form for collecting subscriber information."
+      }
+    ]
+  },
+  {
+    "name": "group_experts_insights",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A heading that introduces the experts or thought leaders behind the newsletter content."
+      },
+      {
+        "name": "content",
+        "type": "text",
+        "description": "Paragraph that describes the expertise and credibility of the newsletter contributors."
+      },
+      {
+        "name": "experts_image",
+        "type": "image",
+        "description": "An image showing the experts, speakers, or contributors who provide newsletter content.",
+        "width": "700",
+        "height": "400"
+      }
+    ]
+  },
+  {
+    "name": "group_marketing_features",
+    "type": "group",
+    "children": [
+      {
+        "name": "section_heading",
+        "type": "text",
+        "description": "A heading that introduces the key features or benefits of the newsletter."
+      },
+      {
+        "name": "group_feature_card_1",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "The heading for the first newsletter feature or benefit."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "A description of the first newsletter feature or benefit."
+          }
+        ]
+      },
+      {
+        "name": "group_feature_card_2",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "The heading for the second newsletter feature or benefit."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "A description of the second newsletter feature or benefit."
+          }
+        ]
+      },
+      {
+        "name": "group_feature_card_3",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "The heading for the third newsletter feature or benefit."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "A description of the third newsletter feature or benefit."
+          }
+        ]
+      },
+      {
+        "name": "group_feature_card_4",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "The heading for the fourth newsletter feature or benefit."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "A description of the fourth newsletter feature or benefit."
+          }
+        ]
+      },
+      {
+        "name": "group_feature_card_5",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "The heading for the fifth newsletter feature or benefit."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "A description of the fifth newsletter feature or benefit."
+          }
+        ]
+      },
+      {
+        "name": "group_feature_card_6",
+        "type": "group",
+        "children": [
+          {
+            "name": "heading",
+            "type": "text",
+            "description": "The heading for the sixth newsletter feature or benefit."
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "A description of the sixth newsletter feature or benefit."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "group_call_to_action",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "A final call-to-action heading that encourages newsletter subscription."
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "The text for the call-to-action button that leads to newsletter signup."
+      },
+      {
+        "name": "button_link",
+        "type": "link",
+        "description": "The URL that users should be taken to when they click the call-to-action button."
+      },
+      {
+        "name": "cta_image",
+        "type": "image",
+        "description": "An image that supports the call-to-action, such as a newsletter icon or visual.",
+        "width": "300",
+        "height": "300"
+      }
+    ]
+  }
+]

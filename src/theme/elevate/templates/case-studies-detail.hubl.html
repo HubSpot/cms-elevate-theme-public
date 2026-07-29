@@ -1,0 +1,130 @@
+<!--
+  templateType: case_study
+  isAvailableForNewContent: true
+  label: Case study
+  screenshotPath: ../images/template-previews/case-studies-detail.png
+-->
+{% set template_css = "../../assets/dist/css/case-studies.hubl.css" %}
+{% extends "./layouts/base.hubl.html" %}
+
+{% block body %}
+
+{% macro module_is_hidden(module_id)|trim -%}
+  {{- case_study.hs_module_overrides[module_id].hidden == true -}}
+{%- endmacro %}
+
+{% macro hide_module(module_id) -%}
+  {{ 'data-module-hidden="true"' if module_is_hidden(module_id) == "true" }}
+{%- endmacro %}
+
+<div class="case-studies-detail">
+  <div class="hs-elevate-content-wrapper ">
+    {% set case_study = dynamic_page_hubdb_row %}
+
+        {% if is_in_editor or (!is_in_editor and module_is_hidden('cs-logo') == "false" )%}
+          <div class="cs-logo-wrapper" {{ hide_module('cs-logo') }}>
+            {% module "cs-logo" path="@hubspot/cs_company_logo"
+              data_tokens={
+                "company_logo": "dynamic_page_hubdb_row.hs_company_logo",
+              }
+            %}
+          </div>
+        {% endif %}
+
+        {% if is_in_editor or (!is_in_editor and module_is_hidden('cs-name') == "false" )%}
+          <div class="cs-title-wrapper" {{ hide_module('cs-name') }}>
+            {% module "cs-name" path="@hubspot/cs_title"
+              data_tokens={
+                "name": "dynamic_page_hubdb_row.hs_name",
+              }
+            %}
+          </div>
+        {% endif %}
+
+      {% if is_in_editor or (!is_in_editor and module_is_hidden('cs-feature') == "false" )%}
+        <div class="cs-feature-wrapper" {{ hide_module('cs-feature') }}>
+          {% module "cs-feature" path="@hubspot/cs_featured_details"
+            data_tokens={
+              "featured_image": "dynamic_page_hubdb_row.hs_featured_image",
+              "industry": "dynamic_page_hubdb_row.hs_industry",
+              "challenge_summary_label": "dynamic_page_hubdb_row.hs_challenge_summary_label",
+              "challenge_summary": "dynamic_page_hubdb_row.hs_challenge_summary",
+              "results_summary_label": "dynamic_page_hubdb_row.hs_results_summary_label",
+              "results_summary": "dynamic_page_hubdb_row.hs_results_summary",
+              "key_products_label": "dynamic_page_hubdb_row.hs_key_products_label",
+              "key_products": "dynamic_page_hubdb_row.hs_key_products",
+              "company_website": "dynamic_page_hubdb_row.hs_company_website",
+            }
+          %}
+        </div>
+      {% endif %}
+
+      {% if is_in_editor or (!is_in_editor and module_is_hidden('cs-metrics') == "false" )%}
+        <div class="cs-metrics-wrapper" {{ hide_module('cs-metrics') }}>
+          {% module "cs-metrics" path="@hubspot/cs_metrics"
+            data_tokens={
+              "metrics": "dynamic_page_hubdb_row.hs_metrics",
+            }
+          %}
+        </div>
+        {% endif %}
+
+      {% if is_in_editor or (!is_in_editor and module_is_hidden('cs-testimonials') == "false" )%}
+        <div class="cs-testimonials-wrapper" {{ hide_module('cs-testimonials') }}>
+          {% module "cs-testimonials" path="@hubspot/cs_testimonial_slider"
+            data_tokens={
+              "testimonials": "dynamic_page_hubdb_row.hs_testimonials",
+            }
+          %}
+        </div>
+      {% endif %}
+
+      {% if is_in_editor or (!is_in_editor and module_is_hidden('cs-about-company') == "false" )%}
+        <div class="hs-elevate-content-wrapper hs-elevate-content-wrapper--md" {{ hide_module('cs-about-company') }}>
+          <div class="cs-about-company-wrapper" >
+            {% module "cs-about-company" path="@hubspot/cs_about_company"
+              data_tokens={
+                "company_image": "dynamic_page_hubdb_row.hs_company_image",
+                "company_name": "dynamic_page_hubdb_row.hs_company_name",
+                "company_summary": "dynamic_page_hubdb_row.hs_company_summary",
+              }
+            %}
+          </div>
+        </div>
+      {% endif %}
+
+    <div class="hs-elevate-content-wrapper hs-elevate-content-wrapper--sm">
+      <div class="cs-body-wrapper">
+        {% module "cs-body" path="@hubspot/cs_body"
+          data_tokens={
+            "body": "dynamic_page_hubdb_row.hs_body",
+          }
+        %}
+      </div>
+    </div>
+  </div>
+
+  {% if is_in_editor or (!is_in_editor and module_is_hidden('cs-cta-banner') == "false" )%}
+    <div class="cs-cta-banner-wrapper" {{ hide_module('cs-cta-banner') }}>
+      {% module "cs-cta-banner" path="@hubspot/cs_full_width_cta_banner"
+        data_tokens={
+          "call_to_action_label": "dynamic_page_hubdb_row.hs_call_to_action_label",
+          "call_to_action": "dynamic_page_hubdb_row.hs_call_to_action",
+        }
+      %}
+    </div>
+  {% endif %}
+
+  {% if is_in_editor or (!is_in_editor and module_is_hidden('cs-related-case-studies') == "false" )%}
+    <div class="cs-background--off-white" {{ hide_module('cs-related-case-studies') }}>
+      <div class="hs-elevate-content-wrapper">
+          <div class="cs-related-articles-wrapper">
+            {% module "cs-related-case-studies" path="@hubspot/cs_related_case_studies" %}
+          </div>
+      </div>
+    </div>
+  {% endif %}
+
+</div>
+
+{% endblock body %}

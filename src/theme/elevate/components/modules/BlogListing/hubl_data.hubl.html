@@ -1,0 +1,30 @@
+{% set blog_post_ids = [] %}
+{% set blog_posts = [] %}
+
+{% for post in contents %}
+  {% do blog_post_ids.append(post.id) %}
+
+  {% set temp_post = {
+      id: post.id,
+      absoluteUrl: post.absoluteUrl|escape_url,
+      featuredImage: post.featuredImage,
+      featuredImageAltText: post.featuredImageAltText,
+      featuredImageWidth: post.featuredImageWidth,
+      featuredImageHeight: post.featuredImageHeight,
+      title: post.label,
+      topicNames: post.topicNames
+    }
+  %}
+  {% do blog_posts.append(temp_post) %}
+{% endfor %}
+
+{% set hublData = {
+    blogPosts: blog_posts,
+    blogPostIds: blog_post_ids,
+    currentPageNumber: current_page_num,
+    nextPageNumber: next_page_num,
+    previousPageNumber: previous_page_num,
+    totalPageCount: contents.total_page_count,
+    use_featured_image_in_summary: group.use_featured_image_in_summary
+  }
+%}
