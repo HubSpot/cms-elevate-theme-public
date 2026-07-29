@@ -65,7 +65,7 @@ export const Default: Story = {};
 
 #### Components
 ```
-src/unified-theme/components/[ComponentName]/
+src/theme/elevate/components/[ComponentName]/
 ├── stories/
 │   ├── [ComponentName].stories.tsx           # Main story file
 │   ├── [ComponentName].[category].stories.tsx # Category-specific stories
@@ -78,7 +78,7 @@ src/unified-theme/components/[ComponentName]/
 
 #### Modules
 ```
-src/unified-theme/components/modules/[ModuleName]/
+src/theme/elevate/components/modules/[ModuleName]/
 ├── stories/
 │   ├── [ModuleName]Module.stories.tsx         # Main story file
 │   ├── [ModuleName]Module.[category].stories.tsx # Category-specific stories
