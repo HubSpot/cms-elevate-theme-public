@@ -67,7 +67,7 @@ Elevate is built with modern development practices in mind, utilizing:
 
 ```
 ├── src/
-│   └── unified-theme/         # Main theme directory
+│   └── theme/elevate/         # Main theme directory
 │       ├── _locales/          # Localization files
 │       ├── assets/            # Theme assets
 │       ├── components/        # React components
@@ -108,15 +108,15 @@ Building a child theme is a great way to extend the functionality of Elevate wit
 1. Create a new theme in design manager
 2. Select "Use blank theme as starting point"
 3. Modify the theme.json file to include `"extends": "@hubspot/elevate"`
-4. Copy Elevate's theme fields.json file (`src/unified-theme/fields.json`) to the root of your new theme.
-5. Add your custom code to the `src/unified-theme` directory.
+4. Copy Elevate's theme fields.json file (`src/theme/elevate/fields.json`) to the root of your new theme.
+5. Add your custom code to the `src/theme/elevate` directory.
 
 ### Unified theme framework
 
 1. From your cli run `npx @hubspot/create-cms-theme`
 2. Follow the prompts to create a blank unified theme project
 3. Modify the theme.json file to include `"extends": "@hubspot/elevate"`
-4. Copy Elevate'stheme fields.json file (`src/unified-theme/fields.json`) to the root of your new theme.
+4. Copy Elevate'stheme fields.json file (`src/theme/elevate/fields.json`) to the root of your new theme.
 
 ### Grids functionality
 

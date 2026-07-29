@@ -15,7 +15,7 @@ When scaffolding a new React module, follow these guidelines to create a consist
 
 ## Required Files Structure
 ```
-src/unified-theme/components/modules/[ModuleName]/
+src/theme/elevate/components/modules/[ModuleName]/
 ├── index.tsx           # Main module component
 ├── fields.tsx          # Module field definitions
 ├── types.ts           # Type definitions
@@ -210,7 +210,7 @@ Note that you shouldn't use this in your final output. But this example provides
 ## Step 2: File Structure
 
 ```
-src/unified-theme/components/modules/FeaturedProducts/
+src/theme/elevate/components/modules/FeaturedProducts/
 ├── index.tsx                    # Main module component
 ├── fields.tsx                   # Module field definitions
 ├── types.ts                     # Type definitions

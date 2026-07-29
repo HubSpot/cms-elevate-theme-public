@@ -6,12 +6,12 @@
     "build": "vite build",
     "upload": "hs project upload",
     "build-upload": "vite build && hs project upload",
-    "yarn-start": "cd src/unified-theme && yarn start",
-    "npm-start": "cd src/unified-theme && npm run start",
+    "yarn-start": "cd src/theme/elevate && yarn start --ssl",
+    "npm-start": "cd src/theme/elevate && npm run start -- --ssl",
     "test": "vitest",
     "test-verbose": "vitest --reporter verbose",
-    "npm-install:all": "npm install && npm install --prefix src/unified-theme",
-    "yarn-install:all": "yarn && cd src/unified-theme && yarn install"
+    "npm-install:all": "npm install && npm install --prefix src/theme/elevate",
+    "yarn-install:all": "yarn && cd src/theme/elevate && yarn install"
   },
   "author": "HubSpot Content Assets Team",
   "license": "Apache-2.0",

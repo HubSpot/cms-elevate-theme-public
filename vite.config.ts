@@ -10,18 +10,18 @@ export default defineConfig({
   plugins: [HublPostCSSCleaner()],
   publicDir: './dist/',
   build: {
-    outDir: './src/unified-theme/assets/dist',
+    outDir: './src/theme/elevate/assets/dist',
     minify: false,
     rollupOptions: {
       watch: {
-        include: ['./src/unified-theme/assets/_hs/css/**/*'],
+        include: ['./src/theme/elevate/assets/_hs/css/**/*'],
       },
       input: {
-        main: './src/unified-theme/assets/_hs/css/main.hubl.css',
-        caseStudies: './src/unified-theme/assets/_hs/css/templates/case-studies.hubl.css',
-        system: './src/unified-theme/assets/_hs/css/templates/system.hubl.css',
-        blog: './src/unified-theme/assets/_hs/css/templates/blog.hubl.css',
-        blogCaseStudy: './src/unified-theme/assets/_hs/css/templates/blog-case-study.hubl.css',
+        main: './src/theme/elevate/assets/_hs/css/main.hubl.css',
+        caseStudies: './src/theme/elevate/assets/_hs/css/templates/case-studies.hubl.css',
+        system: './src/theme/elevate/assets/_hs/css/templates/system.hubl.css',
+        blog: './src/theme/elevate/assets/_hs/css/templates/blog.hubl.css',
+        blogCaseStudy: './src/theme/elevate/assets/_hs/css/templates/blog-case-study.hubl.css',
       },
       output: {
         assetFileNames: 'css/[name].[ext]',
