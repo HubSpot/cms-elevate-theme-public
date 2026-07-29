@@ -1,0 +1,117 @@
+{
+  "name": {
+    "message": "Media and summary",
+    "description": "",
+    "placeholders": null
+  },
+  "group_logo.label": {
+    "message": "Featured image",
+    "description": "",
+    "placeholders": null
+  },
+  "group_logo.customerLogo.label": {
+    "message": "Image",
+    "description": "",
+    "placeholders": null
+  },
+  "group_summary.label": {
+    "message": "At a glance",
+    "description": "",
+    "placeholders": null
+  },
+  "group_summary.industryLabel.label": {
+    "message": "Industry label",
+    "description": "",
+    "placeholders": null
+  },
+  "group_summary.industry.label": {
+    "message": "Industry",
+    "description": "",
+    "placeholders": null
+  },
+  "group_summary.challengeLabel.label": {
+    "message": "Challenge label",
+    "description": "",
+    "placeholders": null
+  },
+  "group_summary.challengeRichText.label": {
+    "message": "Challenge",
+    "description": "",
+    "placeholders": null
+  },
+  "group_summary.resultsLabel.label": {
+    "message": "Results label",
+    "description": "",
+    "placeholders": null
+  },
+  "group_summary.resultsRichText.label": {
+    "message": "Results",
+    "description": "",
+    "placeholders": null
+  },
+  "group_summary.keyProductLabel.label": {
+    "message": "Key product label",
+    "description": "",
+    "placeholders": null
+  },
+  "group_summary.keyProduct.label": {
+    "message": "Key product",
+    "description": "",
+    "placeholders": null
+  },
+  "group_link.label": {
+    "message": "Customer website",
+    "description": "",
+    "placeholders": null
+  },
+  "group_link.showWebsiteLink.label": {
+    "message": "Show website link",
+    "description": "",
+    "placeholders": null
+  },
+  "group_link.linkText.label": {
+    "message": "Link text",
+    "description": "",
+    "placeholders": null
+  },
+  "group_link.websiteUrl.label": {
+    "message": "Link",
+    "description": "",
+    "placeholders": null
+  },
+  "group_style.label": {
+    "message": "Styles",
+    "description": "",
+    "placeholders": null
+  },
+  "group_style.cardStyleVariant.label": {
+    "message": "Card style",
+    "description": "",
+    "placeholders": null
+  },
+  "group_style.cardStyleVariant.inline_help_text": {
+    "message": "<a href=\"$theme_link\">Edit</a>",
+    "description": "",
+    "placeholders": null
+  },
+  "group_style.cardStyleVariant.choices.card_variant_1": {
+    "message": "Card variant 1",
+    "description": "",
+    "placeholders": null
+  },
+  "group_style.cardStyleVariant.choices.card_variant_2": {
+    "message": "Card variant 2",
+    "description": "",
+    "placeholders": null
+  },
+  "group_style.cardStyleVariant.choices.card_variant_3": {
+    "message": "Card variant 3",
+    "description": "",
+    "placeholders": null
+  },
+  "group_style.cardStyleVariant.choices.card_variant_4": {
+    "message": "Card variant 4",
+    "description": "",
+    "placeholders": null
+  }
+}

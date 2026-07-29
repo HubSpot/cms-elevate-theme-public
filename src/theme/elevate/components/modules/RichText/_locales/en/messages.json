@@ -1,0 +1,47 @@
+{
+  "name": {
+    "message": "Rich text",
+    "description": "",
+    "placeholders": null
+  },
+  "richTextContentHTML.label": {
+    "message": "Content",
+    "description": "",
+    "placeholders": null
+  },
+  "richTextContentHTML.default": {
+    "message": "<h2>Something Powerful</h2><h3>Tell The Reader More</h3><p>The heading and subheading tells us what you're <a href=\"#\">offering</a>, and the form heading closes the deal. Over here you can explain why your offer is so great it's worth filling out a form for.</p><p>Remember:</p><ul><li>Bullets are great</li><li>For spelling out <a href=\"#\">benefits</a> and</li><li>Turning visitors into leads.</li></ul>",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.label": {
+    "message": "Styles",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.sectionStyleVariant.label": {
+    "message": "Text color",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.sectionStyleVariant.choices.section_variant_1": {
+    "message": "Light section 1 text color",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.sectionStyleVariant.choices.section_variant_2": {
+    "message": "Light section 2 text color",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.sectionStyleVariant.choices.section_variant_3": {
+    "message": "Light section 3 text color",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.sectionStyleVariant.choices.section_variant_4": {
+    "message": "Dark section text color",
+    "description": "",
+    "placeholders": null
+  }
+}

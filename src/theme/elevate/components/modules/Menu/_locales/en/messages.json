@@ -1,0 +1,177 @@
+{
+  "name": {
+    "message": "Horizontal menu",
+    "description": "",
+    "placeholders": null
+  },
+  "menu.label": {
+    "message": "Menu",
+    "description": "",
+    "placeholders": null
+  },
+  "maxDepth.label": {
+    "message": "Max menu depth",
+    "description": "",
+    "placeholders": null
+  },
+  "maxDepth.help_text": {
+    "message": "Set the maximum number of menu levels to include. Must always include at least 1 level or else no menu would populate.",
+    "description": "",
+    "placeholders": null
+  },
+  "menuName.label": {
+    "message": "Accessible menu name",
+    "description": "",
+    "placeholders": null
+  },
+  "menuName.help_text": {
+    "message": "Set the aria-label on the nav element surrounding the menu. This provides additional context to those using screen readers to better understand the purpose of your menu. <a href=\"https://www.w3.org/WAI/tutorials/menus/structure/#label-menus\">Learn more here</a>",
+    "description": "",
+    "placeholders": null
+  },
+  "styles.label": {
+    "message": "Styles",
+    "description": "",
+    "placeholders": null
+  },
+  "styles.groupMenu.label": {
+    "message": "Menu",
+    "description": "",
+    "placeholders": null
+  },
+  "styles.groupMenu.menuAlignment.label": {
+    "message": "Menu alignment",
+    "description": "",
+    "placeholders": null
+  },
+  "styles.groupMenu.menuColumnGap.label": {
+    "message": "Column gap",
+    "description": "",
+    "placeholders": null
+  },
+  "styles.groupMenu.menuColumnGap.help_text": {
+    "message": "Changes the amount of space between top level menu items. You can also think as the space between each column in the horizontal menu.",
+    "description": "",
+    "placeholders": null
+  },
+  "styles.groupMenu.menuColumnGap.choices.none": {
+    "message": "None",
+    "description": "",
+    "placeholders": null
+  },
+  "styles.groupMenu.menuColumnGap.choices.small": {
+    "message": "Small",
+    "description": "",
+    "placeholders": null
+  },
+  "styles.groupMenu.menuColumnGap.choices.medium": {
+    "message": "Medium",
+    "description": "",
+    "placeholders": null
+  },
+  "styles.groupMenu.menuColumnGap.choices.large": {
+    "message": "Large",
+    "description": "",
+    "placeholders": null
+  },
+  "styles.groupMenuItems.label": {
+    "message": "Menu items",
+    "description": "",
+    "placeholders": null
+  },
+  "styles.groupMenuItems.menuItemVerticalGap.label": {
+    "message": "Vertical gap",
+    "description": "",
+    "placeholders": null
+  },
+  "styles.groupMenuItems.menuItemVerticalGap.help_text": {
+    "message": "Changes the amount of space between menu items. Increasing this value will create unclickable space/gaps between each menu item link.",
+    "description": "",
+    "placeholders": null
+  },
+  "styles.groupMenuItems.menuItemVerticalGap.choices.none": {
+    "message": "None",
+    "description": "",
+    "placeholders": null
+  },
+  "styles.groupMenuItems.menuItemVerticalGap.choices.small": {
+    "message": "Small",
+    "description": "",
+    "placeholders": null
+  },
+  "styles.groupMenuItems.menuItemVerticalGap.choices.medium": {
+    "message": "Medium",
+    "description": "",
+    "placeholders": null
+  },
+  "styles.groupMenuItems.menuItemVerticalGap.choices.large": {
+    "message": "Large",
+    "description": "",
+    "placeholders": null
+  },
+  "styles.groupMenuItems.menuItemPadding.label": {
+    "message": "Padding",
+    "description": "",
+    "placeholders": null
+  },
+  "styles.groupMenuItems.menuItemPadding.help_text": {
+    "message": "Changes the amount of padding surrounding the text of each menu item. Increasing this value will increase the clickable area of each menu item link.",
+    "description": "",
+    "placeholders": null
+  },
+  "styles.groupMenuItems.menuItemPadding.choices.none": {
+    "message": "None",
+    "description": "",
+    "placeholders": null
+  },
+  "styles.groupMenuItems.menuItemPadding.choices.small": {
+    "message": "Small",
+    "description": "",
+    "placeholders": null
+  },
+  "styles.groupMenuItems.menuItemPadding.choices.medium": {
+    "message": "Medium",
+    "description": "",
+    "placeholders": null
+  },
+  "styles.groupMenuItems.menuItemPadding.choices.large": {
+    "message": "Large",
+    "description": "",
+    "placeholders": null
+  },
+  "styles.groupLink.label": {
+    "message": "Links",
+    "description": "",
+    "placeholders": null
+  },
+  "styles.groupLink.linkStyleVariant.label": {
+    "message": "Link style",
+    "description": "",
+    "placeholders": null
+  },
+  "styles.groupLink.linkStyleVariant.choices.primary_links": {
+    "message": "Primary",
+    "description": "",
+    "placeholders": null
+  },
+  "styles.groupLink.linkStyleVariant.choices.secondary_links": {
+    "message": "Secondary",
+    "description": "",
+    "placeholders": null
+  },
+  "styles.groupLink.linkStyleVariant.inline_help_text": {
+    "message": "<a href=\"$theme_link\">Edit</a>",
+    "description": "",
+    "placeholders": null
+  },
+  "groupPlaceholderText.placeholderTitle.default": {
+    "message": "No menu selected",
+    "description": "",
+    "placeholders": null
+  },
+  "groupPlaceholderText.placeholderDescription.default": {
+    "message": "Select an existing menu from the sidebar, or create a new one by navigating to the Navigation Menus tool",
+    "description": "",
+    "placeholders": null
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "name": {
+    "message": "Accordion",
+    "description": "",
+    "placeholders": null
+  },
+  "groupAccordions.label": {
+    "message": "Accordions",
+    "description": "",
+    "placeholders": null
+  },
+  "groupAccordions.default.0.title": {
+    "message": "Here is where the accordion title goes",
+    "description": "",
+    "placeholders": null
+  },
+  "groupAccordions.default.1.title": {
+    "message": "Here is where the accordion title goes",
+    "description": "",
+    "placeholders": null
+  },
+  "groupAccordions.default.2.title": {
+    "message": "Here is where the accordion title goes",
+    "description": "",
+    "placeholders": null
+  },
+  "groupAccordions.title.label": {
+    "message": "Title",
+    "description": "",
+    "placeholders": null
+  },
+  "groupAccordions.title.default": {
+    "message": "Here is where the accordion title goes",
+    "description": "",
+    "placeholders": null
+  },
+  "groupAccordions.richTextContentHTML.label": {
+    "message": "Description",
+    "description": "",
+    "placeholders": null
+  },
+  "groupAccordions.richTextContentHTML.default": {
+    "message": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempor arcu non commodo elementum.</p>",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.label": {
+    "message": "Styles",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.cardStyleVariant.label": {
+    "message": "Card style",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.cardStyleVariant.choices.card_variant_1": {
+    "message": "Card variant 1",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.cardStyleVariant.choices.card_variant_2": {
+    "message": "Card variant 2",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.cardStyleVariant.choices.card_variant_3": {
+    "message": "Card variant 3",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.cardStyleVariant.choices.card_variant_4": {
+    "message": "Card variant 4",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.gap.label": {
+    "message": "Gap",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.gap.help_text": {
+    "message": "The space between the accordions",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.gap.choices.small": {
+    "message": "Small",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.gap.choices.medium": {
+    "message": "Medium",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.gap.choices.large": {
+    "message": "Large",
+    "description": "",
+    "placeholders": null
+  }
+}

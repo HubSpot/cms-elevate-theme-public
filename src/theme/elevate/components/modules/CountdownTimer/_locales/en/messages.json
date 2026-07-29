@@ -1,0 +1,97 @@
+{
+  "name": {
+    "message": "Countdown timer",
+    "description": "",
+    "placeholders": null
+  },
+  "endDate.label": {
+    "message": "End date",
+    "description": "",
+    "placeholders": null
+  },
+  "endDate.inline_help_text": {
+    "message": "Typically your event's date or when you'd like for the timer to end.",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.label": {
+    "message": "Styles",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.counter.label": {
+    "message": "Counter",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.counter.fill.label": {
+    "message": "Background",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.counter.fill.choices.filled": {
+    "message": "Filled",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.counter.fill.choices.no_fill": {
+    "message": "No fill",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.counter.borderThickness.label": {
+    "message": "Border",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.counter.fillColor.label": {
+    "message": "Fill color",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.counter.borderColor.label": {
+    "message": "Border color",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.counter.textColor.label": {
+    "message": "Text color",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.counterLabels.label": {
+    "message": "Counter labels",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.counterLabels.textColor.label": {
+    "message": "Text color",
+    "description": "",
+    "placeholders": null
+  },
+  "groupPlaceholderText.days.default": {
+    "message": "Days",
+    "description": "",
+    "placeholders": null
+  },
+  "groupPlaceholderText.hours.default": {
+    "message": "Hours",
+    "description": "",
+    "placeholders": null
+  },
+  "groupPlaceholderText.minutes.default": {
+    "message": "Minutes",
+    "description": "",
+    "placeholders": null
+  },
+  "groupPlaceholderText.seconds.default": {
+    "message": "Seconds",
+    "description": "",
+    "placeholders": null
+  },
+  "groupPlaceholderText.completedMessage.default": {
+    "message": "The countdown is complete",
+    "description": "",
+    "placeholders": null
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "name": {
+    "message": "Social share",
+    "description": "",
+    "placeholders": null
+  },
+  "platforms.label": {
+    "message": "Included platforms",
+    "description": "",
+    "placeholders": null
+  },
+  "platforms.choices.facebook": {
+    "message": "Facebook",
+    "description": "",
+    "placeholders": null
+  },
+  "platforms.choices.twitter": {
+    "message": "Twitter",
+    "description": "",
+    "placeholders": null
+  },
+  "platforms.choices.linkedin": {
+    "message": "LinkedIn",
+    "description": "",
+    "placeholders": null
+  },
+  "platforms.choices.pinterest": {
+    "message": "Pinterest",
+    "description": "",
+    "placeholders": null
+  },
+  "platforms.choices.email": {
+    "message": "Email",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.twitterLinkAriaLabel.default": {
+    "message": "Share on X",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.facebookLinkAriaLabel.default": {
+    "message": "Share on Facebook",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.linkedinLinkAriaLabel.default": {
+    "message": "Share on LinkedIn",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.pinterestLinkAriaLabel.default": {
+    "message": "Share on Pinterest",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.emailLinkAriaLabel.default": {
+    "message": "Share us via email",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.label": {
+    "message": "Styles",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.shape.label": {
+    "message": "Shape",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.shape.choices.square": {
+    "message": "Square",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.shape.choices.rounded": {
+    "message": "Rounded",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.shape.choices.circle": {
+    "message": "Circle",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.spaceBetweenIcons.label": {
+    "message": "Gap between",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.spaceBetweenIcons.choices.small": {
+    "message": "Small",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.spaceBetweenIcons.choices.medium": {
+    "message": "Medium",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.spaceBetweenIcons.choices.large": {
+    "message": "Large",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.alignment.label": {
+    "message": "Horizontal alignment",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.buttonStyleVariant.label": {
+    "message": "Button style",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.buttonStyleVariant.choices.primary": {
+    "message": "Primary",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.buttonStyleVariant.choices.secondary": {
+    "message": "Secondary",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.buttonStyleVariant.choices.tertiary": {
+    "message": "Tertiary",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.buttonStyleVariant.choices.accent": {
+    "message": "Accent",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.buttonStyleSize.label": {
+    "message": "Button size",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.buttonStyleSize.choices.small": {
+    "message": "Small",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.buttonStyleSize.choices.medium": {
+    "message": "Medium",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.buttonStyleSize.choices.large": {
+    "message": "Large",
+    "description": "",
+    "placeholders": null
+  }
+}

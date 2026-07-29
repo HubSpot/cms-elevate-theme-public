@@ -1,0 +1,1947 @@
+{
+  "name": {
+    "message": "Elevate",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.label": {
+    "message": "Foundation",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.label": {
+    "message": "Fonts",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.base_font.label": {
+    "message": "Base font",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.group_font_elements.label": {
+    "message": "Font elements",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.group_font_elements.group_headings.label": {
+    "message": "Headings",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.group_font_elements.group_headings.inline_help_text": {
+    "message": "Titles or headlines that helps organize content. Changes here affect all headings on your site.",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.group_font_elements.group_headings.group_heading_1.label": {
+    "message": "Heading 1 (H1)",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.group_font_elements.group_headings.group_heading_1.font.label": {
+    "message": "Font",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.group_font_elements.group_headings.group_heading_2.label": {
+    "message": "Heading 2 (H2)",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.group_font_elements.group_headings.group_heading_2.font.label": {
+    "message": "Font",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.group_font_elements.group_headings.group_heading_3.label": {
+    "message": "Heading 3 (H3)",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.group_font_elements.group_headings.group_heading_3.font.label": {
+    "message": "Font",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.group_font_elements.group_headings.group_heading_4.label": {
+    "message": "Heading 4 (H4)",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.group_font_elements.group_headings.group_heading_4.font.label": {
+    "message": "Font",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.group_font_elements.group_headings.group_heading_5.label": {
+    "message": "Heading 5 (H5)",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.group_font_elements.group_headings.group_heading_5.font.label": {
+    "message": "Font",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.group_font_elements.group_headings.group_heading_6.label": {
+    "message": "Heading 6 (H6)",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.group_font_elements.group_headings.group_heading_6.font.label": {
+    "message": "Font",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.group_font_elements.group_body_font.label": {
+    "message": "Body",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.group_font_elements.group_body_font.inline_help_text": {
+    "message": "Main content following headings. Changes here affect all paragraphs on your site.",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.group_font_elements.group_body_font.group_paragraph.label": {
+    "message": "Paragraph",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.group_font_elements.group_body_font.group_paragraph.font.label": {
+    "message": "Font",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.group_font_elements.group_other_elements.label": {
+    "message": "Other elements",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.group_font_elements.group_other_elements.inline_help_text": {
+    "message": "Font styles for other elements used in your site such as tags, small captions, and more.",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.group_font_elements.group_other_elements.group_block_quote.label": {
+    "message": "Block quote",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.group_font_elements.group_other_elements.group_block_quote.inline_help_text": {
+    "message": "Generally used to highlight quotes in testimonials",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.group_font_elements.group_other_elements.group_block_quote.font.label": {
+    "message": "Font",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.group_font_elements.group_other_elements.group_caption.label": {
+    "message": "Caption",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.group_font_elements.group_other_elements.group_caption.inline_help_text": {
+    "message": "Generally used for very small and concise field labels",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.group_font_elements.group_other_elements.group_caption.font.label": {
+    "message": "Font",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.group_font_elements.group_other_elements.group_caption.case.label": {
+    "message": "Case",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.group_font_elements.group_other_elements.group_caption.case.choices.none": {
+    "message": "None",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.group_font_elements.group_other_elements.group_caption.case.choices.uppercase": {
+    "message": "Upper",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_fonts.group_font_elements.group_other_elements.group_caption.case.choices.lowercase": {
+    "message": "Lower",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.label": {
+    "message": "Colors",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.inline_help_text": {
+    "message": "Changes to the palette affect all instances of the color on the site. More shades of these colors are created for you for a cohesive look across the theme.",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_base_colors.label": {
+    "message": "Base colors",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_base_colors.help_text": {
+    "message": "These colors are generally used for backgrounds and text",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_base_colors.color_1.label": {
+    "message": "Base color 1",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_base_colors.color_2.label": {
+    "message": "Base color 2",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_base_colors.color_3.label": {
+    "message": "Base color 3",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_accent_colors.label": {
+    "message": "Accent colors",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_accent_colors.help_text": {
+    "message": "These colors are generally used for buttons, icons, links, and more",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_accent_colors.color_1.label": {
+    "message": "Accent color 1",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_accent_colors.color_2.label": {
+    "message": "Accent color 2",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_accent_colors.color_3.label": {
+    "message": "Accent color 3",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.label": {
+    "message": "More settings",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.label": {
+    "message": "Sections",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.inline_help_text": {
+    "message": "Changes to colors here affect all instances of the background color on the site's sections",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.section_to_edit.label": {
+    "message": "Choose section to edit",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.section_to_edit.choices.light_section_1": {
+    "message": "Light section 1 (default)",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.section_to_edit.choices.light_section_2": {
+    "message": "Light section 2",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.section_to_edit.choices.light_section_3": {
+    "message": "Light section 3",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.section_to_edit.choices.dark_section_1": {
+    "message": "Dark section 1",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_1.label": {
+    "message": "Light section 1",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_1.group_section.label": {
+    "message": "Section",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_1.group_section.background_color.label": {
+    "message": "Section background color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_1.group_fonts.label": {
+    "message": "Fonts",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_1.group_fonts.text_color.label": {
+    "message": "Default text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_1.group_fonts.accent_color.label": {
+    "message": "Accent text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_1.group_fonts.caption_color.label": {
+    "message": "Caption text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_1.group_blockquote.label": {
+    "message": "Blockquote",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_1.group_blockquote.text_color.label": {
+    "message": "Blockquote text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_1.group_blockquote.background_color.label": {
+    "message": "Blockquote background color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_1.group_blockquote.accent_color.label": {
+    "message": "Blockquote accent color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_1.group_other_elements.label": {
+    "message": "Other elements",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_1.group_other_elements.link_colors.label": {
+    "message": "Link colors",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_1.group_other_elements.link_colors.choices.primary_links": {
+    "message": "Primary",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_1.group_other_elements.link_colors.choices.secondary_links": {
+    "message": "Secondary",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_2.label": {
+    "message": "Light section 2",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_2.group_section.label": {
+    "message": "Section",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_2.group_section.background_color.label": {
+    "message": "Section background color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_2.group_fonts.label": {
+    "message": "Fonts",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_2.group_fonts.text_color.label": {
+    "message": "Default text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_2.group_fonts.accent_color.label": {
+    "message": "Accent text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_2.group_fonts.caption_color.label": {
+    "message": "Caption text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_2.group_blockquote.label": {
+    "message": "Blockquote",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_2.group_blockquote.text_color.label": {
+    "message": "Blockquote text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_2.group_blockquote.background_color.label": {
+    "message": "Blockquote background color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_2.group_blockquote.accent_color.label": {
+    "message": "Blockquote accent color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_2.group_other_elements.label": {
+    "message": "Other elements",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_2.group_other_elements.link_colors.label": {
+    "message": "Link colors",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_2.group_other_elements.link_colors.choices.primary_links": {
+    "message": "Primary",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_2.group_other_elements.link_colors.choices.secondary_links": {
+    "message": "Secondary",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_3.label": {
+    "message": "Light section 3",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_3.group_section.label": {
+    "message": "Section",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_3.group_section.background_color.label": {
+    "message": "Section background color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_3.group_fonts.label": {
+    "message": "Fonts",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_3.group_fonts.text_color.label": {
+    "message": "Default text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_3.group_fonts.accent_color.label": {
+    "message": "Accent text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_3.group_fonts.caption_color.label": {
+    "message": "Caption text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_3.group_blockquote.label": {
+    "message": "Blockquote",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_3.group_blockquote.text_color.label": {
+    "message": "Blockquote text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_3.group_blockquote.background_color.label": {
+    "message": "Blockquote background color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_3.group_blockquote.accent_color.label": {
+    "message": "Blockquote accent color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_3.group_other_elements.label": {
+    "message": "Other elements",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_3.group_other_elements.link_colors.label": {
+    "message": "Link colors",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_3.group_other_elements.link_colors.choices.primary_links": {
+    "message": "Primary",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_light_section_3.group_other_elements.link_colors.choices.secondary_links": {
+    "message": "Secondary",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_dark_section_1.label": {
+    "message": "Dark section 1",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_dark_section_1.group_section.label": {
+    "message": "Section",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_dark_section_1.group_section.background_color.label": {
+    "message": "Section background color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_dark_section_1.group_fonts.label": {
+    "message": "Fonts",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_dark_section_1.group_fonts.text_color.label": {
+    "message": "Default text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_dark_section_1.group_fonts.accent_color.label": {
+    "message": "Accent text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_dark_section_1.group_fonts.caption_color.label": {
+    "message": "Caption text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_dark_section_1.group_blockquote.label": {
+    "message": "Blockquote",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_dark_section_1.group_blockquote.text_color.label": {
+    "message": "Blockquote text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_dark_section_1.group_blockquote.background_color.label": {
+    "message": "Blockquote background color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_dark_section_1.group_blockquote.accent_color.label": {
+    "message": "Blockquote accent color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_dark_section_1.group_other_elements.label": {
+    "message": "Other elements",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_dark_section_1.group_other_elements.link_colors.label": {
+    "message": "Link colors",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_dark_section_1.group_other_elements.link_colors.choices.primary_links": {
+    "message": "Primary",
+    "description": "",
+    "placeholders": null
+  },
+  "group_foundation.group_colors.group_more_settings.group_sections.group_dark_section_1.group_other_elements.link_colors.choices.secondary_links": {
+    "message": "Secondary",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.label": {
+    "message": "Elements",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.label": {
+    "message": "Buttons",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_primary_button.label": {
+    "message": "Primary button",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_primary_button.inline_help_text": {
+    "message": "Used for the most important actions a visitor takes on the page. The color stands out and draws attention",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_primary_button.button_fill.label": {
+    "message": "Background",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_primary_button.button_fill.choices.filled": {
+    "message": "Filled",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_primary_button.button_fill.choices.no_fill": {
+    "message": "No fill",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_primary_button.shape_filled.label": {
+    "message": "Shape",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_primary_button.shape_filled.choices.pill": {
+    "message": "pill",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_primary_button.shape_filled.choices.rounded": {
+    "message": "rounded",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_primary_button.shape_filled.choices.rectangle": {
+    "message": "rectangle",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_primary_button.shape_unfilled.label": {
+    "message": "Shape",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_primary_button.shape_unfilled.choices.pill": {
+    "message": "pill",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_primary_button.shape_unfilled.choices.rounded": {
+    "message": "rounded",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_primary_button.shape_unfilled.choices.rectangle": {
+    "message": "rectangle",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_primary_button.border_thickness.label": {
+    "message": "Border",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_primary_button.group_default_state.label": {
+    "message": "Default state",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_primary_button.group_default_state.fill_color.label": {
+    "message": "Fill color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_primary_button.group_default_state.border_color.label": {
+    "message": "Border color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_primary_button.group_default_state.text_color.label": {
+    "message": "Text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_primary_button.group_hover_state.label": {
+    "message": "Hover state",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_primary_button.group_hover_state.fill_color.label": {
+    "message": "Fill color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_primary_button.group_hover_state.border_color.label": {
+    "message": "Border color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_primary_button.group_hover_state.text_color.label": {
+    "message": "Text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_primary_button.group_text.label": {
+    "message": "Text",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_primary_button.group_text.text.label": {
+    "message": "Font",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_secondary_button.label": {
+    "message": "Secondary button",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_secondary_button.inline_help_text": {
+    "message": "Used for relatively less important actions when there's already one primary button on the page.",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_secondary_button.button_fill.label": {
+    "message": "Background",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_secondary_button.button_fill.choices.filled": {
+    "message": "Filled",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_secondary_button.button_fill.choices.no_fill": {
+    "message": "No fill",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_secondary_button.shape_filled.label": {
+    "message": "Shape",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_secondary_button.shape_filled.choices.pill": {
+    "message": "pill",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_secondary_button.shape_filled.choices.rounded": {
+    "message": "rounded",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_secondary_button.shape_filled.choices.rectangle": {
+    "message": "rectangle",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_secondary_button.shape_unfilled.label": {
+    "message": "Shape",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_secondary_button.shape_unfilled.choices.pill": {
+    "message": "pill",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_secondary_button.shape_unfilled.choices.rounded": {
+    "message": "rounded",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_secondary_button.shape_unfilled.choices.rectangle": {
+    "message": "rectangle",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_secondary_button.border_thickness.label": {
+    "message": "Border",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_secondary_button.group_default_state.label": {
+    "message": "Default state",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_secondary_button.group_default_state.fill_color.label": {
+    "message": "Fill color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_secondary_button.group_default_state.border_color.label": {
+    "message": "Border color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_secondary_button.group_default_state.text_color.label": {
+    "message": "Text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_secondary_button.group_hover_state.label": {
+    "message": "Hover state",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_secondary_button.group_hover_state.fill_color.label": {
+    "message": "Fill color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_secondary_button.group_hover_state.border_color.label": {
+    "message": "Border color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_secondary_button.group_hover_state.text_color.label": {
+    "message": "Text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_secondary_button.group_text.label": {
+    "message": "Text",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_secondary_button.group_text.text.label": {
+    "message": "Font",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_tertiary_button.label": {
+    "message": "Tertiary button",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_tertiary_button.inline_help_text": {
+    "message": "Another button style that may be used for actions a visitor takes on the page.",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_tertiary_button.button_fill.label": {
+    "message": "Background",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_tertiary_button.button_fill.choices.filled": {
+    "message": "Filled",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_tertiary_button.button_fill.choices.no_fill": {
+    "message": "No fill",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_tertiary_button.shape_filled.label": {
+    "message": "Shape",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_tertiary_button.shape_filled.choices.pill": {
+    "message": "pill",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_tertiary_button.shape_filled.choices.rounded": {
+    "message": "rounded",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_tertiary_button.shape_filled.choices.rectangle": {
+    "message": "rectangle",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_tertiary_button.shape_unfilled.label": {
+    "message": "Shape",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_tertiary_button.shape_unfilled.choices.pill": {
+    "message": "pill",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_tertiary_button.shape_unfilled.choices.rounded": {
+    "message": "rounded",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_tertiary_button.shape_unfilled.choices.rectangle": {
+    "message": "rectangle",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_tertiary_button.border_thickness.label": {
+    "message": "Border",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_tertiary_button.group_default_state.label": {
+    "message": "Default state",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_tertiary_button.group_default_state.fill_color.label": {
+    "message": "Fill color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_tertiary_button.group_default_state.border_color.label": {
+    "message": "Border color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_tertiary_button.group_default_state.text_color.label": {
+    "message": "Text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_tertiary_button.group_hover_state.label": {
+    "message": "Hover state",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_tertiary_button.group_hover_state.fill_color.label": {
+    "message": "Fill color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_tertiary_button.group_hover_state.border_color.label": {
+    "message": "Border color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_tertiary_button.group_hover_state.text_color.label": {
+    "message": "Text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_tertiary_button.group_text.label": {
+    "message": "Text",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_tertiary_button.group_text.text.label": {
+    "message": "Font",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_accent_button.label": {
+    "message": "Accent button",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_accent_button.inline_help_text": {
+    "message": "Another button style that may be used for actions a visitor takes on the page.",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_accent_button.button_fill.label": {
+    "message": "Background",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_accent_button.button_fill.choices.filled": {
+    "message": "Filled",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_accent_button.button_fill.choices.no_fill": {
+    "message": "No fill",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_accent_button.shape_filled.label": {
+    "message": "Shape",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_accent_button.shape_filled.choices.pill": {
+    "message": "pill",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_accent_button.shape_filled.choices.rounded": {
+    "message": "rounded",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_accent_button.shape_filled.choices.rectangle": {
+    "message": "rectangle",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_accent_button.shape_unfilled.label": {
+    "message": "Shape",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_accent_button.shape_unfilled.choices.pill": {
+    "message": "pill",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_accent_button.shape_unfilled.choices.rounded": {
+    "message": "rounded",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_accent_button.shape_unfilled.choices.rectangle": {
+    "message": "rectangle",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_accent_button.border_thickness.label": {
+    "message": "Border",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_accent_button.group_default_state.label": {
+    "message": "Default state",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_accent_button.group_default_state.fill_color.label": {
+    "message": "Fill color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_accent_button.group_default_state.border_color.label": {
+    "message": "Border color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_accent_button.group_default_state.text_color.label": {
+    "message": "Text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_accent_button.group_hover_state.label": {
+    "message": "Hover state",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_accent_button.group_hover_state.fill_color.label": {
+    "message": "Fill color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_accent_button.group_hover_state.border_color.label": {
+    "message": "Border color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_accent_button.group_hover_state.text_color.label": {
+    "message": "Text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_accent_button.group_text.label": {
+    "message": "Text",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_button_types.group_accent_button.group_text.text.label": {
+    "message": "Font",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_links.label": {
+    "message": "Links",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_links.group_primary_links.label": {
+    "message": "Primary links",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_links.group_primary_links.group_default_state.label": {
+    "message": "Default state",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_links.group_primary_links.group_default_state.text_color.label": {
+    "message": "Text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_links.group_primary_links.group_default_state.show_underline.label": {
+    "message": "Show underline",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_links.group_primary_links.group_default_state.underline_color.label": {
+    "message": "Underline color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_links.group_primary_links.group_hover_state.label": {
+    "message": "Hover state",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_links.group_primary_links.group_hover_state.text_color.label": {
+    "message": "Text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_links.group_primary_links.group_hover_state.show_underline.label": {
+    "message": "Show underline",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_links.group_primary_links.group_hover_state.underline_color.label": {
+    "message": "Underline color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_links.group_secondary_links.label": {
+    "message": "Secondary links",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_links.group_secondary_links.group_default_state.label": {
+    "message": "Default state",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_links.group_secondary_links.group_default_state.text_color.label": {
+    "message": "Text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_links.group_secondary_links.group_default_state.show_underline.label": {
+    "message": "Show underline",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_links.group_secondary_links.group_default_state.underline_color.label": {
+    "message": "Underline color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_links.group_secondary_links.group_hover_state.label": {
+    "message": "Hover state",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_links.group_secondary_links.group_hover_state.text_color.label": {
+    "message": "Text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_links.group_secondary_links.group_hover_state.show_underline.label": {
+    "message": "Show underline",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_links.group_secondary_links.group_hover_state.underline_color.label": {
+    "message": "Underline color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.label": {
+    "message": "Forms",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_field_background.label": {
+    "message": "Field background",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_field_background.background.choices.filled": {
+    "message": "Filled",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_field_background.background.choices.no_fill": {
+    "message": "No fill",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_field_shape.label": {
+    "message": "Field shape",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_field_shape.field_shape_filled.choices.pill": {
+    "message": "pill",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_field_shape.field_shape_filled.choices.rounded": {
+    "message": "rounded",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_field_shape.field_shape_filled.choices.rectangle": {
+    "message": "rectangle",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_field_shape.field_shape_unfilled.choices.pill": {
+    "message": "pill",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_field_shape.field_shape_unfilled.choices.rounded": {
+    "message": "rounded",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_field_shape.field_shape_unfilled.choices.rectangle": {
+    "message": "rectangle",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_field_border.label": {
+    "message": "Field border",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_field_border.field_border_shape.choices.none": {
+    "message": "None",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_field_border.field_border_shape.choices.all": {
+    "message": "All",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_field_border.field_border_shape_rectangle.choices.none": {
+    "message": "None",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_field_border.field_border_shape_rectangle.choices.all": {
+    "message": "All",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_field_border.field_border_shape_rectangle.choices.bottom": {
+    "message": "Bottom",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_field_border.field_border_shape_unfilled.choices.none": {
+    "message": "None",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_field_border.field_border_shape_unfilled.choices.all": {
+    "message": "All",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_field_border.field_border_shape_rectangle_unfilled.choices.none": {
+    "message": "None",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_field_border.field_border_shape_rectangle_unfilled.choices.all": {
+    "message": "All",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_field_border.field_border_shape_rectangle_unfilled.choices.bottom": {
+    "message": "Bottom",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_default_state.label": {
+    "message": "Field default state",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_default_state.fill_color.label": {
+    "message": "Fill color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_default_state.border_color.label": {
+    "message": "Border color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_label_text.label": {
+    "message": "Label text",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_label_text.font.label": {
+    "message": "Font",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_label_text.text_color.label": {
+    "message": "Text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_form_background.label": {
+    "message": "Form background",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_form_background.background.choices.filled": {
+    "message": "Filled",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_form_background.background.choices.no_fill": {
+    "message": "No fill",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.form_fill_color.label": {
+    "message": "Fill color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_form_shape.label": {
+    "message": "Form shape",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_form_shape.form_shape.choices.rounded": {
+    "message": "rounded",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_form_shape.form_shape.choices.rectangle": {
+    "message": "rectangle",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_form_shape.form_shape_unfilled.label": {
+    "message": "Form shape",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_form_shape.form_shape_unfilled.choices.rounded": {
+    "message": "rounded",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_form_shape.form_shape_unfilled.choices.rectangle": {
+    "message": "rectangle",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_form_border.label": {
+    "message": "Form border",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_form_border.form_border_shape.choices.none": {
+    "message": "None",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_form_border.form_border_shape.choices.all": {
+    "message": "All",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_form_border.form_border_color.label": {
+    "message": "Border color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.label": {
+    "message": "Cards",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_1.label": {
+    "message": "Card variant 1",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_1.card_background.label": {
+    "message": "Card background",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_1.card_background.choices.filled": {
+    "message": "Filled",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_1.card_background.choices.no_fill": {
+    "message": "No fill",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_1.card_shape_filled.label": {
+    "message": "Card shape",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_1.card_shape_filled.choices.rounded": {
+    "message": "Rounded",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_1.card_shape_filled.choices.rectangle": {
+    "message": "Rectangle",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_1.card_shape_unfilled.label": {
+    "message": "Card shape",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_1.card_shape_unfilled.choices.rounded": {
+    "message": "Rounded",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_1.card_shape_unfilled.choices.rectangle": {
+    "message": "Rectangle",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_1.border_thickness.label": {
+    "message": "Card border",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_1.group_card_colors.label": {
+    "message": "Card colors",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_1.group_card_colors.fill_color.label": {
+    "message": "Fill color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_1.group_card_colors.text_color.label": {
+    "message": "Text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_1.group_card_colors.border_color.label": {
+    "message": "Border color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_1.group_icon_colors.label": {
+    "message": "Icon colors",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_1.group_icon_colors.fill_color.label": {
+    "message": "Fill color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_1.group_icon_colors.background_color.label": {
+    "message": "Background color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_2.label": {
+    "message": "Card variant 2",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_2.card_background.label": {
+    "message": "Card background",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_2.card_background.choices.filled": {
+    "message": "Filled",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_2.card_background.choices.no_fill": {
+    "message": "No fill",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_2.card_shape_filled.label": {
+    "message": "Card shape",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_2.card_shape_filled.choices.rounded": {
+    "message": "Rounded",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_2.card_shape_filled.choices.rectangle": {
+    "message": "Rectangle",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_2.card_shape_unfilled.label": {
+    "message": "Card shape",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_2.card_shape_unfilled.choices.rounded": {
+    "message": "Rounded",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_2.card_shape_unfilled.choices.rectangle": {
+    "message": "Rectangle",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_2.border_thickness.label": {
+    "message": "Card border",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_2.group_card_colors.label": {
+    "message": "Card colors",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_2.group_card_colors.fill_color.label": {
+    "message": "Fill color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_2.group_card_colors.text_color.label": {
+    "message": "Text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_2.group_card_colors.border_color.label": {
+    "message": "Border color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_2.group_icon_colors.label": {
+    "message": "Icon colors",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_2.group_icon_colors.fill_color.label": {
+    "message": "Fill color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_2.group_icon_colors.background_color.label": {
+    "message": "Background color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_3.label": {
+    "message": "Card variant 3",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_3.card_background.label": {
+    "message": "Card background",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_3.card_background.choices.filled": {
+    "message": "Filled",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_3.card_background.choices.no_fill": {
+    "message": "No fill",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_3.card_shape_filled.label": {
+    "message": "Card shape",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_3.card_shape_filled.choices.rounded": {
+    "message": "Rounded",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_3.card_shape_filled.choices.rectangle": {
+    "message": "Rectangle",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_3.card_shape_unfilled.label": {
+    "message": "Card shape",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_3.card_shape_unfilled.choices.rounded": {
+    "message": "Rounded",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_3.card_shape_unfilled.choices.rectangle": {
+    "message": "Rectangle",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_3.border_thickness.label": {
+    "message": "Card border",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_3.group_card_colors.label": {
+    "message": "Card colors",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_3.group_card_colors.fill_color.label": {
+    "message": "Fill color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_3.group_card_colors.text_color.label": {
+    "message": "Text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_3.group_card_colors.border_color.label": {
+    "message": "Border color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_3.group_icon_colors.label": {
+    "message": "Icon colors",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_3.group_icon_colors.fill_color.label": {
+    "message": "Fill color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_3.group_icon_colors.background_color.label": {
+    "message": "Background color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_4.label": {
+    "message": "Card variant 4",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_4.card_background.label": {
+    "message": "Card background",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_4.card_background.choices.filled": {
+    "message": "Filled",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_4.card_background.choices.no_fill": {
+    "message": "No fill",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_4.card_shape_filled.label": {
+    "message": "Card shape",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_4.card_shape_filled.choices.rounded": {
+    "message": "Rounded",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_4.card_shape_filled.choices.rectangle": {
+    "message": "Rectangle",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_4.card_shape_unfilled.label": {
+    "message": "Card shape",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_4.card_shape_unfilled.choices.rounded": {
+    "message": "Rounded",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_4.card_shape_unfilled.choices.rectangle": {
+    "message": "Rectangle",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_4.border_thickness.label": {
+    "message": "Card border",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_4.group_card_colors.label": {
+    "message": "Card colors",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_4.group_card_colors.fill_color.label": {
+    "message": "Fill color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_4.group_card_colors.text_color.label": {
+    "message": "Text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_4.group_card_colors.border_color.label": {
+    "message": "Border color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_4.group_icon_colors.label": {
+    "message": "Icon colors",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_4.group_icon_colors.fill_color.label": {
+    "message": "Fill color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_4.group_icon_colors.background_color.label": {
+    "message": "Background color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_tags.label": {
+    "message": "Tags",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_tags.group_background.label": {
+    "message": "Background",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_tags.group_background.background.choices.filled": {
+    "message": "Filled",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_tags.group_background.background.choices.no_fill": {
+    "message": "No fill",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_tags.group_shape.label": {
+    "message": "Shape",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_tags.group_shape.shape_filled.choices.pill": {
+    "message": "pill",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_tags.group_shape.shape_filled.choices.rounded": {
+    "message": "Rounded",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_tags.group_shape.shape_filled.choices.rectangle": {
+    "message": "Rectangle",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_tags.group_shape.shape_unfilled.choices.pill": {
+    "message": "pill",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_tags.group_shape.shape_unfilled.choices.rounded": {
+    "message": "Rounded",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_tags.group_shape.shape_unfilled.choices.rectangle": {
+    "message": "Rectangle",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_tags.group_border.label": {
+    "message": "Border",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_tags.group_colors.label": {
+    "message": "Colors",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_tags.group_colors.fill_color.label": {
+    "message": "Fill color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_tags.group_colors.border_color.label": {
+    "message": "Border color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_tags.group_colors.text_color.label": {
+    "message": "Text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_tags.group_text.label": {
+    "message": "Text",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_tags.group_text.font.label": {
+    "message": "Font",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_tags.case.label": {
+    "message": "Case",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_tags.case.choices.none": {
+    "message": "None",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_tags.case.choices.uppercase": {
+    "message": "Upper",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_tags.case.choices.lowercase": {
+    "message": "Lower",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_1.group_other_elements.label": {
+    "message": "Other elements",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_1.group_other_elements.link_colors.label": {
+    "message": "Link colors",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_1.group_other_elements.link_colors.choices.primary_links": {
+    "message": "Primary",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_1.group_other_elements.link_colors.choices.secondary_links": {
+    "message": "Secondary",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_2.group_other_elements.label": {
+    "message": "Other elements",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_2.group_other_elements.link_colors.label": {
+    "message": "Link colors",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_2.group_other_elements.link_colors.choices.primary_links": {
+    "message": "Primary",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_2.group_other_elements.link_colors.choices.secondary_links": {
+    "message": "Secondary",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_3.group_icon_colors.group_other_elements.label": {
+    "message": "Other elements",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_3.group_icon_colors.group_other_elements.link_colors.label": {
+    "message": "Link colors",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_3.group_icon_colors.group_other_elements.link_colors.choices.primary_links": {
+    "message": "Primary",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_3.group_icon_colors.group_other_elements.link_colors.choices.secondary_links": {
+    "message": "Secondary",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_4.group_other_elements.label": {
+    "message": "Other elements",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_4.group_other_elements.link_colors.label": {
+    "message": "Link colors",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_4.group_other_elements.link_colors.choices.primary_links": {
+    "message": "Primary",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_cards.group_card_variant_4.group_other_elements.link_colors.choices.secondary_links": {
+    "message": "Secondary",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_input_text.label": {
+    "message": "Input text",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_input_text.text_color.label": {
+    "message": "Text color",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_placeholder_text.label": {
+    "message": "Placeholder text",
+    "description": "",
+    "placeholders": null
+  },
+  "group_elements.group_forms.group_placeholder_text.text_color.label": {
+    "message": "Text color",
+    "description": "",
+    "placeholders": null
+  }
+}

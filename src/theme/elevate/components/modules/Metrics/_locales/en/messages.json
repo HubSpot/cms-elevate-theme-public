@@ -1,0 +1,117 @@
+{
+  "name": {
+    "message": "Metrics",
+    "description": "",
+    "placeholders": null
+  },
+  "groupMetrics.label": {
+    "message": "Metrics",
+    "description": "",
+    "placeholders": null
+  },
+  "groupMetrics.default.0.metric": {
+    "message": "15k+",
+    "description": "",
+    "placeholders": null
+  },
+  "groupMetrics.default.0.description": {
+    "message": "Customers of Elevate",
+    "description": "",
+    "placeholders": null
+  },
+  "groupMetrics.metric.label": {
+    "message": "Metric value",
+    "description": "",
+    "placeholders": null
+  },
+  "groupMetrics.metric.default": {
+    "message": "15k+",
+    "description": "",
+    "placeholders": null
+  },
+  "groupMetrics.description.label": {
+    "message": "Description",
+    "description": "",
+    "placeholders": null
+  },
+  "groupMetrics.description.default": {
+    "message": "Customers of Elevate",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.label": {
+    "message": "Styles",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.sectionStyleVariant.label": {
+    "message": "Text color",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.sectionStyleVariant.choices.section_variant_1": {
+    "message": "Light section 1 text color",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.sectionStyleVariant.choices.section_variant_2": {
+    "message": "Light section 2 text color",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.sectionStyleVariant.choices.section_variant_3": {
+    "message": "Light section 3 text color",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.sectionStyleVariant.choices.section_variant_4": {
+    "message": "Dark section text color",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.headingStyleVariant.label": {
+    "message": "Heading style",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.headingStyleVariant.choices.display_1": {
+    "message": "Display 1",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.headingStyleVariant.choices.display_2": {
+    "message": "Display 2",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.headingStyleVariant.choices.h1": {
+    "message": "Heading 1",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.headingStyleVariant.choices.h2": {
+    "message": "Heading 2",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.headingStyleVariant.choices.h3": {
+    "message": "Heading 3",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.headingStyleVariant.choices.h4": {
+    "message": "Heading 4",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.headingStyleVariant.choices.h5": {
+    "message": "Heading 5",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.headingStyleVariant.choices.h6": {
+    "message": "Heading 6",
+    "description": "",
+    "placeholders": null
+  }
+}
