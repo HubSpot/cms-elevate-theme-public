@@ -1,0 +1,282 @@
+{
+  "name": {
+    "message": "Testimonial slider",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.label": {
+    "message": "Testimonial",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.groupQuote.label": {
+    "message": "Quote",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.groupQuote.quote.label": {
+    "message": "Quotation text",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.groupQuote.quote.default": {
+    "message": "The measurable results have transformed our business. Highly recommend for anyone looking to elevate their marketing game.",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.groupAuthor.label": {
+    "message": "Author",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.groupAuthor.authorName.label": {
+    "message": "Name",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.groupAuthor.authorName.default": {
+    "message": "Sarah Johnson",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.groupAuthor.authorTitle.label": {
+    "message": "Title",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.groupAuthor.authorTitle.default": {
+    "message": "Chief Marketing Officer @ StellarForge",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.groupAuthor.authorImage.label": {
+    "message": "Image",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.groupImage.label": {
+    "message": "Image",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.groupImage.showImage.label": {
+    "message": "Show image",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.groupImage.image.label": {
+    "message": "Image",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.groupLink.label": {
+    "message": "Link",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.groupLink.linkText.label": {
+    "message": "Link text",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.groupLink.linkText.default": {
+    "message": "Read case study",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.groupLink.link.label": {
+    "message": "Link",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.label": {
+    "message": "Styles",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.cardStyleVariant.label": {
+    "message": "Card style",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.cardStyleVariant.choices.card_variant_1": {
+    "message": "Card variant 1",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.cardStyleVariant.choices.card_variant_2": {
+    "message": "Card variant 2",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.cardStyleVariant.choices.card_variant_3": {
+    "message": "Card variant 3",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.cardStyleVariant.choices.card_variant_4": {
+    "message": "Card variant 4",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.cardStyleVariant.inline_help_text": {
+    "message": "<a href=\"$theme_link\">Edit</a>",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.default.0.groupQuote.quote": {
+    "message": "Add a testimonial quote #1 here. Keep it concise and impactful to enhance credibility with your business",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.default.0.groupAuthor.authorName": {
+    "message": "Customer name one",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.default.0.groupAuthor.authorTitle": {
+    "message": "Customer role one",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.default.0.groupLink.linkText": {
+    "message": "Read case study",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.default.1.groupQuote.quote": {
+    "message": "Add a testimonial quote #2 here. Keep it concise and impactful to enhance credibility with your business",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.default.1.groupAuthor.authorName": {
+    "message": "Customer name two",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.default.1.groupAuthor.authorTitle": {
+    "message": "Customer role two",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.default.1.groupLink.linkText": {
+    "message": "Read case study",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.default.2.groupQuote.quote": {
+    "message": "Add a testimonial quote #3 here. Keep it concise and impactful to enhance credibility with your business",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.default.2.groupAuthor.authorName": {
+    "message": "Customer name three",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.default.2.groupAuthor.authorTitle": {
+    "message": "Customer role three",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.default.2.groupLink.linkText": {
+    "message": "Read case study",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.default.3.groupQuote.quote": {
+    "message": "Add a testimonial quote #4 here. Keep it concise and impactful to enhance credibility with your business",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.default.3.groupAuthor.authorName": {
+    "message": "Customer name four",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.default.3.groupAuthor.authorTitle": {
+    "message": "Customer role four",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.default.3.groupLink.linkText": {
+    "message": "Read case study",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.default.4.groupQuote.quote": {
+    "message": "Add a testimonial quote #5 here. Keep it concise and impactful to enhance credibility with your business",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.default.4.groupAuthor.authorName": {
+    "message": "Customer name five",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.default.4.groupAuthor.authorTitle": {
+    "message": "Customer role five",
+    "description": "",
+    "placeholders": null
+  },
+  "groupTestimonial.default.4.groupLink.linkText": {
+    "message": "Read case study",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.previousArrowAltText.default": {
+    "message": "Previous",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.nextArrowAltText.default": {
+    "message": "Next",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.navigateToSlideNumberAriaLabel.default": {
+    "message": "Go to slide %s",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.navigateToPreviousSlideAriaLabel.default": {
+    "message": "Go to previous slide",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.navigateToNextSlideAriaLabel.default": {
+    "message": "Go to next slide",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.navigateToFirstSlideAriaLabel.default": {
+    "message": "Go to first slide",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.navigateToLastSlideAriaLabel.default": {
+    "message": "Go to last slide",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.carouselAriaLabel.default": {
+    "message": "Carousel",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.selectSlideNavigationAriaLabel.default": {
+    "message": "Select a slide to show",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.slideAriaLabel.default": {
+    "message": "Slide",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.slideNumberOfSlidesTotalAriaLabel.default": {
+    "message": "%s of %s",
+    "description": "",
+    "placeholders": null
+  }
+}

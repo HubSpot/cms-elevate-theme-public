@@ -1,0 +1,172 @@
+{
+  "name": {
+    "message": "Button",
+    "description": "",
+    "placeholders": null
+  },
+  "groupButtons.label": {
+    "message": "Buttons",
+    "description": "",
+    "placeholders": null
+  },
+  "groupButtons.default.0.buttonContentText": {
+    "message": "Learn more",
+    "description": "",
+    "placeholders": null
+  },
+  "groupButtons.buttonContentText.label": {
+    "message": "Button text",
+    "description": "",
+    "placeholders": null
+  },
+  "groupButtons.buttonContentText.default": {
+    "message": "Learn more",
+    "description": "",
+    "placeholders": null
+  },
+  "groupButtons.buttonContentLink.label": {
+    "message": "Link",
+    "description": "",
+    "placeholders": null
+  },
+  "groupButtons.buttonContentShowIcon.label": {
+    "message": "Show icon",
+    "description": "",
+    "placeholders": null
+  },
+  "groupButtons.buttonContentIcon.label": {
+    "message": "Icon",
+    "description": "",
+    "placeholders": null
+  },
+  "groupButtons.buttonContentIconPosition.label": {
+    "message": "Icon position",
+    "description": "",
+    "placeholders": null
+  },
+  "groupButtons.buttonContentIconPosition.choices.left": {
+    "message": "Left",
+    "description": "",
+    "placeholders": null
+  },
+  "groupButtons.buttonContentIconPosition.choices.right": {
+    "message": "Right",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.label": {
+    "message": "Styles",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.buttonStyleVariant.label": {
+    "message": "Button style",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.buttonStyleVariant.choices.primary": {
+    "message": "Primary",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.buttonStyleVariant.choices.secondary": {
+    "message": "Secondary",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.buttonStyleVariant.choices.tertiary": {
+    "message": "Tertiary",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.buttonStyleVariant.choices.accent": {
+    "message": "Accent",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.buttonStyleSize.label": {
+    "message": "Button size",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.buttonStyleSize.choices.small": {
+    "message": "Small",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.buttonStyleSize.choices.medium": {
+    "message": "Medium",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.buttonStyleSize.choices.large": {
+    "message": "Large",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.gap.label": {
+    "message": "Gap",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.gap.help_text": {
+    "message": "The horizontal space between buttons",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.gap.choices.small": {
+    "message": "Small",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.gap.choices.medium": {
+    "message": "Medium",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.gap.choices.large": {
+    "message": "Large",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.alignment.label": {
+    "message": "Alignment",
+    "description": "",
+    "placeholders": null
+  },
+  "groupAriaLabels.ariaLabel_external.default": {
+    "message": "Open external link",
+    "description": "",
+    "placeholders": null
+  },
+  "groupAriaLabels.ariaLabel_content.default": {
+    "message": "Open content link",
+    "description": "",
+    "placeholders": null
+  },
+  "groupAriaLabels.ariaLabel_file.default": {
+    "message": "Open file link",
+    "description": "",
+    "placeholders": null
+  },
+  "groupAriaLabels.ariaLabel_email.default": {
+    "message": "Open email link",
+    "description": "",
+    "placeholders": null
+  },
+  "groupAriaLabels.ariaLabel_blog.default": {
+    "message": "Open blog link",
+    "description": "",
+    "placeholders": null
+  },
+  "groupAriaLabels.ariaLabel_payment.default": {
+    "message": "Open payment link",
+    "description": "",
+    "placeholders": null
+  },
+  "groupAriaLabels.ariaLabel_default.default": {
+    "message": "Link not set, button inactive",
+    "description": "",
+    "placeholders": null
+  }
+}

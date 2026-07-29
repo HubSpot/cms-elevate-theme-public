@@ -1,0 +1,87 @@
+{
+  "name": {
+    "message": "List",
+    "description": "",
+    "placeholders": null
+  },
+  "listIcon.label": {
+    "message": "Icon",
+    "description": "",
+    "placeholders": null
+  },
+  "groupListItems.label": {
+    "message": "List items",
+    "description": "",
+    "placeholders": null
+  },
+  "groupListItems.default.0.groupListContent.listItemContent": {
+    "message": "Add a list item here.",
+    "description": "",
+    "placeholders": null
+  },
+  "groupListItems.default.1.groupListContent.listItemContent": {
+    "message": "Add a list item here.",
+    "description": "",
+    "placeholders": null
+  },
+  "groupListItems.default.2.groupListContent.listItemContent": {
+    "message": "Add a list item here.",
+    "description": "",
+    "placeholders": null
+  },
+  "groupListItems.default.3.groupListContent.listItemContent": {
+    "message": "Add a list item here.",
+    "description": "",
+    "placeholders": null
+  },
+  "groupListItems.groupListContent.label": {
+    "message": "List items",
+    "description": "",
+    "placeholders": null
+  },
+  "groupListItems.groupListContent.listItemContent.label": {
+    "message": "Item",
+    "description": "",
+    "placeholders": null
+  },
+  "groupListItems.groupListContent.listItemContent.default": {
+    "message": "Add a list item here.",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.label": {
+    "message": "Styles",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.sectionStyleVariant.label": {
+    "message": "Text color",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.sectionStyleVariant.inline_help_text": {
+    "message": "<a href=\"$theme_link\">Edit</a>",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.sectionStyleVariant.choices.section_variant_1": {
+    "message": "Light section 1 text color",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.sectionStyleVariant.choices.section_variant_2": {
+    "message": "Light section 2 text color",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.sectionStyleVariant.choices.section_variant_3": {
+    "message": "Light section 3 text color",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.sectionStyleVariant.choices.section_variant_4": {
+    "message": "Dark section text color",
+    "description": "",
+    "placeholders": null
+  }
+}

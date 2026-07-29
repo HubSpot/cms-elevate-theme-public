@@ -1,0 +1,197 @@
+{
+  "name": {
+    "message": "Social follow",
+    "description": "",
+    "placeholders": null
+  },
+  "groupSocialLinks.label": {
+    "message": "Social links",
+    "description": "",
+    "placeholders": null
+  },
+  "groupSocialLinks.groupLink.label": {
+    "message": "Link",
+    "description": "",
+    "placeholders": null
+  },
+  "groupSocialLinks.groupLink.link.label": {
+    "message": "Link",
+    "description": "",
+    "placeholders": null
+  },
+  "groupSocialLinks.groupIcon.label": {
+    "message": "Icon",
+    "description": "",
+    "placeholders": null
+  },
+  "groupSocialLinks.groupIcon.customizeIcon.label": {
+    "message": "Customize icon",
+    "description": "",
+    "placeholders": null
+  },
+  "groupSocialLinks.groupIcon.customIcon.label": {
+    "message": "Icon",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.websiteLinkAriaLabel.default": {
+    "message": "Visit our website",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.twitterLinkAriaLabel.default": {
+    "message": "Follow us on X",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.youtubeLinkAriaLabel.default": {
+    "message": "Subscribe to us on YouTube",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.facebookLinkAriaLabel.default": {
+    "message": "Follow us on Facebook",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.linkedinLinkAriaLabel.default": {
+    "message": "Follow us on LinkedIn",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.instagramLinkAriaLabel.default": {
+    "message": "Follow us on Instagram",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.githubLinkAriaLabel.default": {
+    "message": "Follow us on GitHub",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.spotifyLinkAriaLabel.default": {
+    "message": "Follow us on Spotify",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.soundcloudLinkAriaLabel.default": {
+    "message": "Follow us on Soundcloud",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.yelpLinkAriaLabel.default": {
+    "message": "Follow us on Yelp",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.pinterestLinkAriaLabel.default": {
+    "message": "Follow us on Pinterest",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.tiktokLinkAriaLabel.default": {
+    "message": "Follow us on TikTok",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.emailLinkAriaLabel.default": {
+    "message": "Email us",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.label": {
+    "message": "Styles",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.shape.label": {
+    "message": "Shape",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.shape.choices.square": {
+    "message": "Square",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.shape.choices.rounded": {
+    "message": "Rounded",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.shape.choices.circle": {
+    "message": "Circle",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.spaceBetweenIcons.label": {
+    "message": "Gap between",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.spaceBetweenIcons.choices.small": {
+    "message": "Small",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.spaceBetweenIcons.choices.medium": {
+    "message": "Medium",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.spaceBetweenIcons.choices.large": {
+    "message": "Large",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.alignment.label": {
+    "message": "Horizontal alignment",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.buttonStyleVariant.label": {
+    "message": "Button style",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.buttonStyleVariant.choices.primary": {
+    "message": "Primary",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.buttonStyleVariant.choices.secondary": {
+    "message": "Secondary",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.buttonStyleVariant.choices.tertiary": {
+    "message": "Tertiary",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.buttonStyleVariant.choices.accent": {
+    "message": "Accent",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.buttonStyleSize.label": {
+    "message": "Button size",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.buttonStyleSize.choices.small": {
+    "message": "Small",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.buttonStyleSize.choices.medium": {
+    "message": "Medium",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.buttonStyleSize.choices.large": {
+    "message": "Large",
+    "description": "",
+    "placeholders": null
+  }
+}
