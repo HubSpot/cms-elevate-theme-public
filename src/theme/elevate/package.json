@@ -9,7 +9,7 @@
   "type": "module",
   "keywords": [],
   "dependencies": {
-    "@hubspot/cms-components": "^1.0.0",
+    "@hubspot/cms-components": "^1.2.50",
     "@splidejs/react-splide": "^0.7.12",
     "@types/react": "^18",
     "html-react-parser": "^5.1.16",
@@ -19,7 +19,7 @@
     "react-dom": "^18"
   },
   "devDependencies": {
-    "@hubspot/cms-dev-server": "^1.0.0",
+    "@hubspot/cms-dev-server": "^1.2.50",
     "@testing-library/react": "^16",
     "@vitejs/plugin-react": "^4"
   }

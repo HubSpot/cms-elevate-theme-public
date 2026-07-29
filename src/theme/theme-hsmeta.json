@@ -1,0 +1,8 @@
+{
+  "uid": "unified-theme",
+  "type": "theme",
+  "config": {
+    "themePath": "elevate",
+    "secretNames": []
+  }
+}

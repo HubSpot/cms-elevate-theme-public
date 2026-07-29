@@ -152,7 +152,7 @@ This is the [main Hubspot developer documentation](mdc:https:/developers.hubspot
 
 ## Required Files Structure
 ```
-src/unified-theme/sections/[section-name].hubl.html
+src/theme/elevate/sections/[section-name].hubl.html
 ```
 
 ## File Template
@@ -201,7 +201,7 @@ src/unified-theme/sections/[section-name].hubl.html
 
 5. **Compare To Existing Sections**
    - Find other existing sections in the sections directory and try to follow their pattern
-   - Follow the module fields that existing sections (found in src/unified-theme/sections/*.hubl.html) use for module usage
+   - Follow the module fields that existing sections (found in src/theme/elevate/sections/*.hubl.html) use for module usage
    - If a module exists but isn't used in any of the sections yet, it is a new module and can still be utilized
    - Stop and think
 
@@ -215,8 +215,8 @@ src/unified-theme/sections/[section-name].hubl.html
 Before finalizing any section implementation, complete these specific verification steps:
 
 1. **Module Verification**
-   - Run `grep -r "@hubspot/" src/unified-theme/sections/` to find all default HubSpot modules in use
-   - Run `grep -r "path=\"\.\./" src/unified-theme/sections/` to find theme modules in use
+   - Run `grep -r "@hubspot/" src/theme/elevate/sections/` to find all default HubSpot modules in use
+   - Run `grep -r "path=\"\.\./" src/theme/elevate/sections/` to find theme modules in use
    - For each module you plan to use, verify its exact name and parameter structure from existing sections
    - Document the verified module names/paths in your implementation notes
 
@@ -334,7 +334,7 @@ Note that you shouldn't use this in your final output. But this example provides
 ## Step 2: Create File Structure
 
 ```
-src/unified-theme/sections/call-to-action.hubl.html
+src/theme/elevate/sections/call-to-action.hubl.html
 ```
 
 ## Step 3: Build Section Contents

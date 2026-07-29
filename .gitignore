@@ -126,9 +126,6 @@ hubspot.config.*
 hubspot.config.yaml
 hubspot.config.yml
 
-# Translations
-**/_locales/
-
 # Image compression source files
 src/images/img-src/**/*.*
 
@@ -136,7 +133,7 @@ src/images/img-src/**/*.*
 /fields.json
 
 # Css Dist Directory
-src/unified-theme/assets/dist/
+src/theme/elevate/assets/dist/
 
 # Storybook build output
 cms-elevate-theme-static-assets/dist/

@@ -11,7 +11,7 @@ Your task is to simply create the general structure / scaffold for a new react m
 
 Follow these steps to do so:
 
-1. Make a directory inside of `/src/unified-theme/components/modules` with the name of the module in camel case.
+1. Make a directory inside of `/src/theme/elevate/components/modules` with the name of the module in camel case.
 2. Create an index.tsx file inside of that new directory.
 3. Create a styles.module.css file inside of that new directory
 4. Create a blank fields.tsx file inside of that new directory.
