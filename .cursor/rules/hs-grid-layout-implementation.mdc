@@ -45,7 +45,7 @@ This implementation follows **RFC 0942 Grid Layouts** adoption strategy:
 Modify existing template files to include embedded grid conditionals:
 
 ```
-src/unified-theme/templates/
+src/theme/elevate/templates/
 ├── contact.hubl.html          # Contains both grid and Bootstrap implementations
 ├── features.hubl.html         # Contains both grid and Bootstrap implementations
 ├── pricing.hubl.html          # Contains both grid and Bootstrap implementations

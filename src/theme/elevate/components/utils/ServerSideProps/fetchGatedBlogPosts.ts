@@ -7,9 +7,9 @@ export type FetchGatedPostsProps = ModulePropsWithoutSSP & {
 };
 
 export function cleanHostName(hostname: string) {
-  if (!hostname.includes('.hslocal.net')) return hostname;
+  if (!hostname.endsWith('.hslocal.net')) return hostname;
 
-  return hostname.replace('.hslocal.net', '');
+  return hostname.slice(0, -'.hslocal.net'.length);
 }
 
 const fetchGatedPosts = async (props: FetchGatedPostsProps, { url }: { url: URLWithoutQuery }) => {

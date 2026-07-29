@@ -13,7 +13,7 @@ Scaffolding schema files allow us to provide context about certain pieces of con
 
 ### Creating a scaffolding schema file
 ```
-src/unified-theme/templates/schemas/[template-name].scaffold_schema.json
+src/theme/elevate/templates/schemas/[template-name].scaffold_schema.json
 ```
 
 ### Filling out the scaffolding schema file with fields
@@ -136,7 +136,7 @@ This is the [main Hubspot developer documentation](mdc:https:/developers.hubspot
   - Look through the applicable template to see if there is any text, images, forms, or meetings that we should add a scaffolding schema field for.
 
 2. **Create a New Scaffolding Schema File and Add Fields for the Pieces of Content Identified in Step 1**
-   - Create new scaffolding schema file that includes fields for the content in step 1 and group the fields in a logical way that breaks up the content. You can reference other schema files in `src/unified-theme/templates/schemas` as a helpful reference.
+   - Create new scaffolding schema file that includes fields for the content in step 1 and group the fields in a logical way that breaks up the content. You can reference other schema files in `src/theme/elevate/templates/schemas` as a helpful reference.
 
 3. **Add a `scaffoldingSchemaPath` In the Template Annotations of the Template File**
    - Add a `scaffoldingSchemaPath` to the template's template annotations that references the new scaffolding schema file that was created.
@@ -254,7 +254,7 @@ This would be the example code for the template:
 
 ### Creates a new scaffolding schema file at this path:
 ```
-src/unified-theme/templates/schemas/lp-signup.scaffold_schema.json
+src/theme/elevate/templates/schemas/lp-signup.scaffold_schema.json
 ```
 
 ### Adds fields for the pieces of content identified in step 1
@@ -337,7 +337,7 @@ scaffoldSchemaPath: ./schemas/lp-signup.scaffold_schema.json
 We will add in the scaffolding schema values into the template. We'll keep the references to template_translations in case a schema value is not passed as part of the page build. We'll set the schema value first and template_translations will be set as a fallback.
 
 The final output of all of the steps would be:
-src/unified-theme/templates/schemas/lp-signup.scaffold_schema.json
+src/theme/elevate/templates/schemas/lp-signup.scaffold_schema.json
 ```
 [
   {
