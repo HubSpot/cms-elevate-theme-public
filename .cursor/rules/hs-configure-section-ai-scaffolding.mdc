@@ -12,7 +12,7 @@ Scaffolding schema files allow us to provide context about certain pieces of con
 
 ### Creating a scaffolding schema file
 ```
-src/unified-theme/sections/schemas/[section-name].scaffold_schema.json
+src/theme/elevate/sections/schemas/[section-name].scaffold_schema.json
 ```
 
 ### Filling out the scaffolding schema file with fields
@@ -137,7 +137,7 @@ This is the [main Hubspot developer documentation](mdc:https:/developers.hubspot
   - Look through the applicable section to see if there is any text, images, forms, or meetings that we should add a scaffolding schema field for. 
 
 2. **Create a New Scaffolding Schema File and Add Fields for the Pieces of Content Identified in Step 1**
-   - Create new scaffolding schema file that includes fields for the content in step 1 and group the fields in a logical way that breaks up the content. You can reference other schema files in `src/unified-theme/sections/schemas` as a helpful reference. 
+   - Create new scaffolding schema file that includes fields for the content in step 1 and group the fields in a logical way that breaks up the content. You can reference other schema files in `src/theme/elevate/sections/schemas` as a helpful reference. 
 
 3. **Add a `scaffoldingSchemaPath` In the Template Annotations of the Section File**
    - Add a `scaffoldingSchemaPath` to the section's template annotations that references the new scaffolding schema file that was created. 
@@ -209,7 +209,7 @@ This would be the example code for the section:
 
 ### Creates a new scaffolding schema file at this path:
 ```
-src/unified-theme/sections/schemas/hero-banner.scaffold_schema.json
+src/theme/elevate/sections/schemas/hero-banner.scaffold_schema.json
 ```
 
 ### Adds fields for the pieces of content identified in step 1
@@ -237,7 +237,7 @@ scaffoldSchemaPath: ./schemas/hero-banner.scaffold_schema.json
 We will add in the scaffolding schema values into the section. We'll keep the references to context and template_translations in case a schema value is not passed as part of the page build. We'll default to context first, the schema value second, and the last fallback will be template_translations. 
 
 The final output of all of the steps would be:
-src/unified-theme/sections/schemas/hero-banner.scaffold_schema.json
+src/theme/elevate/sections/schemas/hero-banner.scaffold_schema.json
 ```
 [
   {

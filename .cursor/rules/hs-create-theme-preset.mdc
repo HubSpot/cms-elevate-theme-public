@@ -5,13 +5,13 @@ alwaysApply: false
 ---
 # Create Theme Preset
 
-When creating a new theme preset, follow these guidelines to generate a complete, well-structured preset file that matches the theme's field structure. The preset will be created in the `src/unified-theme/presets/` directory.
+When creating a new theme preset, follow these guidelines to generate a complete, well-structured preset file that matches the theme's field structure. The preset will be created in the `src/theme/elevate/presets/` directory.
 
 ## Key Principles
 
 - **Inheritance-First Approach**: Only override properties that differ from theme defaults
 - Use the existing `green.json` preset as a reference for minimal structure
-- Reference `src/unified-theme/fields.json` for understanding inheritance patterns
+- Reference `src/theme/elevate/fields.json` for understanding inheritance patterns
 - Support both complete preset creation and piece-by-piece building
 - Leverage theme inheritance system instead of hardcoding everything
 - Use the preset name (capitalized) as the label
@@ -92,7 +92,7 @@ A theme preset is a JSON file that defines overrides for theme customization. Th
 
 ### 4. File Creation
 
-- Create `{presetName}.json` in `src/unified-theme/presets/`
+- Create `{presetName}.json` in `src/theme/elevate/presets/`
 - Use proper JSON formatting with 2-space indentation
 - Include only properties that differ from theme defaults
 
@@ -200,7 +200,7 @@ Create a theme preset called "ocean" with blue color scheme
 - Follow the minimal structure from `green.json`
 
 ### File Organization
-- Place all presets in `src/unified-theme/presets/`
+- Place all presets in `src/theme/elevate/presets/`
 - Use kebab-case for filenames
 
 ## Error Handling
@@ -214,14 +214,14 @@ Create a theme preset called "ocean" with blue color scheme
 
 The rule will:
 
-1. Create the preset file in `src/unified-theme/presets/{presetName}.json`
+1. Create the preset file in `src/theme/elevate/presets/{presetName}.json`
 2. Display a summary of what was generated
 3. Show any warnings or fallbacks used
 4. Provide next steps for customization
 
 ## Reference Files
 
-- **Minimal structure reference**: `src/unified-theme/presets/green.json`
-- **Complete structure reference**: `src/unified-theme/presets/blue.json`
-- **Field definitions and inheritance**: `src/unified-theme/fields.json`
-- **Theme configuration**: `src/unified-theme/theme.json`
+- **Minimal structure reference**: `src/theme/elevate/presets/green.json`
+- **Complete structure reference**: `src/theme/elevate/presets/blue.json`
+- **Field definitions and inheritance**: `src/theme/elevate/fields.json`
+- **Theme configuration**: `src/theme/elevate/theme.json`

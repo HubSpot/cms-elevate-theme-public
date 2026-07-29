@@ -229,7 +229,7 @@ This is the [main Hubspot developer documentation](mdc:https:/developers.hubspot
 
 ## Required Files Structure
 ```
-src/unified-theme/templates/[template-name].hubl.html
+src/theme/elevate/templates/[template-name].hubl.html
 ```
 
 ## File Template
@@ -277,7 +277,7 @@ src/unified-theme/templates/[template-name].hubl.html
 
 5. **Compare To Existing Templates**
    - Find other existing templates in the templates directory and try to follow their pattern
-   - Follow the module fields that existing templates (found in src/unified-theme/templates/*.hubl.html) use for module usage
+   - Follow the module fields that existing templates (found in src/theme/elevate/templates/*.hubl.html) use for module usage
    - If a module exists but isn't used in any of the sections yet, it is a new module and can still be utilized
    - Stop and think
 
@@ -291,13 +291,13 @@ src/unified-theme/templates/[template-name].hubl.html
 Before finalizing any template implementation, complete these specific verification steps:
 
 1. **Section Verification**
-  - Run `grep -r "include_dnd_partial" src/unified-theme/templates/` to find usages of theme sections in templates
+  - Run `grep -r "include_dnd_partial" src/theme/elevate/templates/` to find usages of theme sections in templates
   - For each section you plan to use, verify its exact name and different context parameters
   - Document the verified section naems/paths in your implementation notes
 
 2. **Module Verification**
-   - Run `grep -r "@hubspot/" src/unified-theme/sections/` and `grep -r "@hubspot/" src/unified-theme/templates/` to find all default HubSpot modules in use
-   - Run `grep -r "path=\"\.\./" src/unified-theme/sections/` and `grep -r "path=\"\.\./" src/unified-theme/templates/` to find theme modules in use
+   - Run `grep -r "@hubspot/" src/theme/elevate/sections/` and `grep -r "@hubspot/" src/theme/elevate/templates/` to find all default HubSpot modules in use
+   - Run `grep -r "path=\"\.\./" src/theme/elevate/sections/` and `grep -r "path=\"\.\./" src/theme/elevate/templates/` to find theme modules in use
    - For each module you plan to use, verify its exact name and parameter structure from existing sections
    - Document the verified module names/paths in your implementation notes
 
@@ -418,7 +418,7 @@ Note that you shouldn't use this in your final output. But this example provides
 ## Step 2: Create File Structure
 
 ```
-src/unified-theme/templates/lp-signup.hubl.html
+src/theme/elevate/templates/lp-signup.hubl.html
 ```
 
 ## Step 3: Build Section Contents
