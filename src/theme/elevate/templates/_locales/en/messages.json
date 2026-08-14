@@ -1289,6 +1289,11 @@
     "description": "",
     "placeholders": null
   },
+  "podcast_episode_back_to_all_episodes": {
+    "message": "Back to all episodes",
+    "description": "",
+    "placeholders": null
+  },
   "lp_product_free_trial_two_hero_tag_line": {
     "message": "Data-Driven Marketing",
     "description": "",
