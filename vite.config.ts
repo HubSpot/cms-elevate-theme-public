@@ -22,8 +22,6 @@ export default defineConfig({
         system: './src/theme/elevate/assets/_hs/css/templates/system.hubl.css',
         blog: './src/theme/elevate/assets/_hs/css/templates/blog.hubl.css',
         blogCaseStudy: './src/theme/elevate/assets/_hs/css/templates/blog-case-study.hubl.css',
-        podcastListing: './src/theme/elevate/assets/_hs/css/templates/podcast-listing.hubl.css',
-        podcastDetail: './src/theme/elevate/assets/_hs/css/templates/podcast-detail.hubl.css',
       },
       output: {
         assetFileNames: 'css/[name].[ext]',
