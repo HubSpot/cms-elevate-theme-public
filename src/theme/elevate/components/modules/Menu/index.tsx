@@ -1,9 +1,12 @@
 import { ModuleMeta } from '../../types/modules.js';
-// @ts-expect-error -- ?island not typed
+// @ts-ignore -- ?island not typed
 import MenuComponent from '../../MenuComponent/index.js?island';
 import { Island } from '@hubspot/cms-components';
 import { SizeOption, maxMenuDepth } from '../../MenuComponent/types.js';
-import { AlignmentFieldType, TextFieldType } from '@hubspot/cms-components/fields';
+import {
+  AlignmentFieldType,
+  TextFieldType,
+} from '@hubspot/cms-components/fields';
 import MenuSvg from './assets/menu.svg';
 import { LinkStyleFieldLibraryType } from '../../fieldLibrary/LinkStyle/types.js';
 import { PlaceholderEmptyContent } from '../../PlaceholderComponent/PlaceholderEmptyContent.js';
@@ -68,10 +71,13 @@ function generatePaddingCssVars(spacingField: SizeOption): CSSPropertiesMap {
 
   return {
     '--hsElevate--menuItem__paddingVertical': verticalSpacingMap[spacingField],
-    '--hsElevate--menuItem__paddingHorizontal': horizontalSpacingMap[spacingField],
+    '--hsElevate--menuItem__paddingHorizontal':
+      horizontalSpacingMap[spacingField],
   };
 }
-function generateMenuItemVerticalGapCssVars(menuItemVerticalGap: SizeOption): CSSPropertiesMap {
+function generateMenuItemVerticalGapCssVars(
+  menuItemVerticalGap: SizeOption
+): CSSPropertiesMap {
   const verticalSpacingMap = {
     none: '0',
     small: 'var(--hsElevate--spacing--8, 8px)',
@@ -85,7 +91,13 @@ function generateMenuItemVerticalGapCssVars(menuItemVerticalGap: SizeOption): CS
 }
 
 export const Component = (props: MenuModulePropTypes) => {
-  const { hublData, menuName = '', maxDepth, styles, groupPlaceholderText } = props;
+  const {
+    hublData,
+    menuName = '',
+    maxDepth,
+    styles,
+    groupPlaceholderText,
+  } = props;
 
   const navDataArray = hublData?.navigation?.children ?? [];
   const isEditorMode = hublData?.isInEditor ?? false;
@@ -105,7 +117,10 @@ export const Component = (props: MenuModulePropTypes) => {
   return (
     <div style={cssVarsMap} className="hs-elevate-horizontal-menu">
       {navDataArray.length === 0 && isEditorMode ? (
-        <PlaceholderEmptyContent title={groupPlaceholderText.placeholderTitle} description={groupPlaceholderText.placeholderDescription} />
+        <PlaceholderEmptyContent
+          title={groupPlaceholderText.placeholderTitle}
+          description={groupPlaceholderText.placeholderDescription}
+        />
       ) : (
         <Island
           module={MenuComponent}
