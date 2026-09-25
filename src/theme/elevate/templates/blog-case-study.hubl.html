@@ -62,7 +62,7 @@
           "resultsLabel": feature_widget_summary.resultsLabel or template_translations.blog_case_study_feature_results_label.message,
           "resultsRichText": feature_widget_summary.resultsRichText or template_translations.blog_case_study_feature_results_content.message,
           "keyProductLabel": feature_widget_summary.keyProductLabel or template_translations.blog_case_study_feature_key_product_label.message,
-          "keyProduct": feature_widget_summary.keyProduct or template_translations.blog_case_study_feature_key_product.message
+          "keyProduct": feature_widget_summary.keyProduct if feature_widget_summary.keyProduct is defined else ["hs_product_one"]
         },
         group_link={
           "showWebsiteLink": feature_widget_link.showWebsiteLink if feature_widget_link.showWebsiteLink is defined else true,
