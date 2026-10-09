@@ -122,7 +122,7 @@ const ScreenReadyOnly = (props: ScreenReadyOnlyProps) => {
 };
 
 const Ellipsis = () => {
-  return <a className={cx(styles['hs-elevate-blog-listing__ellipsis'], styles['hs-elevate-blog-listing__pagination-link'])}>...</a>;
+  return <span className={cx(styles['hs-elevate-blog-listing__ellipsis'], styles['hs-elevate-blog-listing__pagination-link'])}>...</span>;
 };
 
 export default function Pagination(props: PaginationProps) {

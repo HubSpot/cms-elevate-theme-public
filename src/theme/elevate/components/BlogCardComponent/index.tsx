@@ -29,6 +29,7 @@ interface BlogCardComponentProps {
   cardStyleVariant: CardVariantType;
   gatedContentIds?: string[];
   additionalClassArray?: string[];
+  loading?: 'eager' | 'lazy';
 }
 
 // Components
@@ -92,7 +93,15 @@ const CardLink = createComponent('a');
 const GateIconImage = createComponent('div');
 
 function BlogCardComponent(props: BlogCardComponentProps) {
-  const { post, headingAndTextHeadingLevel, headingStyleVariant, cardStyleVariant = 'card_variant_2', gatedContentIds = [], additionalClassArray } = props;
+  const {
+    post,
+    headingAndTextHeadingLevel,
+    headingStyleVariant,
+    cardStyleVariant = 'card_variant_2',
+    gatedContentIds = [],
+    additionalClassArray,
+    loading = 'lazy',
+  } = props;
 
   const additionalClasses = additionalClassArray ? additionalClassArray.join(' ') : '';
 
@@ -110,6 +119,7 @@ function BlogCardComponent(props: BlogCardComponentProps) {
                 alt={post.featuredImageAltText || ''}
                 width={post.featuredImageWidth}
                 height={post.featuredImageHeight}
+                loading={loading}
               />
             )}
           </ImageContainer>

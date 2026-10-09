@@ -6,17 +6,11 @@ import {
   RichTextField,
   LinkField,
   BooleanField,
-  ChoiceField,
   AdvancedVisibility,
   RichTextFieldType,
 } from '@hubspot/cms-components/fields';
 import CardStyle from '../../fieldLibrary/CardStyle/index.js';
 import featuredImagePlaceholder from '../../../images/case-study-images/featured-image.jpg';
-
-export const KEY_PRODUCT_CHOICES: [string, string][] = [
-  ['hs_product_one', 'Product one'],
-  ['hs_product_two', 'Product two'],
-];
 
 const textFeatureSet = [
   'block',
@@ -80,15 +74,7 @@ export const fields = (
         inlineEditable={true}
       />
       <TextField label="Key product label" name="keyProductLabel" default="Key product" />
-      <ChoiceField
-        label="Key product"
-        name="keyProduct"
-        display="select"
-        multiple={true}
-        reorderingEnabled={false}
-        choices={KEY_PRODUCT_CHOICES}
-        default={['hs_product_one']}
-      />
+      <TextField label="Key product" name="keyProduct" default="Product one" />
     </FieldGroup>
     <FieldGroup label="Customer website" name="group_link" display="inline">
       <BooleanField label="Show website link" name="showWebsiteLink" display="toggle" default={true} />
