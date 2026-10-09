@@ -1,7 +1,7 @@
 import { useId, type ReactNode } from 'react';
 import { ModuleMeta } from '../../types/modules.js';
 import { RichText } from '@hubspot/cms-components';
-import { ImageFieldType, LinkFieldType, TextFieldType, BooleanFieldType, RichTextFieldType } from '@hubspot/cms-components/fields';
+import { ImageFieldType, LinkFieldType, TextFieldType, BooleanFieldType, RichTextFieldType, ChoiceFieldType } from '@hubspot/cms-components/fields';
 import { CardVariantType } from '../../types/fields.js';
 import { CardStyleFieldLibraryType } from '../../fieldLibrary/CardStyle/types.js';
 import { CSSPropertiesMap } from '../../types/components.js';
@@ -12,6 +12,7 @@ import { createComponent } from '../../utils/create-component.js';
 import { getDataHSToken } from '../../utils/inline-editing.js';
 import mediaAndSummaryIconSvg from './assets/media-and-summary.svg';
 import styles from './media-and-summary.module.css';
+import { KEY_PRODUCT_CHOICES } from './fields.js';
 
 const swm = staticWithModule(styles);
 
@@ -28,7 +29,7 @@ type MediaAndSummaryProps = {
     resultsLabel: TextFieldType['default'];
     resultsRichText: RichTextFieldType['default'];
     keyProductLabel: TextFieldType['default'];
-    keyProduct: TextFieldType['default'];
+    keyProduct: ChoiceFieldType['default'];
   };
   group_link: {
     showWebsiteLink: BooleanFieldType['default'];
@@ -106,6 +107,17 @@ function generateColorCssVars(cardVariantField: string): CSSPropertiesMap {
   };
 }
 
+const KEY_PRODUCT_LABELS = Object.fromEntries(KEY_PRODUCT_CHOICES);
+
+function formatKeyProducts(keyProduct: ChoiceFieldType['default']): string {
+  const values = Array.isArray(keyProduct) ? keyProduct : keyProduct != null && keyProduct !== '' ? [keyProduct] : [];
+
+  return values
+    .map(value => KEY_PRODUCT_LABELS[String(value)] ?? String(value))
+    .filter(Boolean)
+    .join(', ');
+}
+
 function DetailGroup({ label, children }: { label: string; children: ReactNode }) {
   const labelId = useId();
   return (
@@ -144,6 +156,7 @@ export const Component = (props: MediaAndSummaryProps) => {
   const cssVarsMap = generateColorCssVars(cardStyleVariant);
   const linkHref = getLinkFieldHref(websiteUrl);
   const showLink = showWebsiteLink && linkHref;
+  const keyProducts = formatKeyProducts(keyProduct);
 
   return (
     <FeatureWrapper className={cx('cs-feature-wrapper', swm('moduleRoot'))}>
@@ -182,11 +195,13 @@ export const Component = (props: MediaAndSummaryProps) => {
                 data-hs-token={getDataHSToken(moduleName, 'group_summary.resultsRichText')}
               />
             </DetailGroup>
-            <DetailGroup label={keyProductLabel}>
-              <ValueParagraph className="hs-elevate-details__value" data-hs-token={getDataHSToken(moduleName, 'group_summary.keyProduct')}>
-                {keyProduct}
-              </ValueParagraph>
-            </DetailGroup>
+            {keyProducts && (
+              <DetailGroup label={keyProductLabel}>
+                <ValueParagraph className="hs-elevate-details__value" data-hs-token={getDataHSToken(moduleName, 'group_summary.keyProduct')}>
+                  {keyProducts}
+                </ValueParagraph>
+              </DetailGroup>
+            )}
           </DetailsList>
           {showLink && (
             <LinkContainer className="cs-feature__link-container">
