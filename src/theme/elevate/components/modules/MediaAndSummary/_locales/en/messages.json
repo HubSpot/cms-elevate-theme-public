@@ -59,6 +59,16 @@
     "description": "",
     "placeholders": null
   },
+  "group_summary.keyProduct.choices.hs_product_one": {
+    "message": "Product one",
+    "description": "",
+    "placeholders": null
+  },
+  "group_summary.keyProduct.choices.hs_product_two": {
+    "message": "Product two",
+    "description": "",
+    "placeholders": null
+  },
   "group_link.label": {
     "message": "Customer website",
     "description": "",
