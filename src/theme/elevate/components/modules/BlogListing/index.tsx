@@ -67,7 +67,7 @@ export const Component = (props: BlogListingProps) => {
   return (
     <BlogListing className={blogListingClasses}>
       <BlogCardsContainer className={swm('hs-elevate-blog-listing__blog-card-container')}>
-        {blogPosts.map(post => {
+        {blogPosts.map((post, index) => {
           return (
             <BlogCardComponent
               key={post.id}
@@ -80,6 +80,7 @@ export const Component = (props: BlogListingProps) => {
               cardStyleVariant={cardStyleVariant}
               gatedContentIds={gatedContentIds.map(id => id.toString())}
               additionalClassArray={[swm('hs-elevate-blog-listing__blog-card')]}
+              loading={index < 3 ? 'eager' : 'lazy'}
             />
           );
         })}
