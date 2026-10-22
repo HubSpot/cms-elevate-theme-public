@@ -6,7 +6,7 @@ import { createComponent } from '../../../utils/create-component.js';
 import { TestimonialLinkProps, TestimonialMetaProps, TestimonialProps, TestimonialSliderProps } from '../types.js';
 import { CardVariantType } from '../../../types/fields.js';
 import { getLinkFieldHref, getLinkFieldRel, getLinkFieldTarget } from '../../../utils/content-fields.js';
-import { useEffect, useId, useState } from 'react';
+import { MouseEvent, KeyboardEvent, useEffect, useId, useState } from 'react';
 import { getCardVariantClassName } from '../../../utils/card-variants.js';
 import { CSSPropertiesMap } from '../../../types/components.js';
 
@@ -103,10 +103,32 @@ const TestimonialLink = (props: TestimonialLinkProps) => {
   const linkHref = getLinkFieldHref(link);
   const linkRel = getLinkFieldRel(link);
   const linkTarget = getLinkFieldTarget(link);
+  const isCta = link?.url?.type === 'CALL_TO_ACTION';
+
+  const activateCta = (event: MouseEvent<HTMLAnchorElement> | KeyboardEvent<HTMLAnchorElement>) => {
+    const ctaId = link.url.content_id;
+    const trigger = ctaId ? document.getElementsByClassName(`hs-cta-trigger-button-${ctaId}`).item(0) : null;
+    if (!(trigger instanceof HTMLElement)) {
+      if (!linkHref) {
+        event.preventDefault();
+      }
+      return;
+    }
+    event.preventDefault();
+    trigger.dispatchEvent(new window.MouseEvent('mouseup', { bubbles: true, cancelable: true, button: 0 }));
+  };
+
   return (
     <>
       {linkText && (
-        <Link className={swm('hs-elevate-testimonial-slider__link')} href={linkHref} rel={linkRel} target={linkTarget}>
+        <Link
+          className={swm('hs-elevate-testimonial-slider__link')}
+          href={linkHref || (isCta ? '#' : undefined)}
+          rel={linkRel}
+          target={linkTarget}
+          onClick={isCta ? activateCta : undefined}
+          onKeyDown={isCta ? event => event.key === 'Enter' && activateCta(event) : undefined}
+        >
           {linkText} <LinkArrow />
         </Link>
       )}

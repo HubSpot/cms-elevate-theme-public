@@ -182,11 +182,13 @@ export const Component = (props: MediaAndSummaryProps) => {
                 data-hs-token={getDataHSToken(moduleName, 'group_summary.resultsRichText')}
               />
             </DetailGroup>
-            <DetailGroup label={keyProductLabel}>
-              <ValueParagraph className="hs-elevate-details__value" data-hs-token={getDataHSToken(moduleName, 'group_summary.keyProduct')}>
-                {keyProduct}
-              </ValueParagraph>
-            </DetailGroup>
+            {keyProduct && (
+              <DetailGroup label={keyProductLabel}>
+                <ValueParagraph className="hs-elevate-details__value" data-hs-token={getDataHSToken(moduleName, 'group_summary.keyProduct')}>
+                  {keyProduct}
+                </ValueParagraph>
+              </DetailGroup>
+            )}
           </DetailsList>
           {showLink && (
             <LinkContainer className="cs-feature__link-container">

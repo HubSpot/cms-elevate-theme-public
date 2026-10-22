@@ -71,7 +71,9 @@
       text-decoration: none;
     }
 
-    a:hover {
+    a:hover,
+    a:focus,
+    a:focus-visible {
       color: var(--hsElevate--siteHeader__hover--menuTextColor);
       text-decoration: none;
     }

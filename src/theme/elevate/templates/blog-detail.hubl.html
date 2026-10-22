@@ -13,7 +13,7 @@
 
   {% if content.featured_image %}
     <div class="hs-elevate-blog-image-container">
-      <img src="{{ content.featured_image|escape_attr }}" alt="{{ content.featured_image_alt_text|escape_attr }}" width="{{ content.featured_image_width|escape_attr }}" height="{{ content.featured_image_height|escape_attr }}">
+      <img src="{{ content.featured_image|escape_attr }}" alt="{{ content.featured_image_alt_text|escape_attr }}" width="{{ content.featured_image_width|escape_attr }}" height="{{ content.featured_image_height|escape_attr }}" loading="eager">
     </div>
   {% endif %}
 
@@ -36,7 +36,7 @@
         <div class="hs-elevate-blog-meta__avatars">
           {% for author in authors_to_display %}
             <div class="hs-elevate-blog-meta__image-container">
-              <img src="{{ author.avatar or get_asset_url('../images/avatar-placeholder.jpg') }}" alt="{{ author.display_name|escape_attr }}" width="48" height="48">
+              <img src="{{ author.avatar or get_asset_url('../images/avatar-placeholder.jpg') }}" alt="{{ author.display_name|escape_attr }}" width="48" height="48" loading="eager">
             </div>
           {% endfor %}
         </div>
@@ -104,7 +104,7 @@
       <a class="hs-elevate-card--recent-post__link" href="{{ post.absolute_url|escape_url }}">
         {% if group.use_featured_image_in_summary %}
           <div class="hs-elevate-card--recent-post__image-container">
-            <img src="{{ post.featured_image|escape_url }}" alt="{{ post.featured_image_alt_text|escape_attr }}" width="{{ post.featured_image_width|escape_attr }}" height="{{ post.featured_image_height|escape_attr }}">
+            <img src="{{ post.featured_image|escape_url }}" alt="{{ post.featured_image_alt_text|escape_attr }}" width="{{ post.featured_image_width|escape_attr }}" height="{{ post.featured_image_height|escape_attr }}" loading="lazy">
           </div>
         {% endif %}
 

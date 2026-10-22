@@ -34,13 +34,21 @@
       button_text={{ template_translations.subscription_preferences_button_text.message }},
       header="",
       unsubscribe_all_option={{ template_translations.subscription_preferences_unsub_all_option.message }},
-      unsubscribe_all_text=""
+      unsubscribe_all_text="",
+      tracking_consent_option={{ template_translations.subscription_preferences_tracking_consent_option.message }}
     %}
       {% module_attribute "unsubscribe_single_text" %}
         {% if business_unit().name %}
           {{ template_translations.subscription_preferences_single_text_business_unit.message }}
         {% else %}
           {{ template_translations.subscription_preferences_single_text.message }}
+        {% endif %}
+      {% end_module_attribute %}
+      {% module_attribute "tracking_consent_text" %}
+        {% if business_unit().name %}
+          {{ template_translations.subscription_preferences_tracking_consent_text_business_unit.message }}
+        {% else %}
+          {{ template_translations.subscription_preferences_tracking_consent_text.message }}
         {% endif %}
       {% end_module_attribute %}
     {% end_module_block %}
